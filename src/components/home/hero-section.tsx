@@ -136,7 +136,7 @@ export function HeroSection() {
       {/* Opening Notice Banner */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <div className="bg-japanese-red text-white py-0.5 text-center text-sm font-medium w-full">
-          2025年5月オープン予定
+          2025年9月オープン予定
         </div>
       </div>
 
