@@ -56,6 +56,9 @@ export default {
       spacing: {
         '128': '32rem',
       },
+      transitionDuration: {
+        '10000': '10000ms',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

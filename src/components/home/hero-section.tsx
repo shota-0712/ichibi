@@ -167,7 +167,7 @@ export function HeroSection() {
             
             {/* High quality image that fades in when loaded */}
             <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] ease-out"
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 ease-out"
               style={{ 
                 backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].smallUrl})`,
                 transform: 'scale(1.05)',
