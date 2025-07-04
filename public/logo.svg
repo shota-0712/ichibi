@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="256" cy="256" r="240" stroke="currentColor" stroke-width="2"/>
+  <text x="256" y="220" text-anchor="middle" font-family="serif" font-size="36" fill="currentColor">御食事・居酒屋</text>
+  <text x="256" y="280" text-anchor="middle" font-family="serif" font-size="72" fill="currentColor">いち美</text>
+  <text x="256" y="340" text-anchor="middle" font-family="serif" font-size="24" fill="currentColor">ichigo.ichibi</text>
+</svg>

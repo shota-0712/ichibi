@@ -1,0 +1,11 @@
+# Redirects for Netlify
+/lunch        /index.html   200
+/izakaya      /index.html   200
+/drinks       /index.html   200
+/crepe        https://pal-crepe.com   301
+/ryokan       /index.html   200
+/activities   /index.html   200
+/store-info   /index.html   200
+
+# Fallback
+/*            /index.html   200

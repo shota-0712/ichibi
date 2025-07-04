@@ -1,0 +1,16 @@
+{
+  "name": "御食事・居酒屋『一期一美』",
+  "short_name": "一期一美",
+  "description": "千葉県君津市内蓑輪の手打十割そばと創作料理の宿",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1B315E",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
