@@ -9,8 +9,11 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     setTimeout(() => {
       navigator.serviceWorker.register('/service-worker.js')
+        .then(() => {
+          // Service Worker registration successful
+        })
         .catch(() => {
-          // Silently fail if service worker registration fails
+          // Service Worker registration failed silently
         });
     }, 3000);
   });

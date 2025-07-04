@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://i-chi-bi.com/sitemap.xml
+# Sitemap
+Sitemap: https://ichibi.netlify.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

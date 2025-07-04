@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Fish, Bed, Leaf, Car } from 'lucide-react';
+import { Fish, Bed, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 

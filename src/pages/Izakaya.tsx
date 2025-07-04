@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Fish, Utensils } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import { MenuItem } from '../components/menu/menu-item';
 
 export function Izakaya() {

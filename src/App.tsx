@@ -27,25 +27,25 @@ const StaffLogin = lazy(() =>
 );
 
 // Preload components based on user interaction
-const preloadComponent = (component: string) => {
+const preloadComponent = (component: string): void => {
   switch(component) {
     case 'ryokan':
-      import('./pages/Ryokan');
+      void import('./pages/Ryokan');
       break;
     case 'lunch':
-      import('./pages/Lunch');
+      void import('./pages/Lunch');
       break;
     case 'izakaya':
-      import('./pages/Izakaya');
+      void import('./pages/Izakaya');
       break;
     case 'activities':
-      import('./pages/Activities');
+      void import('./pages/Activities');
       break;
     case 'store-info':
-      import('./pages/StoreInfo');
+      void import('./pages/StoreInfo');
       break;
     case 'drinks':
-      import('./pages/Drinks');
+      void import('./pages/Drinks');
       break;
   }
 };
@@ -55,7 +55,7 @@ if (typeof window !== 'undefined') {
   window.addEventListener('load', () => {
     // Use requestIdleCallback to avoid blocking main thread
     if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(() => {
+      (window as Window & { requestIdleCallback: typeof requestIdleCallback }).requestIdleCallback(() => {
         document.querySelectorAll('a[href^="/"]').forEach(link => {
           const href = link.getAttribute('href');
           if (href && href !== '/') {

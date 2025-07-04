@@ -1,24 +1,4 @@
-import React, { useEffect } from 'react';
-
-// Define requestIdleCallback for TypeScript
-interface RequestIdleCallbackOptions {
-  timeout?: number;
-}
-
-interface RequestIdleCallbackDeadline {
-  didTimeout: boolean;
-  timeRemaining: () => number;
-}
-
-declare global {
-  interface Window {
-    requestIdleCallback?: (
-      callback: (deadline: RequestIdleCallbackDeadline) => void,
-      opts?: RequestIdleCallbackOptions
-    ) => number;
-    cancelIdleCallback?: (handle: number) => void;
-  }
-}
+import { useEffect } from 'react';
 
 export function SocialWidgetLoader() {
   useEffect(() => {
@@ -52,8 +32,8 @@ export function SocialWidgetLoader() {
           };
           
           // Use requestIdleCallback if available, otherwise use setTimeout
-          if (window.requestIdleCallback) {
-            window.requestIdleCallback(loadScripts, { timeout: 2000 });
+          if ('requestIdleCallback' in window) {
+            (window as Window & { requestIdleCallback: typeof requestIdleCallback }).requestIdleCallback(loadScripts, { timeout: 2000 });
           } else {
             setTimeout(loadScripts, 2000);
           }
@@ -65,47 +45,20 @@ export function SocialWidgetLoader() {
       
       // Create intersection observer
       const observer = new IntersectionObserver(handleIntersection, {
-        rootMargin: '200px', // Load scripts when social section is 200px from viewport
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: '50px'
       });
       
       // Observe social feed section
-      const socialFeedSection = document.querySelector('.social-feed-section');
-      if (socialFeedSection) {
-        observer.observe(socialFeedSection);
-      } else {
-        // If section not found, try to find any social widget containers
-        const socialWidgets = document.querySelectorAll('.instagram-embed');
-        if (socialWidgets.length > 0) {
-          socialWidgets.forEach(widget => observer.observe(widget as Element));
-        } else {
-          // If no elements found, load scripts when user scrolls halfway down the page
-          const handleScroll = () => {
-            if (window.scrollY > window.innerHeight && !scriptsLoaded) {
-              loadScripts();
-              window.removeEventListener('scroll', handleScroll);
-            }
-          };
-          
-          window.addEventListener('scroll', handleScroll, { passive: true });
-          
-          // Clean up scroll listener
-          return () => window.removeEventListener('scroll', handleScroll);
-        }
+      const socialSection = document.querySelector('[data-social-section]');
+      if (socialSection) {
+        observer.observe(socialSection);
       }
-      
-      // Clean up observer
-      return () => observer.disconnect();
     };
     
-    // Wait until page is fully loaded before setting up observers
-    if (document.readyState === 'complete') {
-      loadSocialScripts();
-    } else {
-      window.addEventListener('load', loadSocialScripts);
-      return () => window.removeEventListener('load', loadSocialScripts);
-    }
+    // Load scripts when component mounts
+    loadSocialScripts();
   }, []);
-
+  
   return null;
 }

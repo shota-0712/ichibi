@@ -1,5 +1,3 @@
-import React from 'react';
-import { Clock, Wine } from 'lucide-react';
 import { MenuItem } from '../components/menu/menu-item';
 
 export function Drinks() {
