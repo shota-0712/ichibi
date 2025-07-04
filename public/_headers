@@ -1,4 +1,12 @@
 /*
   Content-Type: text/html; charset=UTF-8
+  X-Content-Type-Options: nosniff
 
-</rewritten_file> 
+/*.html
+  Content-Type: text/html; charset=UTF-8
+
+/*.js
+  Content-Type: application/javascript; charset=UTF-8
+
+/*.css
+  Content-Type: text/css; charset=UTF-8

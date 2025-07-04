@@ -26,31 +26,31 @@
 [build.processing.images]
   compress = true
 
-# Browser caching headers
+# Browser caching headers with proper charset
 [[headers]]
   for = "/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
-    Content-Type = "application/javascript"
+    Content-Type = "text/html; charset=UTF-8"
 
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-    Content-Type = "text/html; charset=utf-8"
+    Content-Type = "text/html; charset=UTF-8"
 
 [[headers]]
   for = "/service-worker.js"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-    Content-Type = "application/javascript"
+    Content-Type = "application/javascript; charset=UTF-8"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Content-Type = "text/css"
+    Content-Type = "text/css; charset=UTF-8"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Content-Type = "application/javascript"
+    Content-Type = "application/javascript; charset=UTF-8"
