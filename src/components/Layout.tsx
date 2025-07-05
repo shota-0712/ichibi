@@ -35,9 +35,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <img 
                 src="/ichibi_logo.webp" 
                 alt="一期一美" 
-                className={`w-16 h-16 ${isHome ? 'invert' : ''}`}
-                width="64"
-                height="64"
+                className={`w-20 h-20 md:w-24 md:h-24 object-contain ${isHome ? 'invert' : ''}`}
+                style={{ 
+                  filter: isHome ? 'invert(1) drop-shadow(0 0 0 transparent)' : 'drop-shadow(0 0 0 transparent)',
+                  mixBlendMode: 'multiply'
+                }}
+                width="96"
+                height="96"
               />
             </Link>
             <div className="hidden md:flex space-x-8">
