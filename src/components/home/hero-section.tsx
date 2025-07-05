@@ -33,8 +33,10 @@ const SLIDER_IMAGES = [
 
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [nextImageIndex, setNextImageIndex] = useState(1);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(Array(SLIDER_IMAGES.length).fill(false));
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const intervalRef = useRef<number | null>(null);
   const imageLoadStatus = useRef<boolean[]>(Array(SLIDER_IMAGES.length).fill(false));
 
@@ -102,9 +104,16 @@ export function HeroSection() {
     // Use requestAnimationFrame for smoother transitions
     const startSlideshow = () => {
       intervalRef.current = window.setInterval(() => {
-        setCurrentImageIndex((prevIndex) => 
-          prevIndex === SLIDER_IMAGES.length - 1 ? 0 : prevIndex + 1
+        setIsTransitioning(true);
+        setNextImageIndex((currentIndex) => 
+          currentIndex === SLIDER_IMAGES.length - 1 ? 0 : currentIndex + 1
         );
+        
+        // After a short delay, switch the images
+        setTimeout(() => {
+          setCurrentImageIndex(nextImageIndex);
+          setIsTransitioning(false);
+        }, 250);
       }, 5000);
     };
 
@@ -129,10 +138,10 @@ export function HeroSection() {
       }
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [imagesLoaded]);
+  }, [imagesLoaded, nextImageIndex]);
 
   return (
-    <div className="h-screen relative overflow-hidden">
+    <div className="h-screen relative overflow-hidden bg-black">
       {/* Opening Notice Banner */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <div className="bg-japanese-red text-white py-0.5 text-center text-sm font-medium w-full">
@@ -141,57 +150,98 @@ export function HeroSection() {
       </div>
 
       {/* Image Slider with progressive loading */}
-      <div className="absolute inset-0">
-        <AnimatePresence initial={false} mode="sync">
-          <motion.div
-            key={SLIDER_IMAGES[currentImageIndex].url}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0"
-            style={{ zIndex: currentImageIndex }}
-            role="img"
-            aria-label={SLIDER_IMAGES[currentImageIndex].alt}
+      <div className="absolute inset-0 bg-black">
+        {/* Current image */}
+        <div
+          className="absolute inset-0 transition-opacity duration-500 ease-in-out"
+          style={{ 
+            opacity: isTransitioning ? 0 : 1,
+            zIndex: 1
+          }}
+        >
+          {/* Low quality placeholder that loads immediately */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 bg-black"
+            style={{ 
+              backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].placeholder})`,
+              filter: 'brightness(0.4)',
+              opacity: isImageLoaded[currentImageIndex] ? 0 : 1
+            }}
+            aria-hidden="true"
+          />
+          
+          {/* High quality image that fades in when loaded */}
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 ease-out"
+            style={{ 
+              backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].smallUrl})`,
+              transform: 'scale(1.05)',
+              filter: 'brightness(0.4)',
+              opacity: isImageLoaded[currentImageIndex] ? 1 : 0
+            }}
+            aria-hidden="true"
           >
-            {/* Low quality placeholder that loads immediately */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
-              style={{ 
-                backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].placeholder})`,
-                filter: 'brightness(0.4)',
-                opacity: isImageLoaded[currentImageIndex] ? 0 : 1
+            {/* Hidden actual image for screen readers */}
+            <img 
+              src={SLIDER_IMAGES[currentImageIndex].smallUrl} 
+              alt=""
+              className="sr-only" 
+              width="1920" 
+              height="1080"
+              onLoad={() => {
+                const newLoadedState = [...isImageLoaded];
+                newLoadedState[currentImageIndex] = true;
+                setIsImageLoaded(newLoadedState);
               }}
-              aria-hidden="true"
             />
-            
-            {/* High quality image that fades in when loaded */}
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 ease-out"
-              style={{ 
-                backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].smallUrl})`,
-                transform: 'scale(1.05)',
-                filter: 'brightness(0.4)',
-                opacity: isImageLoaded[currentImageIndex] ? 1 : 0
+          </div>
+        </div>
+
+        {/* Next image (preloaded and ready to fade in) */}
+        <div
+          className="absolute inset-0 transition-opacity duration-500 ease-in-out"
+          style={{ 
+            opacity: isTransitioning ? 1 : 0,
+            zIndex: 2
+          }}
+        >
+          {/* Low quality placeholder that loads immediately */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 bg-black"
+            style={{ 
+              backgroundImage: `url(${SLIDER_IMAGES[nextImageIndex].placeholder})`,
+              filter: 'brightness(0.4)',
+              opacity: isImageLoaded[nextImageIndex] ? 0 : 1
+            }}
+            aria-hidden="true"
+          />
+          
+          {/* High quality image that fades in when loaded */}
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 ease-out"
+            style={{ 
+              backgroundImage: `url(${SLIDER_IMAGES[nextImageIndex].smallUrl})`,
+              transform: 'scale(1.05)',
+              filter: 'brightness(0.4)',
+              opacity: isImageLoaded[nextImageIndex] ? 1 : 0
+            }}
+            aria-hidden="true"
+          >
+            {/* Hidden actual image for screen readers */}
+            <img 
+              src={SLIDER_IMAGES[nextImageIndex].smallUrl} 
+              alt=""
+              className="sr-only" 
+              width="1920" 
+              height="1080"
+              onLoad={() => {
+                const newLoadedState = [...isImageLoaded];
+                newLoadedState[nextImageIndex] = true;
+                setIsImageLoaded(newLoadedState);
               }}
-              aria-hidden="true"
-            >
-              {/* Hidden actual image for screen readers */}
-              <img 
-                src={SLIDER_IMAGES[currentImageIndex].smallUrl} 
-                alt=""
-                className="sr-only" 
-                width="1920" 
-                height="1080"
-                onLoad={() => {
-                  const newLoadedState = [...isImageLoaded];
-                  newLoadedState[currentImageIndex] = true;
-                  setIsImageLoaded(newLoadedState);
-                }}
-              />
-            </div>
-          </motion.div>
-        </AnimatePresence>
+            />
+          </div>
+        </div>
       </div>
       
       <div className="absolute inset-0 z-30 flex flex-col justify-between pt-16 md:pt-28">

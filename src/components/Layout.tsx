@@ -26,6 +26,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
     };
   }, [isMenuOpen]);
 
+  // Scroll to top on route change and auto-scroll after 1 second
+  React.useEffect(() => {
+    // Scroll to top immediately
+    window.scrollTo(0, 0);
+    
+    // Auto-scroll down after 1 second (except for home page)
+    if (!isHome) {
+      const timer = setTimeout(() => {
+        window.scrollTo({
+          top: window.innerHeight * 0.8, // 80% of viewport height
+          behavior: 'smooth'
+        });
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [location, isHome]);
+
   return (
     <div className="min-h-screen bg-stone-50">
       <nav className="fixed w-full z-50 absolute">

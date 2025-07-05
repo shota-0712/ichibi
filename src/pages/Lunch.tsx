@@ -7,7 +7,7 @@ export function Lunch() {
     <div>
       {/* Hero with background image */}
       <div 
-        className="h-screen relative bg-cover bg-center"
+        className="h-[90vh] relative bg-cover bg-center"
         style={{
           backgroundImage: 'url("https://i.ibb.co/DmCpYJ1/soba.webp")',
         }}

@@ -7,7 +7,7 @@ export function Izakaya() {
     <div>
       {/* Hero with background image */}
       <div 
-        className="h-screen relative bg-cover bg-center"
+        className="h-[90vh] relative bg-cover bg-center"
         style={{
           backgroundImage: 'url("https://i.ibb.co/Z1J91fh4/yakitori.webp")',
         }}

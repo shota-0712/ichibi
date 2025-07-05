@@ -6,7 +6,7 @@ export function Activities() {
     <div>
       {/* Hero with background image */}
       <div 
-        className="h-screen relative bg-cover bg-center"
+        className="h-[90vh] relative bg-cover bg-center"
         style={{
           backgroundImage: 'url("https://i.ibb.co/BVJCLZP1/noumizo-taki.webp?auto=format&fit=crop&w=1200&h=800&q=75")',
         }}
