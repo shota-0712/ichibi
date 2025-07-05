@@ -1,22 +1,33 @@
+import { Clock } from 'lucide-react';
 import { MenuItem } from '../components/menu/menu-item';
 
 export function Drinks() {
   return (
-    <div className="pt-20">
-      {/* Hero */}
+    <div>
+      {/* Hero with background image */}
       <div 
-        className="h-[60vh] relative bg-cover bg-center"
+        className="h-screen relative bg-cover bg-center"
         style={{
           backgroundImage: 'url("https://i.ibb.co/KjRSm5gW/izakaya.jpg")',
         }}
       >
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <h1 className="text-white text-5xl font-bold">飲み物メニュー</h1>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 pt-20">
+          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">飲み物メニュー</h1>
+          <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+            <div className="flex items-center gap-3 text-white">
+              <Clock className="h-6 w-6 text-japanese-gold" />
+              <div>
+                <h3 className="font-semibold text-lg">営業時間</h3>
+                <p className="text-japanese-gold">17:00～22:00 (L.O.21:30)</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Menu */}
-      <div className="py-16">
+      <div className="py-16 bg-stone-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="space-y-12">

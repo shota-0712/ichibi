@@ -3,21 +3,25 @@ import { Fish, Bold as Golf, MapPin, Car } from 'lucide-react';
 
 export function Activities() {
   return (
-    <div className="pt-20">
-      {/* Hero */}
+    <div>
+      {/* Hero with background image */}
       <div 
-        className="h-[60vh] relative bg-cover bg-center"
+        className="h-screen relative bg-cover bg-center"
         style={{
           backgroundImage: 'url("https://i.ibb.co/BVJCLZP1/noumizo-taki.webp?auto=format&fit=crop&w=1200&h=800&q=75")',
         }}
       >
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <h1 className="text-white text-5xl font-bold">周辺案内</h1>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 pt-20">
+          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">周辺案内</h1>
+          <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+            <p className="text-white text-lg">君津周辺の観光スポットやアクティビティをご紹介</p>
+          </div>
         </div>
       </div>
 
       {/* Fishing Spots */}
-      <div id="fishing" className="py-20">
+      <div id="fishing" className="py-20 bg-stone-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">釣りスポット</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -54,7 +58,7 @@ export function Activities() {
       </div>
 
       {/* Golf Courses */}
-      <div id="golf" className="py-20 bg-stone-50">
+      <div id="golf" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">周辺ゴルフ場</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -99,7 +103,7 @@ export function Activities() {
       </div>
 
       {/* Access Map */}
-      <div className="py-20">
+      <div className="py-20 bg-stone-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">アクセス</h2>
           <div className="max-w-3xl mx-auto">

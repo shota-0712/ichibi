@@ -5,21 +5,25 @@ import { SocialWidgetLoader } from '../components/social/social-widget-loader';
 
 export function StoreInfo() {
   return (
-    <div className="pt-20">
+    <div>
       <SocialWidgetLoader />
-      {/* Hero */}
+      {/* Hero with background image */}
       <div 
-        className="h-[40vh] relative bg-cover bg-center"
+        className="h-screen relative bg-cover bg-center"
         style={{
           backgroundImage: 'url("https://i.ibb.co/ZRZQyTDD/contact.webp?auto=format&fit=crop&w=1200&h=600&q=75")',
         }}
       >
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <h1 className="text-white text-5xl font-bold">店舗情報</h1>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 pt-20">
+          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">店舗情報</h1>
+          <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+            <p className="text-white text-lg">アクセス・営業時間・お支払い方法など</p>
+          </div>
         </div>
       </div>
 
-      <div className="py-20">
+      <div className="py-20 bg-stone-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             {/* Basic Info */}
@@ -53,12 +57,6 @@ export function StoreInfo() {
                         <p>ランチ 11:00～14:00 (L.O.13:30)</p>
                         <p>クレープ 14:00～17:00</p>
                         <p>居酒屋 17:00～22:00 (L.O.21:30)</p>
-                      </div>
-                      <div>
-                        <p className="font-medium">【宿泊】</p>
-                        <p>チェックイン 15:00～22:00</p>
-                        <p>チェックアウト ～10:00</p>
-                        <p className="text-sm text-gray-600">※早朝チェックアウト可（要予約）</p>
                       </div>
                     </div>
                   </div>
