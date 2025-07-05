@@ -8,9 +8,9 @@
   "theme_color": "#1B315E",
   "icons": [
     {
-      "src": "/ichibi_logo.webp",
+      "src": "/ichigo_ichibi_logo.png",
       "sizes": "any",
-      "type": "image/webp"
+      "type": "image/png"
     }
   ]
 }
