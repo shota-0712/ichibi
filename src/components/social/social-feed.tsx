@@ -43,7 +43,7 @@ export function SocialFeed() {
   }, []);
 
   return (
-    <div className="py-16 bg-stone-50 social-feed-section">
+    <div className="py-16 bg-cream social-feed-section">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -59,14 +59,14 @@ export function SocialFeed() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
-                  <Instagram className="h-6 w-6 text-pink-700" aria-hidden="true" />
+                  <Instagram className="h-6 w-6 text-soft-burgundy" aria-hidden="true" />
                   <h3 className="font-semibold">Instagram</h3>
                 </div>
                 <a
                   href="https://www.instagram.com/ichigo__ichibi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-800 hover:text-pink-900 transition text-sm font-medium"
+                  className="text-rich-burgundy hover:text-soft-burgundy transition-all duration-300 text-sm font-medium"
                 >
                   @ichigo__ichibi
                 </a>
@@ -90,7 +90,7 @@ export function SocialFeed() {
                   href="https://www.instagram.com/ichigo__ichibi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-800 hover:text-pink-900 transition font-semibold text-sm"
+                  className="text-rich-burgundy hover:text-soft-burgundy transition-all duration-300 font-semibold text-sm"
                 >
                   もっと見る →
                 </a>
@@ -101,14 +101,14 @@ export function SocialFeed() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
-                  <Twitter className="h-6 w-6 text-blue-500" aria-hidden="true" />
+                  <Twitter className="h-6 w-6 text-deep-charcoal" aria-hidden="true" />
                   <h3 className="font-semibold">X (Twitter)</h3>
                 </div>
                 <a
                   href="https://x.com/ichigo_ichibi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-600 transition text-sm font-medium"
+                  className="text-deep-charcoal hover:text-warm-charcoal transition-all duration-300 text-sm font-medium"
                 >
                   @ichigo_ichibi
                 </a>
@@ -119,7 +119,7 @@ export function SocialFeed() {
                   href="https://x.com/ichigo_ichibi" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition w-full justify-center"
+                  className="inline-flex items-center gap-2 bg-deep-charcoal hover:bg-warm-charcoal text-white px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 w-full justify-center"
                 >
                   <Twitter className="h-5 w-5" />
                   <span>フォローする</span>
@@ -131,14 +131,14 @@ export function SocialFeed() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
-                  <Facebook className="h-6 w-6 text-blue-800" aria-hidden="true" />
+                  <Facebook className="h-6 w-6 text-deep-charcoal" aria-hidden="true" />
                   <h3 className="font-semibold">Facebook</h3>
                 </div>
                 <a
                   href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-800 hover:text-blue-900 transition text-sm font-medium"
+                  className="text-deep-charcoal hover:text-warm-charcoal transition-all duration-300 text-sm font-medium"
                 >
                   一期一美
                 </a>
@@ -149,7 +149,7 @@ export function SocialFeed() {
                   href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-800 hover:bg-blue-900 text-white px-4 py-2 rounded-full transition w-full justify-center"
+                  className="inline-flex items-center gap-2 bg-deep-charcoal hover:bg-warm-charcoal text-white px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 w-full justify-center"
                 >
                   <Facebook className="h-5 w-5" />
                   <span>フォローする</span>

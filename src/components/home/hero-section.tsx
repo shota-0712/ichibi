@@ -144,7 +144,7 @@ export function HeroSection() {
     <div className="h-screen relative overflow-hidden bg-black">
       {/* Opening Notice Banner */}
       <div className="fixed top-0 left-0 right-0 z-50">
-        <div className="bg-japanese-red text-white py-0.5 text-center text-sm font-medium w-full">
+        <div className="bg-rich-burgundy text-white py-0.5 text-center text-sm font-medium w-full">
           2025年9月オープン予定
         </div>
       </div>
@@ -256,7 +256,7 @@ export function HeroSection() {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu text-white mb-4">
                 一期一美
               </h1>
-              <p className="text-lg md:text-xl text-japanese-gold font-medium">
+              <p className="text-lg md:text-xl text-elegant-gold font-medium">
                 千葉県君津市内蓑輪の手打十割そばと創作料理の店
               </p>
             </motion.div>
@@ -270,7 +270,7 @@ export function HeroSection() {
               <h2 className="text-2xl md:text-3xl text-white mb-2">
                 {SLIDER_IMAGES[currentImageIndex].title}
               </h2>
-              <p className="text-lg text-japanese-gold">
+              <p className="text-lg text-elegant-gold">
                 {SLIDER_IMAGES[currentImageIndex].subtitle}
               </p>
             </motion.div>
@@ -283,14 +283,14 @@ export function HeroSection() {
             >
               <Link 
                 to="/lunch" 
-                className="bg-japanese-red hover:bg-red-800 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="bg-rich-burgundy hover:bg-red-900 text-white px-8 py-3 rounded-md transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Utensils className="w-5 h-5" />
                 ランチメニュー
               </Link>
               <Link 
                 to="/izakaya" 
-                className="bg-japanese-indigo hover:bg-blue-900 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="bg-deep-charcoal hover:bg-warm-charcoal text-white px-8 py-3 rounded-md transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Utensils className="w-5 h-5" />
                 居酒屋メニュー
@@ -309,15 +309,15 @@ export function HeroSection() {
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div className="flex items-center justify-center gap-2">
-                <Clock className="w-5 h-5 text-japanese-gold" />
+                <Clock className="w-5 h-5 text-elegant-gold" />
                 <span>営業時間: 11:00-22:00</span>
               </div>
               <div className="flex items-center justify-center gap-2">
-                <MapPin className="w-5 h-5 text-japanese-gold" />
+                <MapPin className="w-5 h-5 text-elegant-gold" />
                 <span>千葉県君津市内蓑輪</span>
               </div>
               <div className="flex items-center justify-center gap-2">
-                <Phone className="w-5 h-5 text-japanese-gold" />
+                <Phone className="w-5 h-5 text-elegant-gold" />
                 <span>0439-XX-XXXX</span>
               </div>
             </div>

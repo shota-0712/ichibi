@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
+import { LoadingSpinner } from './components/LoadingSpinner';
 
 // Use React.lazy with improved loading strategy
 const Lunch = lazy(() => 
@@ -10,9 +11,7 @@ const Lunch = lazy(() =>
 const Izakaya = lazy(() => 
   import('./pages/Izakaya').then(module => ({ default: module.Izakaya }))
 );
-const Activities = lazy(() => 
-  import('./pages/Activities').then(module => ({ default: module.Activities }))
-);
+
 const StoreInfo = lazy(() => 
   import('./pages/StoreInfo').then(module => ({ default: module.StoreInfo }))
 );
@@ -32,9 +31,7 @@ const preloadComponent = (component: string): void => {
     case 'izakaya':
       void import('./pages/Izakaya');
       break;
-    case 'activities':
-      void import('./pages/Activities');
-      break;
+
     case 'store-info':
       void import('./pages/StoreInfo');
       break;
@@ -74,32 +71,28 @@ function App() {
         
         {/* All other routes are lazy loaded */}
         <Route path="/lunch" element={
-          <Suspense fallback={null}>
+          <Suspense fallback={<LoadingSpinner />}>
             <Lunch />
           </Suspense>
         } />
         <Route path="/izakaya" element={
-          <Suspense fallback={null}>
+          <Suspense fallback={<LoadingSpinner />}>
             <Izakaya />
           </Suspense>
         } />
-        <Route path="/activities" element={
-          <Suspense fallback={null}>
-            <Activities />
-          </Suspense>
-        } />
+
         <Route path="/store-info" element={
-          <Suspense fallback={null}>
+          <Suspense fallback={<LoadingSpinner />}>
             <StoreInfo />
           </Suspense>
         } />
         <Route path="/drinks" element={
-          <Suspense fallback={null}>
+          <Suspense fallback={<LoadingSpinner />}>
             <Drinks />
           </Suspense>
         } />
         <Route path="/staff-login" element={
-          <Suspense fallback={null}>
+          <Suspense fallback={<LoadingSpinner />}>
             <StaffLogin />
           </Suspense>
         } />

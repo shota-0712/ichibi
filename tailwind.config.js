@@ -12,10 +12,13 @@ export default {
     },
     extend: {
       colors: {
-        'japanese-red': '#A6324D',
-        'japanese-indigo': '#1B315E',
-        'japanese-gold': '#B4A582',
-        'japanese-brown': '#8E7437',
+        'deep-charcoal': '#2C3E50',
+        'warm-charcoal': '#34495E',
+        'elegant-gold': '#D4AF37',
+        'soft-gold': '#F4E09C',
+        'cream': '#FEF9E7',
+        'rich-burgundy': '#8B0000',
+        'soft-burgundy': '#A0522D',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -51,13 +54,20 @@ export default {
         },
       },
       backgroundImage: {
-        'japanese-pattern': 'linear-gradient(45deg, #e5e5e5 25%, transparent 25%), linear-gradient(-45deg, #e5e5e5 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e5e5e5 75%), linear-gradient(-45deg, transparent 75%, #e5e5e5 75%)',
+        'elegant-pattern': 'linear-gradient(45deg, #FEF9E7 25%, transparent 25%), linear-gradient(-45deg, #FEF9E7 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #FEF9E7 75%), linear-gradient(-45deg, transparent 75%, #FEF9E7 75%)',
+        'gold-gradient': 'linear-gradient(135deg, #D4AF37 0%, #F4E09C 100%)',
+        'charcoal-gradient': 'linear-gradient(135deg, #2C3E50 0%, #34495E 100%)',
       },
       spacing: {
         '128': '32rem',
       },
       transitionDuration: {
         '10000': '10000ms',
+      },
+      boxShadow: {
+        'elegant': '0 4px 20px rgba(212, 175, 55, 0.15)',
+        'deep': '0 8px 32px rgba(44, 62, 80, 0.2)',
+        'soft': '0 2px 12px rgba(0, 0, 0, 0.08)',
       },
       borderRadius: {
         lg: "var(--radius)",

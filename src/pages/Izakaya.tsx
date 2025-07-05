@@ -17,10 +17,10 @@ export function Izakaya() {
           <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">居酒屋メニュー</h1>
           <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
             <div className="flex items-center gap-3 text-white">
-              <Clock className="h-6 w-6 text-japanese-gold" />
+              <Clock className="h-6 w-6 text-elegant-gold" />
               <div>
                 <h3 className="font-semibold text-lg">居酒屋営業</h3>
-                <p className="text-japanese-gold">17:00～22:00 (L.O.21:30)</p>
+                <p className="text-elegant-gold">17:00～22:00 (L.O.21:30)</p>
               </div>
             </div>
           </div>
@@ -28,13 +28,13 @@ export function Izakaya() {
       </div>
 
       {/* Menu */}
-      <div className="py-16 bg-stone-50">
+      <div className="py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="space-y-12">
               {/* Yakitori */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">焼き鳥</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">焼き鳥</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -121,7 +121,7 @@ export function Izakaya() {
 
               {/* Appetizers */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">一品料理</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">一品料理</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -223,7 +223,7 @@ export function Izakaya() {
 
               {/* Soba */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">そば</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">そば</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -256,7 +256,7 @@ export function Izakaya() {
 
               {/* Hot Soba */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">温そば</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">温そば</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -319,7 +319,7 @@ export function Izakaya() {
 
               {/* Set Meals */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">定食</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -393,7 +393,7 @@ export function Izakaya() {
 
               {/* Rice Bowls */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">丼物</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">丼物</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 

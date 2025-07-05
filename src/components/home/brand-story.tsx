@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export function BrandStory() {
   return (
-    <div className="py-20 bg-stone-50">
+    <div className="py-20 bg-cream">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export function BrandStory() {
           <div className="mt-12">
             <Link 
               to="/dining-philosophy" 
-              className="inline-flex items-center gap-2 text-japanese-red hover:text-red-900 transition"
+              className="inline-flex items-center gap-2 text-rich-burgundy hover:text-soft-burgundy transition-all duration-300"
               aria-label="料理へのこだわりを詳しく見る"
             >
               <span>料理へのこだわりを詳しく見る</span>

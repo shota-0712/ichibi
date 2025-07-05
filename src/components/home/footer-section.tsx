@@ -4,20 +4,20 @@ import { MapPin, Phone, Clock, Instagram, Twitter, Facebook } from 'lucide-react
 
 export function FooterSection() {
   return (
-    <footer className="bg-japanese-indigo text-white py-12">
+    <footer className="bg-deep-charcoal text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-semibold mb-4">御食事・居酒屋『一期一美』</h3>
             <div className="flex items-start gap-3 mb-4">
-              <MapPin className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
+              <MapPin className="h-5 w-5 mt-1 flex-shrink-0 text-elegant-gold" />
               <div>
                 <p>〒299-1176<br />千葉県君津市内蓑輪122-1<br />
                 <span className="text-sm text-gray-300">（君津市役所から車で5分・小糸川近く）</span></p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Phone className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
+              <Phone className="h-5 w-5 mt-1 flex-shrink-0 text-elegant-gold" />
               <div>
                 <p className="font-semibold mb-1">お電話</p>
                 <p>0439-XX-XXXX</p>
@@ -29,7 +29,7 @@ export function FooterSection() {
           <div>
             <h3 className="text-xl font-semibold mb-4">営業時間</h3>
             <div className="flex items-start gap-3">
-              <Clock className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
+              <Clock className="h-5 w-5 mt-1 flex-shrink-0 text-elegant-gold" />
               <div>
                 <p className="font-semibold mb-2">営業時間</p>
                 <div className="space-y-2">
@@ -51,7 +51,7 @@ export function FooterSection() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="bg-white p-2 rounded-full text-japanese-indigo hover:bg-japanese-gold hover:text-white transition"
+                className="bg-white p-2 rounded-full text-deep-charcoal hover:bg-elegant-gold hover:text-white transition-all duration-300 transform hover:scale-110"
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -60,7 +60,7 @@ export function FooterSection() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"
-                className="bg-white p-2 rounded-full text-japanese-indigo hover:bg-japanese-gold hover:text-white transition"
+                className="bg-white p-2 rounded-full text-deep-charcoal hover:bg-elegant-gold hover:text-white transition-all duration-300 transform hover:scale-110"
               >
                 <Twitter className="h-5 w-5" />
               </a>
@@ -69,7 +69,7 @@ export function FooterSection() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="bg-white p-2 rounded-full text-japanese-indigo hover:bg-japanese-gold hover:text-white transition"
+                className="bg-white p-2 rounded-full text-deep-charcoal hover:bg-elegant-gold hover:text-white transition-all duration-300 transform hover:scale-110"
               >
                 <Facebook className="h-5 w-5" />
               </a>
@@ -81,10 +81,10 @@ export function FooterSection() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-400 mb-4 md:mb-0">© 2024 御食事・居酒屋『一期一美』 All Rights Reserved.</p>
             <div className="flex space-x-6">
-              <Link to="/lunch" className="text-sm text-gray-400 hover:text-white transition">ランチ</Link>
-              <Link to="/izakaya" className="text-sm text-gray-400 hover:text-white transition">居酒屋</Link>
-              <Link to="/activities" className="text-sm text-gray-400 hover:text-white transition">周辺案内</Link>
-              <Link to="/store-info" className="text-sm text-gray-400 hover:text-white transition">店舗情報</Link>
+              <Link to="/lunch" className="text-sm text-gray-400 hover:text-white transition-all duration-300">ランチ</Link>
+              <Link to="/izakaya" className="text-sm text-gray-400 hover:text-white transition-all duration-300">居酒屋</Link>
+              
+              <Link to="/store-info" className="text-sm text-gray-400 hover:text-white transition-all duration-300">店舗情報</Link>
             </div>
           </div>
         </div>

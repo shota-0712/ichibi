@@ -24,7 +24,7 @@ export function DiningPhilosophy() {
             <div className="mb-24">
               <div className="flex items-center gap-4 mb-8">
                 <div className="bg-stone-100 p-4 rounded-full">
-                  <Wheat className="h-8 w-8 text-japanese-brown" aria-hidden="true" />
+                  <Wheat className="h-8 w-8 text-soft-burgundy" aria-hidden="true" />
                 </div>
                 <h2 className="text-3xl font-bold">手打ちそばへのこだわり</h2>
               </div>
@@ -129,7 +129,7 @@ export function DiningPhilosophy() {
             <div>
               <div className="flex items-center gap-4 mb-8">
                 <div className="bg-stone-100 p-4 rounded-full">
-                  <Utensils className="h-8 w-8 text-japanese-red" aria-hidden="true" />
+                  <Utensils className="h-8 w-8 text-rich-burgundy" aria-hidden="true" />
                 </div>
                 <h2 className="text-3xl font-bold">調理へのこだわり</h2>
               </div>
@@ -139,19 +139,19 @@ export function DiningPhilosophy() {
                   だしは毎日かつお節から取り、
                   調味料は厳選した醤油、味噌を使用しています。
                 </p>
-                <div className="bg-stone-50 p-8 rounded-lg mt-8">
+                <div className="bg-cream p-8 rounded-lg mt-8">
                   <h3 className="text-xl font-semibold mb-4">一美の約束</h3>
                   <ul className="space-y-4">
                     <li className="flex items-center gap-3">
-                      <span className="text-japanese-red">一、</span>
+                      <span className="text-rich-burgundy">一、</span>
                       素材の味を活かした調理
                     </li>
                     <li className="flex items-center gap-3">
-                      <span className="text-japanese-red">一、</span>
+                      <span className="text-rich-burgundy">一、</span>
                       手作りにこだわった料理
                     </li>
                     <li className="flex items-center gap-3">
-                      <span className="text-japanese-red">一、</span>
+                      <span className="text-rich-burgundy">一、</span>
                       季節を感じられる献立
                     </li>
                   </ul>

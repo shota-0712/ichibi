@@ -23,14 +23,14 @@ export function StoreInfo() {
         </div>
       </div>
 
-      <div className="py-20 bg-stone-50">
+      <div className="py-20 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             {/* Basic Info */}
             <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
               <div className="space-y-8">
                 <div className="flex items-start space-x-4">
-                  <Phone className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
+                  <Phone className="h-6 w-6 text-rich-burgundy mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">お電話</h3>
                     <p>0439-XX-XXXX</p>
@@ -39,7 +39,7 @@ export function StoreInfo() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <MapPin className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
+                  <MapPin className="h-6 w-6 text-rich-burgundy mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">所在地</h3>
                     <p>〒299-1176 千葉県君津市内蓑輪122-1</p>
@@ -48,7 +48,7 @@ export function StoreInfo() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <Clock className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
+                  <Clock className="h-6 w-6 text-rich-burgundy mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">営業時間</h3>
                     <div className="space-y-4">
@@ -63,7 +63,7 @@ export function StoreInfo() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <CreditCard className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
+                  <CreditCard className="h-6 w-6 text-rich-burgundy mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">お支払い方法</h3>
                     <div className="mt-2 space-y-4">
@@ -163,7 +163,7 @@ export function StoreInfo() {
               <h2 className="text-xl font-semibold mb-6">アクセス</h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <Car className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
+                  <Car className="h-6 w-6 text-rich-burgundy mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">お車でお越しの場合</h3>
                     <p>館山自動車道 君津ICより10分</p>
@@ -174,7 +174,7 @@ export function StoreInfo() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <Train className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
+                  <Train className="h-6 w-6 text-rich-burgundy mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">電車でお越しの場合</h3>
                     <p>JR内房線 君津駅より徒歩15分</p>

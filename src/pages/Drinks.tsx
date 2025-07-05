@@ -16,10 +16,10 @@ export function Drinks() {
           <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">飲み物メニュー</h1>
           <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
             <div className="flex items-center gap-3 text-white">
-              <Clock className="h-6 w-6 text-japanese-gold" />
+              <Clock className="h-6 w-6 text-elegant-gold" />
               <div>
                 <h3 className="font-semibold text-lg">営業時間</h3>
-                <p className="text-japanese-gold">17:00～22:00 (L.O.21:30)</p>
+                <p className="text-elegant-gold">17:00～22:00 (L.O.21:30)</p>
               </div>
             </div>
           </div>
@@ -27,13 +27,13 @@ export function Drinks() {
       </div>
 
       {/* Menu */}
-      <div className="py-16 bg-stone-50">
+      <div className="py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="space-y-12">
               {/* Beer */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">ビール</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">ビール</h3>
                 <div className="space-y-4">
                   <MenuItem 
                     name="キリン一番搾り（生） 中ジョッキ"
@@ -85,7 +85,7 @@ export function Drinks() {
 
               {/* Highball */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">ハイボール</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">ハイボール</h3>
                 <div className="space-y-4">
                   <MenuItem 
                     name="角ハイボール"
@@ -116,7 +116,7 @@ export function Drinks() {
 
               {/* Sour */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">サワー</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">サワー</h3>
                 <div className="space-y-4">
                   <MenuItem 
                     name="こだわり酒場のレモンサワー"
@@ -183,7 +183,7 @@ export function Drinks() {
 
               {/* Cocktails */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">カクテル</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">カクテル</h3>
                 <div className="space-y-4">
                   <MenuItem 
                     name="カシスオレンジ"
@@ -210,7 +210,7 @@ export function Drinks() {
 
               {/* Non-Alcoholic */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">ノンアルコール</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">ノンアルコール</h3>
                 <div className="space-y-4">
                   <MenuItem 
                     name="ノンアルコールビール"
@@ -229,7 +229,7 @@ export function Drinks() {
 
               {/* Soft Drinks */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">ソフトドリンク</h3>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-rich-burgundy">ソフトドリンク</h3>
                 <div className="space-y-4">
                   <MenuItem 
                     name="コカ・コーラゼロ"

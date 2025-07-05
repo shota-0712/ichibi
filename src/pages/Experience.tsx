@@ -50,7 +50,7 @@ export function Experience() {
                     清々しい空気と鳥のさえずりを楽しみながら、
                     静かな朝の時間をお過ごしください。
                   </p>
-                  <div className="bg-stone-50 p-4 rounded-lg">
+                  <div className="bg-cream p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">おすすめコース</h4>
                     <p className="text-sm text-gray-600">
                       宿 → 御嶽神社 → 里山公園<br />
@@ -78,13 +78,13 @@ export function Experience() {
                     のんびりとした時間をお過ごしください。
                   </p>
                   <div className="space-y-4">
-                    <div className="bg-stone-50 p-4 rounded-lg">
+                    <div className="bg-cream p-4 rounded-lg">
                       <h4 className="font-semibold mb-2">春</h4>
                       <p className="text-sm text-gray-600">
                         桜並木と菜の花畑
                       </p>
                     </div>
-                    <div className="bg-stone-50 p-4 rounded-lg">
+                    <div className="bg-cream p-4 rounded-lg">
                       <h4 className="font-semibold mb-2">夏</h4>
                       <p className="text-sm text-gray-600">
                         ホタルの観察（6月中旬～7月上旬）
@@ -139,7 +139,7 @@ export function Experience() {
                     天気の良い日には、東京湾に沈む夕日と
                     富士山のシルエットを一望できます。
                   </p>
-                  <div className="bg-stone-50 p-4 rounded-lg">
+                  <div className="bg-cream p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">おすすめスポット</h4>
                     <p className="text-sm text-gray-600">
                       展望台（宿から車で10分）<br />
@@ -166,7 +166,7 @@ export function Experience() {
                     星空観賞に最適です。
                     季節ごとに異なる星座を観察できます。
                   </p>
-                  <div className="bg-stone-50 p-4 rounded-lg">
+                  <div className="bg-cream p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">おすすめ時期</h4>
                     <p className="text-sm text-gray-600">
                       夏：天の川が最も美しい時期<br />

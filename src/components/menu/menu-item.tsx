@@ -52,7 +52,7 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
           <HoverCard>
             <HoverCardTrigger asChild>
               <button 
-                className="inline-flex items-center justify-center rounded-full w-5 h-5 bg-gray-100 hover:bg-gray-200 transition"
+                className="inline-flex items-center justify-center rounded-full w-5 h-5 bg-gray-100 hover:bg-gray-200 transition-all duration-300 transform hover:scale-110"
                 aria-label={`${name}の詳細情報`}
               >
                 <Info className="h-3 w-3 text-gray-600" aria-hidden="true" />
@@ -84,7 +84,7 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
           </HoverCard>
         )}
       </div>
-      <p className="text-japanese-red">{typeof price === 'number' ? `${price}円` : price}</p>
+      <p className="text-rich-burgundy font-semibold">{typeof price === 'number' ? `${price}円` : price}</p>
     </div>
   );
 }

@@ -23,14 +23,14 @@ export function Contact() {
             <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
               <div className="space-y-8">
                 <div className="flex items-center space-x-4">
-                  <Phone className="h-6 w-6 text-red-800" aria-hidden="true" />
+                  <Phone className="h-6 w-6 text-rich-burgundy" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">お電話</h3>
                     <p>0439-XX-XXXX</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <MapPin className="h-6 w-6 text-red-800" aria-hidden="true" />
+                  <MapPin className="h-6 w-6 text-rich-burgundy" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">所在地</h3>
                     <p>〒292-0516 千葉県君津市蓑輪122-1</p>
@@ -38,7 +38,7 @@ export function Contact() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Clock className="h-6 w-6 text-red-800" aria-hidden="true" />
+                  <Clock className="h-6 w-6 text-rich-burgundy" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">営業時間</h3>
                     <p>【お食事・居酒屋】<br />

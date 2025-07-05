@@ -12,7 +12,7 @@ export function StaffLogin() {
   };
 
   return (
-    <div className="min-h-screen pt-20 bg-stone-50">
+    <div className="min-h-screen pt-20 bg-cream">
       <div className="container mx-auto px-4">
         <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-sm">
           <div className="flex justify-center mb-6">
@@ -28,7 +28,7 @@ export function StaffLogin() {
               </p>
               <button
                 type="submit"
-                className="w-full bg-red-800 text-white py-3 rounded-md hover:bg-red-900 transition"
+                className="w-full bg-rich-burgundy text-white py-3 rounded-md hover:bg-soft-burgundy transition-all duration-300 transform hover:scale-105"
               >
                 ホームに戻る
               </button>
