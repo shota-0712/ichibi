@@ -4,9 +4,6 @@ import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 
 // Use React.lazy with improved loading strategy
-const Ryokan = lazy(() => 
-  import('./pages/Ryokan').then(module => ({ default: module.Ryokan }))
-);
 const Lunch = lazy(() => 
   import('./pages/Lunch').then(module => ({ default: module.Lunch }))
 );
@@ -29,9 +26,6 @@ const StaffLogin = lazy(() =>
 // Preload components based on user interaction
 const preloadComponent = (component: string): void => {
   switch(component) {
-    case 'ryokan':
-      void import('./pages/Ryokan');
-      break;
     case 'lunch':
       void import('./pages/Lunch');
       break;
@@ -79,11 +73,6 @@ function App() {
         <Route path="/" element={<Home />} />
         
         {/* All other routes are lazy loaded */}
-        <Route path="/ryokan" element={
-          <Suspense fallback={null}>
-            <Ryokan />
-          </Suspense>
-        } />
         <Route path="/lunch" element={
           <Suspense fallback={null}>
             <Lunch />

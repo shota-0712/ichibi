@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Utensils, Bed, Clock, MapPin, Phone } from 'lucide-react';
+import { Utensils, Clock, MapPin, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Optimize image loading with smaller images and proper dimensions
@@ -207,7 +207,7 @@ export function HeroSection() {
                 一期一美
               </h1>
               <p className="text-lg md:text-xl text-japanese-gold font-medium">
-                千葉県君津市内蓑輪の手打十割そばと創作料理の宿
+                千葉県君津市内蓑輪の手打十割そばと創作料理の店
               </p>
             </motion.div>
             
@@ -233,17 +233,17 @@ export function HeroSection() {
             >
               <Link 
                 to="/lunch" 
-                className="bg-japanese-red hover:bg-red-800 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2"
+                className="bg-japanese-red hover:bg-red-800 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Utensils className="w-5 h-5" />
                 ランチメニュー
               </Link>
               <Link 
-                to="/ryokan" 
-                className="bg-japanese-indigo hover:bg-blue-900 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2"
+                to="/izakaya" 
+                className="bg-japanese-indigo hover:bg-blue-900 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
-                <Bed className="w-5 h-5" />
-                宿泊案内
+                <Utensils className="w-5 h-5" />
+                居酒屋メニュー
               </Link>
             </motion.div>
           </div>

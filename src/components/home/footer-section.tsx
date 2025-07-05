@@ -44,15 +44,7 @@ export function FooterSection() {
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold mb-4">宿泊</h3>
-            <div className="mb-6">
-              <p className="mb-2">チェックイン 15:00～22:00<br />
-              チェックアウト ～10:00<br />
-              ※早朝チェックアウト可</p>
-              <p className="text-sm text-gray-300">Wi-Fi完備・駐車場あり</p>
-            </div>
-            
-            <h4 className="font-semibold mb-3">SNS</h4>
+            <h3 className="text-xl font-semibold mb-4">SNS</h3>
             <div className="flex space-x-4">
               <a 
                 href="https://www.instagram.com/ichigo__ichibi/" 
@@ -91,7 +83,7 @@ export function FooterSection() {
             <div className="flex space-x-6">
               <Link to="/lunch" className="text-sm text-gray-400 hover:text-white transition">ランチ</Link>
               <Link to="/izakaya" className="text-sm text-gray-400 hover:text-white transition">居酒屋</Link>
-              <Link to="/ryokan" className="text-sm text-gray-400 hover:text-white transition">宿泊案内</Link>
+              <Link to="/activities" className="text-sm text-gray-400 hover:text-white transition">周辺案内</Link>
               <Link to="/store-info" className="text-sm text-gray-400 hover:text-white transition">店舗情報</Link>
             </div>
           </div>
