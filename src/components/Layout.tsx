@@ -33,7 +33,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center justify-between py-4 md:py-6">
             <Link to="/" className="flex items-center">
               <img 
-                src="/logo.svg" 
+                src="/ichibi_logo.webp" 
                 alt="一期一美" 
                 className={`w-16 h-16 ${isHome ? 'invert' : ''}`}
                 width="64"
