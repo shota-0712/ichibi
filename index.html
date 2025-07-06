@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
     <!-- Preload critical images -->
-    <link rel="preload" href="/ichigo_ichibi_logo.webp" as="image" type="image/webp">
+    <link rel="preload" href="/ichigo_ichibi_logo.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="preload" href="/image/soba.webp" as="image" type="image/webp">
     <link rel="preload" href="/image/yakitori.webp" as="image" type="image/webp">
     
@@ -55,6 +55,20 @@
       #initial-content {
         display: none;
       }
+      
+      /* Preload logo as background image for faster LCP */
+      .logo-preload {
+        background-image: url('/ichigo_ichibi_logo.webp');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 96px;
+        height: 96px;
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        z-index: -1;
+      }
     </style>
 
     <!-- Optimized Google Fonts loading -->
@@ -66,6 +80,7 @@
     <meta property="og:image" content="/image/soba.webp">
   </head>
   <body>
+    <div class="logo-preload"></div>
     <h1 style="display:none;">御食事・居酒屋 『一期一美』 - ichibi - | 君津の手打十割そば・厳選した国産鶏のやきとり</h1>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

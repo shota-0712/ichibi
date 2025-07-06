@@ -58,7 +58,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 height="96"
                 fetchPriority="high"
                 loading="eager"
-                decoding="async"
+                decoding="sync"
               />
             </Link>
             <div className="hidden md:flex space-x-4">

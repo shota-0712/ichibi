@@ -8,13 +8,14 @@
 ## 実装済みの最適化
 
 ### 1. プリロード
-- ロゴをHTMLのheadセクションでプリロード
+- ロゴをHTMLのheadセクションでプリロード（fetchpriority="high"付き）
+- CSS背景画像としても事前読み込み
 - ページ読み込み時に優先的にロゴを取得
 
 ### 2. 読み込み最適化
 - `fetchPriority="high"` - 高優先度で読み込み
 - `loading="eager"` - 遅延読み込みなし
-- `decoding="async"` - 非同期デコード
+- `decoding="sync"` - 同期デコード（LCP最適化）
 
 ### 3. シンプルな実装
 - srcSetとsizesを削除してシンプルに
