@@ -58,8 +58,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 height="96"
                 fetchPriority="high"
                 loading="eager"
-                sizes="(max-width: 768px) 80px, 96px"
-                srcSet="/ichigo_ichibi_logo-80.webp 80w, /ichigo_ichibi_logo-96.webp 96w, /ichigo_ichibi_logo-192.webp 192w"
+                decoding="async"
               />
             </Link>
             <div className="hidden md:flex space-x-4">
