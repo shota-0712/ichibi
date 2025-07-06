@@ -153,19 +153,9 @@ export function Izakaya() {
                       description="冷やっこ"
                     />
                     <MenuItem 
-                      name="ほたるいか"
-                      price={350}
-                      description="旬のほたるいか"
-                    />
-                    <MenuItem 
                       name="ピリ辛きゅうり"
                       price={250}
                       description="さっぱりピリ辛"
-                    />
-                    <MenuItem 
-                      name="刺身盛り合わせ"
-                      price={650}
-                      description="新鮮な魚介の盛り合わせ"
                     />
                   </div>
                   <div className="space-y-4">
@@ -185,17 +175,7 @@ export function Izakaya() {
                       allergens={['卵']}
                       description="自家製ポテトサラダ"
                     />
-                    <MenuItem 
-                      name="自家製しめさば"
-                      price={450}
-                      allergens={['さば']}
-                      description="手作りしめさば"
-                    />
-                    <MenuItem 
-                      name="自家製こはだ"
-                      price={450}
-                      description="手作りこはだ"
-                    />
+
                     <MenuItem 
                       name="酢もつ"
                       price={350}
@@ -370,22 +350,7 @@ export function Izakaya() {
                       allergens={['豚肉', '小麦']}
                       description="国産豚ロースカツ"
                     />
-                    <MenuItem 
-                      name="刺身定食"
-                      price={1200}
-                      description="旬の魚介の盛り合わせ"
-                    />
-                    <MenuItem 
-                      name="焼きサバ定食"
-                      price={800}
-                      allergens={['さば']}
-                      description="脂ののった国産サバ"
-                    />
-                    <MenuItem 
-                      name="金目鯛煮付け定食"
-                      price="時価"
-                      description="地元で獲れた金目鯛の煮付け"
-                    />
+
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">※定食には味噌汁、小鉢2品、ご飯、お新香付き</p>
@@ -423,6 +388,40 @@ export function Izakaya() {
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">※丼物には味噌汁、お新香付き</p>
+              </div>
+
+              {/* Desserts */}
+              <div>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <MenuItem 
+                      name="抹茶アイス"
+                      price={380}
+                      allergens={['乳']}
+                      description="宇治抹茶使用"
+                    />
+                    <MenuItem 
+                      name="バニラアイス"
+                      price={380}
+                      allergens={['乳']}
+                      description="濃厚なバニラビーンズ使用"
+                    />
+                  </div>
+                  <div className="space-y-4">
+                    <MenuItem 
+                      name="自家製プリン"
+                      price={380}
+                      allergens={['卵', '乳']}
+                      description="手作りカスタードプリン"
+                    />
+                    <MenuItem 
+                      name="杏仁豆腐"
+                      price={450}
+                      description="本格的な杏仁豆腐"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 

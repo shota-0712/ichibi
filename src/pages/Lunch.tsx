@@ -181,22 +181,7 @@ export function Lunch() {
                       allergens={['豚肉', '小麦']}
                       description="国産豚ロースカツ"
                     />
-                    <MenuItem 
-                      name="刺身定食"
-                      price={1200}
-                      description="旬の魚介の盛り合わせ"
-                    />
-                    <MenuItem 
-                      name="焼きサバ定食"
-                      price={800}
-                      allergens={['さば']}
-                      description="脂ののった国産サバ"
-                    />
-                    <MenuItem 
-                      name="金目鯛煮付け定食"
-                      price="時価"
-                      description="地元で獲れた金目鯛の煮付け"
-                    />
+
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">※定食には味噌汁、ご飯、お新香付き</p>
@@ -256,14 +241,15 @@ export function Lunch() {
                   </div>
                   <div className="space-y-4">
                     <MenuItem 
-                      name="本日のシャーベット"
+                      name="自家製プリン"
                       price={380}
-                      description="季節のフルーツを使用"
+                      allergens={['卵', '乳']}
+                      description="手作りカスタードプリン"
                     />
                     <MenuItem 
-                      name="わらび餅"
+                      name="杏仁豆腐"
                       price={450}
-                      description="黒蜜ときな粉添え"
+                      description="本格的な杏仁豆腐"
                     />
                   </div>
                 </div>
