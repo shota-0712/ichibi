@@ -13,10 +13,10 @@ export function BrandStory() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold mb-8">いち美のこだわり</h2>
+                      <h2 className="text-3xl font-kanteiryuu mb-8">いち美のこだわり</h2>
           <div className="prose max-w-none text-lg text-gray-700">
             <p className="mb-6">
-              2025年9月、君津の地に新たに誕生する「いち美」。
+              2025年10月1日、君津の地に新たに誕生する「いち美」。
               手打ちそばと創作料理の技を磨いてきたシェフが、
               房総の豊かな食材を活かした料理の数々をお届けいたします。
             </p>

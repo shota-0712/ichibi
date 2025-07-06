@@ -7,23 +7,15 @@ export function StoreInfo() {
   return (
     <div>
       <SocialWidgetLoader />
-      {/* Hero with background image */}
-      <div 
-        className="h-[90vh] relative bg-cover bg-center"
-        style={{
-          backgroundImage: 'url("https://i.ibb.co/ZRZQyTDD/contact.webp?auto=format&fit=crop&w=1200&h=600&q=75")',
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 pt-20">
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">店舗情報</h1>
-          <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-            <p className="text-white text-lg">アクセス・営業時間・お支払い方法など</p>
-          </div>
+      {/* Simple header */}
+      <div className="bg-japanese-indigo text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-kanteiryuu mb-4">店舗情報</h1>
+          <p className="text-lg text-japanese-gold">アクセス・営業時間・お支払い方法など</p>
         </div>
       </div>
 
-      <div className="py-20 bg-stone-50">
+      <div className="py-16 bg-stone-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             {/* Basic Info */}
@@ -34,7 +26,7 @@ export function StoreInfo() {
                   <div>
                     <h3 className="font-semibold">お電話</h3>
                     <p>0439-XX-XXXX</p>
-                    <p className="text-sm text-gray-600 mt-1">※2025年5月より</p>
+                    <p className="text-sm text-gray-600 mt-1">※2025年10月1日より</p>
                   </div>
                 </div>
 
@@ -66,93 +58,8 @@ export function StoreInfo() {
                   <CreditCard className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">お支払い方法</h3>
-                    <div className="mt-2 space-y-4">
-                      <div>
-                        <p className="font-medium text-sm mb-2">【現金・電子マネー】</p>
-                        <ul className="grid grid-cols-2 gap-2 text-sm">
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>現金</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>PayPay</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>楽天ペイ</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>d払い</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>au PAY</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>交通系ICカード</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>Vマネー</span>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <p className="font-medium text-sm mb-2">【クレジットカード】</p>
-                        <ul className="grid grid-cols-2 gap-2 text-sm">
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>VISA</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>MasterCard</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>JCB</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>American Express</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>Diners Club</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>Discover</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-red-600">×</span>
-                            <span>銀聯</span>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <p className="font-medium text-sm mb-2">【その他】</p>
-                        <ul className="grid grid-cols-2 gap-2 text-sm">
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>デビットカード</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-green-600">✓</span>
-                            <span>NFCモバイル決済</span>
-                          </li>
-                          <li className="flex items-center gap-1">
-                            <span className="text-red-600">×</span>
-                            <span>小切手</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                    <p>現金・クレジットカード・電子マネー</p>
+                    <p className="text-sm text-gray-600 mt-1">※各種クレジットカード・交通系ICカード対応</p>
                   </div>
                 </div>
               </div>
@@ -215,6 +122,4 @@ export function StoreInfo() {
       <SocialFeed />
     </div>
   );
-}
-
-export default { StoreInfo };
+} 

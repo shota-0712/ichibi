@@ -82,12 +82,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 ドリンク
               </Link>
               <Link 
-                to="/activities" 
-                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20"
-              >
-                周辺案内
-              </Link>
-              <Link 
                 to="/store-info" 
                 className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20"
               >
@@ -133,12 +127,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20"
                   >
                     ドリンク
-                  </Link>
-                  <Link 
-                    to="/activities" 
-                    className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20"
-                  >
-                    周辺案内
                   </Link>
                   <Link 
                     to="/store-info" 

@@ -21,7 +21,7 @@ export function FooterSection() {
               <div>
                 <p className="font-semibold mb-1">お電話</p>
                 <p>0439-XX-XXXX</p>
-                <p className="text-sm text-gray-200 mt-1">※2025年5月より</p>
+                <p className="text-sm text-gray-200 mt-1">※2025年10月1日より</p>
               </div>
             </div>
           </div>
@@ -80,12 +80,11 @@ export function FooterSection() {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-300 mb-4 md:mb-0">© 2024 御食事・居酒屋『一期一美』 All Rights Reserved.</p>
-            <div className="flex space-x-6">
-              <Link to="/lunch" className="text-sm text-gray-300 hover:text-white transition">ランチ</Link>
-              <Link to="/izakaya" className="text-sm text-gray-300 hover:text-white transition">居酒屋</Link>
-              <Link to="/activities" className="text-sm text-gray-300 hover:text-white transition">周辺案内</Link>
-              <Link to="/store-info" className="text-sm text-gray-300 hover:text-white transition">店舗情報</Link>
-            </div>
+                          <div className="flex space-x-6">
+                <Link to="/lunch" className="text-sm text-gray-300 hover:text-white transition">ランチ</Link>
+                <Link to="/izakaya" className="text-sm text-gray-300 hover:text-white transition">居酒屋</Link>
+                <Link to="/store-info" className="text-sm text-gray-300 hover:text-white transition">店舗情報</Link>
+              </div>
           </div>
         </div>
       </div>

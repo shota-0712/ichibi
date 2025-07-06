@@ -10,18 +10,13 @@ const Lunch = lazy(() =>
 const Izakaya = lazy(() => 
   import('./pages/Izakaya').then(module => ({ default: module.Izakaya }))
 );
-const Activities = lazy(() => 
-  import('./pages/Activities').then(module => ({ default: module.Activities }))
-);
 const StoreInfo = lazy(() => 
   import('./pages/StoreInfo').then(module => ({ default: module.StoreInfo }))
 );
 const Drinks = lazy(() => 
   import('./pages/Drinks').then(module => ({ default: module.Drinks }))
 );
-const StaffLogin = lazy(() => 
-  import('./pages/StaffLogin').then(module => ({ default: module.StaffLogin }))
-);
+
 
 // Preload components based on user interaction
 const preloadComponent = (component: string): void => {
@@ -31,9 +26,6 @@ const preloadComponent = (component: string): void => {
       break;
     case 'izakaya':
       void import('./pages/Izakaya');
-      break;
-    case 'activities':
-      void import('./pages/Activities');
       break;
     case 'store-info':
       void import('./pages/StoreInfo');
@@ -83,11 +75,6 @@ function App() {
             <Izakaya />
           </Suspense>
         } />
-        <Route path="/activities" element={
-          <Suspense fallback={null}>
-            <Activities />
-          </Suspense>
-        } />
         <Route path="/store-info" element={
           <Suspense fallback={null}>
             <StoreInfo />
@@ -98,11 +85,7 @@ function App() {
             <Drinks />
           </Suspense>
         } />
-        <Route path="/staff-login" element={
-          <Suspense fallback={null}>
-            <StaffLogin />
-          </Suspense>
-        } />
+
       </Routes>
     </Layout>
   );

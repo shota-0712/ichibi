@@ -6,22 +6,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Optimize image loading with smaller images and proper dimensions
 const SLIDER_IMAGES = [
   {
-    url: "https://i.ibb.co/DmCpYJ1/soba.webp",
+    url: "/image/soba.webp",
     alt: "手打ちそば",
     title: "こだわりの手打ちそば",
     subtitle: "毎朝4時から打つこだわりの手打ちそば"
   },
   {
-    url: "https://i.ibb.co/Z1J91fh4/yakitori.webp",
+    url: "/image/yakitori.webp",
     alt: "焼き鳥",
-    title: "旬の味わい",
-    subtitle: "地元の食材を活かした創作料理"
-  },
-  {
-    url: "https://i.ibb.co/ycFvZqrF/unagi.webp",
-    alt: "うなぎ",
     title: "伝統の味",
-    subtitle: "代々受け継がれる調理法"
+    subtitle: "代々受け継がれる伝統のたれ"
   }
 ].map(img => ({
   ...img,
@@ -114,7 +108,7 @@ export function HeroSection() {
           setCurrentImageIndex(nextImageIndex);
           setIsTransitioning(false);
         }, 250);
-      }, 5000);
+      }, 3000);
     };
 
     startSlideshow();
@@ -145,7 +139,7 @@ export function HeroSection() {
       {/* Opening Notice Banner */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <div className="bg-japanese-red text-white py-0.5 text-center text-sm font-medium w-full">
-          2025年9月オープン予定
+          2025年10月1日オープン予定
         </div>
       </div>
 
@@ -258,7 +252,9 @@ export function HeroSection() {
               className="mb-6"
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu text-white mb-4">
-                一期一美
+                <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-kanteiryuu">御食事・居酒屋</div>
+                <div className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu">『一期一美』</div>
+                <div className="text-xl md:text-2xl lg:text-3xl mt-2 font-kanteiryuu">- ichibi -</div>
               </h1>
               <p className="text-lg md:text-xl text-japanese-gold font-medium">
                 千葉県君津市内蓑輪の手打十割そばと創作料理の店
@@ -271,10 +267,10 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mb-8"
             >
-              <h2 className="text-2xl md:text-3xl text-white mb-2">
+              <h2 className="text-2xl md:text-3xl text-white mb-2 font-kanteiryuu">
                 {SLIDER_IMAGES[currentImageIndex].title}
               </h2>
-              <p className="text-lg text-japanese-gold">
+              <p className="text-lg text-japanese-gold font-kanteiryuu">
                 {SLIDER_IMAGES[currentImageIndex].subtitle}
               </p>
             </motion.div>
@@ -287,14 +283,14 @@ export function HeroSection() {
             >
               <Link 
                 to="/lunch" 
-                className="bg-japanese-red hover:bg-red-800 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="bg-japanese-red hover:bg-red-800 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
               >
                 <Utensils className="w-5 h-5" />
                 ランチメニュー
               </Link>
               <Link 
                 to="/izakaya" 
-                className="bg-japanese-indigo hover:bg-blue-900 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="bg-japanese-indigo hover:bg-blue-900 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
               >
                 <Utensils className="w-5 h-5" />
                 居酒屋メニュー

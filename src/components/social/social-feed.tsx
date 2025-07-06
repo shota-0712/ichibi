@@ -47,7 +47,7 @@ export function SocialFeed() {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">SNSでも情報発信中</h2>
+            <h2 className="text-3xl font-kanteiryuu mb-4">SNSでも情報発信中</h2>
             <p className="text-a11y-gray">
               最新のメニュー情報やイベント、お得なキャンペーンなどをいち早くお知らせしています。
               <br />ぜひフォローして、一期一美の最新情報をチェックしてください！

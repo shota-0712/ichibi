@@ -9,12 +9,12 @@ export function Izakaya() {
       <div 
         className="h-[90vh] relative bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://i.ibb.co/Z1J91fh4/yakitori.webp")',
+          backgroundImage: 'url("/image/yakitori.webp")',
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 pt-20">
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">居酒屋メニュー</h1>
+          <h1 className="text-white text-5xl md:text-7xl font-kanteiryuu mb-6 drop-shadow-lg">居酒屋メニュー</h1>
           <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
             <div className="flex items-center gap-3 text-white">
               <Clock className="h-6 w-6 text-japanese-gold" />
@@ -34,7 +34,7 @@ export function Izakaya() {
             <div className="space-y-12">
               {/* Yakitori */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">焼き鳥</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">焼き鳥</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -121,7 +121,7 @@ export function Izakaya() {
 
               {/* Appetizers */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">一品料理</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">一品料理</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -223,7 +223,7 @@ export function Izakaya() {
 
               {/* Soba */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">そば</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">そば</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -256,7 +256,7 @@ export function Izakaya() {
 
               {/* Hot Soba */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">温そば</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">温そば</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -319,7 +319,7 @@ export function Izakaya() {
 
               {/* Set Meals */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -393,7 +393,7 @@ export function Izakaya() {
 
               {/* Rice Bowls */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">丼物</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">丼物</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -419,11 +419,6 @@ export function Izakaya() {
                       price={1000}
                       allergens={['小麦', 'えび']}
                       description="海老と野菜の天ぷら"
-                    />
-                    <MenuItem 
-                      name="うな重"
-                      price={4000}
-                      description="厳選した国産うなぎ"
                     />
                   </div>
                 </div>

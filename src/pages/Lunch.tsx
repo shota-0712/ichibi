@@ -9,12 +9,12 @@ export function Lunch() {
       <div 
         className="h-[90vh] relative bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://i.ibb.co/DmCpYJ1/soba.webp")',
+          backgroundImage: 'url("/image/soba.webp")',
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 pt-20">
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">ランチメニュー</h1>
+          <h1 className="text-white text-5xl md:text-7xl font-kanteiryuu mb-6 drop-shadow-lg">ランチメニュー</h1>
           <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
             <div className="flex items-center gap-3 text-white">
               <Clock className="h-6 w-6 text-japanese-gold" />
@@ -34,7 +34,7 @@ export function Lunch() {
             <div className="space-y-12">
               {/* Cold Soba */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">冷たいそば</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">冷たいそば</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -67,7 +67,7 @@ export function Lunch() {
 
               {/* Hot Soba */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">温かいそば</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">温かいそば</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -130,7 +130,7 @@ export function Lunch() {
 
               {/* Set Meals */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -204,7 +204,7 @@ export function Lunch() {
 
               {/* Rice Bowls */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">丼物</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">丼物</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
@@ -231,11 +231,6 @@ export function Lunch() {
                       allergens={['小麦', 'えび']}
                       description="海老と野菜の天ぷら"
                     />
-                    <MenuItem 
-                      name="うな重"
-                      price={4000}
-                      description="厳選した国産うなぎ"
-                    />
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">※丼物には味噌汁、お新香付き</p>
@@ -243,7 +238,7 @@ export function Lunch() {
 
               {/* Desserts */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
+                <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <MenuItem 
