@@ -48,7 +48,7 @@ export function SocialFeed() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">SNSでも情報発信中</h2>
-            <p className="text-gray-600">
+            <p className="text-a11y-gray">
               最新のメニュー情報やイベント、お得なキャンペーンなどをいち早くお知らせしています。
               <br />ぜひフォローして、一期一美の最新情報をチェックしてください！
             </p>
@@ -59,14 +59,14 @@ export function SocialFeed() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
-                  <Instagram className="h-6 w-6 text-pink-700" aria-hidden="true" />
+                  <Instagram className="h-6 w-6 text-a11y-pink" aria-hidden="true" />
                   <h3 className="font-semibold">Instagram</h3>
                 </div>
                 <a
                   href="https://www.instagram.com/ichigo__ichibi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-800 hover:text-pink-900 transition text-sm font-medium"
+                  className="text-a11y-pink hover:text-a11y-pink-dark transition text-sm font-medium"
                 >
                   @ichigo__ichibi
                 </a>
@@ -90,7 +90,7 @@ export function SocialFeed() {
                   href="https://www.instagram.com/ichigo__ichibi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-800 hover:text-pink-900 transition font-semibold text-sm"
+                  className="text-a11y-pink hover:text-a11y-pink-dark transition font-semibold text-sm"
                 >
                   もっと見る →
                 </a>
@@ -101,14 +101,14 @@ export function SocialFeed() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
-                  <Twitter className="h-6 w-6 text-blue-500" aria-hidden="true" />
+                  <Twitter className="h-6 w-6 text-a11y-blue" aria-hidden="true" />
                   <h3 className="font-semibold">X (Twitter)</h3>
                 </div>
                 <a
                   href="https://x.com/ichigo_ichibi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-600 transition text-sm font-medium"
+                  className="text-a11y-blue hover:text-a11y-blue-dark transition text-sm font-medium"
                 >
                   @ichigo_ichibi
                 </a>
@@ -131,14 +131,14 @@ export function SocialFeed() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
-                  <Facebook className="h-6 w-6 text-blue-800" aria-hidden="true" />
+                  <Facebook className="h-6 w-6 text-a11y-blue-dark" aria-hidden="true" />
                   <h3 className="font-semibold">Facebook</h3>
                 </div>
                 <a
                   href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-800 hover:text-blue-900 transition text-sm font-medium"
+                  className="text-a11y-blue-dark hover:text-a11y-blue transition text-sm font-medium"
                 >
                   一期一美
                 </a>

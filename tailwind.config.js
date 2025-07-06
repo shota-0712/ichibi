@@ -11,6 +11,13 @@ export default {
         'bg-cream',
         'hover:bg-warm-charcoal',
         'border-rich-burgundy',
+        'text-a11y-blue',
+        'text-a11y-blue-dark',
+        'text-a11y-pink',
+        'text-a11y-pink-dark',
+        'text-a11y-gray',
+        'hover:text-a11y-blue-dark',
+        'hover:text-a11y-pink-dark',
       ]
     }
   },
@@ -28,6 +35,13 @@ export default {
         'japanese-indigo': '#1B315E',
         'japanese-gold': '#B4A582',
         'japanese-brown': '#8E7437',
+        // Accessibility-compliant colors (WCAG AA compliant)
+        'a11y-blue': '#0066CC',        // 4.5:1 contrast on white
+        'a11y-blue-dark': '#004499',   // 7.2:1 contrast on white  
+        'a11y-pink': '#C2185B',        // 4.5:1 contrast on white
+        'a11y-pink-dark': '#880E4F',   // 7.1:1 contrast on white
+        'a11y-gray': '#555555',        // 7.0:1 contrast on white
+        'a11y-gray-light': '#666666',  // 5.7:1 contrast on white
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

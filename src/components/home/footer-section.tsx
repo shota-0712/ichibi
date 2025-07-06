@@ -13,7 +13,7 @@ export function FooterSection() {
               <MapPin className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
                 <p>〒299-1176<br />千葉県君津市内蓑輪122-1<br />
-                <span className="text-sm text-gray-300">（君津市役所から車で5分・小糸川近く）</span></p>
+                <span className="text-sm text-gray-200">（君津市役所から車で5分・小糸川近く）</span></p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -21,7 +21,7 @@ export function FooterSection() {
               <div>
                 <p className="font-semibold mb-1">お電話</p>
                 <p>0439-XX-XXXX</p>
-                <p className="text-sm text-gray-300 mt-1">※2025年5月より</p>
+                <p className="text-sm text-gray-200 mt-1">※2025年5月より</p>
               </div>
             </div>
           </div>
@@ -79,12 +79,12 @@ export function FooterSection() {
         
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-400 mb-4 md:mb-0">© 2024 御食事・居酒屋『一期一美』 All Rights Reserved.</p>
+            <p className="text-sm text-gray-300 mb-4 md:mb-0">© 2024 御食事・居酒屋『一期一美』 All Rights Reserved.</p>
             <div className="flex space-x-6">
-              <Link to="/lunch" className="text-sm text-gray-400 hover:text-white transition">ランチ</Link>
-              <Link to="/izakaya" className="text-sm text-gray-400 hover:text-white transition">居酒屋</Link>
-              <Link to="/activities" className="text-sm text-gray-400 hover:text-white transition">周辺案内</Link>
-              <Link to="/store-info" className="text-sm text-gray-400 hover:text-white transition">店舗情報</Link>
+              <Link to="/lunch" className="text-sm text-gray-300 hover:text-white transition">ランチ</Link>
+              <Link to="/izakaya" className="text-sm text-gray-300 hover:text-white transition">居酒屋</Link>
+              <Link to="/activities" className="text-sm text-gray-300 hover:text-white transition">周辺案内</Link>
+              <Link to="/store-info" className="text-sm text-gray-300 hover:text-white transition">店舗情報</Link>
             </div>
           </div>
         </div>
