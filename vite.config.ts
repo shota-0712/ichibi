@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  assetsInclude: ['**/*.webp'],
   build: {
     minify: 'terser',
     target: ['es2020', 'chrome80', 'safari14'],
