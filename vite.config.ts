@@ -5,13 +5,19 @@ export default defineConfig({
   plugins: [react()],
   build: {
     minify: 'terser',
+    target: ['es2020', 'chrome80', 'safari14'],
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        passes: 2,
       },
       format: {
         comments: false,
+      },
+      mangle: {
+        safari10: true,
       },
     },
     rollupOptions: {
@@ -22,12 +28,17 @@ export default defineConfig({
               id.includes('node_modules/react-router-dom/')) {
             return 'react-vendor';
           }
-          if (id.includes('node_modules/framer-motion/') || 
-              id.includes('node_modules/lucide-react/')) {
-            return 'ui-vendor';
+          if (id.includes('node_modules/framer-motion/')) {
+            return 'animation-vendor';
+          }
+          if (id.includes('node_modules/lucide-react/')) {
+            return 'icons-vendor';
           }
           if (id.includes('/src/pages/') && !id.includes('/src/pages/Home')) {
             return id.split('/src/pages/')[1].split('.')[0].toLowerCase();
+          }
+          if (id.includes('node_modules') && id.includes('.css')) {
+            return 'vendor-css';
           }
         },
         entryFileNames: 'assets/[name]-[hash].js',
@@ -37,6 +48,8 @@ export default defineConfig({
     },
     sourcemap: false,
     cssCodeSplit: true,
+    reportCompressedSize: false,
+    chunkSizeWarningLimit: 600,
   },
   server: {
     headers: {
@@ -44,6 +57,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+    include: ['react', 'react-dom', 'react-router-dom'],
+    exclude: ['framer-motion'],
   },
 });

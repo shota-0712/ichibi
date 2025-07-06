@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1B315E">
     
+    <!-- Preconnect hints for critical third-party resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.ibb.co" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.instagram.com">
+    <link rel="dns-prefetch" href="//x.com">
+    <link rel="dns-prefetch" href="//www.facebook.com">
+    
     <title>御食事・居酒屋 『一期一美』 - ichibi - | 君津の手打十割そば・やきとり</title>
     <meta name="description" content="【2025年9月オープン】千葉県君津市内蓑輪にある石臼挽き手打十割そばと炭火やきとりの専門店。毎朝4時から打ち始める本格十割そばと、厳選した国産鶏の炭火やきとり。">
     
@@ -43,7 +52,9 @@
       }
     </style>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <!-- Optimized Google Fonts loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap&text=一期美御食事居酒屋手打十割そば炭火やきとり毎朝時から厳選国産鶏" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap"></noscript>
     
     <meta property="og:title" content="御食事・居酒屋 『一期一美』 - ichibi - | 君津の手打十割そば・やきとり">
     <meta property="og:description" content="【2025年9月オープン】千葉県君津市内蓑輪にある石臼挽き手打十割そばと炭火やきとりの専門店。">
@@ -55,16 +66,31 @@
     <script type="module" src="/src/main.tsx"></script>
     
     <script>
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-NXL4Q3VM');
-        }, 2000);
+      // Optimized GTM loading - delay until user interaction or 3 seconds
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NXL4Q3VM');
+      }
+      
+      // Load GTM on first user interaction or after 3 seconds
+      ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(function(event) {
+        document.addEventListener(event, function() {
+          loadGTM();
+        }, { once: true, passive: true });
       });
       
+      // Fallback - load after 3 seconds
+      window.addEventListener('load', function() {
+        setTimeout(loadGTM, 3000);
+      });
+      
+      // Optimize image loading
       document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('img[data-src]').forEach(img => {
           img.setAttribute('loading', 'lazy');

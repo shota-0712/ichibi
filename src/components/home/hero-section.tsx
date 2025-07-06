@@ -188,6 +188,10 @@ export function HeroSection() {
               className="sr-only" 
               width="1920" 
               height="1080"
+              fetchPriority={currentImageIndex === 0 ? "high" : "low"}
+              loading={currentImageIndex === 0 ? "eager" : "lazy"}
+              sizes="100vw"
+              srcSet={`${SLIDER_IMAGES[currentImageIndex].smallUrl} 640w, ${SLIDER_IMAGES[currentImageIndex].mediumUrl} 1280w, ${SLIDER_IMAGES[currentImageIndex].url} 1920w`}
               onLoad={() => {
                 const newLoadedState = [...isImageLoaded];
                 newLoadedState[currentImageIndex] = true;

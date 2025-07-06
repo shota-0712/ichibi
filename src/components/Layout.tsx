@@ -56,6 +56,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-lg"
                 width="96"
                 height="96"
+                fetchPriority="high"
+                loading="eager"
+                sizes="(max-width: 768px) 80px, 96px"
+                srcSet="/ichigo_ichibi_logo-80.png 80w, /ichigo_ichibi_logo-96.png 96w, /ichigo_ichibi_logo-192.png 192w"
               />
             </Link>
             <div className="hidden md:flex space-x-4">

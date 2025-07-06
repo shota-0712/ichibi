@@ -1,7 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: {
+    files: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+    options: {
+      safelist: [
+        'text-elegant-gold',
+        'bg-deep-charcoal',
+        'bg-rich-burgundy',
+        'bg-cream',
+        'hover:bg-warm-charcoal',
+        'border-rich-burgundy',
+      ]
+    }
+  },
   theme: {
     container: {
       center: true,
