@@ -74,7 +74,7 @@
 }
 
 .font-kanteiryuu {
-  font-family: "Kanteiryuu", "HGP行書体", "HGS行書体", cursive;
+  font-family: "Yuji Syuku", "Yu Mincho", "Kanteiryuu", "HGP行書体", "HGS行書体", cursive !important;
 }
 
 /* 和風装飾要素 */

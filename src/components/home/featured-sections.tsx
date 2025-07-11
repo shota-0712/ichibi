@@ -43,7 +43,7 @@ export function FeaturedSections() {
                 />
               </div>
               <h3 className="text-2xl font-kanteiryuu mb-3">厳選した国産のそば粉</h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 mb-4 font-kanteiryuu">
                 厳選した国産のそば粉を店内で手打する香り高い十割そば。のど越しの良さを追求しています。
               </p>
             </motion.div>
@@ -62,7 +62,7 @@ export function FeaturedSections() {
                 />
               </div>
               <h3 className="text-2xl font-kanteiryuu mb-3">伝統の焼き鳥</h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 mb-4 font-kanteiryuu">
                 代々受け継がれる伝統の調理法で丁寧に焼き上げた焼き鳥。
                 厳選した国産鶏を使用し、備長炭で香ばしく焼き上げた
                 当店自慢の一品です。

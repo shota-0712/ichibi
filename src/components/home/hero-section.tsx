@@ -256,7 +256,7 @@ export function HeroSection() {
                 <div className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu">『一期一美』</div>
                 <div className="text-xl md:text-2xl lg:text-3xl mt-2 font-kanteiryuu">- ichibi -</div>
               </h1>
-              <p className="text-lg md:text-xl text-japanese-gold font-medium">
+              <p className="text-lg md:text-xl text-japanese-gold font-medium font-kanteiryuu">
                 千葉県君津市内蓑輪の手打十割そばと創作料理の店
               </p>
             </motion.div>
@@ -310,15 +310,15 @@ export function HeroSection() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div className="flex items-center justify-center gap-2">
                 <Clock className="w-5 h-5 text-japanese-gold" />
-                <span>営業時間: 11:00-22:00</span>
+                <span className="font-kanteiryuu">営業時間: 11:00-22:00</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <MapPin className="w-5 h-5 text-japanese-gold" />
-                <span>千葉県君津市内蓑輪</span>
+                <span className="font-kanteiryuu">千葉県君津市内蓑輪</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Phone className="w-5 h-5 text-japanese-gold" />
-                <span>0439-XX-XXXX</span>
+                <span className="font-kanteiryuu">0439-XX-XXXX</span>
               </div>
             </div>
           </div>

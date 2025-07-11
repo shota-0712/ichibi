@@ -46,7 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-stone-50">
-      <nav className="fixed w-full z-50 absolute">
+      <nav className="fixed w-full z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4 md:py-6">
             <Link to="/" className="flex items-center">

@@ -30,6 +30,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'yuji': ['Yuji Syuku', 'Yu Mincho', 'serif'],
+        'kanteiryuu': ['Yuji Syuku', 'Yu Mincho', 'Kanteiryuu', 'HGP行書体', 'HGS行書体', 'cursive'],
+      },
       colors: {
         'japanese-red': '#A6324D',
         'japanese-indigo': '#1B315E',

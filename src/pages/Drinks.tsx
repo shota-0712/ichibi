@@ -1,9 +1,18 @@
-import { Clock } from 'lucide-react';
+import { Clock, Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { MenuItem } from '../components/menu/menu-item';
 
 export function Drinks() {
   return (
     <div>
+      {/* Fixed Home Button */}
+      <Link
+        to="/"
+        className="fixed bottom-6 left-6 bg-japanese-red hover:bg-red-800 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 transform hover:scale-105"
+        aria-label="ホームに戻る"
+      >
+        <Home className="h-6 w-6" />
+      </Link>
       {/* Hero with background image */}
       <div 
         className="h-[90vh] relative bg-cover bg-center"

@@ -14,7 +14,7 @@ export function BrandStory() {
           className="max-w-4xl mx-auto text-center"
         >
                       <h2 className="text-3xl font-kanteiryuu mb-8">一期一美のこだわり</h2>
-          <div className="prose max-w-none text-lg text-gray-700">
+          <div className="prose max-w-none text-lg text-gray-700 font-kanteiryuu">
             <p className="mb-6">
                               2025年10月1日、君津の地に新たに誕生する「一期一美」。
               手打ちそばと創作料理の技を磨いてきたシェフが、
@@ -33,7 +33,7 @@ export function BrandStory() {
           <div className="mt-12">
             <Link 
               to="/dining-philosophy" 
-              className="inline-flex items-center gap-2 text-japanese-red hover:text-red-900 transition"
+              className="inline-flex items-center gap-2 text-japanese-red hover:text-red-900 transition font-kanteiryuu"
               aria-label="料理へのこだわりを詳しく見る"
             >
               <span>料理へのこだわりを詳しく見る</span>
