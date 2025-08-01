@@ -66,6 +66,14 @@
   }
 
   /* Font definitions moved to index.html for better loading performance */
+} 
+
+.fixed-banner {
+  visibility: hidden;
+}
+
+body.page-ready .fixed-banner {
+  visibility: visible;
 }
 
 .font-gothic {

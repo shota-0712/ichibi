@@ -30,6 +30,7 @@ const renderApp = () => {
         </BrowserRouter>
       </StrictMode>
     );
+    document.body.classList.add('page-ready');
   }
 };
 
