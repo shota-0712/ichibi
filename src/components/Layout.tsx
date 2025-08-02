@@ -166,7 +166,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </nav>
 
-      <main className="relative">
+      <main className="relative min-h-screen">
         {children}
       </main>
 
