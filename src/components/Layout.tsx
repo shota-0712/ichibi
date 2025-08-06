@@ -51,7 +51,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center justify-between py-4 md:py-6">
             <Link to="/" className="flex items-center">
               <img 
-                src="/ichigo_ichibi_logo.webp" 
+                src="/logo.webp" 
                 alt="一期一美" 
                 className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-lg"
                 width="96"

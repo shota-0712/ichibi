@@ -8,7 +8,7 @@ export function FooterSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-semibold mb-4">御食事・居酒屋『一期一美』</h3>
+            <h3 className="text-xl font-semibold mb-4">十割蕎麦・焼鳥酒場『一期一美』</h3>
             <div className="flex items-start gap-3 mb-4">
               <MapPin className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
@@ -34,7 +34,7 @@ export function FooterSection() {
                 <p className="font-semibold mb-2">営業時間</p>
                 <div className="space-y-2">
                   <div>
-                    <p className="font-medium">【御食事・居酒屋】</p>
+                    <p className="font-medium">【十割蕎麦・焼鳥酒場】</p>
                     <p>ランチ 11:00～14:00 (L.O.13:30)</p>
                     <p>居酒屋 17:00～22:00 (L.O.21:30)</p>
                   </div>
@@ -79,7 +79,7 @@ export function FooterSection() {
         
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-300 mb-4 md:mb-0">© 2024 御食事・居酒屋『一期一美』 All Rights Reserved.</p>
+            <p className="text-sm text-gray-300 mb-4 md:mb-0">© 2024 十割蕎麦・焼鳥酒場『一期一美』 All Rights Reserved.</p>
                           <div className="flex space-x-6">
                 <Link to="/lunch" className="text-sm text-gray-300 hover:text-white transition">ランチ</Link>
                 <Link to="/izakaya" className="text-sm text-gray-300 hover:text-white transition">居酒屋</Link>

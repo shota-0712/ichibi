@@ -106,7 +106,7 @@ export function StoreInfo() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="rounded-lg"
-                  title="御食事・居酒屋『一期一美』 - アクセスマップ"
+                  title="十割蕎麦・焼鳥酒場『一期一美』 - アクセスマップ"
                 ></iframe>
               </div>
               <div className="mt-4 space-y-2 text-sm text-gray-600">

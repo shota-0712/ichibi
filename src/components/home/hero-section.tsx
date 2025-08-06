@@ -252,7 +252,7 @@ export function HeroSection() {
               className="mb-6"
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu text-white mb-4">
-                <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-kanteiryuu">御食事・居酒屋</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-kanteiryuu">十割蕎麦・焼鳥酒場</div>
                 <div className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu">『一期一美』</div>
                 <div className="text-xl md:text-2xl lg:text-3xl mt-2 font-kanteiryuu">- ichibi -</div>
               </h1>
