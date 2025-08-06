@@ -17,7 +17,7 @@ export function BrandStory() {
           <div className="prose max-w-none text-lg text-gray-700 font-kanteiryuu">
             <p className="mb-6">
                               2025年10月1日、君津の地に新たに誕生する「一期一美」。
-              手打ちそばと創作料理の技を磨いてきたシェフが、
+              手打ち蕎麦と焼鳥の技を磨いてきたシェフが、
               房総の豊かな食材を活かした料理の数々をお届けいたします。
             </p>
             <p className="mb-6">

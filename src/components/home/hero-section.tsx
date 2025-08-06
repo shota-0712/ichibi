@@ -257,7 +257,7 @@ export function HeroSection() {
                 <div className="text-xl md:text-2xl lg:text-3xl mt-2 font-kanteiryuu">- ichibi -</div>
               </h1>
               <p className="text-lg md:text-xl text-japanese-gold font-medium font-kanteiryuu">
-                千葉県君津市内蓑輪の手打十割そばと創作料理の店
+                千葉県君津市内蓑輪の手打十割蕎麦をメインとしたランチと焼き鳥居酒屋の店
               </p>
             </motion.div>
             
