@@ -25,7 +25,7 @@ export function StoreInfo() {
                   <Phone className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold">お電話</h3>
-                    <p>0439-XX-XXXX</p>
+                    <p>0439-27-1936</p>
                     <p className="text-sm text-gray-600 mt-1">※2025年10月1日より</p>
                   </div>
                 </div>
