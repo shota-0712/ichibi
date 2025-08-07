@@ -318,7 +318,7 @@ export function HeroSection() {
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Phone className="w-5 h-5 text-japanese-gold" />
-                <span className="font-kanteiryuu">0439-XX-XXXX</span>
+                <span className="font-kanteiryuu">0439-27-1936</span>
               </div>
             </div>
           </div>
