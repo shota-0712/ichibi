@@ -20,11 +20,8 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
-    <!-- Preload critical images -->
+    <!-- Preload only the logo to improve LCP; large hero images are loaded by the page when needed -->
     <link rel="preload" href="/logo.webp" as="image" type="image/webp" fetchpriority="high">
-    <link rel="preload" href="/image/soba.webp" as="image" type="image/webp">
-    <link rel="preload" href="/image/yakitori.webp" as="image" type="image/webp">
-    <link rel="preload" href="/image/nihonnshu.webp" as="image" type="image/webp">
     
     <style>
       :root {
@@ -75,7 +72,6 @@
     <!-- Optimized Google Fonts loading -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap"></noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap">
     
     <meta property="og:title" content="十割蕎麦・焼鳥酒場 『一期一美』 - ichibi - | 君津の手打十割そば・厳選した国産鶏のやきとり">
     <meta property="og:description" content="【2025年10月1日オープン】千葉県君津市内蓑輪にある石臼挽き手打十割そばと厳選した国産鶏のやきとりを提供するお店。">

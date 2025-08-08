@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Utensils, Clock, MapPin, Phone } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-// Optimize image loading with smaller images and proper dimensions
+// 画像最適化: 同一ファイルを複数サイズで重複リクエストしないようシンプルにする
 const SLIDER_IMAGES = [
   {
     url: "/image/soba.webp",
@@ -17,13 +17,7 @@ const SLIDER_IMAGES = [
     title: "伝統の味",
     subtitle: "代々受け継がれる伝統のたれ"
   }
-].map(img => ({
-  ...img,
-  url: `${img.url}?auto=format&fit=crop&w=1920&h=1080&q=75`,
-  smallUrl: `${img.url}?auto=format&fit=crop&w=640&h=360&q=60`,
-  mediumUrl: `${img.url}?auto=format&fit=crop&w=1280&h=720&q=70`,
-  placeholder: `${img.url}?auto=format&fit=crop&w=20&h=10&q=10&blur=10`
-}));
+];
 
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -38,7 +32,7 @@ export function HeroSection() {
   useEffect(() => {
     let isMounted = true;
     
-    // Preload the first image with high priority
+    // 先頭画像のみ高優先度でプリロード
     const preloadFirstImage = () => {
       const img = new Image();
       img.onload = () => {
@@ -47,20 +41,20 @@ export function HeroSection() {
         imageLoadStatus.current[0] = true;
         setIsImageLoaded([...imageLoadStatus.current]);
         
-        // After first image is loaded, load the rest during idle time
+        // 残りはアイドル時に読み込み
         if ('requestIdleCallback' in window) {
           (window as Window & { requestIdleCallback: typeof requestIdleCallback }).requestIdleCallback(preloadRemainingImages, { timeout: 2000 });
         } else {
           setTimeout(preloadRemainingImages, 100);
         }
         
-        // Mark as loaded to start the slideshow
+        // スライドショー開始
         setImagesLoaded(true);
       };
       img.src = SLIDER_IMAGES[0].url;
     };
 
-    // Preload remaining images with lower priority during idle time
+    // 残りの画像をアイドル時にプリロード
     const preloadRemainingImages = () => {
       for (let i = 1; i < SLIDER_IMAGES.length; i++) {
         const img = new Image();
@@ -70,8 +64,7 @@ export function HeroSection() {
           imageLoadStatus.current[i] = true;
           setIsImageLoaded([...imageLoadStatus.current]);
         };
-        // Use medium quality for preloading
-        img.src = SLIDER_IMAGES[i].mediumUrl;
+        img.src = SLIDER_IMAGES[i].url;
       }
     };
 
@@ -95,7 +88,6 @@ export function HeroSection() {
   useEffect(() => {
     if (!imagesLoaded) return;
 
-    // Use requestAnimationFrame for smoother transitions
     const startSlideshow = () => {
       intervalRef.current = window.setInterval(() => {
         setIsTransitioning(true);
@@ -143,9 +135,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Image Slider with progressive loading */}
+      {/* 背景画像スライダー（単一リクエストに集約） */}
       <div className="absolute inset-0 bg-black">
-        {/* Current image */}
+        {/* 現在の画像 */}
         <div
           className="absolute inset-0 transition-opacity duration-500 ease-in-out"
           style={{ 
@@ -153,39 +145,25 @@ export function HeroSection() {
             zIndex: 1
           }}
         >
-          {/* Low quality placeholder that loads immediately */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 bg-black"
-            style={{ 
-              backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].placeholder})`,
-              filter: 'brightness(0.4)',
-              opacity: isImageLoaded[currentImageIndex] ? 0 : 1
-            }}
-            aria-hidden="true"
-          />
-          
-          {/* High quality image that fades in when loaded */}
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 ease-out"
             style={{ 
-              backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].smallUrl})`,
+              backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].url})`,
               transform: 'scale(1.05)',
               filter: 'brightness(0.4)',
               opacity: isImageLoaded[currentImageIndex] ? 1 : 0
             }}
             aria-hidden="true"
           >
-            {/* Hidden actual image for screen readers */}
+            {/* 読み込み完了検出用の隠し画像 */}
             <img 
-              src={SLIDER_IMAGES[currentImageIndex].smallUrl} 
+              src={SLIDER_IMAGES[currentImageIndex].url}
               alt=""
               className="sr-only" 
               width="1920" 
               height="1080"
               fetchPriority={currentImageIndex === 0 ? "high" : "low"}
               loading={currentImageIndex === 0 ? "eager" : "lazy"}
-              sizes="100vw"
-              srcSet={`${SLIDER_IMAGES[currentImageIndex].smallUrl} 640w, ${SLIDER_IMAGES[currentImageIndex].mediumUrl} 1280w, ${SLIDER_IMAGES[currentImageIndex].url} 1920w`}
               onLoad={() => {
                 const newLoadedState = [...isImageLoaded];
                 newLoadedState[currentImageIndex] = true;
@@ -195,7 +173,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Next image (preloaded and ready to fade in) */}
+        {/* 次の画像（事前にプリロード） */}
         <div
           className="absolute inset-0 transition-opacity duration-500 ease-in-out"
           style={{ 
@@ -203,31 +181,19 @@ export function HeroSection() {
             zIndex: 2
           }}
         >
-          {/* Low quality placeholder that loads immediately */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 bg-black"
-            style={{ 
-              backgroundImage: `url(${SLIDER_IMAGES[nextImageIndex].placeholder})`,
-              filter: 'brightness(0.4)',
-              opacity: isImageLoaded[nextImageIndex] ? 0 : 1
-            }}
-            aria-hidden="true"
-          />
-          
-          {/* High quality image that fades in when loaded */}
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 ease-out"
             style={{ 
-              backgroundImage: `url(${SLIDER_IMAGES[nextImageIndex].smallUrl})`,
+              backgroundImage: `url(${SLIDER_IMAGES[nextImageIndex].url})`,
               transform: 'scale(1.05)',
               filter: 'brightness(0.4)',
               opacity: isImageLoaded[nextImageIndex] ? 1 : 0
             }}
             aria-hidden="true"
           >
-            {/* Hidden actual image for screen readers */}
+            {/* 読み込み完了検出用の隠し画像 */}
             <img 
-              src={SLIDER_IMAGES[nextImageIndex].smallUrl} 
+              src={SLIDER_IMAGES[nextImageIndex].url}
               alt=""
               className="sr-only" 
               width="1920" 

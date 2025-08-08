@@ -1,14 +1,14 @@
 // Service Worker for caching and offline functionality
-const CACHE_NAME = 'ichimi-cache-v1';
+const CACHE_NAME = 'ichibi-cache-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/ichibi_logo.webp',
-  '/assets/index.css',
-  '/assets/index.js',
-  '/assets/react-vendor.js',
-  '/assets/ui-vendor.js'
+  '/logo.webp',
+  // Hero images used across pages (optional but improves first-load UX)
+  '/image/soba.webp',
+  '/image/yakitori.webp',
+  '/image/nihonnshu.webp',
 ];
 
 // URLs to exclude from caching
@@ -93,11 +93,12 @@ self.addEventListener('fetch', (event) => {
 
         return response;
       }).catch(() => {
-        // Return index.html for navigation requests
+        // Return index.html for navigation requests (SPA fallback)
         if (event.request.mode === 'navigate') {
-          return caches.match('/');
+          return caches.match('/index.html');
         }
-        return null;
+        // Try returning any cached response for the same request
+        return caches.match(event.request);
       });
     })
   );

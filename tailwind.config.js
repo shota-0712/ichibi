@@ -1,26 +1,25 @@
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import animate from 'tailwindcss-animate';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: {
-    files: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-    options: {
-      safelist: [
-        'text-elegant-gold',
-        'bg-deep-charcoal',
-        'bg-rich-burgundy',
-        'bg-cream',
-        'hover:bg-warm-charcoal',
-        'border-rich-burgundy',
-        'text-a11y-blue',
-        'text-a11y-blue-dark',
-        'text-a11y-pink',
-        'text-a11y-pink-dark',
-        'text-a11y-gray',
-        'hover:text-a11y-blue-dark',
-        'hover:text-a11y-pink-dark',
-      ]
-    }
-  },
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  safelist: [
+    'text-elegant-gold',
+    'bg-deep-charcoal',
+    'bg-rich-burgundy',
+    'bg-cream',
+    'hover:bg-warm-charcoal',
+    'border-rich-burgundy',
+    'text-a11y-blue',
+    'text-a11y-blue-dark',
+    'text-a11y-pink',
+    'text-a11y-pink-dark',
+    'text-a11y-gray',
+    'hover:text-a11y-blue-dark',
+    'hover:text-a11y-pink-dark',
+  ],
   theme: {
     container: {
       center: true,
@@ -110,8 +109,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-    require("tailwindcss-animate"),
-  ],
+  plugins: [aspectRatio, animate],
 };
