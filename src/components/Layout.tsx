@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Twitter, Facebook } from 'lucide-react';
 import { FooterSection } from './home/footer-section';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/ichigo_ichibi_logo.svg';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -51,7 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center justify-between py-4 md:py-6">
             <Link to="/" className="flex items-center">
               <img 
-                src="/image/ichigo_ichibi_logo.svg" 
+                src={logo}
                 alt="一期一美" 
                 className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-lg"
                 width="96"
