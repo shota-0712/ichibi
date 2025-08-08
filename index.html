@@ -60,12 +60,13 @@
       /* logo preload div を廃止（オフスクリーン画像の早期読み込みを防止） */
     </style>
 
-    <!-- Google Fonts を遅延。初期表示はシステムフォントで描画し、インタラクション後に読み込み -->
+    <!-- Google Fonts はユーザー操作後、または4秒経過後に読み込み（LCP前のネットワーク競合を避ける） -->
     <script>
       (function(){
         var loaded=false;function loadFont(){if(loaded) return;loaded=true;var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap';document.head.appendChild(l);} 
         ['click','keydown','touchstart'].forEach(function(e){window.addEventListener(e,loadFont,{once:true,passive:true});});
-        window.addEventListener('load',function(){setTimeout(loadFont,1500);});
+        // フォールバックは4秒後（回線が速い環境でもLCP以降になりやすい）
+        window.addEventListener('load',function(){setTimeout(loadFont,4000);});
       })();
     </script>
     

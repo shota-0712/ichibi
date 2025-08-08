@@ -61,11 +61,11 @@ export function FeaturedSections() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <h3 className="text-2xl font-kanteiryuu mb-3">伝統の焼き鳥</h3>
+              <h3 className="text-2xl font-kanteiryuu mb-3">自慢の焼き鳥</h3>
               <p className="text-gray-600 mb-4 font-kanteiryuu">
-                代々受け継がれる伝統の調理法で丁寧に焼き上げた焼き鳥。
-                厳選した国産鶏を使用し、備長炭で香ばしく焼き上げた
-                当店自慢の一品です。
+                代々受け継がれる<strong>秘伝のたれ</strong>。
+                厳選した国産鶏を一本一本丁寧に焼き上げる、
+                当店ならではの味わいをお楽しみください。
               </p>
             </motion.div>
           </motion.div>
