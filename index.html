@@ -57,31 +57,24 @@
         display: none;
       }
       
-      /* Preload logo as background image for faster LCP */
-      .logo-preload {
-        background-image: url('/logo.webp');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 96px;
-        height: 96px;
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-        z-index: -1;
-      }
+      /* logo preload div を廃止（オフスクリーン画像の早期読み込みを防止） */
     </style>
 
-    <!-- Optimized Google Fonts loading (single path; avoid duplicate stylesheet) -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap"></noscript>
+    <!-- Google Fonts を遅延。初期表示はシステムフォントで描画し、インタラクション後に読み込み -->
+    <script>
+      (function(){
+        var loaded=false;function loadFont(){if(loaded) return;loaded=true;var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap';document.head.appendChild(l);} 
+        ['click','keydown','touchstart'].forEach(function(e){window.addEventListener(e,loadFont,{once:true,passive:true});});
+        window.addEventListener('load',function(){setTimeout(loadFont,1500);});
+      })();
+    </script>
     
     <meta property="og:title" content="十割蕎麦・焼鳥酒場 『一期一美』 - ichibi - | 君津の手打十割そば・厳選した国産鶏のやきとり">
     <meta property="og:description" content="【2025年10月1日オープン】千葉県君津市内蓑輪にある石臼挽き手打十割そばと厳選した国産鶏のやきとりを提供するお店。">
     <meta property="og:image" content="/image/soba.webp">
   </head>
   <body>
-    <div class="logo-preload"></div>
+    
     <h1 style="display:none;">十割蕎麦・焼鳥酒場 『一期一美』 - ichibi - | 君津の手打十割そば・厳選した国産鶏のやきとり</h1>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
