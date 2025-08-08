@@ -13,19 +13,14 @@ export function Drinks() {
       >
         <Home className="h-6 w-6" />
       </Link>
-      {/* Hero with high-priority img for faster paint */}
-      <div className="h-[90vh] relative">
-        <img
-          src="/image/nihonnshu.webp"
-          alt="飲み物メニュー ヒーロー"
-          className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={1080}
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-black/40" aria-hidden="true"></div>
+      {/* Hero with background image */}
+      <div 
+        className="h-[90vh] relative bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("/image/nihonnshu.webp")',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 pt-20">
           <h1 className="text-white text-5xl md:text-7xl font-kanteiryuu mb-6 drop-shadow-lg">飲み物メニュー</h1>
           <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">

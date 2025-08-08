@@ -23,34 +23,38 @@ const preloadComponent = (component: string): void => {
   switch(component) {
     case 'lunch':
       void import('./pages/Lunch');
-      // Preload hero image
-      new Image().src = '/image/soba.webp';
       break;
     case 'izakaya':
       void import('./pages/Izakaya');
-      new Image().src = '/image/yakitori.webp';
       break;
     case 'store-info':
       void import('./pages/StoreInfo');
       break;
     case 'drinks':
       void import('./pages/Drinks');
-      new Image().src = '/image/nihonnshu.webp';
       break;
   }
 };
 
-// マウスホバー時のプリロードは低速端末でコストになるため、初回インタラクション後に一度だけ計画的に実行
+// Add event listeners for navigation preloading
 if (typeof window !== 'undefined') {
-  const triggerPlannedPreload = () => {
-    // 最初のユーザー操作から少し待ってまとめてプリロード
-    setTimeout(() => {
-      ['lunch', 'izakaya', 'store-info', 'drinks'].forEach(preloadComponent);
-    }, 800);
-    events.forEach((evt) => window.removeEventListener(evt, triggerPlannedPreload));
-  };
-  const events: Array<keyof WindowEventMap> = ['click', 'touchstart', 'keydown'];
-  events.forEach((evt) => window.addEventListener(evt, triggerPlannedPreload, { once: true, passive: true }));
+  window.addEventListener('load', () => {
+    // Use requestIdleCallback to avoid blocking main thread
+    if ('requestIdleCallback' in window) {
+      (window as Window & { requestIdleCallback: typeof requestIdleCallback }).requestIdleCallback(() => {
+        document.querySelectorAll('a[href^="/"]').forEach(link => {
+          const href = link.getAttribute('href');
+          if (href && href !== '/') {
+            const path = href.substring(1); // Remove leading slash
+            
+            // Add event listeners with passive option for better performance
+            link.addEventListener('mouseenter', () => preloadComponent(path), { passive: true });
+            link.addEventListener('touchstart', () => preloadComponent(path), { passive: true });
+          }
+        });
+      }, { timeout: 2000 });
+    }
+  });
 }
 
 function App() {
