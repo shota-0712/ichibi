@@ -4,7 +4,6 @@ const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/ichibi_logo.webp',
   '/assets/index.css',
   '/assets/index.js',
   '/assets/react-vendor.js',
