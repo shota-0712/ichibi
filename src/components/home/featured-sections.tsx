@@ -31,6 +31,11 @@ export function FeaturedSections() {
           >
             <motion.div variants={item}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
+                {/*
+                  TODO: To optimize image loading, create resized versions of soba.webp.
+                  For example: soba-400.webp (400px wide), soba-800.webp (800px wide), etc.
+                  The browser will then choose the most appropriate image based on the user's screen size.
+                */}
                 <img 
                   src="/image/soba.webp"
                   alt="手打ちそば" 
@@ -40,6 +45,7 @@ export function FeaturedSections() {
                   width="800"
                   height="600"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  srcSet="/image/soba-400.webp 400w, /image/soba-800.webp 800w, /image/soba-1200.webp 1200w"
                 />
               </div>
               <h3 className="text-2xl font-kanteiryuu mb-3">厳選した国産のそば粉</h3>
@@ -50,6 +56,10 @@ export function FeaturedSections() {
 
             <motion.div variants={item}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
+                {/*
+                  TODO: To optimize image loading, create resized versions of yakitori.webp.
+                  For example: yakitori-400.webp (400px wide), yakitori-800.webp (800px wide), etc.
+                */}
                 <img 
                   src="/image/yakitori.webp"
                   alt="焼き鳥" 
@@ -59,6 +69,7 @@ export function FeaturedSections() {
                   width="800"
                   height="600"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  srcSet="/image/yakitori-400.webp 400w, /image/yakitori-800.webp 800w, /image/yakitori-1200.webp 1200w"
                 />
               </div>
               <h3 className="text-2xl font-kanteiryuu mb-3">自慢の焼き鳥</h3>

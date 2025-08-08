@@ -24,22 +24,18 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          if (id.includes('node_modules/react/') || 
-              id.includes('node_modules/react-dom/') || 
-              id.includes('node_modules/react-router-dom/')) {
-            return 'react-vendor';
-          }
-          if (id.includes('node_modules/framer-motion/')) {
-            return 'animation-vendor';
-          }
-          if (id.includes('node_modules/lucide-react/')) {
-            return 'icons-vendor';
-          }
-          if (id.includes('/src/pages/') && !id.includes('/src/pages/Home')) {
-            return id.split('/src/pages/')[1].split('.')[0].toLowerCase();
-          }
-          if (id.includes('node_modules') && id.includes('.css')) {
-            return 'vendor-css';
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'react-vendor';
+            }
+            if (id.includes('framer-motion')) {
+              return 'animation-vendor';
+            }
+            if (id.includes('lucide-react')) {
+                return 'icons-vendor';
+            }
+            // All other node_modules go to a general vendor chunk
+            return 'vendor';
           }
         },
         entryFileNames: 'assets/[name]-[hash].js',
