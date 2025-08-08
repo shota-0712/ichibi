@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Utensils, Clock, MapPin, Phone } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // Optimize image loading with smaller images and proper dimensions
 const SLIDER_IMAGES = [
@@ -242,15 +242,10 @@ export function HeroSection() {
         </div>
       </div>
       
-      <div className="absolute inset-0 z-30 flex flex-col justify-between pt-16 md:pt-28">
+      <div className="absolute inset-0 z-30 flex flex-col justify-between pt-16 md:pt-28 will-change-transform">
         <div className="flex-1 flex items-center justify-center px-4">
           <div className="text-center w-full max-w-4xl mx-auto">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-6"
-            >
+            <div className="mb-6 transition-opacity duration-300" style={{opacity: 1}}>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu text-white mb-4">
                 <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-kanteiryuu">十割蕎麦・焼鳥酒場</div>
                 <div className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu">『一期一美』</div>
@@ -259,28 +254,18 @@ export function HeroSection() {
               <p className="text-lg md:text-xl text-japanese-gold font-medium font-kanteiryuu">
                 千葉県君津市内蓑輪の手打十割蕎麦をメインとしたランチと焼き鳥居酒屋の店
               </p>
-            </motion.div>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-8"
-            >
+            <div className="mb-8 transition-opacity duration-300" style={{opacity: 1}}>
               <h2 className="text-2xl md:text-3xl text-white mb-2 font-kanteiryuu">
                 {SLIDER_IMAGES[currentImageIndex].title}
               </h2>
               <p className="text-lg text-japanese-gold font-kanteiryuu">
                 {SLIDER_IMAGES[currentImageIndex].subtitle}
               </p>
-            </motion.div>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/lunch" 
                 className="bg-japanese-red hover:bg-red-800 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
@@ -295,7 +280,7 @@ export function HeroSection() {
                 <Utensils className="w-5 h-5" />
                 居酒屋メニュー
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
         
