@@ -1,5 +1,5 @@
 // Service Worker for caching and offline functionality
-const CACHE_NAME = 'ichimi-cache-v1';
+const CACHE_NAME = 'ichimi-cache-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -17,7 +17,13 @@ const EXCLUDE_FROM_CACHE = [
   'google-analytics.com',
   'analytics',
   'gtag',
-  'gtm'
+  'gtm',
+  // Do not cache images to avoid stale assets during development
+  '.webp',
+  '.png',
+  '.jpg',
+  '.jpeg',
+  '.svg'
 ];
 
 // Helper function to check if URL should be cached

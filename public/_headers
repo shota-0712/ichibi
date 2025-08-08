@@ -1,6 +1,8 @@
 /*
-  Content-Type: text/html; charset=UTF-8
   X-Content-Type-Options: nosniff
+
+/*.svg
+  Content-Type: image/svg+xml; charset=UTF-8
 
 /*.html
   Content-Type: text/html; charset=UTF-8
