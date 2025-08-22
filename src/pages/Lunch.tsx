@@ -49,7 +49,7 @@ export function Lunch() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="ざるそば"
-                      price={780}
+                      price={800}
                       allergens={['そば', '小麦']}
                       description="香り高い十割そばをつめたつゆで"
                     />
@@ -82,7 +82,7 @@ export function Lunch() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="かけそば"
-                      price={780}
+                      price={800}
                       allergens={['そば', '小麦']}
                       description="温かい出汁でいただく基本の一杯"
                     />
@@ -100,7 +100,7 @@ export function Lunch() {
                     />
                     <MenuItem 
                       name="かき揚げそば"
-                      price={850}
+                      price={900}
                       allergens={['そば', '小麦', 'えび']}
                       description="海老と野菜のかき揚げ"
                     />
@@ -112,19 +112,19 @@ export function Lunch() {
                     />
                     <MenuItem 
                       name="とろろそば"
-                      price={850}
+                      price={900}
                       allergens={['そば', '小麦', 'やまいも']}
                       description="自家製とろろをのせて"
                     />
                     <MenuItem 
                       name="山菜そば"
-                      price={850}
+                      price={900}
                       allergens={['そば', '小麦']}
                       description="季節の山菜を添えて"
                     />
                     <MenuItem 
                       name="たぬきそば"
-                      price={780}
+                      price={900}
                       allergens={['そば', '小麦']}
                       description="カリカリの天かすをのせて"
                     />
@@ -145,13 +145,13 @@ export function Lunch() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="生姜焼定食"
-                      price={800}
+                      price={950}
                       allergens={['豚肉', '小麦', '大豆']}
                       description="国産豚ロースの生姜焼き"
                     />
                     <MenuItem 
                       name="唐揚げ定食"
-                      price={800}
+                      price={950}
                       allergens={['鶏肉', '小麦']}
                       description="にんにく醤油で味付けした唐揚げ"
                     />
@@ -163,25 +163,25 @@ export function Lunch() {
                     />
                     <MenuItem 
                       name="エビフライ定食"
-                      price={1000}
+                      price={1200}
                       allergens={['小麦', 'えび']}
                       description="大ぶりのエビフライ"
                     />
                     <MenuItem 
                       name="ミックスフライ定食"
-                      price={1000}
+                      price={1100}
                       allergens={['小麦', 'えび']}
                       description="エビ、白身魚、カキのフライ"
                     />
                     <MenuItem 
                       name="ハンバーグ定食"
-                      price={800}
+                      price={950}
                       allergens={['小麦', '卵', '乳']}
                       description="手ごねハンバーグ"
                     />
                     <MenuItem 
                       name="チキン南蛮定食"
-                      price={800}
+                      price={1000}
                       allergens={['鶏肉', '小麦', '卵']}
                       description="特製タルタルソース添え"
                     />
@@ -252,13 +252,13 @@ export function Lunch() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="自家製プリン"
-                      price={380}
+                      price={400}
                       allergens={['卵', '乳']}
                       description="手作りカスタードプリン"
                     />
                     <MenuItem 
                       name="杏仁豆腐"
-                      price={450}
+                      price={400}
                       description="本格的な杏仁豆腐"
                     />
                   </div>

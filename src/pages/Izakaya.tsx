@@ -49,37 +49,37 @@ export function Izakaya() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="とりもも"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="ジューシーな味わい"
                     />
                     <MenuItem 
                       name="レバー"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="濃厚な味わい"
                     />
                     <MenuItem 
                       name="タン"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="コリコリとした食感"
                     />
                     <MenuItem 
                       name="ハツ"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="歯ごたえのある食感"
                     />
                     <MenuItem 
                       name="手羽先"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="香ばしい手羽先"
                     />
                     <MenuItem 
                       name="つくね"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉', '卵']}
                       description="ふんわり食感"
                     />
@@ -87,42 +87,42 @@ export function Izakaya() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="ねぎま"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="ネギの甘みと鶏肉の旨み"
                     />
                     <MenuItem 
                       name="すなぎも"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="コリコリ食感"
                     />
                     <MenuItem 
                       name="なんこつ"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="シャキシャキ食感"
                     />
                     <MenuItem 
                       name="ささみ"
-                      price={150}
+                      price={170}
                       allergens={['鶏肉']}
                       description="あっさりヘルシー"
                     />
                     <MenuItem 
                       name="しいたけ"
-                      price={150}
+                      price={170}
                       description="香り豊かな焼きしいたけ"
                     />
                     <MenuItem 
                       name="アスパラベーコン"
-                      price={150}
+                      price={180}
                       allergens={['豚肉']}
                       description="アスパラとベーコンの相性抜群"
                     />
                     <MenuItem 
                       name="ニンニク焼き"
-                      price={150}
+                      price={170}
                       description="香ばしいニンニク"
                     />
                   </div>
@@ -218,7 +218,7 @@ export function Izakaya() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="ざるそば"
-                      price={780}
+                      price={800}
                       allergens={['そば', '小麦']}
                       description="香り高い十割そば"
                     />
@@ -251,7 +251,7 @@ export function Izakaya() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="かけそば"
-                      price={780}
+                      price={800}
                       allergens={['そば', '小麦']}
                       description="温かい出汁でいただく基本の一杯"
                     />
@@ -269,7 +269,7 @@ export function Izakaya() {
                     />
                     <MenuItem 
                       name="かき揚げそば"
-                      price={850}
+                      price={900}
                       allergens={['そば', '小麦', 'えび']}
                       description="海老と野菜のかき揚げ"
                     />
@@ -281,19 +281,19 @@ export function Izakaya() {
                     />
                     <MenuItem 
                       name="とろろそば"
-                      price={850}
+                      price={900}
                       allergens={['そば', '小麦', 'やまいも']}
                       description="自家製とろろをのせて"
                     />
                     <MenuItem 
                       name="山菜そば"
-                      price={850}
+                      price={900}
                       allergens={['そば', '小麦']}
                       description="季節の山菜を添えて"
                     />
                     <MenuItem 
                       name="たぬきそば"
-                      price={780}
+                      price={900}
                       allergens={['そば', '小麦']}
                       description="カリカリの天かすをのせて"
                     />
@@ -314,13 +314,13 @@ export function Izakaya() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="生姜焼定食"
-                      price={800}
+                      price={950}
                       allergens={['豚肉', '小麦', '大豆']}
                       description="国産豚ロースの生姜焼き"
                     />
                     <MenuItem 
                       name="唐揚げ定食"
-                      price={800}
+                      price={950}
                       allergens={['鶏肉', '小麦']}
                       description="にんにく醤油で味付けした唐揚げ"
                     />
@@ -332,25 +332,25 @@ export function Izakaya() {
                     />
                     <MenuItem 
                       name="エビフライ定食"
-                      price={1000}
+                      price={1200}
                       allergens={['小麦', 'えび']}
                       description="大ぶりのエビフライ"
                     />
                     <MenuItem 
                       name="ミックスフライ定食"
-                      price={1000}
+                      price={1100}
                       allergens={['小麦', 'えび']}
                       description="エビ、白身魚、カキのフライ"
                     />
                     <MenuItem 
                       name="ハンバーグ定食"
-                      price={800}
+                      price={950}
                       allergens={['小麦', '卵', '乳']}
                       description="手ごねハンバーグ"
                     />
                     <MenuItem 
                       name="チキン南蛮定食"
-                      price={800}
+                      price={1000}
                       allergens={['鶏肉', '小麦', '卵']}
                       description="特製タルタルソース添え"
                     />
@@ -421,13 +421,13 @@ export function Izakaya() {
                   <div className="space-y-4">
                     <MenuItem 
                       name="自家製プリン"
-                      price={380}
+                      price={400}
                       allergens={['卵', '乳']}
                       description="手作りカスタードプリン"
                     />
                     <MenuItem 
                       name="杏仁豆腐"
-                      price={450}
+                      price={400}
                       description="本格的な杏仁豆腐"
                     />
                   </div>
