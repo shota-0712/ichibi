@@ -8,11 +8,8 @@ const STATIC_ASSETS = [
   '/assets/index.js',
   '/assets/react-vendor.js',
   '/assets/ui-vendor.js',
-  // Ensure local font CSS is available offline
-  '/fonts/yuji-syuku/yuji-syuku.css',
-  // If present, cache local font files
-  '/fonts/yuji-syuku/yuji-syuku.woff2',
-  '/fonts/yuji-syuku/yuji-syuku.ttf'
+  // Ensure local font CSS is available offline（フォント本体は初回はキャッシュしない）
+  '/fonts/yuji-syuku/yuji-syuku.css'
 ];
 
 // URLs to exclude from caching

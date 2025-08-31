@@ -16,7 +16,8 @@
     
     <link rel="icon" href="/image/ichigo_ichibi_logo.svg" type="image/svg+xml">
     
-    <!-- Avoid preloading non‑LCP images to reduce wasted bandwidth -->
+    <!-- Preload only the first hero image to prioritize LCP -->
+    <link rel="preload" href="/image/soba.webp" as="image" type="image/webp" fetchpriority="high">
     
     <style>
       :root {
@@ -53,12 +54,11 @@
       /* logo preload div を廃止（オフスクリーン画像の早期読み込みを防止） */
     </style>
 
-    <!-- Preload local Yuji Syuku font (WOFF2) -->
-    <link rel="preload" as="font" href="/fonts/yuji-syuku/yuji-syuku.woff2" type="font/woff2" crossorigin>
-
-    <!-- Self-hosted Yuji Syuku font: load non-blocking -->
-    <link id="local-yuji-syuku" rel="preload" as="style" href="/fonts/yuji-syuku/yuji-syuku.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/fonts/yuji-syuku/yuji-syuku.css"></noscript>
+    <!-- Webフォントは初期表示では読み込まない（JSで遅延ロード） -->
+    <noscript>
+      <!-- JS無効時のみ通常読み込み -->
+      <link rel="stylesheet" href="/fonts/yuji-syuku/yuji-syuku.css">
+    </noscript>
 
     <!-- オフライン前提のため、Google Fonts フォールバックは削除 -->
     
@@ -104,6 +104,25 @@
           img.src = img.dataset.src;
         });
       });
+
+      // Lazy‑load self‑hosted font CSS after initial render
+      function loadFonts() {
+        if (document.getElementById('local-yuji-syuku')) return;
+        var link = document.createElement('link');
+        link.id = 'local-yuji-syuku';
+        link.rel = 'stylesheet';
+        link.href = '/fonts/yuji-syuku/yuji-syuku.css';
+        link.media = 'print';
+        link.onload = function() { this.media = 'all'; };
+        document.head.appendChild(link);
+      }
+
+      // 余裕のあるタイミングで読み込み
+      if ('requestIdleCallback' in window) {
+        (window).requestIdleCallback(loadFonts, { timeout: 2500 });
+      } else {
+        window.addEventListener('load', function() { setTimeout(loadFonts, 1500); });
+      }
     </script>
     
     <script type="application/ld+json">
