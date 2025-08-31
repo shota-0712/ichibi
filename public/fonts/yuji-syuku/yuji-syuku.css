@@ -1,0 +1,13 @@
+/* Self-hosted Yuji Syuku. Place files below if available:
+   /public/fonts/yuji-syuku/yuji-syuku.woff2 (preferred)
+   /public/fonts/yuji-syuku/yuji-syuku.ttf   (fallback)
+*/
+@font-face {
+  font-family: 'Yuji Syuku';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('/fonts/yuji-syuku/yuji-syuku.woff2') format('woff2'),
+    url('/fonts/yuji-syuku/yuji-syuku.ttf') format('truetype');
+}

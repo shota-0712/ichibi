@@ -8,7 +8,7 @@ export function FooterSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-semibold mb-4">十割蕎麦・焼鳥酒場『一期一美』</h3>
+            <h3 className="text-xl font-kanteiryuu font-semibold mb-4">十割蕎麦・焼鳥酒場『一期一美』</h3>
             <div className="flex items-start gap-3 mb-4">
               <MapPin className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
@@ -19,7 +19,7 @@ export function FooterSection() {
             <div className="flex items-start gap-3">
               <Phone className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
-                <p className="font-semibold mb-1">お電話</p>
+                <p className="font-kanteiryuu font-semibold mb-1">お電話</p>
                 <p>0439-27-1936</p>
                 <p className="text-sm text-gray-200 mt-1">※2025年10月1日プレオープン・10月13日グランドオープン</p>
               </div>
@@ -27,11 +27,11 @@ export function FooterSection() {
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold mb-4">営業時間</h3>
+            <h3 className="text-xl font-kanteiryuu font-semibold mb-4">営業時間</h3>
             <div className="flex items-start gap-3">
               <Clock className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
-                <p className="font-semibold mb-2">営業時間</p>
+                <p className="font-kanteiryuu font-semibold mb-2">営業時間</p>
                 <div className="space-y-2">
                   <div>
                     <p className="font-medium">【十割蕎麦・焼鳥酒場】</p>
@@ -44,7 +44,7 @@ export function FooterSection() {
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold mb-4">SNS</h3>
+            <h3 className="text-xl font-kanteiryuu font-semibold mb-4">SNS</h3>
             <div className="flex space-x-4">
               <a 
                 href="https://www.instagram.com/ichigo__ichibi/" 

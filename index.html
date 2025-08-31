@@ -6,11 +6,6 @@
     <meta name="theme-color" content="#1B315E">
     
     <!-- Preconnect hints for critical third-party resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/YujiSyuku.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap">
-    <link rel="preconnect" href="https://i.ibb.co" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="//www.instagram.com">
     <link rel="dns-prefetch" href="//x.com">
@@ -20,7 +15,6 @@
     <meta name="description" content="【2025年10月13日グランドオープン・10月1日プレオープン】千葉県君津市内蓑輪にある石臼挽き手打十割そばと炭火やきとりのお店。本格十割そばと、厳選した国産鶏のやきとり。">
     
     <link rel="icon" href="/image/ichigo_ichibi_logo.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/image/ichigo_ichibi_logo.webp">
     
     <!-- Preload critical images -->
     <link rel="preload" href="/image/ichigo_ichibi_logo.svg" as="image" type="image/svg+xml" fetchpriority="high">
@@ -30,7 +24,8 @@
     
     <style>
       :root {
-        --font-serif: 'Yuji Syuku', 'Yu Mincho', 'Hiragino Mincho ProN', 'HG明朝E', 'MS P明朝', '游明朝', serif;
+        /* Body default: readable Mincho; Yuji is used selectively via classes */
+        --font-serif: 'Yu Mincho', 'Hiragino Mincho ProN', 'HG明朝E', 'MS P明朝', '游明朝', serif;
         --color-primary: #1B315E;
         --color-text: #333333;
         --color-accent: #D4A017;
@@ -62,6 +57,13 @@
       /* logo preload div を廃止（オフスクリーン画像の早期読み込みを防止） */
     </style>
 
+    <!-- Preload local Yuji Syuku font (WOFF2) -->
+    <link rel="preload" as="font" href="/fonts/yuji-syuku/yuji-syuku.woff2" type="font/woff2" crossorigin>
+
+    <!-- Self-hosted Yuji Syuku font (if present) -->
+    <link id="local-yuji-syuku" rel="stylesheet" href="/fonts/yuji-syuku/yuji-syuku.css">
+
+    <!-- オフライン前提のため、Google Fonts フォールバックは削除 -->
     
     <meta property="og:title" content="十割蕎麦・焼鳥酒場 『一期一美』 - ichibi - | 君津の手打十割そば・厳選した国産鶏のやきとり">
     <meta property="og:description" content="【2025年10月13日グランドオープン・10月1日プレオープン】千葉県君津市内蓑輪にある石臼挽き手打十割そばと厳選した国産鶏のやきとりを提供するお店。">
