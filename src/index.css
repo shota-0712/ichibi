@@ -106,15 +106,17 @@
 
 @layer utilities {
   @keyframes marquee {
-    from {
-      transform: translateX(100%);
+    0% {
+      transform: translateX(0);
     }
-    to {
-      transform: translateX(-100%);
+    100% {
+      transform: translateX(-50%);
     }
   }
 
   .animate-marquee {
+    display: flex;
+    width: max-content;
     animation: marquee 15s linear infinite;
   }
 }
