@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Utensils, Clock, MapPin, Phone } from 'lucide-react';
+import { Utensils, Beer, Clock, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Optimize image loading with smaller images and proper dimensions
@@ -259,18 +259,18 @@ export function HeroSection() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                to="/lunch" 
-                className="bg-japanese-red hover:bg-red-800 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
+              <Link
+                to="/lunch"
+                className="bg-[#BE513C] hover:bg-[#984030] text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
               >
                 <Utensils className="w-5 h-5" />
                 ランチメニュー
               </Link>
-              <Link 
-                to="/izakaya" 
-                className="bg-japanese-indigo hover:bg-blue-900 text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
+              <Link
+                to="/izakaya"
+                className="bg-[#09314B] hover:bg-[#07273C] text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
               >
-                <Utensils className="w-5 h-5" />
+                <Beer className="w-5 h-5" />
                 居酒屋メニュー
               </Link>
             </div>
