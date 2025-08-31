@@ -26,7 +26,7 @@ export function StoreInfo() {
                   <div>
                     <h3 className="font-semibold">お電話</h3>
                     <p>0439-27-1936</p>
-                    <p className="text-sm text-gray-600 mt-1">※2025年10月1日より</p>
+                    <p className="text-sm text-gray-600 mt-1">※2025年10月1日プレオープン・10月13日グランドオープン</p>
                   </div>
                 </div>
 

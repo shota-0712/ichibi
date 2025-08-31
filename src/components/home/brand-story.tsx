@@ -16,7 +16,7 @@ export function BrandStory() {
                       <h2 className="text-3xl font-kanteiryuu mb-8">一期一美のこだわり</h2>
           <div className="prose max-w-none text-lg text-gray-700 font-kanteiryuu">
             <p className="mb-6">
-                              2025年10月1日、君津の地に新たに誕生する「一期一美」。
+                              2025年10月13日、君津の地にグランドオープンする「一期一美」。10月1日からプレオープンを予定しています。
               手打ち蕎麦と焼鳥の技を磨いてきたシェフが、
               房総の豊かな食材を活かした料理の数々をお届けいたします。
             </p>
