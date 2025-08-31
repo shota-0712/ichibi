@@ -16,11 +16,7 @@
     
     <link rel="icon" href="/image/ichigo_ichibi_logo.svg" type="image/svg+xml">
     
-    <!-- Preload critical images -->
-    <link rel="preload" href="/image/ichigo_ichibi_logo.svg" as="image" type="image/svg+xml" fetchpriority="high">
-    <link rel="preload" href="/image/soba.webp" as="image" type="image/webp">
-    <link rel="preload" href="/image/yakitori.webp" as="image" type="image/webp">
-    <link rel="preload" href="/image/nihonnshu.webp" as="image" type="image/webp">
+    <!-- Avoid preloading non‑LCP images to reduce wasted bandwidth -->
     
     <style>
       :root {
@@ -60,8 +56,9 @@
     <!-- Preload local Yuji Syuku font (WOFF2) -->
     <link rel="preload" as="font" href="/fonts/yuji-syuku/yuji-syuku.woff2" type="font/woff2" crossorigin>
 
-    <!-- Self-hosted Yuji Syuku font (if present) -->
-    <link id="local-yuji-syuku" rel="stylesheet" href="/fonts/yuji-syuku/yuji-syuku.css">
+    <!-- Self-hosted Yuji Syuku font: load non-blocking -->
+    <link id="local-yuji-syuku" rel="preload" as="style" href="/fonts/yuji-syuku/yuji-syuku.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/fonts/yuji-syuku/yuji-syuku.css"></noscript>
 
     <!-- オフライン前提のため、Google Fonts フォールバックは削除 -->
     
