@@ -48,6 +48,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-stone-50">
       <nav className="fixed w-full z-50">
+        <div className="w-full overflow-hidden bg-black/50">
+          <div className="inline-block whitespace-nowrap animate-marquee px-4 py-2 text-japanese-gold font-kanteiryuu">
+            2025年10月1日プレオープン ・ 10月13日グランドオープン
+          </div>
+        </div>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4 md:py-6">
             <Link to="/" className="flex items-center">
@@ -106,7 +111,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden bg-black/80 backdrop-blur-md fixed inset-x-0 top-[88px] bottom-0 overflow-y-auto"
+              className="md:hidden bg-black/80 backdrop-blur-md fixed inset-x-0 top-[128px] bottom-0 overflow-y-auto"
             >
               <div className="container mx-auto px-4 py-6">
                 <div className="flex flex-col space-y-4">
