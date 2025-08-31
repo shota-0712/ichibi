@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Utensils, Beer, Clock, MapPin, Phone } from 'lucide-react';
-import { motion } from 'framer-motion';
+// Removed framer-motion from initial bundle to cut JS cost
 
 // Optimize image loading with smaller images and proper dimensions
 // Keep URLs identical between preloaders and consumers (no query string)
@@ -215,12 +215,7 @@ export function HeroSection() {
         </div>
         
         {/* Bottom info section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="bg-black bg-opacity-50 text-white p-4 md:p-6"
-        >
+        <div className="bg-black bg-opacity-50 text-white p-4 md:p-6 transition-opacity duration-700">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div className="flex items-center justify-center gap-2">
@@ -237,7 +232,7 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
