@@ -49,8 +49,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-stone-50">
       <nav className="fixed w-full z-50">
         <div className="w-full overflow-hidden bg-black/50">
-          <div className="inline-block whitespace-nowrap animate-marquee px-4 py-2 text-japanese-gold font-kanteiryuu">
-            2025年10月1日プレオープン ・ 10月13日グランドオープン
+          <div className="animate-marquee">
+            <span className="whitespace-nowrap px-4 py-2 text-japanese-gold font-kanteiryuu">
+              2025年10月1日プレオープン ・ 10月13日グランドオープン
+            </span>
+            <span
+              className="whitespace-nowrap px-4 py-2 text-japanese-gold font-kanteiryuu"
+              aria-hidden="true"
+            >
+              2025年10月1日プレオープン ・ 10月13日グランドオープン
+            </span>
           </div>
         </div>
         <div className="container mx-auto px-4">
