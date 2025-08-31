@@ -41,26 +41,23 @@ export function HeroSection() {
   useEffect(() => {
     let isMounted = true;
     
-    // Preload the first image with high priority
-    const preloadFirstImage = () => {
+  // Preload the first image with high priority
+  const preloadFirstImage = () => {
       const img = new Image();
+      img.decoding = 'async';
       img.onload = () => {
         if (!isMounted) return;
-        
         imageLoadStatus.current[0] = true;
         setIsImageLoaded([...imageLoadStatus.current]);
-        
         // After first image is loaded, load the rest during idle time
         if ('requestIdleCallback' in window) {
           (window as Window & { requestIdleCallback: typeof requestIdleCallback }).requestIdleCallback(preloadRemainingImages, { timeout: 2000 });
         } else {
           setTimeout(preloadRemainingImages, 100);
         }
-        
-        // Mark as loaded to start the slideshow
         setImagesLoaded(true);
       };
-      img.src = SLIDER_IMAGES[0].url;
+      img.src = SLIDER_IMAGES[0].smallUrl;
     };
 
     // Preload remaining images with lower priority during idle time
@@ -139,103 +136,40 @@ export function HeroSection() {
 
   return (
     <div className="h-screen relative overflow-hidden bg-black">
-      {/* Image Slider with progressive loading */}
+      {/* Image Slider with real <img> for proper priority */}
       <div className="absolute inset-0 bg-black">
         {/* Current image */}
-        <div
-          className="absolute inset-0 transition-opacity duration-500 ease-in-out"
-          style={{ 
-            opacity: isTransitioning ? 0 : 1,
-            zIndex: 1
+        <img
+          src={SLIDER_IMAGES[currentImageIndex].smallUrl}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+          style={{ filter: 'brightness(0.4)', opacity: isTransitioning ? 0 : 1, zIndex: 1 }}
+          decoding="async"
+          fetchPriority={currentImageIndex === 0 ? 'high' : 'auto'}
+          loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
+          onLoad={() => {
+            const newLoadedState = [...isImageLoaded];
+            newLoadedState[currentImageIndex] = true;
+            setIsImageLoaded(newLoadedState);
           }}
-        >
-          {/* Low quality placeholder that loads immediately */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 bg-black"
-            style={{ 
-              backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].placeholder})`,
-              filter: 'brightness(0.4)',
-              opacity: isImageLoaded[currentImageIndex] ? 0 : 1
-            }}
-            aria-hidden="true"
-          />
-          
-          {/* High quality image that fades in when loaded */}
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 ease-out"
-            style={{ 
-              backgroundImage: `url(${SLIDER_IMAGES[currentImageIndex].smallUrl})`,
-              transform: 'scale(1.05)',
-              filter: 'brightness(0.4)',
-              opacity: isImageLoaded[currentImageIndex] ? 1 : 0
-            }}
-            aria-hidden="true"
-          >
-            {/* Hidden actual image for screen readers */}
-            <img 
-              src={SLIDER_IMAGES[currentImageIndex].smallUrl} 
-              alt=""
-              className="sr-only" 
-              width="1920" 
-              height="1080"
-              fetchPriority={currentImageIndex === 0 ? "high" : "low"}
-              loading={currentImageIndex === 0 ? "eager" : "lazy"}
-              sizes="100vw"
-              srcSet={`${SLIDER_IMAGES[currentImageIndex].smallUrl} 640w, ${SLIDER_IMAGES[currentImageIndex].mediumUrl} 1280w, ${SLIDER_IMAGES[currentImageIndex].url} 1920w`}
-              onLoad={() => {
-                const newLoadedState = [...isImageLoaded];
-                newLoadedState[currentImageIndex] = true;
-                setIsImageLoaded(newLoadedState);
-              }}
-            />
-          </div>
-        </div>
+        />
 
-        {/* Next image (preloaded and ready to fade in) */}
-        <div
-          className="absolute inset-0 transition-opacity duration-500 ease-in-out"
-          style={{ 
-            opacity: isTransitioning ? 1 : 0,
-            zIndex: 2
+        {/* Next image */}
+        <img
+          src={SLIDER_IMAGES[nextImageIndex].smallUrl}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+          style={{ filter: 'brightness(0.4)', opacity: isTransitioning ? 1 : 0, zIndex: 2 }}
+          decoding="async"
+          loading="lazy"
+          onLoad={() => {
+            const newLoadedState = [...isImageLoaded];
+            newLoadedState[nextImageIndex] = true;
+            setIsImageLoaded(newLoadedState);
           }}
-        >
-          {/* Low quality placeholder that loads immediately */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 bg-black"
-            style={{ 
-              backgroundImage: `url(${SLIDER_IMAGES[nextImageIndex].placeholder})`,
-              filter: 'brightness(0.4)',
-              opacity: isImageLoaded[nextImageIndex] ? 0 : 1
-            }}
-            aria-hidden="true"
-          />
-          
-          {/* High quality image that fades in when loaded */}
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 ease-out"
-            style={{ 
-              backgroundImage: `url(${SLIDER_IMAGES[nextImageIndex].smallUrl})`,
-              transform: 'scale(1.05)',
-              filter: 'brightness(0.4)',
-              opacity: isImageLoaded[nextImageIndex] ? 1 : 0
-            }}
-            aria-hidden="true"
-          >
-            {/* Hidden actual image for screen readers */}
-            <img 
-              src={SLIDER_IMAGES[nextImageIndex].smallUrl} 
-              alt=""
-              className="sr-only" 
-              width="1920" 
-              height="1080"
-              onLoad={() => {
-                const newLoadedState = [...isImageLoaded];
-                newLoadedState[nextImageIndex] = true;
-                setIsImageLoaded(newLoadedState);
-              }}
-            />
-          </div>
-        </div>
+        />
       </div>
       
       <div className="absolute inset-0 z-30 flex flex-col justify-between pt-32 md:pt-40 will-change-transform">

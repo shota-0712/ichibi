@@ -16,7 +16,8 @@
     
     <link rel="icon" href="/image/ichigo_ichibi_logo.svg" type="image/svg+xml">
     
-    <!-- Avoid preloading non‑LCP images to reduce wasted bandwidth -->
+    <!-- Preload only the first hero image to prioritize LCP -->
+    <link rel="preload" href="/image/soba.webp" as="image" type="image/webp" fetchpriority="high">
     
     <style>
       :root {
