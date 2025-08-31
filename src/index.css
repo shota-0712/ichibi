@@ -106,6 +106,7 @@
 
 @layer utilities {
   @keyframes marquee {
+
     0%, 100% {
       transform: translateX(0);
     }

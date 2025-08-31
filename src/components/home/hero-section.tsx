@@ -236,6 +236,7 @@ export function HeroSection() {
       </div>
       
       <div className="absolute inset-0 z-30 flex flex-col justify-between pt-32 md:pt-40 will-change-transform">
+
         <div className="w-full overflow-hidden bg-black/50">
           <div className="inline-block whitespace-nowrap animate-marquee px-4 py-2 text-japanese-gold font-kanteiryuu">
             2025年10月1日プレオープン ・ 10月13日グランドオープン
