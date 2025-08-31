@@ -4,6 +4,8 @@ import { Utensils, Beer, Clock, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Optimize image loading with smaller images and proper dimensions
+// Keep URLs identical between preloaders and consumers (no query string)
+// to prevent "preloaded but not used" warnings and improve LCP.
 const SLIDER_IMAGES = [
   {
     url: "/image/soba.webp",
@@ -19,10 +21,11 @@ const SLIDER_IMAGES = [
   }
 ].map(img => ({
   ...img,
-  url: `${img.url}?auto=format&fit=crop&w=1920&h=1080&q=75`,
-  smallUrl: `${img.url}?auto=format&fit=crop&w=640&h=360&q=60`,
-  mediumUrl: `${img.url}?auto=format&fit=crop&w=1280&h=720&q=70`,
-  placeholder: `${img.url}?auto=format&fit=crop&w=20&h=10&q=10&blur=10`
+  // For now we serve the same asset at all sizes. When a CDN
+  // is introduced, these can point to real variants.
+  smallUrl: img.url,
+  mediumUrl: img.url,
+  placeholder: img.url
 }));
 
 export function HeroSection() {
