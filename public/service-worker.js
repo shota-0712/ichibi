@@ -1,5 +1,5 @@
 // Service Worker for caching and offline functionality
-const CACHE_NAME = 'ichimi-cache-v2';
+const CACHE_NAME = 'ichimi-cache-v5';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -7,7 +7,12 @@ const STATIC_ASSETS = [
   '/assets/index.css',
   '/assets/index.js',
   '/assets/react-vendor.js',
-  '/assets/ui-vendor.js'
+  '/assets/ui-vendor.js',
+  // Ensure local font CSS is available offline
+  '/fonts/yuji-syuku/yuji-syuku.css',
+  // If present, cache local font files
+  '/fonts/yuji-syuku/yuji-syuku.woff2',
+  '/fonts/yuji-syuku/yuji-syuku.ttf'
 ];
 
 // URLs to exclude from caching
@@ -15,6 +20,9 @@ const EXCLUDE_FROM_CACHE = [
   'chrome-extension',
   'googletagmanager.com',
   'google-analytics.com',
+  // Exclude remote Google Fonts from cache
+  'fonts.googleapis.com',
+  'fonts.gstatic.com',
   'analytics',
   'gtag',
   'gtm',
@@ -46,8 +54,20 @@ function shouldCache(url) {
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
+    caches.open(CACHE_NAME).then(async (cache) => {
+      // addAll は1つでも404があると失敗するため、個別に安全に追加
+      await Promise.all(
+        STATIC_ASSETS.map(async (url) => {
+          try {
+            const res = await fetch(url, { cache: 'no-cache' });
+            if (res && res.ok) {
+              await cache.put(url, res.clone());
+            }
+          } catch (e) {
+            // ignore missing assets
+          }
+        })
+      );
     })
   );
   self.skipWaiting();
