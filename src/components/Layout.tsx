@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Twitter, Facebook } from 'lucide-react';
 import { FooterSection } from './home/footer-section';
-import { motion, AnimatePresence } from 'framer-motion';
+// framer-motion を初期バンドルから外すため、
+// モバイルメニューの開閉はCSSトランジションで実装する
 import logo from '../assets/ichigo_ichibi_logo.svg';
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -111,73 +112,68 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         
-        {/* Mobile menu with animation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden bg-black/80 backdrop-blur-md fixed inset-x-0 top-[128px] bottom-0 overflow-y-auto"
-            >
-              <div className="container mx-auto px-4 py-6">
-                <div className="flex flex-col space-y-4">
-                  <Link 
-                    to="/lunch" 
-                    className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-                  >
-                    ランチ
-                  </Link>
-                  <Link 
-                    to="/izakaya" 
-                    className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-                  >
-                    居酒屋
-                  </Link>
-                  <Link 
-                    to="/drinks" 
-                    className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-                  >
-                    ドリンク
-                  </Link>
-                  <Link 
-                    to="/store-info" 
-                    className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-                  >
-                    店舗情報
-                  </Link>
-                  <div className="pt-4 flex space-x-6 justify-center">
-                    <a 
-                      href="https://www.instagram.com/ichigo__ichibi/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
-                    >
-                      <Instagram className="h-6 w-6" />
-                    </a>
-                    <a 
-                      href="https://x.com/ichigo_ichibi" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
-                    >
-                      <Twitter className="h-6 w-6" />
-                    </a>
-                    <a 
-                      href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
-                    >
-                      <Facebook className="h-6 w-6" />
-                    </a>
-                  </div>
-                </div>
+        {/* Mobile menu with CSS transitions (no framer-motion) */}
+        <div
+          className={`md:hidden fixed inset-x-0 top-[128px] bottom-0 overflow-y-auto bg-black/80 backdrop-blur-md transition-opacity duration-200 ${
+            isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+          aria-hidden={!isMenuOpen}
+        >
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-col space-y-4">
+              <Link 
+                to="/lunch" 
+                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
+              >
+                ランチ
+              </Link>
+              <Link 
+                to="/izakaya" 
+                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
+              >
+                居酒屋
+              </Link>
+              <Link 
+                to="/drinks" 
+                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
+              >
+                ドリンク
+              </Link>
+              <Link 
+                to="/store-info" 
+                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
+              >
+                店舗情報
+              </Link>
+              <div className="pt-4 flex space-x-6 justify-center">
+                <a 
+                  href="https://www.instagram.com/ichigo__ichibi/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
+                >
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a 
+                  href="https://x.com/ichigo_ichibi" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
+                >
+                  <Twitter className="h-6 w-6" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
+                >
+                  <Facebook className="h-6 w-6" />
+                </a>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <main className="relative min-h-screen">

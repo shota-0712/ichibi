@@ -85,16 +85,17 @@
         })(window,document,'script','dataLayer','GTM-NXL4Q3VM');
       }
       
-      // Load GTM on first user interaction or after 3 seconds
+      // Load GTM only on first user interaction (遅延)
       ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(function(event) {
         document.addEventListener(event, function() {
           loadGTM();
         }, { once: true, passive: true });
       });
-      
-      // Fallback - load after 3 seconds
+      // Optional very-late fallback（10秒後かつタブがアクティブな場合のみ）
       window.addEventListener('load', function() {
-        setTimeout(loadGTM, 3000);
+        setTimeout(function(){
+          if (document.visibilityState === 'visible') loadGTM();
+        }, 10000);
       });
       
       // Optimize image loading
