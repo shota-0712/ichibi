@@ -105,6 +105,12 @@
 }
 
 @layer utilities {
+  /* Defer rendering/layout of offscreen sections to reduce CLS/TBT */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px; /* reserve logical height to avoid shift */
+  }
+
   @keyframes marquee {
     0% {
       transform: translateX(0);

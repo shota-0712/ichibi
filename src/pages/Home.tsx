@@ -7,7 +7,9 @@ const FeaturedSections = lazy(() => import('../components/home/featured-sections
 const BrandStory = lazy(() => import('../components/home/brand-story').then(m => ({ default: m.BrandStory })));
 const SocialFeed = lazy(() => import('../components/social/social-feed').then(m => ({ default: m.SocialFeed })));
 
-function LazyInView({ children, rootMargin = '200px' }: { children: React.ReactNode; rootMargin?: string }) {
+type LazyProps = { children: React.ReactNode; rootMargin?: string; intrinsicSize?: number };
+
+function LazyInView({ children, rootMargin = '200px', intrinsicSize = 800 }: LazyProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -30,7 +32,12 @@ function LazyInView({ children, rootMargin = '200px' }: { children: React.ReactN
   }, [visible, rootMargin]);
 
   return (
-    <div ref={ref} data-lazy-section>
+    <div 
+      ref={ref} 
+      data-lazy-section 
+      className="cv-auto"
+      style={{ containIntrinsicSize: `${intrinsicSize}px` as any }}
+    >
       {visible ? children : null}
     </div>
   );
@@ -42,17 +49,17 @@ export function Home() {
       <SocialWidgetLoader />
       <HeroSection />
       <Suspense fallback={null}>
-        <LazyInView>
+        <LazyInView intrinsicSize={720}>
           <FeaturedSections />
         </LazyInView>
       </Suspense>
       <Suspense fallback={null}>
-        <LazyInView>
+        <LazyInView intrinsicSize={720}>
           <BrandStory />
         </LazyInView>
       </Suspense>
       <Suspense fallback={null}>
-        <LazyInView>
+        <LazyInView intrinsicSize={560}>
           <SocialFeed />
         </LazyInView>
       </Suspense>
