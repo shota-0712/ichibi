@@ -136,14 +136,6 @@ export function HeroSection() {
 
   return (
     <div className="h-screen relative overflow-hidden bg-black">
-      {/* Opening Notice Banner */}
-      <div className="fixed top-0 left-0 right-0 z-50">
-        <div className="bg-japanese-red text-white py-2 text-center text-base md:text-lg font-bold w-full">
-          <span className="mr-4">2025年10月1日プレオープン！</span>
-          <span>10月13日グランドオープン！</span>
-        </div>
-      </div>
-
       {/* Image Slider with progressive loading */}
       <div className="absolute inset-0 bg-black">
         {/* Current image */}
@@ -243,7 +235,12 @@ export function HeroSection() {
         </div>
       </div>
       
-      <div className="absolute inset-0 z-30 flex flex-col justify-between pt-16 md:pt-28 will-change-transform">
+      <div className="absolute inset-0 z-30 flex flex-col justify-between pt-32 md:pt-40 will-change-transform">
+        <div className="w-full overflow-hidden bg-black/50">
+          <div className="inline-block whitespace-nowrap animate-marquee px-4 py-2 text-japanese-gold font-kanteiryuu">
+            2025年10月1日プレオープン ・ 10月13日グランドオープン
+          </div>
+        </div>
         <div className="flex-1 flex items-center justify-center px-4">
           <div className="text-center w-full max-w-4xl mx-auto">
             <div className="mb-6 transition-opacity duration-300" style={{opacity: 1}}>

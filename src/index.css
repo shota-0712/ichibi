@@ -103,3 +103,18 @@
   bottom: 4px;
   border: 1px solid #d1d5db;
 }
+
+@layer utilities {
+  @keyframes marquee {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(calc(100vw - 100%));
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 10s ease-in-out infinite;
+  }
+}
