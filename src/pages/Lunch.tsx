@@ -3,6 +3,198 @@ import { Clock, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MenuItem } from '../components/menu/menu-item';
 
+const coldSobaItems = [
+  {
+    name: 'ざるそば',
+    price: 800,
+    allergens: ['そば', '小麦'],
+    description: '香り高い十割そばをつめたつゆで',
+  },
+  {
+    name: '天ざるそば',
+    price: 1200,
+    allergens: ['そば', '小麦', 'えび'],
+    description: '海老と野菜の天ぷら付き',
+  },
+  {
+    name: '鴨せいろそば',
+    price: 1400,
+    allergens: ['そば', '小麦'],
+    description: '鴨肉の旨みが効いたつけだれ',
+  },
+  {
+    name: 'とりせいろそば',
+    price: 1080,
+    allergens: ['そば', '小麦', '鶏肉'],
+    description: '鶏肉と九条ネギのつけだれ',
+  },
+];
+
+const hotSobaItems = [
+  {
+    name: 'かけそば',
+    price: 800,
+    allergens: ['そば', '小麦'],
+    description: '温かい出汁でいただく基本の一杯',
+  },
+  {
+    name: 'とり南蛮そば',
+    price: 1080,
+    allergens: ['そば', '小麦', '鶏肉'],
+    description: '特製タルタルソース添え',
+  },
+  {
+    name: '鴨南蛮そば',
+    price: 1400,
+    allergens: ['そば', '小麦'],
+    description: '肉厚の鴨肉と温かい出汁',
+  },
+  {
+    name: 'かき揚げそば',
+    price: 900,
+    allergens: ['そば', '小麦', 'えび'],
+    description: '海老と野菜のかき揚げ',
+  },
+  {
+    name: 'きつねそば',
+    price: 850,
+    allergens: ['そば', '小麦', '大豆'],
+    description: '甘辛く煮た油揚げをのせて',
+  },
+  {
+    name: 'とろろそば',
+    price: 900,
+    allergens: ['そば', '小麦', 'やまいも'],
+    description: '自家製とろろをのせて',
+  },
+  {
+    name: '山菜そば',
+    price: 900,
+    allergens: ['そば', '小麦'],
+    description: '季節の山菜を添えて',
+  },
+  {
+    name: 'たぬきそば',
+    price: 900,
+    allergens: ['そば', '小麦'],
+    description: 'カリカリの天かすをのせて',
+  },
+  {
+    name: '天ぷらそば',
+    price: 1200,
+    allergens: ['そば', '小麦', 'えび'],
+    description: '海老と野菜の天ぷら付き',
+  },
+];
+
+const setMealItems = [
+  {
+    name: '生姜焼定食',
+    price: 950,
+    allergens: ['豚肉', '小麦', '大豆'],
+    description: '国産豚ロースの生姜焼き',
+  },
+  {
+    name: '唐揚げ定食',
+    price: 950,
+    allergens: ['鶏肉', '小麦'],
+    description: 'にんにく醤油で味付けした唐揚げ',
+  },
+  {
+    name: 'アジフライ定食',
+    price: 800,
+    allergens: ['小麦'],
+    description: '新鮮なアジを使用したフライ',
+  },
+  {
+    name: 'エビフライ定食',
+    price: 1200,
+    allergens: ['小麦', 'えび'],
+    description: '大ぶりのエビフライ',
+  },
+  {
+    name: 'ミックスフライ定食',
+    price: 1100,
+    allergens: ['小麦', 'えび'],
+    description: 'エビ、白身魚、カキのフライ',
+  },
+  {
+    name: 'ハンバーグ定食',
+    price: 950,
+    allergens: ['小麦', '卵', '乳'],
+    description: '手ごねハンバーグ',
+  },
+  {
+    name: 'チキン南蛮定食',
+    price: 1000,
+    allergens: ['鶏肉', '小麦', '卵'],
+    description: '特製タルタルソース添え',
+  },
+  {
+    name: 'とんかつ定食',
+    price: 1000,
+    allergens: ['豚肉', '小麦'],
+    description: '国産豚ロースカツ',
+  },
+];
+
+const riceBowlItems = [
+  {
+    name: '親子丼',
+    price: 800,
+    allergens: ['鶏肉', '卵'],
+    description: 'ふんわり玉子と鶏肉',
+  },
+  {
+    name: '玉子丼',
+    price: 650,
+    allergens: ['卵'],
+    description: 'だし巻き玉子をのせて',
+  },
+  {
+    name: 'かつ丼',
+    price: 1000,
+    allergens: ['豚肉', '小麦', '卵'],
+    description: 'サクサクのカツと玉子とじ',
+  },
+  {
+    name: '天丼',
+    price: 1000,
+    allergens: ['小麦', 'えび'],
+    description: '海老と野菜の天ぷら',
+  },
+];
+
+const dessertItems = [
+  [
+    {
+      name: '抹茶アイス',
+      price: 380,
+      allergens: ['乳'],
+      description: '宇治抹茶使用',
+    },
+    {
+      name: 'バニラアイス',
+      price: 380,
+      allergens: ['乳'],
+      description: '濃厚なバニラビーンズ使用',
+    },
+  ],
+  [
+    {
+      name: '自家製プリン',
+      price: 400,
+      allergens: ['卵', '乳'],
+      description: '手作りカスタードプリン',
+    },
+    {
+      name: '杏仁豆腐',
+      price: 400,
+      description: '本格的な杏仁豆腐',
+    },
+  ],
+];
+
 export function Lunch() {
   return (
     <div>
@@ -47,30 +239,9 @@ export function Lunch() {
                 <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">冷たいそば</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
-                    <MenuItem 
-                      name="ざるそば"
-                      price={800}
-                      allergens={['そば', '小麦']}
-                      description="香り高い十割そばをつめたつゆで"
-                    />
-                    <MenuItem 
-                      name="天ざるそば"
-                      price={1200}
-                      allergens={['そば', '小麦', 'えび']}
-                      description="海老と野菜の天ぷら付き"
-                    />
-                    <MenuItem 
-                      name="鴨せいろそば"
-                      price={1400}
-                      allergens={['そば', '小麦']}
-                      description="鴨肉の旨みが効いたつけだれ"
-                    />
-                    <MenuItem 
-                      name="とりせいろそば"
-                      price={1080}
-                      allergens={['そば', '小麦', '鶏肉']}
-                      description="鶏肉と九条ネギのつけだれ"
-                    />
+                    {coldSobaItems.map((item) => (
+                      <MenuItem key={item.name} {...item} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -80,60 +251,9 @@ export function Lunch() {
                 <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">温かいそば</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
-                    <MenuItem 
-                      name="かけそば"
-                      price={800}
-                      allergens={['そば', '小麦']}
-                      description="温かい出汁でいただく基本の一杯"
-                    />
-                    <MenuItem 
-                      name="とり南蛮そば"
-                      price={1080}
-                      allergens={['そば', '小麦', '鶏肉']}
-                      description="特製タルタルソース添え"
-                    />
-                    <MenuItem 
-                      name="鴨南蛮そば"
-                      price={1400}
-                      allergens={['そば', '小麦']}
-                      description="肉厚の鴨肉と温かい出汁"
-                    />
-                    <MenuItem 
-                      name="かき揚げそば"
-                      price={900}
-                      allergens={['そば', '小麦', 'えび']}
-                      description="海老と野菜のかき揚げ"
-                    />
-                    <MenuItem 
-                      name="きつねそば"
-                      price={850}
-                      allergens={['そば', '小麦', '大豆']}
-                      description="甘辛く煮た油揚げをのせて"
-                    />
-                    <MenuItem 
-                      name="とろろそば"
-                      price={900}
-                      allergens={['そば', '小麦', 'やまいも']}
-                      description="自家製とろろをのせて"
-                    />
-                    <MenuItem 
-                      name="山菜そば"
-                      price={900}
-                      allergens={['そば', '小麦']}
-                      description="季節の山菜を添えて"
-                    />
-                    <MenuItem 
-                      name="たぬきそば"
-                      price={900}
-                      allergens={['そば', '小麦']}
-                      description="カリカリの天かすをのせて"
-                    />
-                    <MenuItem 
-                      name="天ぷらそば"
-                      price={1200}
-                      allergens={['そば', '小麦', 'えび']}
-                      description="海老と野菜の天ぷら付き"
-                    />
+                    {hotSobaItems.map((item) => (
+                      <MenuItem key={item.name} {...item} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -143,55 +263,9 @@ export function Lunch() {
                 <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
-                    <MenuItem 
-                      name="生姜焼定食"
-                      price={950}
-                      allergens={['豚肉', '小麦', '大豆']}
-                      description="国産豚ロースの生姜焼き"
-                    />
-                    <MenuItem 
-                      name="唐揚げ定食"
-                      price={950}
-                      allergens={['鶏肉', '小麦']}
-                      description="にんにく醤油で味付けした唐揚げ"
-                    />
-                    <MenuItem 
-                      name="アジフライ定食"
-                      price={800}
-                      allergens={['小麦']}
-                      description="新鮮なアジを使用したフライ"
-                    />
-                    <MenuItem 
-                      name="エビフライ定食"
-                      price={1200}
-                      allergens={['小麦', 'えび']}
-                      description="大ぶりのエビフライ"
-                    />
-                    <MenuItem 
-                      name="ミックスフライ定食"
-                      price={1100}
-                      allergens={['小麦', 'えび']}
-                      description="エビ、白身魚、カキのフライ"
-                    />
-                    <MenuItem 
-                      name="ハンバーグ定食"
-                      price={950}
-                      allergens={['小麦', '卵', '乳']}
-                      description="手ごねハンバーグ"
-                    />
-                    <MenuItem 
-                      name="チキン南蛮定食"
-                      price={1000}
-                      allergens={['鶏肉', '小麦', '卵']}
-                      description="特製タルタルソース添え"
-                    />
-                    <MenuItem 
-                      name="とんかつ定食"
-                      price={1000}
-                      allergens={['豚肉', '小麦']}
-                      description="国産豚ロースカツ"
-                    />
-
+                    {setMealItems.map((item) => (
+                      <MenuItem key={item.name} {...item} />
+                    ))}
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">※定食には味噌汁、ご飯、お新香付き</p>
@@ -202,30 +276,9 @@ export function Lunch() {
                 <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">丼物</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
-                    <MenuItem 
-                      name="親子丼"
-                      price={800}
-                      allergens={['鶏肉', '卵']}
-                      description="ふんわり玉子と鶏肉"
-                    />
-                    <MenuItem 
-                      name="玉子丼"
-                      price={650}
-                      allergens={['卵']}
-                      description="だし巻き玉子をのせて"
-                    />
-                    <MenuItem 
-                      name="かつ丼"
-                      price={1000}
-                      allergens={['豚肉', '小麦', '卵']}
-                      description="サクサクのカツと玉子とじ"
-                    />
-                    <MenuItem 
-                      name="天丼"
-                      price={1000}
-                      allergens={['小麦', 'えび']}
-                      description="海老と野菜の天ぷら"
-                    />
+                    {riceBowlItems.map((item) => (
+                      <MenuItem key={item.name} {...item} />
+                    ))}
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">※丼物には味噌汁、お新香付き</p>
@@ -235,33 +288,13 @@ export function Lunch() {
               <div>
                 <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-4">
-                    <MenuItem 
-                      name="抹茶アイス"
-                      price={ 380}
-                      allergens={['乳']}
-                      description="宇治抹茶使用"
-                    />
-                    <MenuItem 
-                      name="バニラアイス"
-                      price={380}
-                      allergens={['乳']}
-                      description="濃厚なバニラビーンズ使用"
-                    />
-                  </div>
-                  <div className="space-y-4">
-                    <MenuItem 
-                      name="自家製プリン"
-                      price={400}
-                      allergens={['卵', '乳']}
-                      description="手作りカスタードプリン"
-                    />
-                    <MenuItem 
-                      name="杏仁豆腐"
-                      price={400}
-                      description="本格的な杏仁豆腐"
-                    />
-                  </div>
+                  {dessertItems.map((column, index) => (
+                    <div key={index} className="space-y-4">
+                      {column.map((item) => (
+                        <MenuItem key={item.name} {...item} />
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
