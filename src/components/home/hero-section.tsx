@@ -42,6 +42,10 @@ export function HeroSection() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const intervalRef = useRef<number | null>(null);
   const imageLoadStatus = useRef<boolean[]>(Array(SLIDER_IMAGES.length).fill(false));
+  
+  // 表示時間とフェード時間（Tailwindのduration-500と合わせる）
+  const DISPLAY_MS = 3000;
+  const FADE_MS = 500;
 
   // Preload images with priority and improved loading strategy
   useEffect(() => {
@@ -97,7 +101,7 @@ export function HeroSection() {
     };
   }, [imagesLoaded]);
 
-  // Slideshow effect with fixed 3s interval
+  // Slideshow effect: 3s display + 0.5s fade = 3.5s周期
   useEffect(() => {
     if (!imagesLoaded) return;
 
@@ -109,8 +113,8 @@ export function HeroSection() {
         setTimeout(() => {
           setCurrentImageIndex((prev) => (prev + 1) % SLIDER_IMAGES.length);
           setIsTransitioning(false);
-        }, 250);
-      }, 3000);
+        }, FADE_MS);
+      }, DISPLAY_MS + FADE_MS);
     };
 
     startSlideshow();
