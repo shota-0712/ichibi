@@ -47,6 +47,11 @@ export function HeroSection() {
   const DISPLAY_MS = 3000;
   const FADE_MS = 500;
 
+  // 現在と次インデックスを安定して参照
+  const nextIndex = (currentImageIndex + 1) % SLIDER_IMAGES.length;
+  // 実際に画面に見えている（上に乗っている）スライドのインデックス
+  const activeIndex = isTransitioning ? nextIndex : currentImageIndex;
+
   // Preload images with priority and improved loading strategy
   useEffect(() => {
     let isMounted = true;
@@ -143,7 +148,7 @@ export function HeroSection() {
     <div className="h-screen relative overflow-hidden bg-black">
       {/* Image Slider with real <img> for proper priority */}
       <div className="absolute inset-0 bg-black">
-        {/* Current image */}
+        {/* Current image（下層）*/}
         <img
           src={SLIDER_IMAGES[currentImageIndex].smallUrl}
           alt=""
@@ -160,9 +165,9 @@ export function HeroSection() {
           }}
         />
 
-        {/* Next image */}
+        {/* Next image（上層）*/}
         <img
-          src={SLIDER_IMAGES[(currentImageIndex + 1) % SLIDER_IMAGES.length].smallUrl}
+          src={SLIDER_IMAGES[nextIndex].smallUrl}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
@@ -171,8 +176,7 @@ export function HeroSection() {
           loading="lazy"
           onLoad={() => {
             const newLoadedState = [...isImageLoaded];
-            const ni = (currentImageIndex + 1) % SLIDER_IMAGES.length;
-            newLoadedState[ni] = true;
+            newLoadedState[nextIndex] = true;
             setIsImageLoaded(newLoadedState);
           }}
         />
@@ -194,10 +198,10 @@ export function HeroSection() {
             
             <div className="mb-8 transition-opacity duration-300" style={{opacity: 1}}>
               <h2 className="text-2xl md:text-3xl text-white mb-2 font-kanteiryuu">
-                {SLIDER_IMAGES[currentImageIndex].title}
+                {SLIDER_IMAGES[activeIndex].title}
               </h2>
               <p className="text-lg text-japanese-gold font-kanteiryuu">
-                {SLIDER_IMAGES[currentImageIndex].subtitle}
+                {SLIDER_IMAGES[activeIndex].subtitle}
               </p>
             </div>
             
