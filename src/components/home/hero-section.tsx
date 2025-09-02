@@ -18,6 +18,12 @@ const SLIDER_IMAGES = [
     alt: "焼き鳥",
     title: "伝統の味",
     subtitle: "代々受け継がれる伝統のたれ"
+  },
+  {
+    url: "/image/tempura.webp",
+    alt: "天ぷら",
+    title: "職人技が光る天ぷら",
+    subtitle: "薄衣でサクッと、素材の香りを引き出す"
   }
 ].map(img => ({
   ...img,

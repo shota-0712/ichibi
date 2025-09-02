@@ -67,8 +67,17 @@ export function FeaturedSections() {
               </p>
             </motion.div>
             <motion.div variants={item}>
-              <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden bg-gray-200 flex items-center justify-center">
-                <p className='font-kanteiryuu text-gray-400'>[近日公開]</p>
+              <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
+                <img
+                  src="/image/tempura.webp"
+                  alt="天ぷら"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
               </div>
               <h3 className="text-2xl font-kanteiryuu mb-3">職人技が光る天ぷら</h3>
               <p className="text-gray-600 mb-4 font-kanteiryuu">
