@@ -36,7 +36,7 @@ const SLIDER_IMAGES = [
 
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [nextImageIndex, setNextImageIndex] = useState(1);
+  // 次に表示する画像のインデックスは current から算出
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(Array(SLIDER_IMAGES.length).fill(false));
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -97,21 +97,17 @@ export function HeroSection() {
     };
   }, [imagesLoaded]);
 
-  // Slideshow effect with cleanup and performance optimizations
+  // Slideshow effect with fixed 3s interval
   useEffect(() => {
     if (!imagesLoaded) return;
 
-    // Use requestAnimationFrame for smoother transitions
     const startSlideshow = () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
       intervalRef.current = window.setInterval(() => {
         setIsTransitioning(true);
-        setNextImageIndex((currentIndex) => 
-          currentIndex === SLIDER_IMAGES.length - 1 ? 0 : currentIndex + 1
-        );
-        
-        // After a short delay, switch the images
+        // After a short fade, advance to next image
         setTimeout(() => {
-          setCurrentImageIndex(nextImageIndex);
+          setCurrentImageIndex((prev) => (prev + 1) % SLIDER_IMAGES.length);
           setIsTransitioning(false);
         }, 250);
       }, 3000);
@@ -131,14 +127,13 @@ export function HeroSection() {
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    // Clean up interval on unmount
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [imagesLoaded, nextImageIndex]);
+  }, [imagesLoaded]);
 
   return (
     <div className="h-screen relative overflow-hidden bg-black">
@@ -163,7 +158,7 @@ export function HeroSection() {
 
         {/* Next image */}
         <img
-          src={SLIDER_IMAGES[nextImageIndex].smallUrl}
+          src={SLIDER_IMAGES[(currentImageIndex + 1) % SLIDER_IMAGES.length].smallUrl}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
@@ -172,7 +167,8 @@ export function HeroSection() {
           loading="lazy"
           onLoad={() => {
             const newLoadedState = [...isImageLoaded];
-            newLoadedState[nextImageIndex] = true;
+            const ni = (currentImageIndex + 1) % SLIDER_IMAGES.length;
+            newLoadedState[ni] = true;
             setIsImageLoaded(newLoadedState);
           }}
         />
