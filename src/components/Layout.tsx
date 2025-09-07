@@ -123,10 +123,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 店舗情報
               </Link>
             </div>
-            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上に表示・常に右端） */}
-            <div className="absolute right-0 top-full mt-2 z-50 flex flex-col items-end gap-1 text-right">
+            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上・より右端に） */}
+            <div className="absolute -right-2 md:-right-4 top-full mt-2 z-50 flex flex-col items-end text-right gap-1 w-max">
               {showCrepeHint && (
-                <span className="text-white text-sm font-kanteiryuu whitespace-nowrap">クレープはこちら</span>
+                <div className="flex flex-col items-end leading-tight text-white text-sm font-kanteiryuu whitespace-nowrap text-right">
+                  <span>クレープは</span>
+                  <span>こちら</span>
+                </div>
               )}
               <a
                 href="https://pal-crepe.com"
