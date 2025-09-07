@@ -123,8 +123,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 店舗情報
               </Link>
             </div>
-            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの下で横並び） */}
-            <div className="absolute right-0 top-full mt-2 z-50 flex flex-col items-center gap-1">
+            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上に表示・常に右端） */}
+            <div className="absolute right-0 top-full mt-2 z-50 flex flex-col items-end gap-1 text-right">
+              {showCrepeHint && (
+                <span className="text-white text-sm font-kanteiryuu whitespace-nowrap">クレープはこちら</span>
+              )}
               <a
                 href="https://pal-crepe.com"
                 target="_blank"
@@ -141,9 +144,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   decoding="async"
                 />
               </a>
-              {showCrepeHint && (
-                <span className="text-white text-sm font-kanteiryuu">クレープはこちら</span>
-              )}
             </div>
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
