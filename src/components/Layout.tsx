@@ -47,7 +47,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     }
   }, [location, isHome]);
 
-  // 初回アクセス時のみ「クレープはこちら」を3秒表示（枠なしテキスト）
+  // 初回アクセス時のみ「クレープはこちら」を6秒表示（枠なしテキスト）
   React.useEffect(() => {
     try {
       const KEY = 'palCrepeHintShown';
@@ -57,7 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         const t = setTimeout(() => {
           setShowCrepeHint(false);
           localStorage.setItem(KEY, '1');
-        }, 3000);
+        }, 6000);
         return () => clearTimeout(t);
       }
     } catch {
@@ -123,8 +123,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 店舗情報
               </Link>
             </div>
-            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの下） */}
-            <div className="absolute right-0 top-full mt-2 z-50 flex flex-col items-center gap-1">
+            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの下で横並び） */}
+            <div className="absolute right-0 top-full mt-2 z-50 flex items-center gap-2">
               <a
                 href="https://pal-crepe.com"
                 target="_blank"
