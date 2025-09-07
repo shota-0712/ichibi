@@ -123,8 +123,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 店舗情報
               </Link>
             </div>
-            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの下で横並び） */}
-            <div className="absolute right-0 top-full mt-2 z-50 flex items-center gap-2">
+            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの右に縦並び） */}
+            <div className="absolute right-0 top-full mt-2 z-50 flex items-start gap-2">
               <a
                 href="https://pal-crepe.com"
                 target="_blank"
@@ -142,7 +142,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 />
               </a>
               {showCrepeHint && (
-                <span className="text-white text-sm font-kanteiryuu">クレープはこちら</span>
+                <div className="flex flex-col items-start leading-tight text-white text-sm font-kanteiryuu">
+                  {['ク','レ','ー','プ','は','こ','ち','ら'].map((ch, i) => (
+                    <span key={i}>{ch}</span>
+                  ))}
+                </div>
               )}
             </div>
             <button 
