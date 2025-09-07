@@ -233,11 +233,11 @@ export function HeroSection() {
               </div>
               <div className="flex items-center justify-center gap-2">
                 <MapPin className="w-5 h-5 text-japanese-gold" />
-                <span className="font-kanteiryuu">千葉県君津市内蓑輪</span>
+                <span className="font-kanteiryuu">千葉県君津市内蓑輪122-1</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Phone className="w-5 h-5 text-japanese-gold" />
-                <span className="font-kanteiryuu">0439-27-1936</span>
+                <span className="font-kanteiryuu">0439-72-3988</span>
               </div>
             </div>
           </div>
