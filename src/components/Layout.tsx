@@ -10,6 +10,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const [showCrepeHint, setShowCrepeHint] = React.useState(false);
 
   // Close menu when route changes
   React.useEffect(() => {
@@ -46,6 +47,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
     }
   }, [location, isHome]);
 
+  // 初回アクセス時のみ「クレープはこちら」を3秒表示（枠なしテキスト）
+  React.useEffect(() => {
+    try {
+      const KEY = 'palCrepeHintShown';
+      const shown = localStorage.getItem(KEY);
+      if (!shown) {
+        setShowCrepeHint(true);
+        const t = setTimeout(() => {
+          setShowCrepeHint(false);
+          localStorage.setItem(KEY, '1');
+        }, 3000);
+        return () => clearTimeout(t);
+      }
+    } catch {
+      // ストレージ未許可などでも致命ではないため無視
+    }
+  }, []);
+
+  // クレープ案内バブルは不要になったため削除（ロゴのみ表示）
+
   return (
     <div className="min-h-screen bg-stone-50">
       <nav className="fixed w-full z-50">
@@ -63,7 +84,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-4 md:py-6">
+          <div className="relative flex items-center justify-between py-4 md:py-6">
             <Link to="/" className="flex items-center">
               <img 
                 src={logo}
@@ -101,6 +122,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
               >
                 店舗情報
               </Link>
+            </div>
+            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト */}
+            <div className="absolute right-0 top-full mt-2 z-50 flex items-center gap-2">
+              {showCrepeHint && (
+                <span className="text-white text-sm font-kanteiryuu">クレープはこちら</span>
+              )}
+              <a
+                href="https://pal-crepe.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Pal crepe 公式サイト"
+                className="block"
+              >
+                <img
+                  src="/image/Pal-crepe_logo.svg"
+                  alt="Pal crepe ロゴ"
+                  className="h-12 w-auto md:h-10 lg:h-12"
+                  height={48}
+                  loading="eager"
+                  decoding="async"
+                />
+              </a>
             </div>
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}

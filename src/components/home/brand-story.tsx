@@ -20,18 +20,7 @@ export function BrandStory() {
               様々なジャンルで技を磨いたシェフが、一品一品心を込めてお作りするお料理でおもてなしいたします。
             </p>
           </div>
-          <div className="mt-12">
-            <Link 
-              to="/dining-philosophy" 
-              className="inline-flex items-center gap-2 text-japanese-red hover:text-red-900 transition font-kanteiryuu"
-              aria-label="料理へのこだわりを詳しく見る"
-            >
-              <span>料理へのこだわりを詳しく見る</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
+          {/* リクエストにより「料理へのこだわりを詳しく見る」リンクは削除 */}
         </motion.div>
       </div>
     </div>
