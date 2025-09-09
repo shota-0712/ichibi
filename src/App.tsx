@@ -10,11 +10,14 @@ const Lunch = lazy(() =>
 const Izakaya = lazy(() => 
   import('./pages/Izakaya').then(module => ({ default: module.Izakaya }))
 );
-const StoreInfo = lazy(() => 
+const StoreInfo = lazy(() =>
   import('./pages/StoreInfo').then(module => ({ default: module.StoreInfo }))
 );
-const Drinks = lazy(() => 
+const Drinks = lazy(() =>
   import('./pages/Drinks').then(module => ({ default: module.Drinks }))
+);
+const DiningPhilosophy = lazy(() =>
+  import('./pages/DiningPhilosophy').then(module => ({ default: module.DiningPhilosophy }))
 );
 
 
@@ -32,6 +35,9 @@ const preloadComponent = (component: string): void => {
       break;
     case 'drinks':
       void import('./pages/Drinks');
+      break;
+    case 'dining-philosophy':
+      void import('./pages/DiningPhilosophy');
       break;
   }
 };
@@ -83,6 +89,11 @@ function App() {
         <Route path="/drinks" element={
           <Suspense fallback={null}>
             <Drinks />
+          </Suspense>
+        } />
+        <Route path="/dining-philosophy" element={
+          <Suspense fallback={null}>
+            <DiningPhilosophy />
           </Suspense>
         } />
 
