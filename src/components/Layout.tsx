@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Menu, X, Instagram, Twitter, Facebook } from 'lucide-react';
 import { FooterSection } from './home/footer-section';
 // framer-motion を初期バンドルから外すため、
@@ -11,6 +12,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const isHome = location.pathname === '/';
   const [showCrepeHint, setShowCrepeHint] = React.useState(false);
+
+  const meta = {
+    '/': {
+      title: '十割蕎麦・焼鳥酒場「一期一美」',
+      description: '十割蕎麦・焼鳥酒場「一期一美」の公式サイト'
+    },
+    '/lunch': {
+      title: 'ランチ | 一期一美',
+      description: '十割蕎麦のランチメニューをご紹介します。'
+    },
+    '/izakaya': {
+      title: '居酒屋メニュー | 一期一美',
+      description: '厳選した国産鶏の焼鳥など居酒屋メニューのご案内。'
+    },
+    '/drinks': {
+      title: 'ドリンク | 一期一美',
+      description: '豊富なドリンクメニューのご紹介。'
+    },
+    '/store-info': {
+      title: '店舗情報 | 一期一美',
+      description: '店舗の所在地や営業時間などの情報。'
+    }
+  } as const;
+  const { title, description } = meta[location.pathname as keyof typeof meta] ?? meta['/'];
 
   // Close menu when route changes
   React.useEffect(() => {
@@ -68,7 +93,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
   // クレープ案内バブルは不要になったため削除（ロゴのみ表示）
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Helmet>
+      <div className="min-h-screen bg-stone-50">
       <nav className="fixed w-full z-50">
         <div className="w-full overflow-hidden bg-black/50">
           <div className="animate-marquee">
@@ -228,5 +258,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <FooterSection />
     </div>
+    </>
   );
 }
