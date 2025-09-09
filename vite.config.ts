@@ -6,7 +6,7 @@ export default defineConfig({
   assetsInclude: ['**/*.webp'],
   build: {
     minify: 'terser',
-    target: ['es2020', 'chrome80', 'safari14'],
+    target: ['es2019', 'chrome80', 'safari14'],
     terserOptions: {
       compress: {
         drop_console: true,

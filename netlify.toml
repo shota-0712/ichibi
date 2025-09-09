@@ -3,11 +3,6 @@
   command = "npm run build"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
   from = "/crepe"
   to = "https://pal-crepe.com"
   status = 301
