@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ichibi.netlify.app/sitemap.xml
+Sitemap: https://i-chi-bi.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
