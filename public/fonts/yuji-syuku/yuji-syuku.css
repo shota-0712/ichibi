@@ -7,7 +7,7 @@
   font-style: normal;
   font-weight: 400;
   /* Avoid delaying LCP due to webfont; allow fallback if slow */
-  font-display: optional;
+  font-display: swap;
   src:
     url('/fonts/yuji-syuku/yuji-syuku.woff2') format('woff2'),
     url('/fonts/yuji-syuku/yuji-syuku.ttf') format('truetype');
