@@ -101,6 +101,12 @@ const hotSobaItems = [
 
 const setMealItems = [
   {
+    name: '一期一美セット',
+    price: 2200,
+    allergens: ['そば', '小麦'],
+    description: '特別なセットメニュー',
+  },
+  {
     name: '天丼セット',
     price: 1350,
     allergens: ['小麦', 'えび'],
@@ -117,12 +123,6 @@ const setMealItems = [
     price: 1300,
     allergens: ['鶏肉', '卵'],
     description: '親子丼とそばのセット',
-  },
-  {
-    name: '一期一美セット',
-    price: 2200,
-    allergens: ['そば', '小麦'],
-    description: '特別なセットメニュー',
   },
 ];
 
