@@ -511,21 +511,20 @@ function IzakayaMenu() {
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">焼き鳥</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                  <MenuItem name="とりもも" price={170} allergens={['鶏肉']} description="ジューシーな味わい" />
-                  <MenuItem name="レバー" price={170} allergens={['鶏肉']} description="濃厚な味わい" />
-                  <MenuItem name="タン" price={170} allergens={['鶏肉']} description="コリコリとした食感" />
-                  <MenuItem name="ハツ" price={170} allergens={['鶏肉']} description="歯ごたえのある食感" />
-                  <MenuItem name="手羽先" price={170} allergens={['鶏肉']} description="香ばしい手羽先" />
-                  <MenuItem name="つくね" price={170} allergens={['鶏肉', '卵']} description="ふんわり食感" />
+                  <MenuItem name="もも" price={170} allergens={['鶏肉']} description="ジューシーな味わい" />
+                  <MenuItem name="レバー" price={160} allergens={['鶏肉']} description="濃厚な味わい" />
+                  <MenuItem name="タン" price={200} allergens={['鶏肉']} description="コリコリとした食感" />
+                  <MenuItem name="ハツ" price={160} allergens={['鶏肉']} description="歯ごたえのある食感" />
+                  <MenuItem name="手羽先" price={200} allergens={['鶏肉']} description="香ばしい手羽先" />
+                  <MenuItem name="つくね" price={180} allergens={['鶏肉', '卵']} description="ふんわり食感" />
                 </div>
                 <div className="space-y-4">
-                  <MenuItem name="ねぎま" price={170} allergens={['鶏肉']} description="ネギの甘みと鶏肉の旨み" />
-                  <MenuItem name="すなぎも" price={170} allergens={['鶏肉']} description="コリコリ食感" />
+                  <MenuItem name="ねぎま" price={180} allergens={['鶏肉']} description="ネギの甘みと鶏肉の旨み" />
+                  <MenuItem name="すなぎも" price={160} allergens={['鶏肉']} description="コリコリ食感" />
                   <MenuItem name="なんこつ" price={170} allergens={['鶏肉']} description="シャキシャキ食感" />
-                  <MenuItem name="ささみ" price={170} allergens={['鶏肉']} description="あっさりヘルシー" />
-                  <MenuItem name="しいたけ" price={170} description="香り豊かな焼きしいたけ" />
-                  <MenuItem name="アスパラベーコン" price={180} allergens={['豚肉']} description="アスパラとベーコンの相性抜群" />
-                  <MenuItem name="ニンニク焼き" price={170} description="香ばしいニンニク" />
+                  <MenuItem name="ささみ" price={180} allergens={['鶏肉']} description="あっさりヘルシー" />
+                  <MenuItem name="しいたけ" price={160} description="香り豊かな焼きしいたけ" />
+                  <MenuItem name="ニラ豚バラ巻き" price={200} allergens={['豚肉']} description="ニラと豚バラの相性抜群" />
                 </div>
               </div>
             </div>
@@ -535,21 +534,86 @@ function IzakayaMenu() {
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">一品料理</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                  <MenuItem name="おしんこ盛り合わせ" price={300} description="季節の漬物の盛り合わせ" />
                   <MenuItem name="トマトスライス" price={350} description="新鮮なトマトのスライス" />
-                  <MenuItem name="栃尾の油揚げ" price={350} allergens={['大豆']} description="名物の油揚げ" />
-                  <MenuItem name="だし巻き卵" price={500} allergens={['卵']} description="出汁の効いたふんわり玉子焼き" />
-                  <MenuItem name="冷奴" price={350} allergens={['大豆']} description="冷やっこ" />
-                  <MenuItem name="ピリ辛きゅうり" price={250} description="さっぱりピリ辛" />
+                  <MenuItem name="きのこのバター炒め" price={450} description="香り豊かなきのこのバター炒め" />
+                  <MenuItem name="だし巻き卵" price={400} allergens={['卵']} description="出汁の効いたふんわり玉子焼き" />
+                  <MenuItem name="冷奴" price={300} allergens={['大豆']} description="冷やっこ" />
+                  <MenuItem name="揚げ出し豆腐" price={350} allergens={['大豆']} description="揚げ出し豆腐" />
+                  <MenuItem name="ピリ辛きゅうり" price={350} description="さっぱりピリ辛" />
+                  <MenuItem name="明太子入りだし巻き卵" price={500} allergens={['卵']} description="明太子入りだし巻き卵" />
+                  <MenuItem name="チーズ入りだし巻き卵" price={500} allergens={['卵', '乳']} description="チーズ入りだし巻き卵" />
                 </div>
                 <div className="space-y-4">
-                  <MenuItem name="たこきゅうり" price={450} description="たことキュウリの和え物" />
                   <MenuItem name="なすの煮びたし" price={350} description="だしが染みた茄子" />
-                  <MenuItem name="ポテトサラダ" price={350} allergens={['卵']} description="自家製ポテトサラダ" />
-                  <MenuItem name="酢もつ" price={350} description="さっぱり味の酢もつ" />
-                  <MenuItem name="剣先イカ" price={350} description="新鮮な剣先イカ" />
-                  <MenuItem name="えだまめ" price={300} allergens={['大豆']} description="塩茹でした枝豆" />
-                  <MenuItem name="いちびサラダ" price={500} description="季節の野菜を使用した特製サラダ" />
+                  <MenuItem name="オニオンリング" price={350} description="サクサクのオニオンリング" />
+                  <MenuItem name="ポテトフライ" price={350} description="カリカリポテトフライ" />
+                  <MenuItem name="茶豆" price={400} description="塩茹でした茶豆" />
+                  <MenuItem name="ichibiサラダ" price={550} description="季節の野菜を使用した特製サラダ" />
+                  <MenuItem name="ごま油塩キャベツ" price={350} description="ごま油の香りが効いたキャベツ" />
+                </div>
+              </div>
+            </div>
+
+            {/* Cold Soba */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">冷そば</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  {coldSobaItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Hot Soba */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">温そば</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  {hotSobaItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Teishoku */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  {teishokuItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+              <div className="mt-4">
+                <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
+                <div className="space-y-2">
+                  {teishokuOptions.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Rice Bowls */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">丼</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  {riceBowlItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+              <div className="mt-4">
+                <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
+                <div className="space-y-2">
+                  {riceBowlOptions.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
                 </div>
               </div>
             </div>
@@ -558,17 +622,9 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ビール</h3>
               <div className="space-y-4">
-                <MenuItem name="キリン一番搾り（生） 中ジョッキ" price={636} />
-                <MenuItem name="キリンクラシックラガー" price={768} />
-                <MenuItem name="日本のクラフトビール" price={713} description="スプリングバレー 豊潤496・スプリングバレー シルクエール〈白〉" />
-                <MenuItem name="ホッピー＆焼酎セット" price={603} />
-                <MenuItem name="追加焼酎（ナカ）" price={383} />
-                <MenuItem name="追加ホッピー" price={383} />
-                <MenuItem name="ハイネケン 小瓶" price={746} />
-                <MenuItem name="キリングリーンズフリー" price={493} />
-                <MenuItem name="ビアボール" price={603} />
-                <MenuItem name="ジンジャービアボール" price={658} />
-                <MenuItem name="コークビアボール" price={658} />
+                {beerItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
               </div>
             </div>
 
@@ -576,12 +632,40 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ハイボール</h3>
               <div className="space-y-4">
-                <MenuItem name="角ハイボール" price={548} />
-                <MenuItem name="ジムビームハイボール" price={493} />
-                <MenuItem name="ジムビームコーク" price={548} />
-                <MenuItem name="ジムビームジンジャー" price={548} />
-                <MenuItem name="ジムビームアップルハイボール" price={548} />
-                <MenuItem name="陸ハイボール" price={548} />
+                <MenuItem name="ハイボール" price={500} description="角ハイボール" />
+                <MenuItem name="ジンジャーハイ" price={550} description="ジンジャーハイボール" />
+                <MenuItem name="コークハイ" price={550} description="コーラハイボール" />
+                <MenuItem name="緑茶ハイ" price={500} description="緑茶ハイボール" />
+                <MenuItem name="ウーロンハイ" price={550} description="ウーロンハイボール" />
+              </div>
+            </div>
+
+            {/* Whiskey */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ウイスキー</h3>
+              <div className="space-y-4">
+                <MenuItem name="ロック" price={500} description="ウイスキーロック" />
+                <MenuItem name="ロック" price={600} description="プレミアムウイスキーロック" />
+              </div>
+            </div>
+
+            {/* Shochu */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">焼酎</h3>
+              <div className="space-y-4">
+                {shochuItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
+              </div>
+            </div>
+
+            {/* Sake */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">日本酒</h3>
+              <div className="space-y-4">
+                {sakeItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
               </div>
             </div>
 
@@ -589,21 +673,23 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">サワー</h3>
               <div className="space-y-4">
-                <MenuItem name="こだわり酒場のレモンサワー" price={548} />
-                <MenuItem name="こだわり酒場のタコハイ" price={548} />
-                <MenuItem name="氷結レモン" price={548} />
-                <MenuItem name="氷結レモン無糖" price={548} />
-                <MenuItem name="青汁ハイ" price={548} />
-                <MenuItem name="玄米茶ハイ" price={548} />
-                <MenuItem name="ウーロンハイ" price={548} />
-                <MenuItem name="カルピスサワー" price={548} />
-                <MenuItem name="りんごサワー" price={548} />
-                <MenuItem name="生茶ハイ" price={548} />
-                <MenuItem name="南高梅サワー" price={548} />
-                <MenuItem name="凍結レモンサワー" price={603} />
-                <MenuItem name="追加サワー" price={603} />
-                <MenuItem name="生絞りピンクグレープフルーツサワー" price={603} />
-                <MenuItem name="生絞りレモンサワー" price={603} />
+                <MenuItem name="グレープフルーツサワー" price={500} description="グレープフルーツサワー" />
+                <MenuItem name="レモンサワー" price={500} description="レモンサワー" />
+                <MenuItem name="ジンジャーサワー" price={550} description="ジンジャーサワー" />
+                <MenuItem name="カルピスサワー" price={500} description="カルピスサワー" />
+                <MenuItem name="巨峰サワー" price={500} description="巨峰サワー" />
+                <MenuItem name="コーラサワー" price={550} description="コーラサワー" />
+                <MenuItem name="青リンゴサワー" price={500} description="青リンゴサワー" />
+              </div>
+            </div>
+
+            {/* Umeshu */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">梅酒</h3>
+              <div className="space-y-4">
+                <MenuItem name="ロック" price={500} description="梅酒ロック" />
+                <MenuItem name="ソーダ割" price={550} description="梅酒ソーダ割り" />
+                <MenuItem name="水割り" price={500} description="梅酒水割り" />
               </div>
             </div>
 
@@ -611,11 +697,9 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">カクテル</h3>
               <div className="space-y-4">
-                <MenuItem name="カシスオレンジ" price={548} />
-                <MenuItem name="カシスウーロン" price={548} />
-                <MenuItem name="カシスソーダ" price={548} />
-                <MenuItem name="翠ジンソーダ" price={526} />
-                <MenuItem name="翠ジンジンジャー" price={581} />
+                <MenuItem name="カシスオレンジ" price={500} description="カシスオレンジ" />
+                <MenuItem name="カシスウーロン" price={500} description="カシスウーロン" />
+                <MenuItem name="カシスソーダ" price={500} description="カシスソーダ" />
               </div>
             </div>
 
@@ -623,9 +707,7 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ノンアルコール</h3>
               <div className="space-y-4">
-                <MenuItem name="ノンアルコールビール" price={603} />
-                <MenuItem name="まるで梅酒なノンアルコールソーダ" price={493} />
-                <MenuItem name="ノンアルでワインの休日 赤" price={603} />
+                <MenuItem name="アサヒ　ゼロ" price={650} description="ノンアルコールビール" />
               </div>
             </div>
 
@@ -633,16 +715,9 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ソフトドリンク</h3>
               <div className="space-y-4">
-                <MenuItem name="コカ・コーラゼロ" price={383} />
-                <MenuItem name="コカ・コーラ" price={383} />
-                <MenuItem name="カルピスウォーター" price={383} />
-                <MenuItem name="ジンジャーエール" price={383} />
-                <MenuItem name="オレンジジュース" price={383} />
-                <MenuItem name="生茶" price={383} />
-                <MenuItem name="玄米茶" price={383} />
-                <MenuItem name="アイス/ホット ウーロン茶" price={383} />
-                <MenuItem name="アイス/ホット 青汁" price={383} />
-                <MenuItem name="ファンタグレープ" price={383} />
+                {softDrinkItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
               </div>
             </div>
           </div>
