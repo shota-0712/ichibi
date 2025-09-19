@@ -1,51 +1,74 @@
 # 一期一美 - 公式ウェブサイト
 
-十割蕎麦・焼鳥酒場『一期一美』の公式サイト。React + Vite を用いた高速・軽量構成で、オフライン表示に対応しています。
+千葉県君津市の十割蕎麦・焼鳥酒場『一期一美』の公式サイト。React + Vite を用いた高速・軽量構成で、PWA対応とオフライン表示に対応しています。
+
+🌐 **本番サイト**: https://i-chi-bi.com
 
 ## 技術スタック
 
-- フロントエンド: React 18 + TypeScript
-- ビルド: Vite 5（ESM）
-- スタイリング: Tailwind CSS 3 / 自前ユーティリティ
-- アニメーション: Framer Motion
-- ルーティング: React Router DOM 6
-- UI 基盤: Radix UI（HoverCard など）
-- アイコン: lucide-react
+- **フロントエンド**: React 18 + TypeScript
+- **ビルド**: Vite 5（ESM）
+- **スタイリング**: Tailwind CSS 3 + カスタムユーティリティ
+- **アニメーション**: Framer Motion 11
+- **ルーティング**: React Router DOM 6
+- **UI コンポーネント**: Radix UI（HoverCard、Slot など）
+- **アイコン**: Lucide React
+- **PWA**: Service Worker + Manifest
 
-## 開発
+## 開発環境
 
-前提: Node.js 18 以上（推奨 20+） / npm
+**前提条件**: Node.js 18 以上（推奨 20+）
 
 ```bash
-npm install          # 依存解決
-npm run dev          # 開発サーバー（Vite）
+npm install          # 依存関係インストール
+npm run dev          # 開発サーバー起動（Vite）
 npm run build        # 本番ビルド（dist/）
 npm run preview      # 本番ビルドのローカル確認
 npm run lint         # ESLint 実行
-npm run analyze      # バンドル解析（--mode analyze）
+npm run analyze      # バンドル解析
 ```
 
-## ディレクトリ構成（抜粋）
+## サイト構成
+
+### ページ構成
+- `/` - ホーム（店舗紹介・特集）
+- `/menu` - メニュー（蕎麦・焼鳥・定食・ドリンク）
+- `/store-info` - 店舗情報（営業時間・アクセス・予約）
+- `/dining-philosophy` - お店の理念・こだわり
+
+### ディレクトリ構成
 
 ```
 public/
-├── image/                   # 配信用画像（.webp / .svg）
-│   └── ichigo_ichibi_logo.svg
+├── image/                   # 配信用画像（WebP/SVG最適化済み）
+│   ├── ichigo_ichibi_logo.svg
+│   ├── soba.webp
+│   ├── yakitori.webp
+│   └── ...
 ├── fonts/
-│   └── yuji-syuku/          # 自前ホストのフォント一式
+│   └── yuji-syuku/          # 自前ホストフォント
 │       ├── yuji-syuku.woff2
 │       ├── yuji-syuku.ttf
-│       └── yuji-syuku.css   # @font-face 定義
-└── service-worker.js        # 手書き SW（v5）
+│       └── yuji-syuku.css
+├── service-worker.js        # PWA Service Worker
+├── manifest.json           # PWA マニフェスト
+├── sitemap.xml             # SEO用サイトマップ
+└── robots.txt              # 検索エンジン向け設定
 
 src/
 ├── components/
-│   ├── home/                # ヒーロー・特集・フッター
-│   ├── social/              # SNS 埋め込み
-│   └── ui/                  # 汎用 UI
-├── pages/                   # ルーティング単位
-├── index.css                # Tailwind + 基本ユーティリティ
-└── main.tsx                 # エントリ・SW 登録
+│   ├── Layout.tsx          # 共通レイアウト
+│   ├── PageTransitionSplash.tsx
+│   └── ui/                 # 再利用可能UIコンポーネント
+├── pages/
+│   ├── Home.tsx           # ホームページ
+│   ├── Menu.tsx           # メニューページ
+│   ├── StoreInfo.tsx      # 店舗情報
+│   └── DiningPhilosophy.tsx
+├── lib/
+│   └── utils.ts           # ユーティリティ関数
+├── index.css              # グローバルスタイル
+└── main.tsx               # エントリーポイント
 ```
 
 ## フォント運用（自前ホスト）
@@ -62,43 +85,60 @@ src/
 
 ## パフォーマンス最適化
 
-- ルート単位の遅延ロード（React.lazy + Suspense）: `src/App.tsx`
-- ヒーロー画像の段階的読み込み + idle でのプリロード: `src/components/home/hero-section.tsx`
-- WOFF2 プリロード + 自前ホストにより FOUT を最小化
-- 画像は WebP を採用しサイズ最適化（`public/image/` に集約）
+### フロントエンド最適化
+- **Code Splitting**: React.lazy + Suspenseによるページ単位の遅延ロード
+- **画像最適化**: WebP形式 + サイズ最適化 + 遅延読み込み
+- **フォント最適化**: WOFF2プリロード + 自前ホストでFOUT最小化
+- **バンドル最適化**: Vite + Terserによる圧縮とチャンク分割
 
-## PWA / キャッシュ戦略
+### キャッシュ戦略
+- **Service Worker**: `public/service-worker.js`
+  - プリキャッシュ: 主要アセット + フォント + 画像
+  - ランタイムキャッシュ: キャッシュファースト戦略
+  - ナビゲーション: `/` へのフォールバック
+- **ブラウザキャッシュ**: 静的アセット長期キャッシュ（1年）
 
-- Service Worker: `public/service-worker.js`（v5）
-  - インストール時は安全に個別キャッシュ（404混入でも失敗しない）
-  - プリキャッシュ: 主要アセット + フォント（CSS/WOFF2/TTF）
-  - フェッチ: キャッシュファースト（ナビゲーションは `/` フォールバック）
-- 登録: `src/main.tsx:9` でページロード後に遅延登録
-- キャッシュ更新: 変更時は `CACHE_NAME` を更新
+## PWA対応
 
-## デプロイ（Netlify）
+- **マニフェスト**: `public/manifest.json` でアプリ化対応
+- **オフライン対応**: Service Workerによるリソースキャッシュ
+- **インストール**: ホーム画面追加対応
 
-- 設定: `netlify.toml`
-  - 静的アセットを `immutable` で長期キャッシュ
-  - HTML は `must-revalidate`
-  - フォントの Content-Type を明示（`/fonts/*.woff2`, `/fonts/*.ttf`）
-- 旧 `public/_headers` は削除し、`netlify.toml` に統一
+## SEO最適化
 
-## アクセシビリティ / SEO
+- **サイトマップ**: `public/sitemap.xml` - 全ページ最新情報
+- **Robots.txt**: `public/robots.txt` - 検索エンジン最適化
+- **構造化データ**: JSON-LD形式のレストラン情報
+- **メタデータ**: Open Graph + Twitter Cards対応
 
-- カラーパレットは WCAG AA 基準を考慮（Tailwind 拡張）
-- 主要画像に `alt`、見出し構造は論理順序で配置
-- OGP/説明文/構造化データは `index.html` に定義（JSON-LD あり）
+## デプロイ・本番環境
+
+### Netlify設定
+- **設定ファイル**: `netlify.toml`
+- **ドメイン**: https://i-chi-bi.com
+- **ビルドコマンド**: `npm run build`
+- **公開ディレクトリ**: `dist`
+- **リダイレクト**: SPA用の`/*`→`/index.html`設定
+
+### キャッシュヘッダー
+- 静的アセット: `Cache-Control: public, max-age=31536000, immutable`
+- HTML: `Cache-Control: public, max-age=0, must-revalidate`
+- フォント: 適切なContent-Type設定
 
 ## トラブルシューティング
 
-- フォントが切り替わらない/古い表示になる
-  1. ブラウザのハードリロード
-  2. DevTools → Application → Service Workers → Unregister → 再読み込み
-  3. それでも改善しなければ `public/service-worker.js` の `CACHE_NAME` を +1
-- 画像 404: 画像は `public/image/` に統一。参照パスを `/image/...` にする
+### キャッシュ関連
+- **フォント表示問題**: ブラウザのハードリロード（Ctrl+Shift+R）
+- **Service Worker問題**: DevTools → Application → Service Workers → Unregister
+- **古いキャッシュ**: `public/service-worker.js`の`CACHE_NAME`をインクリメント
 
-## メモ
+### ビルド・開発
+- **型エラー**: `npm run lint`で確認
+- **依存関係**: `npm install`で再インストール
+- **画像404**: `public/image/`に配置、パスは`/image/...`
 
-- 本リポジトリはプライベート運用を想定
-- 画像・文章の権利は店舗に帰属します
+## プロジェクト情報
+
+- **ライセンス**: プライベート（店舗専用）
+- **著作権**: 画像・文章の権利は一期一美に帰属
+- **最終更新**: 2024年9月

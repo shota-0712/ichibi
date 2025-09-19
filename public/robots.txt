@@ -1,8 +1,14 @@
 User-agent: *
 Allow: /
 
+# Block common crawl-heavy paths
+Disallow: /static/
+Disallow: /assets/
+Disallow: /*.js$
+Disallow: /*.css$
+
 # Sitemap
 Sitemap: https://i-chi-bi.com/sitemap.xml
 
-# Crawl-delay
+# Crawl-delay for better server performance
 Crawl-delay: 1
