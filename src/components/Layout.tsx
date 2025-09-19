@@ -116,15 +116,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4">
           <div className="relative flex items-center justify-between py-4 md:py-6">
             <Link to="/" className="flex items-center">
-              <img 
+              <img
                 src={logo}
-                alt="一期一美" 
+                alt="一期一美"
                 className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-lg"
                 width="96"
                 height="96"
-                fetchPriority="high"
                 loading="eager"
                 decoding="async"
+                ref={(img) => {
+                  if (img) {
+                    img.setAttribute('fetchpriority', 'high');
+                  }
+                }}
               />
             </Link>
             <div className="hidden md:flex space-x-4">

@@ -18,8 +18,11 @@
     
     <link rel="icon" href="/image/ichigo_ichibi_logo.svg" type="image/svg+xml">
     
-    <!-- Preload only the first hero image to prioritize LCP -->
+    <!-- Preload critical images for performance -->
     <link rel="preload" href="/image/soba.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="/image/yakitori.webp" as="image" type="image/webp">
+    <link rel="preload" href="/image/tempura.webp" as="image" type="image/webp">
+    <link rel="preload" href="/image/logo_Splash.webp" as="image" type="image/webp">
     
     <style>
       :root {
@@ -53,6 +56,44 @@
         display: none;
       }
       
+      /* Splash Screen Styles */
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+      }
+
+      #splash-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #splash-screen img {
+        max-width: 250px;
+        max-height: 250px;
+        opacity: 0;
+        object-fit: contain;
+        animation: fadeInLogo 1.5s ease-in-out 0.5s forwards;
+      }
+
+      @keyframes fadeInLogo {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+
       /* logo preload div を廃止（オフスクリーン画像の早期読み込みを防止） */
     </style>
 
@@ -61,7 +102,10 @@
     <meta property="og:image" content="/image/soba.webp">
   </head>
   <body>
-    
+    <div id="splash-screen">
+      <img src="/image/logo_Splash.webp" alt="一期一美ロゴ" />
+    </div>
+
     <h1 style="display:none;">十割蕎麦・焼鳥酒場 『一期一美』 - ichibi - | 君津の手打十割そば・厳選した国産鶏のやきとり</h1>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
@@ -92,6 +136,41 @@
         }, 10000);
       });
       
+      // Simple splash screen with resource preloading
+      function hideSplashScreen() {
+        const splashScreen = document.getElementById('splash-screen');
+        if (splashScreen) {
+          splashScreen.classList.add('fade-out');
+          setTimeout(function() {
+            splashScreen.style.display = 'none';
+          }, 500);
+        }
+      }
+
+      // Preload critical images in background
+      ['soba.webp', 'yakitori.webp', 'tempura.webp'].forEach(function(src) {
+        const img = new Image();
+        img.src = '/image/' + src;
+      });
+
+      // Ensure font is loaded
+      if (document.fonts && document.fonts.load) {
+        document.fonts.load('1em "Yuji Syuku"').catch(function() {});
+      }
+
+      // Preload Instagram embed script during splash
+      setTimeout(function() {
+        const instagramScript = document.createElement('script');
+        instagramScript.async = true;
+        instagramScript.src = '//www.instagram.com/embed.js';
+        document.body.appendChild(instagramScript);
+      }, 200);
+
+      // Show splash for 1.4 seconds
+      setTimeout(function() {
+        hideSplashScreen();
+      }, 1400);
+
       // Optimize image loading
       document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('img[data-src]').forEach(img => {

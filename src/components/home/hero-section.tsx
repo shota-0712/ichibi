@@ -150,7 +150,11 @@ export function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
           style={{ filter: 'brightness(0.4)', opacity: isTransitioning ? 0 : 1, zIndex: 1 }}
           decoding="async"
-          fetchPriority={currentImageIndex === 0 ? 'high' : 'auto'}
+          ref={(img) => {
+            if (img) {
+              img.setAttribute('fetchpriority', currentImageIndex === 0 ? 'high' : 'auto');
+            }
+          }}
           loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
           onLoad={() => {
             const newLoadedState = [...isImageLoaded];

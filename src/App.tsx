@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
+import PageTransitionSplash from './components/PageTransitionSplash';
 
 // Use React.lazy with improved loading strategy
 const Lunch = lazy(() => 
@@ -65,8 +66,10 @@ if (typeof window !== 'undefined') {
 
 function App() {
   return (
-    <Layout>
-      <Routes>
+    <>
+      <PageTransitionSplash />
+      <Layout>
+        <Routes>
         {/* Only Home is eagerly loaded */}
         <Route path="/" element={<Home />} />
         
@@ -97,8 +100,9 @@ function App() {
           </Suspense>
         } />
 
-      </Routes>
-    </Layout>
+        </Routes>
+      </Layout>
+    </>
   );
 }
 
