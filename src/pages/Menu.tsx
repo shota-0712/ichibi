@@ -278,6 +278,26 @@ const softDrinkItems = [
   },
 ];
 
+const dessertItems = [
+  {
+    name: '自家製プリン',
+    price: 350,
+    allergens: ['卵', '乳'],
+    description: '手作りカスタードプリン',
+  },
+  {
+    name: '自家製杏仁豆腐',
+    price: 350,
+    description: '本格的な杏仁豆腐',
+  },
+  {
+    name: 'バニラアイス',
+    price: 350,
+    allergens: ['乳'],
+    description: '濃厚なバニラビーンズ使用',
+  },
+];
+
 export function Menu() {
   const [activeTab, setActiveTab] = useState<'lunch' | 'izakaya'>('lunch');
 
@@ -440,6 +460,16 @@ function LunchMenu() {
                     <MenuItem key={item.name} {...item} />
                   ))}
                 </div>
+              </div>
+            </div>
+
+            {/* Desserts */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
+              <div className="space-y-4">
+                {dessertItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
               </div>
             </div>
 
@@ -716,6 +746,16 @@ function IzakayaMenu() {
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ソフトドリンク</h3>
               <div className="space-y-4">
                 {softDrinkItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
+              </div>
+            </div>
+
+            {/* Desserts */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
+              <div className="space-y-4">
+                {dessertItems.map((item) => (
                   <MenuItem key={item.name} {...item} />
                 ))}
               </div>
