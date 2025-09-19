@@ -30,21 +30,13 @@ const SLIDER_IMAGES = [
 
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  // 次に表示する画像のインデックスは current から算出
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(Array(SLIDER_IMAGES.length).fill(false));
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const intervalRef = useRef<number | null>(null);
   const imageLoadStatus = useRef<boolean[]>(Array(SLIDER_IMAGES.length).fill(false));
-  
-  // 表示時間とフェード時間（Tailwindのduration-500と合わせる）
-  const DISPLAY_MS = 3000;
-  const FADE_MS = 500;
 
-  // 現在と次インデックスを安定して参照
-  const nextIndex = (currentImageIndex + 1) % SLIDER_IMAGES.length;
-  // 実際に画面に見えている（上に乗っている）スライドのインデックス
-  const activeIndex = isTransitioning ? nextIndex : currentImageIndex;
+  // 表示時間
+  const DISPLAY_MS = 4000;
 
   // Preload images with priority and improved loading strategy
   useEffect(() => {
@@ -100,20 +92,15 @@ export function HeroSection() {
     };
   }, [imagesLoaded]);
 
-  // Slideshow effect: 3s display + 0.5s fade = 3.5s周期
+  // Simple slideshow effect
   useEffect(() => {
     if (!imagesLoaded) return;
 
     const startSlideshow = () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       intervalRef.current = window.setInterval(() => {
-        setIsTransitioning(true);
-        // After a short fade, advance to next image
-        setTimeout(() => {
-          setCurrentImageIndex((prev) => (prev + 1) % SLIDER_IMAGES.length);
-          setIsTransitioning(false);
-        }, FADE_MS);
-      }, DISPLAY_MS + FADE_MS);
+        setCurrentImageIndex((prev) => (prev + 1) % SLIDER_IMAGES.length);
+      }, DISPLAY_MS);
     };
 
     startSlideshow();
@@ -140,15 +127,14 @@ export function HeroSection() {
 
   return (
     <div className="h-screen relative overflow-hidden bg-black">
-      {/* Image Slider with real <img> for proper priority */}
+      {/* Simple image display */}
       <div className="absolute inset-0 bg-black">
-        {/* Current image（下層）*/}
         <img
           src={SLIDER_IMAGES[currentImageIndex].smallUrl}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
-          style={{ filter: 'brightness(0.4)', opacity: isTransitioning ? 0 : 1, zIndex: 1 }}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: 'brightness(0.4)' }}
           decoding="async"
           ref={(img) => {
             if (img) {
@@ -159,22 +145,6 @@ export function HeroSection() {
           onLoad={() => {
             const newLoadedState = [...isImageLoaded];
             newLoadedState[currentImageIndex] = true;
-            setIsImageLoaded(newLoadedState);
-          }}
-        />
-
-        {/* Next image（上層）*/}
-        <img
-          src={SLIDER_IMAGES[nextIndex].smallUrl}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
-          style={{ filter: 'brightness(0.4)', opacity: isTransitioning ? 1 : 0, zIndex: 2 }}
-          decoding="async"
-          loading="lazy"
-          onLoad={() => {
-            const newLoadedState = [...isImageLoaded];
-            newLoadedState[nextIndex] = true;
             setIsImageLoaded(newLoadedState);
           }}
         />
