@@ -648,106 +648,111 @@ function IzakayaMenu() {
               </div>
             </div>
 
-            {/* Beer */}
+            {/* Drinks */}
             <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ビール</h3>
-              <div className="space-y-4">
-                {beerItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ドリンク</h3>
+              
+              {/* Beer */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ビール</h4>
+                <div className="space-y-4">
+                  {beerItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Highball */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ハイボール</h3>
-              <div className="space-y-4">
-                <MenuItem name="ハイボール" price={500} description="角ハイボール" />
-                <MenuItem name="ジンジャーハイ" price={550} description="ジンジャーハイボール" />
-                <MenuItem name="コークハイ" price={550} description="コーラハイボール" />
-                <MenuItem name="緑茶ハイ" price={500} description="緑茶ハイボール" />
-                <MenuItem name="ウーロンハイ" price={550} description="ウーロンハイボール" />
+              {/* Highball */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ハイボール</h4>
+                <div className="space-y-4">
+                  <MenuItem name="ハイボール" price={500} description="角ハイボール" />
+                  <MenuItem name="ジンジャーハイ" price={550} description="ジンジャーハイボール" />
+                  <MenuItem name="コークハイ" price={550} description="コーラハイボール" />
+                  <MenuItem name="緑茶ハイ" price={500} description="緑茶ハイボール" />
+                  <MenuItem name="ウーロンハイ" price={550} description="ウーロンハイボール" />
+                </div>
               </div>
-            </div>
 
-            {/* Whiskey */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ウイスキー</h3>
-              <div className="space-y-4">
-                <MenuItem name="ロック" price={500} description="ウイスキーロック" />
-                <MenuItem name="ロック" price={600} description="プレミアムウイスキーロック" />
+              {/* Whiskey */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ウイスキー</h4>
+                <div className="space-y-4">
+                  <MenuItem name="ロック" price={500} description="ウイスキーロック" />
+                  <MenuItem name="ロック" price={600} description="プレミアムウイスキーロック" />
+                </div>
               </div>
-            </div>
 
-            {/* Shochu */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">焼酎</h3>
-              <div className="space-y-4">
-                {shochuItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
+              {/* Shochu */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">焼酎</h4>
+                <div className="space-y-4">
+                  {shochuItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Sake */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">日本酒</h3>
-              <div className="space-y-4">
-                {sakeItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
+              {/* Sake */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">日本酒</h4>
+                <div className="space-y-4">
+                  {sakeItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Sour */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">サワー</h3>
-              <div className="space-y-4">
-                <MenuItem name="グレープフルーツサワー" price={500} description="グレープフルーツサワー" />
-                <MenuItem name="レモンサワー" price={500} description="レモンサワー" />
-                <MenuItem name="ジンジャーサワー" price={550} description="ジンジャーサワー" />
-                <MenuItem name="カルピスサワー" price={500} description="カルピスサワー" />
-                <MenuItem name="巨峰サワー" price={500} description="巨峰サワー" />
-                <MenuItem name="コーラサワー" price={550} description="コーラサワー" />
-                <MenuItem name="青リンゴサワー" price={500} description="青リンゴサワー" />
+              {/* Sour */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">サワー</h4>
+                <div className="space-y-4">
+                  <MenuItem name="グレープフルーツサワー" price={500} description="グレープフルーツサワー" />
+                  <MenuItem name="レモンサワー" price={500} description="レモンサワー" />
+                  <MenuItem name="ジンジャーサワー" price={550} description="ジンジャーサワー" />
+                  <MenuItem name="カルピスサワー" price={500} description="カルピスサワー" />
+                  <MenuItem name="巨峰サワー" price={500} description="巨峰サワー" />
+                  <MenuItem name="コーラサワー" price={550} description="コーラサワー" />
+                  <MenuItem name="青リンゴサワー" price={500} description="青リンゴサワー" />
+                </div>
               </div>
-            </div>
 
-            {/* Umeshu */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">梅酒</h3>
-              <div className="space-y-4">
-                <MenuItem name="ロック" price={500} description="梅酒ロック" />
-                <MenuItem name="ソーダ割" price={550} description="梅酒ソーダ割り" />
-                <MenuItem name="水割り" price={500} description="梅酒水割り" />
+              {/* Umeshu */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">梅酒</h4>
+                <div className="space-y-4">
+                  <MenuItem name="ロック" price={500} description="梅酒ロック" />
+                  <MenuItem name="ソーダ割" price={550} description="梅酒ソーダ割り" />
+                  <MenuItem name="水割り" price={500} description="梅酒水割り" />
+                </div>
               </div>
-            </div>
 
-            {/* Cocktails */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">カクテル</h3>
-              <div className="space-y-4">
-                <MenuItem name="カシスオレンジ" price={500} description="カシスオレンジ" />
-                <MenuItem name="カシスウーロン" price={500} description="カシスウーロン" />
-                <MenuItem name="カシスソーダ" price={500} description="カシスソーダ" />
+              {/* Cocktails */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">カクテル</h4>
+                <div className="space-y-4">
+                  <MenuItem name="カシスオレンジ" price={500} description="カシスオレンジ" />
+                  <MenuItem name="カシスウーロン" price={500} description="カシスウーロン" />
+                  <MenuItem name="カシスソーダ" price={500} description="カシスソーダ" />
+                </div>
               </div>
-            </div>
 
-            {/* Non-Alcoholic */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ノンアルコール</h3>
-              <div className="space-y-4">
-                <MenuItem name="アサヒ　ゼロ" price={650} description="ノンアルコールビール" />
+              {/* Non-Alcoholic */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ノンアルコール</h4>
+                <div className="space-y-4">
+                  <MenuItem name="アサヒ　ゼロ" price={650} description="ノンアルコールビール" />
+                </div>
               </div>
-            </div>
 
-            {/* Soft Drinks */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ソフトドリンク</h3>
-              <div className="space-y-4">
-                {softDrinkItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
+              {/* Soft Drinks */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ソフトドリンク</h4>
+                <div className="space-y-4">
+                  {softDrinkItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
               </div>
             </div>
 
