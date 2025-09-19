@@ -409,6 +409,14 @@ function LunchMenu() {
                   ))}
                 </div>
               </div>
+              <div className="mt-4">
+                <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
+                <div className="space-y-2">
+                  {setMealOptions.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Hot Soba */}
@@ -417,6 +425,14 @@ function LunchMenu() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   {hotSobaItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+              <div className="mt-4">
+                <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
+                <div className="space-y-2">
+                  {setMealOptions.map((item) => (
                     <MenuItem key={item.name} {...item} />
                   ))}
                 </div>
@@ -594,6 +610,14 @@ function IzakayaMenu() {
                   ))}
                 </div>
               </div>
+              <div className="mt-4">
+                <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
+                <div className="space-y-2">
+                  {setMealOptions.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Hot Soba */}
@@ -602,6 +626,14 @@ function IzakayaMenu() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   {hotSobaItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+              <div className="mt-4">
+                <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
+                <div className="space-y-2">
+                  {setMealOptions.map((item) => (
                     <MenuItem key={item.name} {...item} />
                   ))}
                 </div>
