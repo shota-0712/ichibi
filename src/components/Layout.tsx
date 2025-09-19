@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Menu, X, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Instagram, Twitter, Facebook } from 'lucide-react';
 import { FooterSection } from './home/footer-section';
 // framer-motion を初期バンドルから外すため、
 // モバイルメニューの開閉はCSSトランジションで実装する
@@ -151,12 +151,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </a>
               </div>
             )}
-            <button 
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-white p-3 -mr-2 focus:outline-none bg-black/20 backdrop-blur-sm rounded-lg border border-white/20"
+              className="md:hidden text-white text-lg font-kanteiryuu pb-1 border-b-2 border-white hover:border-japanese-gold transition-colors duration-300 focus:outline-none"
               aria-label="メニューを開く"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              メニュー
             </button>
           </div>
         </div>
