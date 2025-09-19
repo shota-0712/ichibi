@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Utensils, Beer, Clock, MapPin, Phone } from 'lucide-react';
+import { Clock, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Optimize image loading with smaller images and proper dimensions
@@ -194,29 +194,13 @@ export function HeroSection() {
               </p>
             </div>
             
-            <div className="mb-8 transition-opacity duration-300" style={{opacity: 1}}>
-              <h2 className="text-2xl md:text-3xl text-white mb-2 font-kanteiryuu">
-                {SLIDER_IMAGES[activeIndex].title}
-              </h2>
-              <p className="text-lg text-japanese-gold font-kanteiryuu">
-                {SLIDER_IMAGES[activeIndex].subtitle}
-              </p>
-            </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                to="/lunch"
-                className="bg-[#BE513C] hover:bg-[#984030] text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
+                to="/menu"
+                className="text-white text-2xl font-kanteiryuu pb-2 border-b-2 border-japanese-gold hover:border-white transition-colors duration-300"
               >
-                <Utensils className="w-5 h-5" />
-                ランチメニュー
-              </Link>
-              <Link
-                to="/izakaya"
-                className="bg-[#09314B] hover:bg-[#07273C] text-white px-8 py-3 rounded-md transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 font-kanteiryuu"
-              >
-                <Beer className="w-5 h-5" />
-                居酒屋メニュー
+                お品書き
               </Link>
             </div>
           </div>

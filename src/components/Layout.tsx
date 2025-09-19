@@ -18,17 +18,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       title: '十割蕎麦・焼鳥酒場「一期一美」',
       description: '十割蕎麦・焼鳥酒場「一期一美」の公式サイト'
     },
-    '/lunch': {
-      title: 'ランチ | 一期一美',
-      description: '十割蕎麦のランチメニューをご紹介します。'
-    },
-    '/izakaya': {
-      title: '居酒屋メニュー | 一期一美',
-      description: '厳選した国産鶏の焼鳥など居酒屋メニューのご案内。'
-    },
-    '/drinks': {
-      title: 'ドリンク | 一期一美',
-      description: '豊富なドリンクメニューのご紹介。'
+    '/menu': {
+      title: 'お品書き | 一期一美',
+      description: '十割蕎麦のランチメニューと厳選した国産鶏の焼鳥など居酒屋メニューのご案内。'
     },
     '/store-info': {
       title: '店舗情報 | 一期一美',
@@ -54,23 +46,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
     };
   }, [isMenuOpen]);
 
-  // Scroll to top on route change and auto-scroll after 1 second
+  // Scroll to top on route change
   React.useEffect(() => {
-    // Scroll to top immediately
     window.scrollTo(0, 0);
-    
-    // Auto-scroll down after 1 second (except for home page)
-    if (!isHome) {
-      const timer = setTimeout(() => {
-        window.scrollTo({
-          top: window.innerHeight * 0.8, // 80% of viewport height
-          behavior: 'smooth'
-        });
-      }, 1000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [location, isHome]);
+  }, [location]);
 
   // 初回アクセス時のみ「クレープはこちら」を6秒表示（枠なしテキスト）
   React.useEffect(() => {
@@ -132,56 +111,46 @@ export function Layout({ children }: { children: React.ReactNode }) {
               />
             </Link>
             <div className="hidden md:flex space-x-4">
-              <Link 
-                to="/lunch" 
+              <Link
+                to="/menu"
                 className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
               >
-                ランチ
+                お品書き
               </Link>
-              <Link 
-                to="/izakaya" 
-                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
-              >
-                居酒屋
-              </Link>
-              <Link 
-                to="/drinks" 
-                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
-              >
-                ドリンク
-              </Link>
-              <Link 
-                to="/store-info" 
+              <Link
+                to="/store-info"
                 className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
               >
                 店舗情報
               </Link>
             </div>
-            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上・より右端に） */}
-            <div className="absolute -right-2 md:-right-4 top-full mt-2 z-50 flex flex-col items-end text-right gap-1 w-max">
-              {showCrepeHint && (
-                <div className="flex flex-col items-end leading-tight text-white text-sm font-kanteiryuu whitespace-nowrap text-right">
-                  <span>クレープは</span>
-                  <span>こちら</span>
-                </div>
-              )}
-              <a
-                href="https://pal-crepe.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Pal crepe 公式サイト"
-                className="block"
-              >
-                <img
-                  src="/image/Pal-crepe_logo.svg"
-                  alt="Pal crepe ロゴ"
-                  className="h-12 w-auto md:h-10 lg:h-12"
-                  height={48}
-                  loading="eager"
-                  decoding="async"
-                />
-              </a>
-            </div>
+            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上・より右端に） - ホームのみ表示 */}
+            {isHome && (
+              <div className="absolute -right-2 md:-right-4 top-full mt-2 z-50 flex flex-col items-end text-right gap-1 w-max">
+                {showCrepeHint && (
+                  <div className="flex flex-col items-end leading-tight text-white text-sm font-kanteiryuu whitespace-nowrap text-right">
+                    <span>クレープは</span>
+                    <span>こちら</span>
+                  </div>
+                )}
+                <a
+                  href="https://pal-crepe.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Pal crepe 公式サイト"
+                  className="block"
+                >
+                  <img
+                    src="/image/Pal-crepe_logo.svg"
+                    alt="Pal crepe ロゴ"
+                    className="h-12 w-auto md:h-10 lg:h-12"
+                    height={48}
+                    loading="eager"
+                    decoding="async"
+                  />
+                </a>
+              </div>
+            )}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden text-white p-3 -mr-2 focus:outline-none bg-black/20 backdrop-blur-sm rounded-lg border border-white/20"
@@ -201,26 +170,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         >
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col space-y-4">
-              <Link 
-                to="/lunch" 
+              <Link
+                to="/menu"
                 className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
               >
-                ランチ
+                お品書き
               </Link>
-              <Link 
-                to="/izakaya" 
-                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-              >
-                居酒屋
-              </Link>
-              <Link 
-                to="/drinks" 
-                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-              >
-                ドリンク
-              </Link>
-              <Link 
-                to="/store-info" 
+              <Link
+                to="/store-info"
                 className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
               >
                 店舗情報

@@ -5,17 +5,11 @@ import { Home } from './pages/Home';
 import PageTransitionSplash from './components/PageTransitionSplash';
 
 // Use React.lazy with improved loading strategy
-const Lunch = lazy(() => 
-  import('./pages/Lunch').then(module => ({ default: module.Lunch }))
-);
-const Izakaya = lazy(() => 
-  import('./pages/Izakaya').then(module => ({ default: module.Izakaya }))
+const Menu = lazy(() =>
+  import('./pages/Menu').then(module => ({ default: module.Menu }))
 );
 const StoreInfo = lazy(() =>
   import('./pages/StoreInfo').then(module => ({ default: module.StoreInfo }))
-);
-const Drinks = lazy(() =>
-  import('./pages/Drinks').then(module => ({ default: module.Drinks }))
 );
 const DiningPhilosophy = lazy(() =>
   import('./pages/DiningPhilosophy').then(module => ({ default: module.DiningPhilosophy }))
@@ -25,17 +19,11 @@ const DiningPhilosophy = lazy(() =>
 // Preload components based on user interaction
 const preloadComponent = (component: string): void => {
   switch(component) {
-    case 'lunch':
-      void import('./pages/Lunch');
-      break;
-    case 'izakaya':
-      void import('./pages/Izakaya');
+    case 'menu':
+      void import('./pages/Menu');
       break;
     case 'store-info':
       void import('./pages/StoreInfo');
-      break;
-    case 'drinks':
-      void import('./pages/Drinks');
       break;
     case 'dining-philosophy':
       void import('./pages/DiningPhilosophy');
@@ -74,24 +62,14 @@ function App() {
         <Route path="/" element={<Home />} />
         
         {/* All other routes are lazy loaded */}
-        <Route path="/lunch" element={
+        <Route path="/menu" element={
           <Suspense fallback={null}>
-            <Lunch />
-          </Suspense>
-        } />
-        <Route path="/izakaya" element={
-          <Suspense fallback={null}>
-            <Izakaya />
+            <Menu />
           </Suspense>
         } />
         <Route path="/store-info" element={
           <Suspense fallback={null}>
             <StoreInfo />
-          </Suspense>
-        } />
-        <Route path="/drinks" element={
-          <Suspense fallback={null}>
-            <Drinks />
           </Suspense>
         } />
         <Route path="/dining-philosophy" element={
