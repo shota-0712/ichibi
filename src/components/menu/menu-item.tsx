@@ -44,6 +44,27 @@ interface MenuItemProps {
 }
 
 export function MenuItem({ name, price, allergens = [], description }: MenuItemProps) {
+  const priceNumber = typeof price === 'number' ? price : parseInt(price.toString().replace(/[^\d]/g, ''));
+  const taxIncludedPrice = priceNumber;
+  const taxExcludedPrice = Math.round(priceNumber / 1.1);
+
+  // 価格をフォーマットする関数
+  const formatPrice = (price: number) => {
+    if (price >= 10000) {
+      const man = Math.floor(price / 10000);
+      const remainder = price % 10000;
+      if (remainder === 0) {
+        return `${man}万円`;
+      } else {
+        return `${man}万${remainder.toLocaleString()}円`;
+      }
+    } else if (price >= 1000) {
+      return `${price.toLocaleString()}円`;
+    } else {
+      return `${price}円`;
+    }
+  };
+
   return (
     <div className="flex justify-between items-baseline group">
       <div className="flex items-center gap-2">
@@ -84,7 +105,11 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
           </HoverCard>
         )}
       </div>
-      <p className="text-japanese-red">{typeof price === 'number' ? `${price}円` : price}</p>
+      <div className="text-right">
+        <p className="text-japanese-red font-semibold">
+          {formatPrice(taxExcludedPrice)}（税込{formatPrice(taxIncludedPrice)}）
+        </p>
+      </div>
     </div>
   );
 }
