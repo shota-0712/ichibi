@@ -85,9 +85,6 @@ export function StoreInfo() {
                   <div>
                     <h3 className="font-kanteiryuu font-semibold">電車でお越しの場合</h3>
                     <p>JR内房線 君津駅より徒歩15分</p>
-                    <p className="text-sm text-gray-600 mt-1">
-                      ※送迎サービスあり（要予約）
-                    </p>
                   </div>
                 </div>
               </div>
@@ -111,7 +108,6 @@ export function StoreInfo() {
               </div>
               <div className="mt-4 space-y-2 text-sm text-gray-600">
                 <p>※カーナビご利用の際は「〒299-1176 千葉県君津市内蓑輪122-1」で検索してください。</p>
-                <p>※送迎サービスのご予約・お問い合わせは、お電話にてお気軽にご相談ください。</p>
               </div>
             </div>
           </div>

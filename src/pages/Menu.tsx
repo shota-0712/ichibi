@@ -136,7 +136,7 @@ const setMealOptions = [
 const teishokuItems = [
   {
     name: '生姜焼き定食',
-    price: 800,
+    price: 1150,
     allergens: ['豚肉', '小麦', '大豆'],
     description: '国産豚ロースの生姜焼き',
   },
