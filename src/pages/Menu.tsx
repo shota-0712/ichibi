@@ -192,68 +192,234 @@ const riceBowlOptions = [
 
 const beerItems = [
   {
-    name: 'グラスビール',
+    name: 'アサヒスーパードライ樽生 グラスビール',
     price: 500,
-    description: 'キリン一番搾り',
+    description: 'アサヒスーパードライ樽生',
   },
   {
-    name: '中ジョッキ',
-    price: 600,
-    description: 'キリン一番搾り',
+    name: 'アサヒスーパードライ樽生 中ジョッキ',
+    price: 700,
+    description: 'アサヒスーパードライ樽生',
   },
   {
-    name: '大ジョッキ',
-    price: 850,
-    description: 'キリン一番搾り',
+    name: 'アサヒスーパードライ樽生 大ジョッキ',
+    price: 900,
+    description: 'アサヒスーパードライ樽生',
   },
   {
-    name: '瓶ビール',
-    price: 800,
+    name: 'キリン一番搾り 中瓶',
+    price: 900,
     description: 'キリン一番搾り',
+  },
+];
+
+const highballItems = [
+  {
+    name: 'ハイボール',
+    price: 500,
+    description: 'ハイボール',
+  },
+  {
+    name: 'ジンジャーハイ',
+    price: 550,
+    description: 'ジンジャーハイボール',
+  },
+  {
+    name: 'コークハイ',
+    price: 550,
+    description: 'コーラハイボール',
+  },
+  {
+    name: '緑茶ハイ',
+    price: 500,
+    description: '緑茶ハイボール',
+  },
+  {
+    name: 'ウーロンハイ',
+    price: 550,
+    description: 'ウーロンハイボール',
+  },
+];
+
+const whiskeyItems = [
+  {
+    name: 'ロック',
+    price: 500,
+    description: 'ウイスキーロック',
+  },
+  {
+    name: 'ソーダ割',
+    price: 550,
+    description: 'ウイスキーソーダ割り',
+  },
+  {
+    name: '水割り',
+    price: 500,
+    description: 'ウイスキー水割り',
   },
 ];
 
 const shochuItems = [
   {
-    name: '黒霧島(ソーダ割り+50)',
+    name: '黒霧島 ロック',
     price: 500,
     description: '鹿児島の黒霧島',
   },
   {
-    name: '白岳しろ(ソーダ割り+50)',
+    name: '黒霧島 ソーダ割',
+    price: 550,
+    description: '鹿児島の黒霧島',
+  },
+  {
+    name: '黒霧島 水割り',
+    price: 500,
+    description: '鹿児島の黒霧島',
+  },
+  {
+    name: '白岳しろ ロック',
     price: 600,
     description: '熊本の白岳',
   },
   {
-    name: '二階堂(ソーダ割り+50)',
+    name: '白岳しろ ソーダ割',
+    price: 650,
+    description: '熊本の白岳',
+  },
+  {
+    name: '白岳しろ 水割り',
     price: 600,
-    description: '福岡の二階堂',
+    description: '熊本の白岳',
+  },
+  {
+    name: '大分麦焼酎二階堂 ロック',
+    price: 600,
+    description: '大分の二階堂',
+  },
+  {
+    name: '大分麦焼酎二階堂 ソーダ割',
+    price: 650,
+    description: '大分の二階堂',
+  },
+  {
+    name: '大分麦焼酎二階堂 水割り',
+    price: 600,
+    description: '大分の二階堂',
   },
 ];
 
 const sakeItems = [
   {
-    name: '獺祭',
-    price: 1550,
-    description: '山口の獺祭',
+    name: '純米酒(一合）',
+    price: 700,
+    description: '純米酒',
   },
   {
-    name: '八海山',
-    price: 800,
-    description: '新潟の八海山',
+    name: '純米生酒(一合)',
+    price: 700,
+    description: '純米生酒',
+  },
+];
+
+const sourItems = [
+  {
+    name: 'グレープフルーツサワー',
+    price: 500,
+    description: 'グレープフルーツサワー',
   },
   {
-    name: '白鶴（正一合）冷・燗',
-    price: 450,
-    description: '兵庫の白鶴',
+    name: 'レモンサワー',
+    price: 500,
+    description: 'レモンサワー',
+  },
+  {
+    name: 'ジンジャーサワー',
+    price: 550,
+    description: 'ジンジャーサワー',
+  },
+  {
+    name: 'カルピスサワー',
+    price: 500,
+    description: 'カルピスサワー',
+  },
+  {
+    name: '巨峰サワー',
+    price: 500,
+    description: '巨峰サワー',
+  },
+  {
+    name: 'コーラサワー',
+    price: 550,
+    description: 'コーラサワー',
+  },
+  {
+    name: '青リンゴサワー',
+    price: 500,
+    description: '青リンゴサワー',
+  },
+];
+
+const umeshuItems = [
+  {
+    name: '濃醇梅酒 ロック',
+    price: 500,
+    description: '濃醇梅酒',
+  },
+  {
+    name: '濃醇梅酒 ソーダ割',
+    price: 550,
+    description: '濃醇梅酒',
+  },
+  {
+    name: '濃醇梅酒 水割り',
+    price: 500,
+    description: '濃醇梅酒',
+  },
+];
+
+const wineItems = [
+  {
+    name: '赤ワイン（サンタ・ヘレナ・アパルカ・カベルナ・メルロー）',
+    price: 'お問い合わせください',
+    description: '赤ワイン',
+  },
+  {
+    name: '白ワイン（サンタ・ヘレナ・アパルカ・シャルドネ・セミヨン）',
+    price: 'お問い合わせください',
+    description: '白ワイン',
+  },
+];
+
+const cocktailItems = [
+  {
+    name: 'カシスオレンジ',
+    price: 500,
+    description: 'カシスオレンジ',
+  },
+  {
+    name: 'カシスウーロン',
+    price: 500,
+    description: 'カシスウーロン',
+  },
+  {
+    name: 'カシスソーダ',
+    price: 500,
+    description: 'カシスソーダ',
+  },
+];
+
+const nonAlcoholicItems = [
+  {
+    name: 'キリン一番搾り グリーンズフリー　小瓶',
+    price: 650,
+    description: 'ノンアルコールビール',
   },
 ];
 
 const softDrinkItems = [
   {
-    name: 'コカ・コーラ',
+    name: 'コカコーラ',
     price: 400,
-    description: 'コカ・コーラ',
+    description: 'コカコーラ',
   },
   {
     name: 'カルピスウォーター',
@@ -269,6 +435,11 @@ const softDrinkItems = [
     name: 'オレンジジュース',
     price: 400,
     description: 'オレンジジュース',
+  },
+  {
+    name: '緑茶',
+    price: 400,
+    description: '緑茶',
   },
   {
     name: 'ウーロン茶',
@@ -677,7 +848,7 @@ function IzakayaMenu() {
               
               {/* Beer */}
               <div className="mb-8">
-                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ビール</h4>
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">生ビール</h4>
                 <div className="space-y-4">
                   {beerItems.map((item) => (
                     <MenuItem key={item.name} {...item} />
@@ -689,11 +860,9 @@ function IzakayaMenu() {
               <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ハイボール</h4>
                 <div className="space-y-4">
-                  <MenuItem name="ハイボール" price={500} description="角ハイボール" />
-                  <MenuItem name="ジンジャーハイ" price={550} description="ジンジャーハイボール" />
-                  <MenuItem name="コークハイ" price={550} description="コーラハイボール" />
-                  <MenuItem name="緑茶ハイ" price={500} description="緑茶ハイボール" />
-                  <MenuItem name="ウーロンハイ" price={550} description="ウーロンハイボール" />
+                  {highballItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
                 </div>
               </div>
 
@@ -701,8 +870,9 @@ function IzakayaMenu() {
               <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ウイスキー</h4>
                 <div className="space-y-4">
-                  <MenuItem name="ロック" price={500} description="ウイスキーロック" />
-                  <MenuItem name="ロック" price={600} description="プレミアムウイスキーロック" />
+                  {whiskeyItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
                 </div>
               </div>
 
@@ -730,23 +900,29 @@ function IzakayaMenu() {
               <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">サワー</h4>
                 <div className="space-y-4">
-                  <MenuItem name="グレープフルーツサワー" price={500} description="グレープフルーツサワー" />
-                  <MenuItem name="レモンサワー" price={500} description="レモンサワー" />
-                  <MenuItem name="ジンジャーサワー" price={550} description="ジンジャーサワー" />
-                  <MenuItem name="カルピスサワー" price={500} description="カルピスサワー" />
-                  <MenuItem name="巨峰サワー" price={500} description="巨峰サワー" />
-                  <MenuItem name="コーラサワー" price={550} description="コーラサワー" />
-                  <MenuItem name="青リンゴサワー" price={500} description="青リンゴサワー" />
+                  {sourItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
                 </div>
               </div>
 
               {/* Umeshu */}
               <div className="mb-8">
-                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">梅酒</h4>
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">濃醇梅酒</h4>
                 <div className="space-y-4">
-                  <MenuItem name="ロック" price={500} description="梅酒ロック" />
-                  <MenuItem name="ソーダ割" price={550} description="梅酒ソーダ割り" />
-                  <MenuItem name="水割り" price={500} description="梅酒水割り" />
+                  {umeshuItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Wine */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ワイン</h4>
+                <div className="space-y-4">
+                  {wineItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
                 </div>
               </div>
 
@@ -754,9 +930,9 @@ function IzakayaMenu() {
               <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">カクテル</h4>
                 <div className="space-y-4">
-                  <MenuItem name="カシスオレンジ" price={500} description="カシスオレンジ" />
-                  <MenuItem name="カシスウーロン" price={500} description="カシスウーロン" />
-                  <MenuItem name="カシスソーダ" price={500} description="カシスソーダ" />
+                  {cocktailItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
                 </div>
               </div>
 
@@ -764,7 +940,9 @@ function IzakayaMenu() {
               <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ノンアルコール</h4>
                 <div className="space-y-4">
-                  <MenuItem name="アサヒ　ゼロ" price={650} description="ノンアルコールビール" />
+                  {nonAlcoholicItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
                 </div>
               </div>
 
