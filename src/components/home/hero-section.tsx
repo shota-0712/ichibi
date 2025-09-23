@@ -187,7 +187,9 @@ export function HeroSection() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div className="flex items-center justify-center gap-2">
                 <Clock className="w-5 h-5 text-japanese-gold" />
-                <span className="font-kanteiryuu">営業時間: 11:00-22:00</span>
+                <span className="font-kanteiryuu">
+                  営業時間: ランチ 11:00～14:00 (L.O.13:30) ／ 居酒屋 17:00～22:00 (L.O.21:30)
+                </span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <MapPin className="w-5 h-5 text-japanese-gold" />
