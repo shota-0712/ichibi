@@ -45,9 +45,8 @@ export function StoreInfo() {
                     <h3 className="font-kanteiryuu font-semibold">営業時間</h3>
                     <div className="space-y-4">
                       <div>
-                        <p className="font-medium">【お食事・居酒屋】</p>
+                        <p className="font-medium">【十割蕎麦・焼鳥酒場】</p>
                         <p>ランチ 11:00～14:00 (L.O.13:30)</p>
-                        <p>クレープ 14:00～17:00</p>
                         <p>居酒屋 17:00～22:00 (L.O.21:30)</p>
                       </div>
                     </div>
