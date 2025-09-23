@@ -15,15 +15,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   const meta = {
     '/': {
-      title: '十割蕎麦・焼鳥酒場「一期一美」',
-      description: '十割蕎麦・焼鳥酒場「一期一美」の公式サイト'
+      title: '十割蕎麦・焼鳥酒場『一期一美』|千葉県君津市の手打十割蕎麦・焼鳥・定食',
+      description: '十割蕎麦・焼鳥酒場『一期一美』の公式サイト'
     },
     '/menu': {
-      title: 'お品書き | 一期一美',
+      title: 'お品書き | 十割蕎麦・焼鳥酒場『一期一美』- ichibi -',
       description: '十割蕎麦のランチメニューと厳選した国産鶏の焼鳥など居酒屋メニューのご案内。'
     },
     '/store-info': {
-      title: '店舗情報 | 一期一美',
+      title: '店舗情報 | 十割蕎麦・焼鳥酒場『一期一美』- ichibi -',
       description: '店舗の所在地や営業時間などの情報。'
     }
   } as const;
