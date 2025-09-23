@@ -54,6 +54,28 @@ export function SocialFeed() {
             </p>
           </div>
 
+          <div className="flex justify-center mb-10">
+            <div className="text-center">
+              <p className="mb-4 text-sm text-a11y-gray">
+                LINE公式アカウントでも最新情報をお届けしています。ぜひ友だち追加してください！
+              </p>
+              <a
+                href="https://lin.ee/kDzulfG"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LINEで友だち追加"
+                className="inline-block"
+              >
+                <img
+                  src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
+                  alt="LINEで友だち追加"
+                  className="h-9 w-auto"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Instagram Feed - Embedded */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
