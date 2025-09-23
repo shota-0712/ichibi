@@ -7,6 +7,8 @@ import { FooterSection } from './home/footer-section';
 // モバイルメニューの開閉はCSSトランジションで実装する
 import logo from '../assets/ichigo_ichibi_logo.svg';
 
+const SITE_NAME = '十割蕎麦・焼鳥酒場『一期一美』- ichibi -';
+
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
@@ -76,6 +78,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="application-name" content={SITE_NAME} />
+        <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
       </Helmet>
       <div className="min-h-screen bg-stone-50">
       <nav className="fixed w-full z-50">
