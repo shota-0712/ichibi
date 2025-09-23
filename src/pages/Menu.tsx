@@ -133,6 +133,22 @@ const setMealOptions = [
   },
 ];
 
+const coldSobaOptions = [
+  {
+    name: '2枚もり',
+    price: 1300,
+    description: '通常+500円でおそばを2枚お楽しみいただけます',
+  },
+];
+
+const hotSobaOptions = [
+  {
+    name: '2枚もり',
+    price: 1350,
+    description: '通常+500円で温かいおそばを2枚にできます',
+  },
+];
+
 const teishokuItems = [
   {
     name: '生姜焼き定食',
@@ -149,11 +165,6 @@ const teishokuItems = [
 ];
 
 const teishokuOptions = [
-  {
-    name: '肉大盛り',
-    price: 200,
-    description: '肉の量を増量',
-  },
   {
     name: 'ご飯大盛り',
     price: 100,
@@ -208,7 +219,7 @@ const beerItems = [
   },
   {
     name: 'キリン一番搾り 中瓶',
-    price: 900,
+    price: 750,
     description: 'キリン一番搾り',
   },
 ];
@@ -248,7 +259,7 @@ const whiskeyItems = [
     description: 'ウイスキーロック',
   },
   {
-    name: 'ソーダ割',
+    name: 'ソーダ割り',
     price: 550,
     description: 'ウイスキーソーダ割り',
   },
@@ -266,7 +277,7 @@ const shochuItems = [
     description: '鹿児島の黒霧島',
   },
   {
-    name: '黒霧島 ソーダ割',
+    name: '黒霧島 ソーダ割り',
     price: 550,
     description: '鹿児島の黒霧島',
   },
@@ -281,7 +292,7 @@ const shochuItems = [
     description: '熊本の白岳',
   },
   {
-    name: '白岳しろ ソーダ割',
+    name: '白岳しろ ソーダ割り',
     price: 650,
     description: '熊本の白岳',
   },
@@ -292,17 +303,17 @@ const shochuItems = [
   },
   {
     name: '大分麦焼酎二階堂 ロック',
-    price: 600,
+    price: 500,
     description: '大分の二階堂',
   },
   {
-    name: '大分麦焼酎二階堂 ソーダ割',
-    price: 650,
+    name: '大分麦焼酎二階堂 ソーダ割り',
+    price: 550,
     description: '大分の二階堂',
   },
   {
     name: '大分麦焼酎二階堂 水割り',
-    price: 600,
+    price: 500,
     description: '大分の二階堂',
   },
 ];
@@ -311,49 +322,44 @@ const sakeItems = [
   {
     name: '純米酒(一合）',
     price: 700,
-    description: '純米酒',
-  },
-  {
-    name: '純米生酒(一合)',
-    price: 700,
-    description: '純米生酒',
+    description: '米の旨味をしっかり感じられる純米酒',
   },
 ];
 
 const sourItems = [
   {
     name: 'グレープフルーツサワー',
-    price: 500,
+    price: 550,
     description: 'グレープフルーツサワー',
   },
   {
     name: 'レモンサワー',
-    price: 500,
+    price: 550,
     description: 'レモンサワー',
   },
   {
     name: 'ジンジャーサワー',
-    price: 550,
+    price: 600,
     description: 'ジンジャーサワー',
   },
   {
     name: 'カルピスサワー',
-    price: 500,
+    price: 550,
     description: 'カルピスサワー',
   },
   {
     name: '巨峰サワー',
-    price: 500,
+    price: 550,
     description: '巨峰サワー',
   },
   {
     name: 'コーラサワー',
-    price: 550,
+    price: 600,
     description: 'コーラサワー',
   },
   {
     name: '青リンゴサワー',
-    price: 500,
+    price: 550,
     description: '青リンゴサワー',
   },
 ];
@@ -365,7 +371,7 @@ const umeshuItems = [
     description: '濃醇梅酒',
   },
   {
-    name: '濃醇梅酒 ソーダ割',
+    name: '濃醇梅酒 ソーダ割り',
     price: 550,
     description: '濃醇梅酒',
   },
@@ -379,12 +385,12 @@ const umeshuItems = [
 const wineItems = [
   {
     name: '赤ワイン（サンタ・ヘレナ・アパルカ・カベルナ・メルロー）',
-    price: 'お問い合わせください',
+    price: 500,
     description: '赤ワイン',
   },
   {
     name: '白ワイン（サンタ・ヘレナ・アパルカ・シャルドネ・セミヨン）',
-    price: 'お問い合わせください',
+    price: 500,
     description: '白ワイン',
   },
 ];
@@ -410,7 +416,7 @@ const cocktailItems = [
 const nonAlcoholicItems = [
   {
     name: 'キリン一番搾り グリーンズフリー　小瓶',
-    price: 650,
+    price: 600,
     description: 'ノンアルコールビール',
   },
 ];
@@ -574,7 +580,7 @@ function LunchMenu() {
               <div className="mt-4">
                 <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
                 <div className="space-y-2">
-                  {setMealOptions.map((item) => (
+                  {coldSobaOptions.map((item) => (
                     <MenuItem key={item.name} {...item} />
                   ))}
                 </div>
@@ -594,7 +600,7 @@ function LunchMenu() {
               <div className="mt-4">
                 <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
                 <div className="space-y-2">
-                  {setMealOptions.map((item) => (
+                  {hotSobaOptions.map((item) => (
                     <MenuItem key={item.name} {...item} />
                   ))}
                 </div>
@@ -722,16 +728,14 @@ function IzakayaMenu() {
                   <MenuItem name="もも" price={170} allergens={['鶏肉']} description="ジューシーな味わい" />
                   <MenuItem name="レバー" price={160} allergens={['鶏肉']} description="濃厚な味わい" />
                   <MenuItem name="タン" price={200} allergens={['鶏肉']} description="コリコリとした食感" />
-                  <MenuItem name="ハツ" price={160} allergens={['鶏肉']} description="歯ごたえのある食感" />
-                  <MenuItem name="手羽先" price={200} allergens={['鶏肉']} description="香ばしい手羽先" />
+                  <MenuItem name="鶏むね（ねぎ塩）" price={170} allergens={['鶏肉']} description="さっぱりねぎ塩" />
                   <MenuItem name="つくね" price={180} allergens={['鶏肉', '卵']} description="ふんわり食感" />
                 </div>
                 <div className="space-y-4">
-                  <MenuItem name="ねぎま" price={180} allergens={['鶏肉']} description="ネギの甘みと鶏肉の旨み" />
                   <MenuItem name="すなぎも" price={160} allergens={['鶏肉']} description="コリコリ食感" />
                   <MenuItem name="なんこつ" price={170} allergens={['鶏肉']} description="シャキシャキ食感" />
-                  <MenuItem name="ささみ" price={180} allergens={['鶏肉']} description="あっさりヘルシー" />
-                  <MenuItem name="しいたけ" price={160} description="香り豊かな焼きしいたけ" />
+                  <MenuItem name="しいたけ" price={220} description="香り豊かな焼きしいたけ" />
+                  <MenuItem name="トマトベーコン" price={220} allergens={['豚肉']} description="トマトとベーコンの旨み" />
                   <MenuItem name="ニラ豚バラ巻き" price={200} allergens={['豚肉']} description="ニラと豚バラの相性抜群" />
                 </div>
               </div>
@@ -775,7 +779,7 @@ function IzakayaMenu() {
               <div className="mt-4">
                 <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
                 <div className="space-y-2">
-                  {setMealOptions.map((item) => (
+                  {coldSobaOptions.map((item) => (
                     <MenuItem key={item.name} {...item} />
                   ))}
                 </div>
@@ -795,7 +799,7 @@ function IzakayaMenu() {
               <div className="mt-4">
                 <h4 className="text-lg font-kanteiryuu mb-3 text-gray-700">オプション</h4>
                 <div className="space-y-2">
-                  {setMealOptions.map((item) => (
+                  {hotSobaOptions.map((item) => (
                     <MenuItem key={item.name} {...item} />
                   ))}
                 </div>
@@ -876,6 +880,16 @@ function IzakayaMenu() {
                 </div>
               </div>
 
+              {/* Sour */}
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">サワー</h4>
+                <div className="space-y-4">
+                  {sourItems.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+              </div>
+
               {/* Shochu */}
               <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">焼酎</h4>
@@ -891,16 +905,6 @@ function IzakayaMenu() {
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">日本酒</h4>
                 <div className="space-y-4">
                   {sakeItems.map((item) => (
-                    <MenuItem key={item.name} {...item} />
-                  ))}
-                </div>
-              </div>
-
-              {/* Sour */}
-              <div className="mb-8">
-                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">サワー</h4>
-                <div className="space-y-4">
-                  {sourItems.map((item) => (
                     <MenuItem key={item.name} {...item} />
                   ))}
                 </div>
