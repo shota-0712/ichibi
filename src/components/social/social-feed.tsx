@@ -57,7 +57,7 @@ export function SocialFeed() {
           <div className="flex justify-center mb-10">
             <div className="text-center">
               <p className="mb-4 text-sm text-a11y-gray">
-                LINE公式アカウントでも最新情報をお届けしています。ぜひ友だち追加してください！
+                LINE公式アカウントではデザートやドリンクなどのクーポンや季節限定メニューなどの最新情報をお届けしています！
               </p>
               <a
                 href="https://lin.ee/kDzulfG"
