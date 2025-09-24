@@ -103,7 +103,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
         <div className="container mx-auto px-4">
           <div className="relative flex items-center justify-between py-4 md:py-6">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center gap-3 md:gap-4">
               <img
                 src={logo}
                 alt="一期一美"
@@ -118,6 +118,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   }
                 }}
               />
+              <span className="text-white font-kanteiryuu text-base leading-tight md:text-xl lg:text-2xl">
+                十割蕎麦・焼鳥酒場『一期一美』 - ichibi -
+              </span>
             </Link>
             <div className="hidden md:flex space-x-4">
               <Link

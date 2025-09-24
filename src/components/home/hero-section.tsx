@@ -154,11 +154,15 @@ export function HeroSection() {
         <div className="flex-1 flex items-center justify-center px-4">
           <div className="text-center w-full max-w-4xl mx-auto">
             <div className="mb-6 transition-opacity duration-300" style={{opacity: 1}}>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu text-white mb-4">
-                <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-kanteiryuu">十割蕎麦・焼鳥酒場</div>
-                <div className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu">『一期一美』</div>
-                <div className="text-xl md:text-2xl lg:text-3xl mt-2 font-kanteiryuu">- ichibi -</div>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-kanteiryuu text-white mb-3 leading-snug">
+                十割蕎麦・焼鳥酒場『一期一美』
+                <span className="block text-2xl md:text-3xl lg:text-4xl mt-2 font-kanteiryuu">
+                  | 千葉県君津市の手打十割蕎麦・焼鳥・定食
+                </span>
               </h1>
+              <div className="text-xl md:text-2xl lg:text-3xl font-kanteiryuu text-white mb-3">
+                - ichibi -
+              </div>
               <p className="text-lg md:text-xl text-japanese-gold font-medium font-kanteiryuu">
                 千葉県君津市内蓑輪の手打十割蕎麦をメインとしたランチと焼き鳥居酒屋の店
               </p>
