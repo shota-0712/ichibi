@@ -1,7 +1,16 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
 User-agent: *
 Allow: /
 
-# Block common crawl-heavy paths
+# Block common crawl-heavy paths for generic bots
 Disallow: /static/
 Disallow: /assets/
 Disallow: /*.js$
@@ -10,5 +19,5 @@ Disallow: /*.css$
 # Sitemap
 Sitemap: https://i-chi-bi.com/sitemap.xml
 
-# Crawl-delay for better server performance
+# Crawl-delay for non-Google bots to preserve server resources
 Crawl-delay: 1
