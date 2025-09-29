@@ -18,9 +18,9 @@ const PageTransitionSplash: React.FC = () => {
       const preloadResources = async () => {
         // Preload route-specific images
         const routeImages: { [key: string]: string[] } = {
-          '/lunch': ['soba.webp', 'tempura.webp'],
+          '/lunch': ['ichigo_ichibi_set.webp', 'tenjuu.webp'],
           '/dinner': ['yakitori.webp', 'nihonnshu.webp'],
-          '/': ['soba.webp', 'yakitori.webp', 'tempura.webp']
+          '/': ['ichigo_ichibi_set.webp', 'yakitori.webp']
         };
 
         const imagesToLoad = routeImages[location.pathname] || [];

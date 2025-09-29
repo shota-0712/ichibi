@@ -78,7 +78,9 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
   }, [isOpen]);
 
   const formatPrice = (value: number) => `¥${value.toLocaleString()}`;
-  const taxExcludedPrice = Math.round(normalizedPrice / (1 + TAX_RATE));
+
+  const taxIncludedPrice = normalizedPrice;
+  const taxExcludedPrice = Math.round(taxIncludedPrice / (1 + TAX_RATE));
 
   return (
     <div ref={containerRef} className="relative" onMouseLeave={() => setIsOpen(false)}>
