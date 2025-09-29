@@ -15,7 +15,7 @@ export function BrandStory() {
                       <h2 className="text-3xl font-kanteiryuu mb-8">一期一美のこだわり</h2>
           <div className="prose max-w-none text-lg text-gray-700 font-kanteiryuu">
             <p className="mb-6">
-              2025年10月13日、君津の地にグランドオープンする「一期一美」。10月1日からプレオープンを予定しています。
+              2025年10月13日、君津の地にグランドオープンする「一期一美」。10月6日からプレオープンを予定しています。
               様々なジャンルで技を磨いたシェフが、一品一品心を込めてお作りするお料理でおもてなしいたします。
             </p>
           </div>
