@@ -107,13 +107,13 @@ const { title, description, canonical } = meta[location.pathname as keyof typeof
         <div className="w-full overflow-hidden bg-black/50">
           <div className="animate-marquee">
             <span className="whitespace-nowrap px-4 py-2 text-japanese-gold font-kanteiryuu">
-              2025年10月1日プレオープン ・ 10月13日グランドオープン
+              2025年10月6日プレオープン ・ 10月13日グランドオープン
             </span>
             <span
               className="whitespace-nowrap px-4 py-2 text-japanese-gold font-kanteiryuu"
               aria-hidden="true"
             >
-              2025年10月1日プレオープン ・ 10月13日グランドオープン
+              2025年10月6日プレオープン ・ 10月13日グランドオープン
             </span>
           </div>
         </div>
