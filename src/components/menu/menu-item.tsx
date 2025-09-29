@@ -78,6 +78,7 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
   }, [isOpen]);
 
   const formatPrice = (value: number) => `¥${value.toLocaleString()}`;
+
   const taxIncludedPrice = normalizedPrice;
   const taxExcludedPrice = Math.round(taxIncludedPrice / (1 + TAX_RATE));
 
@@ -108,7 +109,7 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
         </div>
         <div className="text-right">
           <p className="text-japanese-red font-semibold">
-            {formatPrice(taxExcludedPrice)} (税込{formatPrice(taxIncludedPrice)})
+            {formatPrice(normalizedPrice)} (税抜{formatPrice(taxExcludedPrice)})
           </p>
         </div>
       </div>
