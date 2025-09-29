@@ -38,8 +38,12 @@ export interface MenuItemProps {
   description?: string;
 }
 
+const TAX_RATE = 0.1;
+
 export function MenuItem({ name, price, allergens = [], description }: MenuItemProps) {
-  const priceNumber = typeof price === 'number' ? price : parseInt(price.toString().replace(/[^\d]/g, ''));
+  const priceNumber =
+    typeof price === 'number' ? price : parseInt(price.toString().replace(/[^\d]/g, ''), 10);
+  const normalizedPrice = Number.isFinite(priceNumber) ? priceNumber : 0;
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const infoContentId = useId();
@@ -74,6 +78,8 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
   }, [isOpen]);
 
   const formatPrice = (value: number) => `¥${value.toLocaleString()}`;
+  const taxIncludedPrice = normalizedPrice;
+  const taxExcludedPrice = Math.round(taxIncludedPrice / (1 + TAX_RATE));
 
   return (
     <div ref={containerRef} className="relative" onMouseLeave={() => setIsOpen(false)}>
@@ -101,7 +107,9 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
           )}
         </div>
         <div className="text-right">
-          <p className="text-japanese-red font-semibold">{formatPrice(priceNumber)}</p>
+          <p className="text-japanese-red font-semibold">
+            {formatPrice(taxExcludedPrice)} (税込{formatPrice(taxIncludedPrice)})
+          </p>
         </div>
       </div>
       {description && (
