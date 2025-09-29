@@ -31,17 +31,15 @@ type Allergen =
   | '豚肉'
   | 'アーモンド';
 
-interface MenuItemProps {
+export interface MenuItemProps {
   name: string;
   price: string | number;
   allergens?: Allergen[];
   description?: string;
 }
 
-export function MenuItem({ name, price, allergens = [] }: MenuItemProps) {
+export function MenuItem({ name, price, allergens = [], description }: MenuItemProps) {
   const priceNumber = typeof price === 'number' ? price : parseInt(price.toString().replace(/[^\d]/g, ''));
-  const taxIncludedPrice = priceNumber;
-  const taxExcludedPrice = Math.round(priceNumber / 1.1);
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const infoContentId = useId();
@@ -75,21 +73,7 @@ export function MenuItem({ name, price, allergens = [] }: MenuItemProps) {
     };
   }, [isOpen]);
 
-  // 価格をフォーマットする関数
-  const formatPrice = (value: number) => {
-    if (value >= 10000) {
-      const man = Math.floor(value / 10000);
-      const remainder = value % 10000;
-      if (remainder === 0) {
-        return `${man}万円`;
-      }
-      return `${man}万${remainder.toLocaleString()}円`;
-    }
-    if (value >= 1000) {
-      return `${value.toLocaleString()}円`;
-    }
-    return `${value}円`;
-  };
+  const formatPrice = (value: number) => `¥${value.toLocaleString()}`;
 
   return (
     <div ref={containerRef} className="relative" onMouseLeave={() => setIsOpen(false)}>
@@ -117,11 +101,13 @@ export function MenuItem({ name, price, allergens = [] }: MenuItemProps) {
           )}
         </div>
         <div className="text-right">
-          <p className="text-japanese-red font-semibold">
-            {formatPrice(taxExcludedPrice)}（税込{formatPrice(taxIncludedPrice)}）
-          </p>
+          <p className="text-japanese-red font-semibold">{formatPrice(priceNumber)}</p>
         </div>
       </div>
+      {description && (
+        <p className="mt-2 text-sm text-gray-600">{description}</p>
+      )}
+
       {hasDetails && isOpen && (
         <div
           id={infoContentId}
