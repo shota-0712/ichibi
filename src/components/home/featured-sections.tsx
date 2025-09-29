@@ -32,8 +32,8 @@ export function FeaturedSections() {
             <motion.div variants={item}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
                 <img
-                  src="/image/soba.webp"
-                  alt="手打ちそば"
+                  src="/image/ichigo_ichibi_set.webp"
+                  alt="蕎麦と小鉢の膳"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
@@ -69,8 +69,8 @@ export function FeaturedSections() {
             <motion.div variants={item}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
                 <img
-                  src="/image/tempura.webp"
-                  alt="天ぷら"
+                  src="/image/tenjuu.webp"
+                  alt="天重"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
