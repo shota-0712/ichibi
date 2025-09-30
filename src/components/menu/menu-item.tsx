@@ -36,11 +36,18 @@ export interface MenuItemProps {
   price: string | number;
   allergens?: Allergen[];
   description?: string;
+  priceLabel?: string;
 }
 
 const TAX_RATE = 0.1;
 
-export function MenuItem({ name, price, allergens = [], description }: MenuItemProps) {
+export function MenuItem({
+  name,
+  price,
+  allergens = [],
+  description,
+  priceLabel,
+}: MenuItemProps) {
   const priceNumber =
     typeof price === 'number' ? price : parseInt(price.toString().replace(/[^\d]/g, ''), 10);
   const normalizedPrice = Number.isFinite(priceNumber) ? priceNumber : 0;
@@ -109,7 +116,7 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
         </div>
         <div className="text-right">
           <p className="text-japanese-red font-semibold">
-            税抜{formatPrice(taxExcludedPrice)} (税込{formatPrice(taxIncludedPrice)})
+            {priceLabel ?? `税抜${formatPrice(taxExcludedPrice)} (税込${formatPrice(taxIncludedPrice)})`}
           </p>
         </div>
       </div>
