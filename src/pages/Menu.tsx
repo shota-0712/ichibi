@@ -139,14 +139,10 @@ const riceBowlItems: BasicMenuItem[] = [
   },
 ];
 
-const kidsMenuItems: BasicMenuItem[] = [
+const kidsFoodItems: BasicMenuItem[] = [
   {
     name: 'キッズプレート',
     price: 300,
-  },
-  {
-    name: 'キッズドリンク',
-    price: 100,
   },
 ];
 
@@ -324,6 +320,12 @@ const softDrinkItems: BasicMenuItem[] = [
   { name: '緑茶', price: 400 },
   { name: 'ウーロン茶', price: 400 },
 ];
+
+const kidsDrinkItems: BasicMenuItem[] = softDrinkItems.map((item) => ({
+  name: item.name,
+  price: 100,
+  priceLabel: '税込100円',
+}));
 
 const izakayaYakitoriItems = [
   { name: 'もも', price: 170, allergens: ['鶏肉'] },
@@ -545,9 +547,17 @@ function LunchMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">キッズメニュー</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {kidsMenuItems.map((item) => (
+                {kidsFoodItems.map((item) => (
                   <MenuItem key={item.name} {...item} />
                 ))}
+              </div>
+              <div className="mt-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">キッズドリンク</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {kidsDrinkItems.map((item) => (
+                    <MenuItem key={`kids-drink-${item.name}`} {...item} />
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -672,9 +682,17 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">キッズメニュー</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {kidsMenuItems.map((item) => (
+                {kidsFoodItems.map((item) => (
                   <MenuItem key={item.name} {...item} />
                 ))}
+              </div>
+              <div className="mt-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">キッズドリンク</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {kidsDrinkItems.map((item) => (
+                    <MenuItem key={`kids-drink-${item.name}`} {...item} />
+                  ))}
+                </div>
               </div>
             </div>
 
