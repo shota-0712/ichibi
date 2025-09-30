@@ -109,7 +109,7 @@ export function MenuItem({ name, price, allergens = [], description }: MenuItemP
         </div>
         <div className="text-right">
           <p className="text-japanese-red font-semibold">
-            {formatPrice(normalizedPrice)} (税抜{formatPrice(taxExcludedPrice)})
+            税抜{formatPrice(taxExcludedPrice)} (税込{formatPrice(taxIncludedPrice)})
           </p>
         </div>
       </div>
