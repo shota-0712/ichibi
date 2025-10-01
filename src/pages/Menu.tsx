@@ -200,7 +200,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
       title: 'ウイスキー',
       items: [
         { name: 'ロック', price: 500 },
-        { name: 'ソーダ割り', price: 550 },
+        { name: 'ソーダ割り', price: 500 },
         { name: '水割り', price: 500 },
       ],
     },
@@ -211,7 +211,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
       title: '黒霧島',
       items: [
         { name: 'ロック', price: 500 },
-        { name: 'ソーダ割り', price: 550 },
+        { name: 'ソーダ割り', price: 500 },
         { name: '水割り', price: 500 },
         { name: 'ボトル', price: 3000 },
       ],
@@ -223,7 +223,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
       title: '白岳しろ',
       items: [
         { name: 'ロック', price: 600 },
-        { name: 'ソーダ割り', price: 650 },
+        { name: 'ソーダ割り', price: 600 },
         { name: '水割り', price: 600 },
         { name: 'ボトル', price: 3000 },
       ],
@@ -235,7 +235,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
       title: '大分麦焼酎二階堂',
       items: [
         { name: 'ロック', price: 500 },
-        { name: 'ソーダ割り', price: 550 },
+        { name: 'ソーダ割り', price: 500 },
         { name: '水割り', price: 500 },
         { name: 'ボトル', price: 3000 },
       ],
@@ -255,6 +255,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
         { name: 'カルピスサワー', price: 550 },
         { name: '青りんごサワー', price: 550 },
         { name: '巨峰サワー', price: 550 },
+        { name: 'お茶割り', price: 550 },
       ],
     },
   },
@@ -267,7 +268,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
           title: '濃醇梅酒',
           items: [
             { name: 'ロック', price: 600 },
-            { name: 'ソーダ割り', price: 650 },
+            { name: 'ソーダ割り', price: 600 },
             { name: '水割り', price: 600 },
           ],
         },
@@ -317,7 +318,9 @@ const softDrinkItems: BasicMenuItem[] = [
   { name: 'カルピス', price: 400 },
   { name: 'ジンジャーエール', price: 400 },
   { name: '100%オレンジジュース', price: 400 },
+  { name: '100%りんごジュース', price: 400 },
   { name: '緑茶', price: 400 },
+  { name: '紅茶（無糖）', price: 400 },
   { name: 'ウーロン茶', price: 400 },
 ];
 

@@ -35,7 +35,7 @@ export function StoreInfo() {
                       <Mail className="h-4 w-4" aria-hidden="true" />
                       <span>お問い合わせページへ</span>
                     </Link>
-                    <p className="text-xs text-gray-500 mt-2">※メールでのご予約はご来店希望日の2日前までにお願いいたします。</p>
+                    <p className="text-xs text-gray-500 mt-2">※ご予約・空席の確認はお電話にて承ります。</p>
                   </div>
                 </div>
 

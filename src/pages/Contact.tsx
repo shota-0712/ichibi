@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Mail, Info, Phone, ClipboardCopy, ClipboardCheck } from 'lucide-react';
+import { Mail, Info, Phone } from 'lucide-react';
 
 type ReplyPreference = 'reply' | 'no-reply';
 
@@ -15,30 +15,6 @@ type ContactCategory = {
 const CONTACT_ADDRESS = 'ichibi2025@gmail.com';
 
 const CONTACT_CATEGORIES: ContactCategory[] = [
-  {
-    id: 'reservation',
-    label: 'ご予約・空席確認',
-    description: '日時や人数のご相談、貸切のご要望はこちら。',
-    subject: '【ご予約・空席確認】お問い合わせ',
-    prompts: {
-      reply: [
-        'お名前（必須）：',
-        'ふりがな：',
-        'ご連絡先（電話番号またはメールアドレス）（必須）：',
-        'ご来店希望日時：',
-        'ご来店予定人数：',
-        'ご利用予定時間（席のみのご予約）：',
-        'その他ご要望：'
-      ],
-      'no-reply': [
-        'ご来店希望日時：',
-        'ご来店予定人数：',
-        'ご利用予定時間（席のみのご予約）：',
-        'お問い合わせ内容：'
-      ]
-    },
-    note: '※メールでのご予約はご来店希望日の2日前までにお送りください。お急ぎのご予約はお電話（0439-72-3988）をご利用ください。'
-  },
   {
     id: 'menu',
     label: 'メニュー・アレルギー',
@@ -118,8 +94,7 @@ const REPLY_OPTIONS: Array<{
 
 export function Contact() {
   const [preference, setPreference] = useState<ReplyPreference>('reply');
-  const [categoryId, setCategoryId] = useState<string>(CONTACT_CATEGORIES[0]?.id ?? 'reservation');
-  const [copied, setCopied] = useState(false);
+  const [categoryId, setCategoryId] = useState<string>(CONTACT_CATEGORIES[0]?.id ?? '');
 
   const category = useMemo(() => {
     return CONTACT_CATEGORIES.find(item => item.id === categoryId) ?? CONTACT_CATEGORIES[0];
@@ -157,24 +132,12 @@ export function Contact() {
     return `mailto:${CONTACT_ADDRESS}?subject=${subject}&body=${body}`;
   }, [category, previewBody]);
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(previewBody);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setCopied(false);
-    }
-  };
-
   return (
     <div className="bg-stone-50">
       <div className="bg-japanese-indigo text-white pt-36 pb-16 md:pt-40 md:pb-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-kanteiryuu mb-4">お問い合わせ</h1>
-          <p className="text-lg text-japanese-gold">
-            ご用件に合わせてメール本文テンプレートを選択できます。
-          </p>
+          <h1 className="text-4xl md:text-5xl font-kanteiryuu mb-4">お問い合わせ・ご要望</h1>
+          <p className="text-lg text-japanese-gold">ご用件に合わせてメール本文テンプレートを選択できます。</p>
         </div>
       </div>
 
@@ -189,7 +152,7 @@ export function Contact() {
               </li>
               <li className="flex gap-3">
                 <Info className="h-5 w-5 text-japanese-red mt-1 flex-shrink-0" aria-hidden="true" />
-                <span>ご予約の可否など緊急のご用件は <Phone className="inline h-4 w-4" aria-hidden="true" /> 0439-72-3988 までお電話ください。</span>
+                <span>座席状況のご確認は <Phone className="inline h-4 w-4" aria-hidden="true" /> 0439-72-3988 までお電話ください。</span>
               </li>
               <li className="flex gap-3">
                 <Info className="h-5 w-5 text-japanese-red mt-1 flex-shrink-0" aria-hidden="true" />
@@ -234,7 +197,8 @@ export function Contact() {
               </select>
               {category && (
                 <p className="mt-2 text-sm text-gray-600">{category.description}</p>
-              )}
+
+)}
             </div>
 
             {category?.note && (
@@ -254,14 +218,6 @@ export function Contact() {
                 readOnly
               />
               <div className="mt-2 flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  className="inline-flex items-center gap-2 rounded-full bg-gray-800 px-4 py-2 text-sm text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-japanese-gold"
-                >
-                  {copied ? <ClipboardCheck className="h-4 w-4" /> : <ClipboardCopy className="h-4 w-4" />}
-                  {copied ? 'コピーしました' : '本文をコピー'}
-                </button>
                 <a
                   href={mailtoLink}
                   className="inline-flex items-center gap-2 rounded-full bg-japanese-red px-5 py-2 text-sm font-medium text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-japanese-gold"

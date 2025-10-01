@@ -34,8 +34,8 @@ const meta = {
     canonical: `${BASE_URL}/store-info`
   },
   '/contact': {
-    title: 'お問い合わせ｜十割蕎麦・焼鳥酒場『一期一美』-ichibi-',
-    description: 'ご予約・ご意見・メニューのご質問などのお問い合わせはこちらから。',
+    title: 'お問い合わせ・ご要望｜十割蕎麦・焼鳥酒場『一期一美』-ichibi-',
+    description: '店舗へのお問い合わせやご意見・ご要望、メニューに関するご質問などはこちらから。',
     canonical: `${BASE_URL}/contact`
   },
   '/dining-philosophy': {
