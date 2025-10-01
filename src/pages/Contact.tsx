@@ -169,7 +169,7 @@ export function Contact() {
 
   return (
     <div className="bg-stone-50">
-      <div className="bg-japanese-indigo text-white py-16">
+      <div className="bg-japanese-indigo text-white pt-36 pb-16 md:pt-40 md:pb-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-kanteiryuu mb-4">お問い合わせ</h1>
           <p className="text-lg text-japanese-gold">
