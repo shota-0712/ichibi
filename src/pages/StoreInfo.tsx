@@ -1,13 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, MapPin, Clock, Car, Train, CreditCard, Mail } from 'lucide-react';
 import { SocialFeed } from '../components/social/social-feed';
 import { SocialWidgetLoader } from '../components/social/social-widget-loader';
-
-const CONTACT_MAIL = (() => {
-  const subject = encodeURIComponent('お問い合わせについて');
-  const body = encodeURIComponent('お名前：\nご連絡先：\nご来店予定日：\nお問い合わせ内容：\n');
-  return `mailto:ichibi2025@gmail.com?subject=${subject}&body=${body}`;
-})();
 
 export function StoreInfo() {
   return (
@@ -33,13 +28,14 @@ export function StoreInfo() {
                     <h3 className="font-kanteiryuu font-semibold">お電話</h3>
                     <p>0439-72-3988</p>
                     <p className="text-sm text-gray-600 mt-1">※2025年10月6日プレオープン・10月13日グランドオープン</p>
-                    <a
-                      href={CONTACT_MAIL}
+                    <Link
+                      to="/contact"
                       className="mt-4 inline-flex items-center gap-2 rounded-full bg-japanese-indigo px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
                     >
                       <Mail className="h-4 w-4" aria-hidden="true" />
-                      <span>メールでお問い合わせ</span>
-                    </a>
+                      <span>お問い合わせページへ</span>
+                    </Link>
+                    <p className="text-xs text-gray-500 mt-2">※メールでのご予約はご来店希望日の2日前までにお願いいたします。</p>
                   </div>
                 </div>
 

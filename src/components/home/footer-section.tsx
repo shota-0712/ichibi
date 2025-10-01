@@ -84,6 +84,7 @@ export function FooterSection() {
                 <Link to="/lunch" className="text-sm text-gray-300 hover:text-white transition">ランチ</Link>
                 <Link to="/izakaya" className="text-sm text-gray-300 hover:text-white transition">居酒屋</Link>
                 <Link to="/store-info" className="text-sm text-gray-300 hover:text-white transition">店舗情報</Link>
+                <Link to="/contact" className="text-sm text-gray-300 hover:text-white transition">お問い合わせ</Link>
               </div>
           </div>
         </div>

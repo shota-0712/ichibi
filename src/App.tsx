@@ -11,6 +11,9 @@ const Menu = lazy(() =>
 const StoreInfo = lazy(() =>
   import('./pages/StoreInfo').then(module => ({ default: module.StoreInfo }))
 );
+const Contact = lazy(() =>
+  import('./pages/Contact').then(module => ({ default: module.Contact }))
+);
 const DiningPhilosophy = lazy(() =>
   import('./pages/DiningPhilosophy').then(module => ({ default: module.DiningPhilosophy }))
 );
@@ -24,6 +27,9 @@ const preloadComponent = (component: string): void => {
       break;
     case 'store-info':
       void import('./pages/StoreInfo');
+      break;
+    case 'contact':
+      void import('./pages/Contact');
       break;
     case 'dining-philosophy':
       void import('./pages/DiningPhilosophy');
@@ -70,6 +76,11 @@ function App() {
         <Route path="/store-info" element={
           <Suspense fallback={null}>
             <StoreInfo />
+          </Suspense>
+        } />
+        <Route path="/contact" element={
+          <Suspense fallback={null}>
+            <Contact />
           </Suspense>
         } />
         <Route path="/dining-philosophy" element={

@@ -8,8 +8,8 @@ import { motion } from 'framer-motion';
 // to prevent "preloaded but not used" warnings and improve LCP.
 const SLIDER_IMAGES = [
   {
-    url: "/image/ichigo_ichibi_set.webp",
-    alt: "蕎麦と小鉢の御膳",
+    url: "/image/seiro2.webp",
+    alt: "せいろそば",
     title: "こだわりの手打ちそば",
     subtitle: "毎朝4時から打つこだわりの手打ちそば"
   },

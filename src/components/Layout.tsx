@@ -33,6 +33,11 @@ const meta = {
     description: '店舗の所在地や営業時間などの情報。',
     canonical: `${BASE_URL}/store-info`
   },
+  '/contact': {
+    title: 'お問い合わせ｜十割蕎麦・焼鳥酒場『一期一美』-ichibi-',
+    description: 'ご予約・ご意見・メニューのご質問などのお問い合わせはこちらから。',
+    canonical: `${BASE_URL}/contact`
+  },
   '/dining-philosophy': {
     title: '料理のこだわり | 十割蕎麦・焼鳥酒場『一期一美』-ichibi-',
     description: '素材選びや仕込みへのこだわりをご紹介します。',
@@ -148,6 +153,12 @@ const { title, description, canonical } = meta[location.pathname as keyof typeof
               >
                 店舗情報
               </Link>
+              <Link
+                to="/contact"
+                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
+              >
+                お問い合わせ
+              </Link>
             </div>
             {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上・より右端に） - ホームのみ表示 */}
             {isHome && (
@@ -206,6 +217,12 @@ const { title, description, canonical } = meta[location.pathname as keyof typeof
                 className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
               >
                 店舗情報
+              </Link>
+              <Link
+                to="/contact"
+                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
+              >
+                お問い合わせ
               </Link>
               <div className="pt-4 flex space-x-6 justify-center">
                 <a 
