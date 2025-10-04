@@ -93,7 +93,7 @@ export function MenuItem({
     <div ref={containerRef} className="relative" onMouseLeave={() => setIsOpen(false)}>
       <div className="flex justify-between items-baseline">
         <div className="flex items-center gap-2">
-          <h4 className="font-semibold">{name}</h4>
+          <h4 className="font-semibold text-gray-900">{name}</h4>
           {hasDetails && (
             <button
               type="button"

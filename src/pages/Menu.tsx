@@ -376,11 +376,11 @@ function AlcoholicDrinks({ heading }: { heading: string }) {
 
             return (
               <div key={`${title}-${index}`}>
-                <h5 className="text-base font-kanteiryuu mb-3 text-gray-600">{title}</h5>
+                <h5 className="text-base font-kanteiryuu mb-3 text-gray-800">{title}</h5>
 
                 {subsections?.map((subsection) => (
                   <div key={`${title}-${subsection.title}`} className="space-y-3 mb-4 last:mb-0">
-                    <h6 className="text-sm font-kanteiryuu text-gray-500">{subsection.title}</h6>
+                    <h6 className="text-sm font-kanteiryuu text-gray-800">{subsection.title}</h6>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {subsection.items.map((item) => (
                         <MenuItem
@@ -609,32 +609,32 @@ function LunchMenu() {
 
               <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ボトルキープ</h4>
-                <div className="space-y-4 text-sm text-gray-600">
+                <div className="space-y-4 text-sm">
                   <div>
-                    <p className="font-semibold text-gray-700">焼酎</p>
-                    <ul className="list-disc list-inside space-y-1">
+                    <p className="font-semibold text-gray-800">焼酎</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-900">
                       <li>白岳しろ（720ml）　税抜3,000円（税込3,300円）</li>
                       <li>二階堂（900ml）　　税抜2,500円（税込2,750円）</li>
                       <li>黒霧島（900ml）　　税抜2,500円（税込2,750円）</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-700">ウイスキー</p>
-                    <ul className="list-disc list-inside space-y-1">
+                    <p className="font-semibold text-gray-800">ウイスキー</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-900">
                       <li>ブラックニッカ（700ml）　税抜2,500円（税込2,750円）</li>
                       <li>陸（500ml）　　　　　　税抜4,000円（税込4,400円）</li>
                       <li>角（700ml）　　　　　　税抜4,000円（税込4,400円）</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-700">キープ期間</p>
-                    <ul className="list-disc list-inside space-y-1">
+                    <p className="font-semibold text-gray-800">キープ期間</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-700">
                       <li>3か月間</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-700">その他</p>
-                    <ul className="list-disc list-inside space-y-1">
+                    <p className="font-semibold text-gray-800">その他</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-700">
                       <li>氷ボックス　税抜500円（税込550円）</li>
                       <li>割り材（水、炭酸など）別途</li>
                     </ul>
@@ -777,32 +777,32 @@ function IzakayaMenu() {
 
               <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ボトルキープ</h4>
-                <div className="space-y-4 text-sm text-gray-600">
+                <div className="space-y-4 text-sm">
                   <div>
-                    <p className="font-semibold text-gray-700">焼酎</p>
-                    <ul className="list-disc list-inside space-y-1">
+                    <p className="font-semibold text-gray-800">焼酎</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-900">
                       <li>白岳しろ（720ml）　税抜3,000円（税込3,300円）</li>
                       <li>二階堂（900ml）　　税抜2,500円（税込2,750円）</li>
                       <li>黒霧島（900ml）　　税抜2,500円（税込2,750円）</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-700">ウイスキー</p>
-                    <ul className="list-disc list-inside space-y-1">
+                    <p className="font-semibold text-gray-800">ウイスキー</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-900">
                       <li>ブラックニッカ（700ml）　税抜2,500円（税込2,750円）</li>
                       <li>陸（500ml）　　　　　　税抜4,000円（税込4,400円）</li>
                       <li>角（700ml）　　　　　　税抜4,000円（税込4,400円）</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-700">キープ期間</p>
-                    <ul className="list-disc list-inside space-y-1">
+                    <p className="font-semibold text-gray-800">キープ期間</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-700">
                       <li>3か月間</li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-700">その他</p>
-                    <ul className="list-disc list-inside space-y-1">
+                    <p className="font-semibold text-gray-800">その他</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-700">
                       <li>氷ボックス　税抜500円（税込550円）</li>
                       <li>割り材（水、炭酸など）別途</li>
                     </ul>
