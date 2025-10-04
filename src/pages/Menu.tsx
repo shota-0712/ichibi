@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock } from 'lucide-react';
+import { Clock, Info } from 'lucide-react';
 import { MenuItem, type MenuItemProps } from '../components/menu/menu-item';
 
 type BasicMenuItem = Omit<MenuItemProps, 'price'> & { price: number };
@@ -173,7 +173,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
         {
           title: 'アサヒスーパードライ樽生',
           items: [
-            { name: 'グラス', price: 550 },
+            { name: '小ジョッキ', price: 550 },
             { name: '中ジョッキ', price: 700 },
             { name: '大ジョッキ', price: 900 },
           ],
@@ -188,8 +188,6 @@ const alcoholicDrinkContent: DrinkContent[] = [
       items: [
         { name: 'ハイボール', price: 500 },
         { name: 'ジンジャーハイ', price: 550 },
-        { name: '緑茶ハイ', price: 550 },
-        { name: 'ウーロンハイ', price: 550 },
         { name: 'コークハイ', price: 550 },
       ],
     },
@@ -208,42 +206,44 @@ const alcoholicDrinkContent: DrinkContent[] = [
   {
     type: 'section',
     data: {
-      title: '黒霧島',
-      items: [
-        { name: 'ロック', price: 500 },
-        { name: 'ソーダ割り', price: 500 },
-        { name: '水割り', price: 500 },
-        { name: 'ボトル', price: 3000 },
+      title: '焼酎',
+      subsections: [
+        {
+          title: '黒霧島',
+          items: [
+            { name: 'ロック', price: 500 },
+            { name: 'ソーダ割り', price: 500 },
+            { name: '水割り', price: 500 },
+            { name: 'ボトル', price: 3000 },
+          ],
+        },
+        {
+          title: '白岳しろ',
+          items: [
+            { name: 'ロック', price: 600 },
+            { name: 'ソーダ割り', price: 600 },
+            { name: '水割り', price: 600 },
+            { name: 'ボトル', price: 3000 },
+          ],
+        },
+        {
+          title: '大分麦焼酎二階堂',
+          items: [
+            { name: 'ロック', price: 500 },
+            { name: 'ソーダ割り', price: 500 },
+            { name: '水割り', price: 500 },
+            { name: 'ボトル', price: 3000 },
+          ],
+        },
       ],
     },
   },
   {
     type: 'section',
     data: {
-      title: '白岳しろ',
-      items: [
-        { name: 'ロック', price: 600 },
-        { name: 'ソーダ割り', price: 600 },
-        { name: '水割り', price: 600 },
-        { name: 'ボトル', price: 3000 },
-      ],
+      title: '日本酒',
+      items: [{ name: '純米酒(一合)', price: 700 }],
     },
-  },
-  {
-    type: 'section',
-    data: {
-      title: '大分麦焼酎二階堂',
-      items: [
-        { name: 'ロック', price: 500 },
-        { name: 'ソーダ割り', price: 500 },
-        { name: '水割り', price: 500 },
-        { name: 'ボトル', price: 3000 },
-      ],
-    },
-  },
-  {
-    type: 'item',
-    data: { name: '純米酒(一合)', price: 700 },
   },
   {
     type: 'section',
@@ -255,6 +255,8 @@ const alcoholicDrinkContent: DrinkContent[] = [
         { name: 'カルピスサワー', price: 550 },
         { name: '青りんごサワー', price: 550 },
         { name: '巨峰サワー', price: 550 },
+        { name: '緑茶ハイ', price: 550 },
+        { name: 'ウーロンハイ', price: 550 },
         { name: 'お茶割り', price: 550 },
       ],
     },
@@ -320,7 +322,7 @@ const softDrinkItems: BasicMenuItem[] = [
   { name: '100%オレンジジュース', price: 400 },
   { name: '100%りんごジュース', price: 400 },
   { name: '緑茶', price: 400 },
-  { name: '紅茶（無糖）', price: 400 },
+  { name: '無糖アイスティー', price: 400 },
   { name: 'ウーロン茶', price: 400 },
 ];
 
@@ -359,7 +361,7 @@ const izakayaAppetizerItems = [
   { name: 'トマトスライス', price: 350 },
 ];
 
-const sobaSelectionNote = '十割蕎麦・二八蕎麦がお選び頂けます。\n※十割蕎麦は1日20食限定\n麺量 : 140g\nそば二倍盛り(+140g) : +500円';
+const sobaSelectionNote = '十割蕎麦・二八蕎麦がお選び頂けます。\n※十割蕎麦は1日15食限定\n麺量 : 140g\nそば二倍盛り(+140g) : +500円';
 const setMealNote = `${sobaSelectionNote}\nデザート付き\n温そば : +50円\nご飯大盛り : +100円`;
 const coldSobaNote = `${sobaSelectionNote}\n温そば : +50円`;
 const hotSobaNote = sobaSelectionNote;
@@ -491,6 +493,16 @@ function LunchMenu() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-12">
+            <div className="text-sm text-gray-600">
+              <p className="flex items-center gap-1">
+                <span>※アレルギー表示は</span>
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-gray-600">
+                  <Info className="h-3 w-3" aria-hidden="true" />
+                </span>
+                <span>を押すとご覧になれます。</span>
+              </p>
+            </div>
+
             {/* Set Meals */}
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">セットメニュー</h3>
@@ -601,9 +613,7 @@ function LunchMenu() {
           </div>
 
           <div className="mt-12 text-sm text-gray-600">
-            <p>※価格は全て税込表示です</p>
             <p>※仕入れ状況により、内容が変更になる場合がございます</p>
-            <p>※アレルギー表示は主な原材料のみを表示しています。詳細については係員にお尋ねください。</p>
           </div>
         </div>
       </div>
@@ -617,6 +627,16 @@ function IzakayaMenu() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-12">
+            <div className="text-sm text-gray-600">
+              <p className="flex items-center gap-1">
+                <span>※アレルギー表示は</span>
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-gray-600">
+                  <Info className="h-3 w-3" aria-hidden="true" />
+                </span>
+                <span>を押すとご覧になれます。</span>
+              </p>
+            </div>
+
             {/* Yakitori */}
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">焼き鳥</h3>
@@ -706,7 +726,7 @@ function IzakayaMenu() {
               <AlcoholicDrinks heading="アルコール飲料" />
 
               <div className="mb-8">
-                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ノンアルコール</h4>
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ノンアルコール飲料</h4>
                 <div className="space-y-4">
                   {nonAlcoholicItems.map((item) => (
                     <MenuItem key={item.name} {...item} />
@@ -736,10 +756,7 @@ function IzakayaMenu() {
           </div>
 
           <div className="mt-12 text-sm text-gray-600">
-            <p>※価格は全て税込表示です</p>
             <p>※仕入れ状況により、内容が変更になる場合がございます</p>
-            <p>※アレルギー表示は主な原材料のみを表示しています。詳細については係員にお尋ねください。</p>
-            <p>※アルコール類は20歳未満の方にはお出しできません</p>
           </div>
         </div>
       </div>

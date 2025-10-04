@@ -16,25 +16,6 @@ const CONTACT_ADDRESS = 'ichibi2025@gmail.com';
 
 const CONTACT_CATEGORIES: ContactCategory[] = [
   {
-    id: 'menu',
-    label: 'メニュー・アレルギー',
-    description: 'アレルギー表示や取り扱い食材のご質問など。',
-    subject: '【メニュー・アレルギー】お問い合わせ',
-    prompts: {
-      reply: [
-        'お名前（必須）：',
-        'ご連絡先（必須）：',
-        'ご質問のメニュー：',
-        'アレルギー：',
-        '具体的なご質問内容：'
-      ],
-      'no-reply': [
-        'ご質問のメニュー：',
-        '具体的なご質問内容：'
-      ]
-    }
-  },
-  {
     id: 'feedback',
     label: 'ご意見・ご要望',
     description: 'お店へのご意見やご感想、改善のご提案など。',
