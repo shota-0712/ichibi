@@ -499,6 +499,7 @@ function LunchMenu() {
                 </span>
                 <span>を押すとご覧になれます。</span>
               </p>
+              <p className="mt-2">時期によって使用している食材が異なる場合がございますので詳しくはスタッフにお聞きください。</p>
             </div>
 
             {/* Set Meals */}
@@ -668,6 +669,7 @@ function IzakayaMenu() {
                 </span>
                 <span>を押すとご覧になれます。</span>
               </p>
+              <p className="mt-2">時期によって使用している食材が異なる場合がございますので詳しくはスタッフにお聞きください。</p>
             </div>
 
             {/* Yakitori */}
