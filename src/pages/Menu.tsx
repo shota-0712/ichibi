@@ -214,7 +214,6 @@ const alcoholicDrinkContent: DrinkContent[] = [
             { name: 'ロック', price: 500 },
             { name: 'ソーダ割り', price: 500 },
             { name: '水割り', price: 500 },
-            { name: 'ボトル', price: 3000 },
           ],
         },
         {
@@ -223,7 +222,6 @@ const alcoholicDrinkContent: DrinkContent[] = [
             { name: 'ロック', price: 600 },
             { name: 'ソーダ割り', price: 600 },
             { name: '水割り', price: 600 },
-            { name: 'ボトル', price: 3000 },
           ],
         },
         {
@@ -232,7 +230,6 @@ const alcoholicDrinkContent: DrinkContent[] = [
             { name: 'ロック', price: 500 },
             { name: 'ソーダ割り', price: 500 },
             { name: '水割り', price: 500 },
-            { name: 'ボトル', price: 3000 },
           ],
         },
       ],
@@ -609,6 +606,27 @@ function LunchMenu() {
                   ))}
                 </div>
               </div>
+
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ボトルキープ</h4>
+                <div className="space-y-4 text-sm text-gray-600">
+                  <p>税抜4,000円（税込4,400円）</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>角（700ml）　税抜4,000円（税込4,400円）</li>
+                  </ul>
+                  <div>
+                    <p className="font-semibold text-gray-700">キープ期間</p>
+                    <p>3か月間</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-700">その他</p>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>氷ボックス　税抜500円（税込550円）</li>
+                      <li>割り材（水、炭酸など）別途</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -740,6 +758,27 @@ function IzakayaMenu() {
                   {softDrinkItems.map((item) => (
                     <MenuItem key={item.name} {...item} />
                   ))}
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ボトルキープ</h4>
+                <div className="space-y-4 text-sm text-gray-600">
+                  <p>税抜4,000円（税込4,400円）</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>角（700ml）　税抜4,000円（税込4,400円）</li>
+                  </ul>
+                  <div>
+                    <p className="font-semibold text-gray-700">キープ期間</p>
+                    <p>3か月間</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-700">その他</p>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>氷ボックス　税抜500円（税込550円）</li>
+                      <li>割り材（水、炭酸など）別途</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
