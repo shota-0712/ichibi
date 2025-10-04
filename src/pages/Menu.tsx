@@ -155,6 +155,7 @@ const dessertItems: BasicMenuItem[] = [
   {
     name: '自家製杏仁豆腐',
     price: 350,
+    allergens: ['乳', 'アーモンド'],
   },
   {
     name: 'バニラアイス',
