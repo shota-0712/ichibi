@@ -23,7 +23,7 @@ const setMealItems: BasicMenuItem[] = [
   {
     name: '一期一美セット',
     price: 2200,
-    allergens: ['そば', '小麦', 'えび'],
+    allergens: ['そば', '小麦', 'えび', '乳', 'アーモンド'],
   },
   {
     name: '天丼セット',
