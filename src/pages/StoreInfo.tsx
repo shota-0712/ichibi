@@ -81,7 +81,8 @@ export function StoreInfo() {
                   <Car className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-kanteiryuu font-semibold">お車でお越しの場合</h3>
-                    <p>館山自動車道 君津ICより10分</p>
+                    <p>館山自動車道 木更津南ICより車で約5分（3.2km）</p>
+                    <p className="text-sm text-gray-600 mt-1">※内房なぎさライン／国道127号 経由</p>
                     <p className="text-sm text-gray-600 mt-1">
                       ※駐車場完備（無料）・大型車両可
                     </p>
