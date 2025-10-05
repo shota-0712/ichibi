@@ -92,7 +92,11 @@ export function StoreInfo() {
                   <Train className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-kanteiryuu font-semibold">電車でお越しの場合</h3>
-                    <p>JR内房線 君津駅より徒歩15分</p>
+                    <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                      <li>JR内房線 君津駅から北口バスロータリーへ（徒歩約220m / 3分）</li>
+                      <li>君津市内循環A（市役所経由 友好館前行）に乗車し「友好館前」下車</li>
+                      <li>停留所より徒歩約120m / 2分で到着</li>
+                    </ul>
                   </div>
                 </div>
               </div>
