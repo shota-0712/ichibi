@@ -650,6 +650,7 @@ function LunchMenu() {
 
           <div className="mt-12 text-sm text-gray-600">
             <p>※仕入れ状況により、内容が変更になる場合がございます</p>
+            <p>※メニューの写真は Google の「一期一美」ページのメニューからご覧いただけます</p>
           </div>
         </div>
       </div>
@@ -829,6 +830,7 @@ function IzakayaMenu() {
 
           <div className="mt-12 text-sm text-gray-600">
             <p>※仕入れ状況により、内容が変更になる場合がございます</p>
+            <p>※メニューの写真は Google の「一期一美」ページのメニューからご覧いただけます</p>
           </div>
         </div>
       </div>
