@@ -22,7 +22,7 @@ type DrinkContent =
 const setMealItems: BasicMenuItem[] = [
   {
     name: '一期一美セット',
-    price: 2200,
+    price: 2300,
     allergens: ['そば', '小麦', 'えび', '乳', 'アーモンド'],
   },
   {
