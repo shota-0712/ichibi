@@ -212,25 +212,28 @@ const alcoholicDrinkContent: DrinkContent[] = [
         {
           title: '黒霧島',
           items: [
-            { name: 'ロック', price: 500 },
-            { name: 'ソーダ割り', price: 500 },
-            { name: '水割り', price: 500 },
+            { name: 'ロック', price: 600 },
+            { name: 'ソーダ割り', price: 600 },
+            { name: '水割り', price: 600 },
+            { name: 'お茶割り（緑茶・ウーロン茶・無糖紅茶）', price: 600 },
           ],
         },
         {
           title: '白岳しろ',
           items: [
-            { name: 'ロック', price: 600 },
-            { name: 'ソーダ割り', price: 600 },
-            { name: '水割り', price: 600 },
+            { name: 'ロック', price: 650 },
+            { name: 'ソーダ割り', price: 650 },
+            { name: '水割り', price: 650 },
+            { name: 'お茶割り（緑茶・ウーロン茶・無糖紅茶）', price: 650 },
           ],
         },
         {
           title: '大分麦焼酎二階堂',
           items: [
-            { name: 'ロック', price: 500 },
-            { name: 'ソーダ割り', price: 500 },
-            { name: '水割り', price: 500 },
+            { name: 'ロック', price: 600 },
+            { name: 'ソーダ割り', price: 600 },
+            { name: '水割り', price: 600 },
+            { name: 'お茶割り（緑茶・ウーロン茶・無糖紅茶）', price: 600 },
           ],
         },
       ],
