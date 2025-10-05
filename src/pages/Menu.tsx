@@ -469,7 +469,9 @@ export function Menu() {
                   {activeTab === 'lunch' ? 'ランチタイム' : '居酒屋営業'}
                 </h3>
                 <p className="text-japanese-gold">
-                  {activeTab === 'lunch' ? '11:00～14:00 (L.O.13:30)' : '17:00～22:00 (L.O.21:30)'}
+                  {activeTab === 'lunch'
+                    ? '11:00～14:00 (L.O.13:30)'
+                    : '17:00～22:00 (食事L.O.21:00 / ドリンクL.O.21:30)'}
                 </p>
               </div>
             </div>
