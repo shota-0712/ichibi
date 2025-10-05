@@ -66,8 +66,8 @@ export function StoreInfo() {
                   <CreditCard className="h-6 w-6 text-japanese-red mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="font-kanteiryuu font-semibold">お支払い方法</h3>
-                    <p>現金・クレジットカード・電子マネー</p>
-                    <p className="text-sm text-gray-600 mt-1">※各種クレジットカード・交通系ICカード対応</p>
+                    <p>現金・クレジットカード・電子マネー・QRコード決済</p>
+                    <p className="text-sm text-gray-600 mt-1">※主要ブランドのクレジットカード、交通系IC、PayPay 等のQRコード決済に対応</p>
                   </div>
                 </div>
               </div>
