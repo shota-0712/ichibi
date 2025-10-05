@@ -639,7 +639,7 @@ function LunchMenu() {
                   <div>
                     <p className="font-semibold text-gray-800">その他</p>
                     <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      <li>氷ボックス　税抜500円（税込550円）</li>
+                      <li>氷ボックス　税込500円</li>
                       <li>割り材（水、炭酸など）別途</li>
                     </ul>
                   </div>
@@ -809,7 +809,7 @@ function IzakayaMenu() {
                   <div>
                     <p className="font-semibold text-gray-800">その他</p>
                     <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      <li>氷ボックス　税抜500円（税込550円）</li>
+                      <li>氷ボックス　税込500円</li>
                       <li>割り材（水、炭酸など）別途</li>
                     </ul>
                   </div>
