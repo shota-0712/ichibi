@@ -200,9 +200,9 @@ const alcoholicDrinkContent: DrinkContent[] = [
     data: {
       title: 'ウイスキー',
       items: [
-        { name: 'ロック', price: 500 },
-        { name: 'ソーダ割り', price: 500 },
-        { name: '水割り', price: 500 },
+        { name: 'ブラックニッカ　ロック', price: 500 },
+        { name: '角　ロック', price: 500 },
+        { name: '陸　ロック', price: 500 },
       ],
     },
   },
