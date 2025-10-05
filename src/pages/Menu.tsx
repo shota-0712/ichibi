@@ -300,9 +300,9 @@ const alcoholicDrinkContent: DrinkContent[] = [
     data: {
       title: 'カクテル',
       items: [
-        { name: 'カシスオレンジ', price: 500 },
-        { name: 'カシスソーダ', price: 500 },
-        { name: 'カシスウーロン', price: 500 },
+        { name: 'カシスオレンジ', price: 550 },
+        { name: 'カシスソーダ', price: 550 },
+        { name: 'カシスウーロン', price: 550 },
       ],
     },
   },
