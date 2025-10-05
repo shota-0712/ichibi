@@ -187,7 +187,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
     data: {
       title: 'ハイボール',
       items: [
-        { name: 'ハイボール', price: 500 },
+        { name: 'ハイボール', price: 550 },
         { name: 'ジンジャーハイ', price: 550 },
         { name: 'コークハイ', price: 550 },
       ],
