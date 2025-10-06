@@ -176,7 +176,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
           items: [
             { name: '小ジョッキ', price: 550 },
             { name: '中ジョッキ', price: 700 },
-            { name: '大ジョッキ', price: 900 },
+            { name: '大ジョッキ', price: 1100 },
           ],
         },
       ],
