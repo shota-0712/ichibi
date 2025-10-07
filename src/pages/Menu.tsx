@@ -245,7 +245,7 @@ const alcoholicDrinkContent: DrinkContent[] = [
     type: 'section',
     data: {
       title: '日本酒',
-      items: [{ name: '純米酒(一合)', price: 700 }],
+      items: [{ name: '純米酒(一合)', price: 800 }],
     },
   },
   {
