@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import { XLogo } from './icons/x-logo';
 import { FooterSection } from './home/footer-section';
 // framer-motion を初期バンドルから外すため、
@@ -241,14 +241,6 @@ const { title, description, canonical } = meta[location.pathname as keyof typeof
                   className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
                 >
                   <XLogo className="h-6 w-6" />
-                </a>
-                <a 
-                  href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
-                >
-                  <Facebook className="h-6 w-6" />
                 </a>
               </div>
             </div>

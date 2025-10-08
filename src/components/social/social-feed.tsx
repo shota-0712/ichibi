@@ -1,9 +1,10 @@
 import { useRef, useEffect } from 'react';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import { XLogo } from '../icons/x-logo';
 
 export function SocialFeed() {
   const instagramContainerRef = useRef<HTMLIFrameElement>(null);
+  const xContainerRef = useRef<HTMLDivElement>(null);
   
   // Use Intersection Observer to lazy load Instagram widget
   useEffect(() => {
@@ -43,8 +44,55 @@ export function SocialFeed() {
     };
   }, []);
 
+  useEffect(() => {
+    const target = xContainerRef.current;
+    if (!target) {
+      return;
+    }
+
+    let hasLoaded = false;
+
+    const loadXTimeline = () => {
+      if (hasLoaded) return;
+      hasLoaded = true;
+
+      const initializeTimeline = () => {
+        if (!(window as any).twttr || !(window as any).twttr.widgets) {
+          return;
+        }
+        (window as any).twttr.widgets.load(target);
+      };
+
+      if (!(window as any).twttr) {
+        const script = document.createElement('script');
+        script.src = 'https://platform.twitter.com/widgets.js';
+        script.async = true;
+        script.onload = initializeTimeline;
+        document.body.appendChild(script);
+      } else {
+        initializeTimeline();
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          loadXTimeline();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px', threshold: 0.1 }
+    );
+
+    observer.observe(target);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="py-16 bg-stone-50 social-feed-section">
+    <div className="py-16 bg-stone-50 social-feed-section" data-social-section>
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -77,7 +125,7 @@ export function SocialFeed() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Instagram Feed - Embedded */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
@@ -120,7 +168,7 @@ export function SocialFeed() {
               </div>
             </div>
 
-            {/* X (Twitter) - Just follow button */}
+            {/* X Timeline */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
@@ -136,46 +184,30 @@ export function SocialFeed() {
                   @ichigo_ichibi
                 </a>
               </div>
-              
-              <div className="flex flex-col items-center justify-center p-6">
-                <a 
-                  href="https://x.com/ichigo_ichibi" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-4 py-2 rounded-full transition w-full justify-center"
+
+              <div
+                ref={xContainerRef}
+                className="p-2 overflow-hidden"
+                style={{ height: '450px' }}
+              >
+                <a
+                  className="twitter-timeline"
+                  data-theme="dark"
+                  data-height="430"
+                  href="https://x.com/ichigo_ichibi"
                 >
-                  <XLogo className="h-5 w-5" />
-                  <span>フォローする</span>
+                  Posts by @ichigo_ichibi
                 </a>
               </div>
-            </div>
 
-            {/* Facebook - Just follow button */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <div className="flex items-center justify-between p-4 border-b">
-                <div className="flex items-center gap-2">
-                  <Facebook className="h-6 w-6 text-a11y-blue-dark" aria-hidden="true" />
-                  <h3 className="font-semibold">Facebook</h3>
-                </div>
+              <div className="p-4 bg-gray-50 text-center">
                 <a
-                  href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr"
+                  href="https://x.com/ichigo_ichibi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-a11y-blue-dark hover:text-a11y-blue transition text-sm font-medium"
+                  className="text-black hover:text-gray-700 transition font-semibold text-sm"
                 >
-                  一期一美
-                </a>
-              </div>
-              
-              <div className="flex flex-col items-center justify-center p-6">
-                <a 
-                  href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-800 hover:bg-blue-900 text-white px-4 py-2 rounded-full transition w-full justify-center"
-                >
-                  <Facebook className="h-5 w-5" />
-                  <span>フォローする</span>
+                  Xで最新情報を見る →
                 </a>
               </div>
             </div>

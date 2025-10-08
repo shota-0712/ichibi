@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Clock, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
 import { XLogo } from '../icons/x-logo';
 
 export function FooterSection() {
@@ -64,15 +64,6 @@ export function FooterSection() {
                 className="bg-white p-2 rounded-full text-black hover:bg-black hover:text-white transition"
               >
                 <XLogo className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://www.facebook.com/share/12DF9aSZmwS/?mibextid=wwXIfr" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="bg-white p-2 rounded-full text-japanese-indigo hover:bg-japanese-gold hover:text-white transition"
-              >
-                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
