@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
-import { Twitter, Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
+import { XLogo } from '../icons/x-logo';
 
 export function SocialFeed() {
   const instagramContainerRef = useRef<HTMLIFrameElement>(null);
@@ -119,18 +120,18 @@ export function SocialFeed() {
               </div>
             </div>
 
-            {/* Twitter - Just follow button */}
+            {/* X (Twitter) - Just follow button */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
-                  <Twitter className="h-6 w-6 text-a11y-blue" aria-hidden="true" />
+                  <XLogo className="h-6 w-6 text-black" aria-hidden="true" />
                   <h3 className="font-semibold">X (Twitter)</h3>
                 </div>
                 <a
                   href="https://x.com/ichigo_ichibi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-a11y-blue hover:text-a11y-blue-dark transition text-sm font-medium"
+                  className="text-black hover:text-gray-700 transition text-sm font-medium"
                 >
                   @ichigo_ichibi
                 </a>
@@ -141,9 +142,9 @@ export function SocialFeed() {
                   href="https://x.com/ichigo_ichibi" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition w-full justify-center"
+                  className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-4 py-2 rounded-full transition w-full justify-center"
                 >
-                  <Twitter className="h-5 w-5" />
+                  <XLogo className="h-5 w-5" />
                   <span>フォローする</span>
                 </a>
               </div>
