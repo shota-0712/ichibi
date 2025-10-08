@@ -194,7 +194,7 @@ export function SocialFeed() {
                   className="twitter-timeline"
                   data-theme="dark"
                   data-height="430"
-                  href="https://x.com/ichigo_ichibi"
+                  href="https://twitter.com/ichigo_ichibi"
                 >
                   Posts by @ichigo_ichibi
                 </a>
