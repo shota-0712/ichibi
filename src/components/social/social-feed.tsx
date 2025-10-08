@@ -52,25 +52,38 @@ export function SocialFeed() {
 
     let hasLoaded = false;
 
+    const renderTimeline = () => {
+      const twttr = (window as any).twttr;
+      if (!twttr || !twttr.widgets || !twttr.widgets.createTimeline) {
+        return;
+      }
+
+      twttr.widgets.createTimeline(
+        {
+          sourceType: 'profile',
+          screenName: 'ichigo_ichibi',
+        },
+        target,
+        {
+          theme: 'dark',
+          height: 430,
+          chrome: 'noheader nofooter noborders transparent',
+        }
+      );
+    };
+
     const loadXTimeline = () => {
       if (hasLoaded) return;
       hasLoaded = true;
-
-      const initializeTimeline = () => {
-        if (!(window as any).twttr || !(window as any).twttr.widgets) {
-          return;
-        }
-        (window as any).twttr.widgets.load(target);
-      };
 
       if (!(window as any).twttr) {
         const script = document.createElement('script');
         script.src = 'https://platform.twitter.com/widgets.js';
         script.async = true;
-        script.onload = initializeTimeline;
+        script.onload = renderTimeline;
         document.body.appendChild(script);
       } else {
-        initializeTimeline();
+        renderTimeline();
       }
     };
 
@@ -88,6 +101,7 @@ export function SocialFeed() {
 
     return () => {
       observer.disconnect();
+      target.innerHTML = '';
     };
   }, []);
 
@@ -188,17 +202,8 @@ export function SocialFeed() {
               <div
                 ref={xContainerRef}
                 className="p-2 overflow-hidden"
-                style={{ height: '450px' }}
-              >
-                <a
-                  className="twitter-timeline"
-                  data-theme="dark"
-                  data-height="430"
-                  href="https://twitter.com/ichigo_ichibi"
-                >
-                  Posts by @ichigo_ichibi
-                </a>
-              </div>
+                style={{ minHeight: '450px' }}
+              />
 
               <div className="p-4 bg-gray-50 text-center">
                 <a
