@@ -165,13 +165,21 @@ export function HeroSection() {
             </div>
             
             
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center gap-3">
               <Link
                 to="/menu"
                 className="text-white text-2xl font-kanteiryuu pb-2 border-b-2 border-japanese-gold hover:border-white transition-colors duration-300"
               >
                 お品書き
               </Link>
+              <a
+                href="https://u.lin.ee/vLXjBhd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-xl font-kanteiryuu pb-1 border-b border-japanese-gold hover:border-white transition-colors duration-300"
+              >
+                ご予約はこちら
+              </a>
             </div>
           </div>
         </div>
