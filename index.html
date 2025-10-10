@@ -161,8 +161,6 @@
                 "name": "ランチ",
                 "dayOfWeek": [
                   "Monday",
-                  "Tuesday",
-                  "Wednesday",
                   "Thursday",
                   "Friday",
                   "Saturday",
@@ -170,15 +168,13 @@
                 ],
                 "opens": "11:00",
                 "closes": "14:00",
-                "description": "ラストオーダー 13:30"
+                "description": "ラストオーダー 13:30／定休日：火曜日・水曜日"
               },
               {
                 "@type": "OpeningHoursSpecification",
                 "name": "居酒屋",
                 "dayOfWeek": [
                   "Monday",
-                  "Tuesday",
-                  "Wednesday",
                   "Thursday",
                   "Friday",
                   "Saturday",
@@ -186,7 +182,7 @@
                 ],
                 "opens": "18:00",
                 "closes": "22:00",
-                "description": "食事L.O.21:00 / ドリンクL.O.21:30"
+                "description": "食事L.O.21:00 / ドリンクL.O.21:30／定休日：火曜日・水曜日"
               }
             ]
           },
@@ -337,15 +333,17 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "dayOfWeek": ["Monday", "Thursday", "Friday", "Saturday", "Sunday"],
           "opens": "11:00",
-          "closes": "14:00"
+          "closes": "14:00",
+          "description": "ラストオーダー 13:30／定休日：火曜日・水曜日"
         },
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "dayOfWeek": ["Monday", "Thursday", "Friday", "Saturday", "Sunday"],
           "opens": "18:00",
-          "closes": "22:00"
+          "closes": "22:00",
+          "description": "食事L.O.21:00 / ドリンクL.O.21:30／定休日：火曜日・水曜日"
         }
       ]
     }

@@ -38,6 +38,7 @@ export function FooterSection() {
                     <p className="font-medium">【十割蕎麦・焼鳥酒場】</p>
                     <p>ランチ 11:00～14:00 (L.O.13:30)</p>
                     <p>居酒屋 18:00～22:00 (食事L.O.21:00 / ドリンクL.O.21:30)</p>
+                    <p className="text-sm text-gray-200 mt-2">定休日：火曜日・水曜日</p>
                   </div>
                 </div>
               </div>

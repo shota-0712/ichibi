@@ -473,6 +473,7 @@ export function Menu() {
                     ? '11:00～14:00 (L.O.13:30)'
                     : '18:00～22:00 (食事L.O.21:00 / ドリンクL.O.21:30)'}
                 </p>
+                <p className="text-sm text-white/80 mt-1">定休日：火曜日・水曜日</p>
               </div>
             </div>
           </div>
