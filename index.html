@@ -303,14 +303,6 @@
         document.fonts.load('1em "Yuji Syuku"').catch(function() {});
       }
 
-      // Preload Instagram embed script during splash
-      setTimeout(function() {
-        const instagramScript = document.createElement('script');
-        instagramScript.async = true;
-        instagramScript.src = '//www.instagram.com/embed.js';
-        document.body.appendChild(instagramScript);
-      }, 200);
-
       // Show splash for 1.4 seconds
       setTimeout(function() {
         hideSplashScreen();
