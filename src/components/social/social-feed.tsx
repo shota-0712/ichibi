@@ -72,19 +72,48 @@ export function SocialFeed() {
       );
     };
 
+    const loadScript = (sources: string[], index = 0) => {
+      if (index >= sources.length) {
+        return;
+      }
+
+      const existingScript = document.querySelector<HTMLScriptElement>('#x-wjs');
+      if (existingScript) {
+        if ((window as any).twttr) {
+          renderTimeline();
+        } else {
+          existingScript.addEventListener('load', renderTimeline, { once: true });
+        }
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.id = 'x-wjs';
+      script.src = sources[index];
+      script.async = true;
+      script.onload = renderTimeline;
+      script.onerror = () => {
+        script.remove();
+        loadScript(sources, index + 1);
+      };
+      document.body.appendChild(script);
+    };
+
     const loadXTimeline = () => {
       if (hasLoaded) return;
       hasLoaded = true;
 
-      if (!(window as any).twttr) {
-        const script = document.createElement('script');
-        script.src = 'https://platform.twitter.com/widgets.js';
-        script.async = true;
-        script.onload = renderTimeline;
-        document.body.appendChild(script);
-      } else {
+      if ((window as any).twttr?.widgets?.createTimeline) {
         renderTimeline();
+        return;
       }
+
+      const scriptSources = [
+        'https://platform.x.com/js/widgets.js',
+        'https://platform.twitter.com/widgets.js',
+      ];
+
+      loadScript(scriptSources);
     };
 
     const observer = new IntersectionObserver(
