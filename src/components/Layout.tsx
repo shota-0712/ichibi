@@ -154,6 +154,14 @@ const { title, description, canonical } = meta[location.pathname as keyof typeof
               >
                 店舗情報
               </Link>
+              <a
+                href="https://u.lin.ee/vLXjBhd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-japanese-red/80 backdrop-blur-sm hover:bg-japanese-red shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
+              >
+                ご予約
+              </a>
               <Link
                 to="/contact"
                 className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
@@ -219,6 +227,14 @@ const { title, description, canonical } = meta[location.pathname as keyof typeof
               >
                 店舗情報
               </Link>
+              <a
+                href="https://u.lin.ee/vLXjBhd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-japanese-red/80 hover:bg-japanese-red border border-white/20 font-kanteiryuu text-center"
+              >
+                ご予約
+              </a>
               <Link
                 to="/contact"
                 className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"

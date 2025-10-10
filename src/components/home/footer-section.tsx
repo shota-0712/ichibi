@@ -14,7 +14,7 @@ export function FooterSection() {
               <MapPin className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
                 <p>〒299-1176<br />千葉県君津市内蓑輪122-1<br />
-                <span className="text-sm text-gray-200">（君津市役所から車で5分・小糸川近く）</span></p>
+                <span className="text-sm text-gray-200">（館山自動車道 木更津南ICより車で約5分）</span></p>
               </div>
             </div>
             <div className="flex items-start gap-3">

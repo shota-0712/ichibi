@@ -1,10 +1,9 @@
 import { useRef, useEffect } from 'react';
-import { Instagram } from 'lucide-react';
+import { Instagram, ExternalLink } from 'lucide-react';
 import { XLogo } from '../icons/x-logo';
 
 export function SocialFeed() {
   const instagramContainerRef = useRef<HTMLIFrameElement>(null);
-  const xContainerRef = useRef<HTMLDivElement>(null);
   
   // Use Intersection Observer to lazy load Instagram widget
   useEffect(() => {
@@ -44,66 +43,6 @@ export function SocialFeed() {
     };
   }, []);
 
-  useEffect(() => {
-    const target = xContainerRef.current;
-    if (!target) {
-      return;
-    }
-
-    let hasLoaded = false;
-
-    const renderTimeline = () => {
-      const twttr = (window as any).twttr;
-      if (!twttr || !twttr.widgets || !twttr.widgets.createTimeline) {
-        return;
-      }
-
-      twttr.widgets.createTimeline(
-        {
-          sourceType: 'profile',
-          screenName: 'ichigo_ichibi',
-        },
-        target,
-        {
-          theme: 'dark',
-          height: 430,
-          chrome: 'noheader nofooter noborders transparent',
-        }
-      );
-    };
-
-    const loadXTimeline = () => {
-      if (hasLoaded) return;
-      hasLoaded = true;
-
-      if (!(window as any).twttr) {
-        const script = document.createElement('script');
-        script.src = 'https://platform.twitter.com/widgets.js';
-        script.async = true;
-        script.onload = renderTimeline;
-        document.body.appendChild(script);
-      } else {
-        renderTimeline();
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          loadXTimeline();
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px', threshold: 0.1 }
-    );
-
-    observer.observe(target);
-
-    return () => {
-      observer.disconnect();
-      target.innerHTML = '';
-    };
-  }, []);
 
   return (
     <div className="py-16 bg-stone-50 social-feed-section" data-social-section>
@@ -118,8 +57,8 @@ export function SocialFeed() {
           </div>
 
           <div className="flex justify-center mb-10">
-            <div className="text-center">
-              <p className="mb-4 text-sm text-a11y-gray">
+            <div className="text-center max-w-lg">
+              <p className="mb-6 text-base text-a11y-gray">
                 LINE公式アカウントではデザートやドリンクなどのクーポンや季節限定メニューなどの最新情報をお届けしています！
               </p>
               <a
@@ -127,12 +66,12 @@ export function SocialFeed() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LINEで友だち追加"
-                className="inline-block"
+                className="inline-block transform hover:scale-105 transition-transform duration-200"
               >
                 <img
                   src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
                   alt="LINEで友だち追加"
-                  className="h-9 w-auto"
+                  className="h-14 w-auto"
                   loading="lazy"
                 />
               </a>
@@ -182,7 +121,7 @@ export function SocialFeed() {
               </div>
             </div>
 
-            {/* X Timeline */}
+            {/* X Timeline - Simple Link UI */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
@@ -199,11 +138,42 @@ export function SocialFeed() {
                 </a>
               </div>
 
-              <div
-                ref={xContainerRef}
-                className="p-2 overflow-hidden"
-                style={{ minHeight: '450px' }}
-              />
+              <div className="p-6" style={{ minHeight: '450px' }}>
+                <div className="flex flex-col items-center justify-center h-full space-y-6">
+                  <XLogo className="h-16 w-16 text-black opacity-20" aria-hidden="true" />
+
+                  <div className="text-center space-y-3">
+                    <h4 className="font-semibold text-lg">Xで最新情報をチェック</h4>
+                    <p className="text-sm text-gray-600 max-w-xs mx-auto">
+                      日々の仕込みや季節限定メニュー、イベント情報などを発信しています
+                    </p>
+                  </div>
+
+                  <div className="space-y-3 w-full max-w-xs">
+                    <a
+                      href="https://x.com/ichigo_ichibi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition font-medium"
+                    >
+                      <XLogo className="h-5 w-5" aria-hidden="true" />
+                      <span>Xでフォローする</span>
+                      <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    </a>
+
+                    <a
+                      href="https://x.com/ichigo_ichibi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-50 transition text-sm"
+                    >
+                      <span>最新の投稿を見る</span>
+                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                    </a>
+                  </div>
+
+                </div>
+              </div>
 
               <div className="p-4 bg-gray-50 text-center">
                 <a

@@ -44,7 +44,7 @@ export function StoreInfo() {
                   <div>
                     <h3 className="font-kanteiryuu font-semibold">所在地</h3>
                     <p>〒299-1176 千葉県君津市内蓑輪122-1</p>
-                    <p className="text-sm text-gray-600 mt-1">君津市役所から車で5分・小糸川近く</p>
+                    <p className="text-sm text-gray-600 mt-1">館山自動車道 木更津南ICより車で約5分（3.2km）</p>
                   </div>
                 </div>
 

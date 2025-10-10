@@ -33,7 +33,8 @@ npm run analyze      # バンドル解析
 ### ページ構成
 - `/` - ホーム（店舗紹介・特集）
 - `/menu` - メニュー（蕎麦・焼鳥・定食・ドリンク）
-- `/store-info` - 店舗情報（営業時間・アクセス・予約）
+- `/store-info` - 店舗情報（営業時間・アクセス）
+- `/contact` - お問い合わせ・ご要望
 - `/dining-philosophy` - お店の理念・こだわり
 
 ### ディレクトリ構成
@@ -58,13 +59,18 @@ public/
 src/
 ├── components/
 │   ├── Layout.tsx          # 共通レイアウト
+│   ├── LazyImage.tsx       # 遅延読み込み画像コンポーネント
 │   ├── PageTransitionSplash.tsx
+│   ├── social/             # SNS連携コンポーネント
 │   └── ui/                 # 再利用可能UIコンポーネント
 ├── pages/
 │   ├── Home.tsx           # ホームページ
 │   ├── Menu.tsx           # メニューページ
 │   ├── StoreInfo.tsx      # 店舗情報
+│   ├── Contact.tsx        # お問い合わせページ
 │   └── DiningPhilosophy.tsx
+├── hooks/
+│   └── useWebWorker.ts    # Web Worker フック
 ├── lib/
 │   └── utils.ts           # ユーティリティ関数
 ├── index.css              # グローバルスタイル
@@ -87,9 +93,11 @@ src/
 
 ### フロントエンド最適化
 - **Code Splitting**: React.lazy + Suspenseによるページ単位の遅延ロード
-- **画像最適化**: WebP形式 + サイズ最適化 + 遅延読み込み
+- **画像最適化**: WebP形式 + Intersection Observer による遅延読み込み
 - **フォント最適化**: WOFF2プリロード + 自前ホストでFOUT最小化
 - **バンドル最適化**: Vite + Terserによる圧縮とチャンク分割
+- **Web Worker**: バックグラウンドでのパフォーマンス測定と画像プリロード
+- **クリティカルCSS**: インライン化による初期レンダリング高速化
 
 ### キャッシュ戦略
 - **Service Worker**: `public/service-worker.js`
@@ -141,4 +149,4 @@ src/
 
 - **ライセンス**: プライベート（店舗専用）
 - **著作権**: 画像・文章の権利は一期一美に帰属
-- **最終更新**: 2024年9月
+- **最終更新**: 2025年1月

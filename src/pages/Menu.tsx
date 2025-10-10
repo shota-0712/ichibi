@@ -44,11 +44,6 @@ const coldSobaItems: BasicMenuItem[] = [
     allergens: ['そば', '小麦'],
   },
   {
-    name: '鴨せいろ',
-    price: 1300,
-    allergens: ['そば', '小麦'],
-  },
-  {
     name: 'ざるそば',
     price: 900,
     allergens: ['そば', '小麦'],
@@ -63,10 +58,18 @@ const coldSobaItems: BasicMenuItem[] = [
     price: 1350,
     allergens: ['そば', '小麦', 'えび'],
   },
+];
+
+const izakayaColdSobaItems: BasicMenuItem[] = [
   {
-    name: '鶏せいろ',
-    price: 1100,
-    allergens: ['そば', '小麦', '鶏肉'],
+    name: 'せいろ',
+    price: 800,
+    allergens: ['そば', '小麦'],
+  },
+  {
+    name: 'ざるそば',
+    price: 900,
+    allergens: ['そば', '小麦'],
   },
 ];
 
@@ -106,10 +109,13 @@ const hotSobaItems: BasicMenuItem[] = [
     price: 1200,
     allergens: ['そば', '小麦', '鶏肉'],
   },
+];
+
+const izakayaHotSobaItems: BasicMenuItem[] = [
   {
-    name: 'とろろそば',
-    price: 1150,
-    allergens: ['そば', '小麦', 'やまいも'],
+    name: 'かけそば',
+    price: 850,
+    allergens: ['そば', '小麦'],
   },
 ];
 
@@ -148,19 +154,10 @@ const kidsFoodItems: BasicMenuItem[] = [
 
 const dessertItems: BasicMenuItem[] = [
   {
-    name: '自家製プリン',
+    name: '本日のデザート',
     price: 350,
-    allergens: ['卵', '乳'],
-  },
-  {
-    name: '自家製杏仁豆腐',
-    price: 350,
-    allergens: ['乳', 'アーモンド'],
-  },
-  {
-    name: 'バニラアイス',
-    price: 350,
-    allergens: ['乳'],
+    description: '日替わりで自家製プリン、自家製杏仁豆腐、バニラアイスのうちの二つをご用意しております',
+    allergens: ['卵', '乳', 'アーモンド'],
   },
 ];
 
@@ -702,7 +699,7 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">冷そば</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {coldSobaItems.map((item) => (
+                {izakayaColdSobaItems.map((item) => (
                   <MenuItem key={item.name} {...item} />
                 ))}
               </div>
@@ -713,22 +710,11 @@ function IzakayaMenu() {
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">温そば</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {hotSobaItems.map((item) => (
+                {izakayaHotSobaItems.map((item) => (
                   <MenuItem key={item.name} {...item} />
                 ))}
               </div>
               <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{hotSobaNote}</p>
-            </div>
-
-            {/* Teishoku */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {teishokuItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
-              </div>
-              <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{teishokuNote}</p>
             </div>
 
             {/* Rice Bowls */}
