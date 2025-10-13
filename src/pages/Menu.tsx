@@ -185,10 +185,10 @@ const alcoholicDrinkContent: DrinkContent[] = [
       title: 'ハイボール',
       items: [
         { name: 'ハイボール', price: 550 },
-        { name: '角ハイボール', price: 550 },
-        { name: '陸ハイボール', price: 550 },
-        { name: 'ジンジャーハイ', price: 550 },
-        { name: 'コークハイ', price: 550 },
+        { name: '角ハイボール', price: 650 },
+        { name: 'ROYAL ハイボール', price: 1350 },
+        { name: 'ジンジャーハイ', price: 600 },
+        { name: 'コークハイ', price: 600 },
       ],
     },
   },
@@ -197,9 +197,8 @@ const alcoholicDrinkContent: DrinkContent[] = [
     data: {
       title: 'ウイスキー',
       items: [
-        { name: 'ブラックニッカ　ロック', price: 500 },
-        { name: '角　ロック', price: 500 },
-        { name: '陸　ロック', price: 500 },
+        { name: '角　ロック', price: 650 },
+        { name: 'ROYAL　ロック', price: 1350 },
       ],
     },
   },
@@ -242,7 +241,10 @@ const alcoholicDrinkContent: DrinkContent[] = [
     type: 'section',
     data: {
       title: '日本酒',
-      items: [{ name: '純米酒(一合)', price: 800 }],
+      items: [
+        { name: '本日のおすすめ純米酒（一合）', price: 1200 },
+        { name: '純米酒(一合)', price: 800 },
+      ],
     },
   },
   {
@@ -358,10 +360,10 @@ const izakayaAppetizerItems = [
   { name: 'トマトスライス', price: 350 },
 ];
 
-const sobaSelectionNote = '十割蕎麦・二八蕎麦がお選び頂けます。\n※十割蕎麦は1日15食限定\n麺量 : 140g\nそば二倍盛り(+140g) : +500円';
-const setMealNote = `${sobaSelectionNote}\nデザート付き\n温そば : +50円\nご飯大盛り : +100円`;
-const coldSobaNote = `${sobaSelectionNote}\n温そば : +50円`;
-const hotSobaNote = sobaSelectionNote;
+const sobaSelectionNote = '十割蕎麦・二八蕎麦がお選び頂けます。\n※十割蕎麦は1日15食限定\n麺量 : 140g';
+const setMealNote = `${sobaSelectionNote}\nデザート付き\nそば二倍盛り(+140g) : +500円\nかけそば変更 : +50円\nご飯大盛り : +100円`;
+const coldSobaNote = `${sobaSelectionNote}\nそば二倍盛り(+140g) : +500円\nかけそば変更 : +50円`;
+const hotSobaNote = `${sobaSelectionNote}\nそば二倍盛り(+140g) : +500円`;
 const riceBowlNote = 'お味噌汁、漬け物付き\nご飯大盛り : +100円';
 const teishokuNote = 'ご飯、お味噌汁、漬け物付き\nご飯大盛り : +100円';
 
@@ -418,7 +420,7 @@ function AlcoholicDrinks({ heading }: { heading: string }) {
 }
 
 export function Menu() {
-  const [activeTab, setActiveTab] = useState<'lunch' | 'izakaya'>('lunch');
+  const [activeTab, setActiveTab] = useState<'lunch' | 'izakaya' | 'drinks'>('lunch');
 
   return (
     <div>
@@ -427,7 +429,7 @@ export function Menu() {
       <div
         className="h-[90vh] relative bg-cover bg-center"
         style={{
-          backgroundImage: activeTab === 'lunch' ? 'url("/image/ichigo_ichibi_set.webp")' : 'url("/image/yakitori.webp")',
+          backgroundImage: activeTab === 'lunch' ? 'url("/image/ichigo_ichibi_set.webp")' : activeTab === 'izakaya' ? 'url("/image/yakitori.webp")' : 'url("/image/ichigo_ichibi_set.webp")',
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -456,6 +458,16 @@ export function Menu() {
             >
               居酒屋
             </button>
+            <button
+              onClick={() => setActiveTab('drinks')}
+              className={`text-white text-xl font-kanteiryuu pb-2 transition-all ${
+                activeTab === 'drinks'
+                  ? 'border-b-2 border-japanese-gold text-japanese-gold'
+                  : 'border-b-2 border-transparent hover:border-white/50'
+              }`}
+            >
+              飲み物
+            </button>
           </div>
 
           <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-white/20">
@@ -463,12 +475,14 @@ export function Menu() {
               <Clock className="h-6 w-6 text-japanese-gold" />
               <div>
                 <h3 className="font-semibold text-lg">
-                  {activeTab === 'lunch' ? 'ランチタイム' : '居酒屋営業'}
+                  {activeTab === 'lunch' ? 'ランチタイム' : activeTab === 'izakaya' ? '居酒屋営業' : '営業時間'}
                 </h3>
                 <p className="text-japanese-gold">
                   {activeTab === 'lunch'
                     ? '11:00～14:00 (L.O.13:30)'
-                    : '18:00～22:00 (食事L.O.21:00 / ドリンクL.O.21:30)'}
+                    : activeTab === 'izakaya'
+                    ? '18:00～22:00 (食事L.O.21:00 / ドリンクL.O.21:30)'
+                    : 'ランチ 11:00～14:00 / 居酒屋 18:00～22:00'}
                 </p>
                 <p className="text-sm text-white/80 mt-1">定休日：火曜日・水曜日</p>
               </div>
@@ -480,8 +494,10 @@ export function Menu() {
       {/* Menu Content */}
       {activeTab === 'lunch' ? (
         <LunchMenu />
-      ) : (
+      ) : activeTab === 'izakaya' ? (
         <IzakayaMenu />
+      ) : (
+        <DrinksMenu />
       )}
     </div>
   );
@@ -586,66 +602,6 @@ function LunchMenu() {
                 ))}
               </div>
             </div>
-
-            {/* Drinks */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ドリンク</h3>
-
-              <AlcoholicDrinks heading="アルコール飲料" />
-
-              <div className="mb-8">
-                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ノンアルコール飲料</h4>
-                <div className="space-y-4">
-                  {nonAlcoholicItems.map((item) => (
-                    <MenuItem key={item.name} {...item} />
-                  ))}
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ソフトドリンク</h4>
-                <div className="space-y-4">
-                  {softDrinkItems.map((item) => (
-                    <MenuItem key={item.name} {...item} />
-                  ))}
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ボトルキープ</h4>
-                <div className="space-y-4 text-sm">
-                  <div>
-                    <p className="font-semibold text-gray-800">焼酎</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-900">
-                      <li>白岳しろ（720ml）　税抜3,000円（税込3,300円）</li>
-                      <li>二階堂（900ml）　　税抜2,500円（税込2,750円）</li>
-                      <li>黒霧島（900ml）　　税抜2,500円（税込2,750円）</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">ウイスキー</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-900">
-                      <li>ブラックニッカ（700ml）　税抜2,500円（税込2,750円）</li>
-                      <li>陸（500ml）　　　　　　税抜4,000円（税込4,400円）</li>
-                      <li>角（700ml）　　　　　　税抜4,000円（税込4,400円）</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">キープ期間</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      <li>3か月間</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">その他</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      <li>氷ボックス　税込500円</li>
-                      <li>割り材（水、炭酸など）別途</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="mt-12 text-sm text-gray-600">
@@ -746,6 +702,33 @@ function IzakayaMenu() {
               </div>
             </div>
 
+            {/* Desserts */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {dessertItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-sm text-gray-600">
+            <p>※仕入れ状況により、内容が変更になる場合がございます</p>
+            <p>※メニューの写真は Google の「一期一美」ページのメニューからご覧いただけます</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DrinksMenu() {
+  return (
+    <div className="py-16 bg-stone-50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-12">
             {/* Drinks */}
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ドリンク</h3>
@@ -771,12 +754,21 @@ function IzakayaMenu() {
               </div>
 
               <div className="mb-8">
+                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">キッズドリンク</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {kidsDrinkItems.map((item) => (
+                    <MenuItem key={`kids-drink-${item.name}`} {...item} />
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-8">
                 <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ボトルキープ</h4>
                 <div className="space-y-4 text-sm">
                   <div>
                     <p className="font-semibold text-gray-800">焼酎</p>
                     <ul className="list-disc list-inside space-y-1 text-gray-900">
-                      <li>白岳しろ（720ml）　税抜3,000円（税込3,300円）</li>
+                      <li>白岳しろ（720ml）　税抜2,727円（税込3,000円）</li>
                       <li>二階堂（900ml）　　税抜2,500円（税込2,750円）</li>
                       <li>黒霧島（900ml）　　税抜2,500円（税込2,750円）</li>
                     </ul>
@@ -784,9 +776,8 @@ function IzakayaMenu() {
                   <div>
                     <p className="font-semibold text-gray-800">ウイスキー</p>
                     <ul className="list-disc list-inside space-y-1 text-gray-900">
-                      <li>ブラックニッカ（700ml）　税抜2,500円（税込2,750円）</li>
-                      <li>陸（500ml）　　　　　　税抜4,000円（税込4,400円）</li>
-                      <li>角（700ml）　　　　　　税抜4,000円（税込4,400円）</li>
+                      <li>ROYAL（700ml）　　　　税抜8,000円（税込8,800円）</li>
+                      <li>角（700ml）　　　　　　税抜4,091円（税込4,500円）</li>
                     </ul>
                   </div>
                   <div>
@@ -805,21 +796,10 @@ function IzakayaMenu() {
                 </div>
               </div>
             </div>
-
-            {/* Desserts */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {dessertItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
-              </div>
-            </div>
           </div>
 
           <div className="mt-12 text-sm text-gray-600">
             <p>※仕入れ状況により、内容が変更になる場合がございます</p>
-            <p>※メニューの写真は Google の「一期一美」ページのメニューからご覧いただけます</p>
           </div>
         </div>
       </div>
