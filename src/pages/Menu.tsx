@@ -333,9 +333,7 @@ const kidsDrinkItems: BasicMenuItem[] = softDrinkItems.map((item) => ({
 
 const izakayaYakitoriItems = [
   { name: 'もも', price: 170, allergens: ['鶏肉'] },
-  { name: '鶏皮', price: 170, allergens: ['鶏肉'] },
   { name: 'なんこつ', price: 170, allergens: ['鶏肉'] },
-  { name: '砂肝', price: 160, allergens: ['鶏肉'] },
   { name: 'つくね', price: 180, allergens: ['鶏肉', '卵'] },
   { name: 'トマトベーコン', price: 220, allergens: ['豚肉'] },
   { name: 'レバー', price: 160, allergens: ['鶏肉'] },
@@ -358,6 +356,12 @@ const izakayaAppetizerItems = [
   { name: '枝豆', price: 250 },
   { name: 'ごま油塩キャベツ', price: 290 },
   { name: 'トマトスライス', price: 350 },
+  { name: '牛すじ煮込み', price: 700 },
+  { name: '鳥皮ポン酢', price: 390 },
+  { name: '手羽先の唐揚げ', price: 390 },
+  { name: '砂肝ねぎ塩', price: 390 },
+  { name: '天ぷら盛り合わせ（小）', price: 600 },
+  { name: '天ぷら盛り合わせ（大）', price: 1400 },
 ];
 
 const sobaSelectionNote = '十割蕎麦・二八蕎麦がお選び頂けます。\n※十割蕎麦は1日15食限定\n麺量 : 140g';
