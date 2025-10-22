@@ -11,7 +11,8 @@ type RenderResult = {
 };
 
 type RenderModule = {
-  render: (url: string) => Promise<RenderResult>;
+  // eslint-disable-next-line no-unused-vars
+  render: (route: string) => Promise<RenderResult>;
 };
 
 const routes = ['/', '/menu', '/store-info', '/dining-philosophy'] as const;
@@ -90,6 +91,7 @@ try {
     await writeFile(outputPath, $.html(), 'utf8');
   }
 } catch (error) {
+  // eslint-disable-next-line no-console
   console.error(error);
   process.exitCode = 1;
 } finally {

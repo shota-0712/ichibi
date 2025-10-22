@@ -90,11 +90,6 @@ const hotSobaItems: BasicMenuItem[] = [
     allergens: ['そば', '小麦'],
   },
   {
-    name: '鴨南蛮そば',
-    price: 1400,
-    allergens: ['そば', '小麦'],
-  },
-  {
     name: 'たぬきそば',
     price: 900,
     allergens: ['そば', '小麦'],
@@ -119,27 +114,24 @@ const izakayaHotSobaItems: BasicMenuItem[] = [
   },
 ];
 
-const teishokuItems: BasicMenuItem[] = [
+const lunchTeishokuItems: BasicMenuItem[] = [
   {
     name: '生姜焼き定食',
     price: 1150,
     allergens: ['豚肉', '小麦', '大豆'],
   },
   {
-    name: 'チキン南蛮定食',
-    price: 1000,
+    name: '唐揚げ定食',
+    price: 1100,
     allergens: ['鶏肉', '小麦', '卵'],
   },
-];
-
-const riceBowlItems: BasicMenuItem[] = [
   {
-    name: '親子丼',
+    name: '親子丼定食',
     price: 800,
     allergens: ['鶏肉', '卵'],
   },
   {
-    name: '天重',
+    name: '天重定食',
     price: 1400,
     allergens: ['小麦', 'えび'],
   },
@@ -156,7 +148,7 @@ const dessertItems: BasicMenuItem[] = [
   {
     name: '本日のデザート',
     price: 350,
-    description: '日替わりで自家製プリン、自家製杏仁豆腐、バニラアイスのうちの二つをご用意しております',
+    description: '日替わりで自家製プリン、自家製杏仁豆腐、バニラアイス、抹茶アイスの中から3種をご用意しております',
     allergens: ['卵', '乳', 'アーモンド'],
   },
 ];
@@ -331,45 +323,60 @@ const kidsDrinkItems: BasicMenuItem[] = softDrinkItems.map((item) => ({
   priceLabel: '税込100円',
 }));
 
-const izakayaYakitoriItems = [
-  { name: 'もも', price: 170, allergens: ['鶏肉'] },
-  { name: 'なんこつ', price: 170, allergens: ['鶏肉'] },
-  { name: 'つくね', price: 180, allergens: ['鶏肉', '卵'] },
-  { name: 'トマトベーコン', price: 220, allergens: ['豚肉'] },
-  { name: 'レバー', price: 160, allergens: ['鶏肉'] },
-  { name: '鶏むね(ねぎ塩)', price: 170, allergens: ['鶏肉'] },
-  { name: 'ニラ豚バラ巻き', price: 200, allergens: ['豚肉'] },
-  { name: 'しいたけ', price: 220 },
+const izakayaTeishokuItems: BasicMenuItem[] = [
+  {
+    name: '生姜焼き定食',
+    price: 1150,
+    allergens: ['豚肉', '小麦', '大豆'],
+  },
+  {
+    name: '唐揚げ定食',
+    price: 1100,
+    allergens: ['鶏肉', '小麦', '卵'],
+  },
+  {
+    name: '親子丼定食',
+    price: 800,
+    allergens: ['鶏肉', '卵'],
+  },
+  {
+    name: '焼き鳥丼定食',
+    price: 800,
+  },
+  {
+    name: '天重定食',
+    price: 1400,
+    allergens: ['小麦', 'えび'],
+  },
+];
+
+const odenItems: BasicMenuItem[] = [
+  { name: 'たまご', price: 150 },
+  { name: 'だいこん', price: 150 },
+  { name: '厚揚げ', price: 150 },
+  { name: 'こんにゃく', price: 150 },
+  { name: 'ちくわ', price: 150 },
+  { name: 'しらたき', price: 150 },
+  { name: 'ソーセージ', price: 150 },
+  { name: '手羽元', price: 200 },
 ];
 
 const izakayaAppetizerItems = [
-  { name: 'きのこのバター炒め', price: 480 },
-  { name: '揚げ出し豆腐', price: 350, allergens: ['大豆'] },
-  { name: 'だし巻き玉子', price: 450, allergens: ['卵'] },
-  { name: 'チーズ入りだし巻き玉子', price: 500, allergens: ['卵', '乳'] },
-  { name: '冷奴', price: 250, allergens: ['大豆'] },
   { name: 'ポテトフライ', price: 390 },
   { name: 'ichibiサラダ', price: 390 },
-  { name: 'なすの煮びたし', price: 380 },
-  { name: 'ピリ辛きゅうり', price: 350 },
-  { name: 'オニオンリング', price: 390 },
   { name: '枝豆', price: 250 },
-  { name: 'ごま油塩キャベツ', price: 290 },
-  { name: 'トマトスライス', price: 350 },
-  { name: '牛すじ煮込み', price: 700 },
-  { name: '鳥皮ポン酢', price: 390 },
-  { name: '手羽先の唐揚げ', price: 390 },
-  { name: '砂肝ねぎ塩', price: 390 },
+  { name: '軟骨の唐揚げ', price: 390 },
   { name: '天ぷら盛り合わせ（小）', price: 600 },
   { name: '天ぷら盛り合わせ（大）', price: 1400 },
 ];
 
-const sobaSelectionNote = '十割蕎麦・二八蕎麦がお選び頂けます。\n※十割蕎麦は1日15食限定\n麺量 : 140g';
-const setMealNote = `${sobaSelectionNote}\nデザート付き\nそば二倍盛り(+140g) : +500円\nかけそば変更 : +50円\nご飯大盛り : +100円`;
-const coldSobaNote = `${sobaSelectionNote}\nそば二倍盛り(+140g) : +500円\nかけそば変更 : +50円`;
-const hotSobaNote = `${sobaSelectionNote}\nそば二倍盛り(+140g) : +500円`;
-const riceBowlNote = 'お味噌汁、漬け物付き\nご飯大盛り : +100円';
-const teishokuNote = 'ご飯、お味噌汁、漬け物付き\nご飯大盛り : +100円';
+const sobaSelectionNote = '十割・二八そばから選択（十割は1日15食）';
+const setMealNote = `${sobaSelectionNote}\nかけそば変更 +50円\nご飯大盛り +100円\nデザート付き`;
+const coldSobaNote = sobaSelectionNote;
+const hotSobaNote = sobaSelectionNote;
+const lunchTeishokuNote = 'ご飯・味噌汁・漬物付き\nご飯大盛り +100円';
+const izakayaTeishokuNote =
+  '生姜焼き定食・唐揚げ定食：ご飯・味噌汁・漬物付き\n親子丼定食・焼き鳥丼定食・天重定食：味噌汁・漬物付き\nご飯大盛り +100円';
 
 function AlcoholicDrinks({ heading }: { heading: string }) {
   return (
@@ -557,26 +564,15 @@ function LunchMenu() {
               <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{hotSobaNote}</p>
             </div>
 
-            {/* Rice Bowls */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">丼</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {riceBowlItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
-              </div>
-              <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{riceBowlNote}</p>
-            </div>
-
             {/* Teishoku */}
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {teishokuItems.map((item) => (
+                {lunchTeishokuItems.map((item) => (
                   <MenuItem key={item.name} {...item} />
                 ))}
               </div>
-              <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{teishokuNote}</p>
+              <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{lunchTeishokuNote}</p>
             </div>
 
             {/* Kids Menu */}
@@ -635,26 +631,6 @@ function IzakayaMenu() {
               <p className="mt-2">時期によって使用している食材が異なる場合がございますので詳しくはスタッフにお聞きください。</p>
             </div>
 
-            {/* Yakitori */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">焼き鳥</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {izakayaYakitoriItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
-              </div>
-            </div>
-
-            {/* Appetizers */}
-            <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">一品料理</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {izakayaAppetizerItems.map((item) => (
-                  <MenuItem key={item.name} {...item} />
-                ))}
-              </div>
-            </div>
-
             {/* Cold Soba */}
             <div>
               <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">冷そば</h3>
@@ -677,15 +653,35 @@ function IzakayaMenu() {
               <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{hotSobaNote}</p>
             </div>
 
-            {/* Rice Bowls */}
+            {/* Teishoku */}
             <div>
-              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">丼</h3>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {riceBowlItems.map((item) => (
+                {izakayaTeishokuItems.map((item) => (
                   <MenuItem key={item.name} {...item} />
                 ))}
               </div>
-              <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{riceBowlNote}</p>
+              <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{izakayaTeishokuNote}</p>
+            </div>
+
+            {/* Oden */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">おでん</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {odenItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
+              </div>
+            </div>
+
+            {/* Appetizers */}
+            <div>
+              <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">一品料理</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {izakayaAppetizerItems.map((item) => (
+                  <MenuItem key={item.name} {...item} />
+                ))}
+              </div>
             </div>
 
             {/* Kids Menu */}
@@ -772,16 +768,16 @@ function DrinksMenu() {
                   <div>
                     <p className="font-semibold text-gray-800">焼酎</p>
                     <ul className="list-disc list-inside space-y-1 text-gray-900">
-                      <li>白岳しろ（720ml）　税抜2,727円（税込3,000円）</li>
-                      <li>二階堂（900ml）　　税抜2,500円（税込2,750円）</li>
-                      <li>黒霧島（900ml）　　税抜2,500円（税込2,750円）</li>
+                      <li>白岳しろ（720ml） 税抜2,727円（税込3,000円）</li>
+                      <li>二階堂（900ml） 税抜2,500円（税込2,750円）</li>
+                      <li>黒霧島（900ml） 税抜2,500円（税込2,750円）</li>
                     </ul>
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">ウイスキー</p>
                     <ul className="list-disc list-inside space-y-1 text-gray-900">
-                      <li>ROYAL（700ml）　　　　税抜8,000円（税込8,800円）</li>
-                      <li>角（700ml）　　　　　　税抜4,091円（税込4,500円）</li>
+                      <li>ROYAL（700ml） 税抜8,000円（税込8,800円）</li>
+                      <li>角（700ml） 税抜4,091円（税込4,500円）</li>
                     </ul>
                   </div>
                   <div>
@@ -793,7 +789,7 @@ function DrinksMenu() {
                   <div>
                     <p className="font-semibold text-gray-800">その他</p>
                     <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      <li>氷ボックス　税込500円</li>
+                      <li>氷ボックス 税込500円</li>
                       <li>割り材（水、炭酸など）別途</li>
                     </ul>
                   </div>

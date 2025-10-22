@@ -96,7 +96,7 @@ export function Contact() {
       ...category.prompts[preference],
       '',
       '---',
-      '十割蕎麦・焼鳥酒場「一期一美」宛'
+      '十割蕎麦・創作酒場「一期一美」宛'
     ];
 
     if (category.note) {

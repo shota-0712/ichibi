@@ -54,7 +54,7 @@ export function StoreInfo() {
                     <h3 className="font-kanteiryuu font-semibold">営業時間</h3>
                     <div className="space-y-4">
                       <div>
-                        <p className="font-medium">【十割蕎麦・焼鳥酒場】</p>
+                        <p className="font-medium">【十割蕎麦・創作酒場】</p>
                         <p>ランチ 11:00～14:00 (L.O.13:30)</p>
                         <p>居酒屋 18:00～22:00 (食事L.O.21:00 / ドリンクL.O.21:30)</p>
                         <p className="text-sm text-gray-600 mt-2">定休日：火曜日・水曜日</p>
@@ -117,7 +117,7 @@ export function StoreInfo() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="rounded-lg"
-                  title="十割蕎麦・焼鳥酒場『一期一美』 - アクセスマップ"
+                  title="十割蕎麦・創作酒場『一期一美』 - アクセスマップ"
                 ></iframe>
               </div>
               <div className="mt-4 space-y-2 text-sm text-gray-600">

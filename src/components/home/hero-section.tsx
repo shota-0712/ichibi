@@ -155,7 +155,7 @@ export function HeroSection() {
           <div className="text-center w-full max-w-4xl mx-auto">
             <div className="mb-6 transition-opacity duration-300" style={{opacity: 1}}>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu text-white mb-4">
-                <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-kanteiryuu">十割蕎麦・焼鳥酒場</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-kanteiryuu">十割蕎麦・創作酒場</div>
                 <div className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu">『一期一美』</div>
                 <div className="text-xl md:text-2xl lg:text-3xl mt-2 font-kanteiryuu">- ichibi -</div>
               </h1>

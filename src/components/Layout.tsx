@@ -8,7 +8,7 @@ import { FooterSection } from './home/footer-section';
 // モバイルメニューの開閉はCSSトランジションで実装する
 import logo from '../assets/ichigo_ichibi_logo.svg';
 
-const SITE_NAME = '十割蕎麦・焼鳥酒場『一期一美』-ichibi-';
+const SITE_NAME = '十割蕎麦・創作酒場『一期一美』- ichibi -';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -20,27 +20,27 @@ const BASE_URL = 'https://i-chi-bi.com';
 
 const meta = {
   '/': {
-    title: '十割蕎麦・焼鳥酒場　一期一美 | 千葉県君津市の手打十割そば・焼き鳥・定食',
-    description: '十割蕎麦・焼鳥酒場『一期一美』の公式サイト',
+    title: '十割蕎麦・創作酒場　一期一美 | 千葉県君津市の手打十割そば・焼き鳥・定食',
+    description: '十割蕎麦・創作酒場『一期一美』の公式サイト',
     canonical: `${BASE_URL}/`
   },
   '/menu': {
-    title: 'お品書き｜十割蕎麦・焼鳥酒場『一期一美』-ichibi-',
+    title: 'お品書き｜十割蕎麦・創作酒場『一期一美』- ichibi -',
     description: '十割蕎麦のランチメニューと厳選した国産鶏の焼鳥など居酒屋メニューのご案内。',
     canonical: `${BASE_URL}/menu`
   },
   '/store-info': {
-    title: '店舗情報｜十割蕎麦・焼鳥酒場『一期一美』-ichibi-',
+    title: '店舗情報｜十割蕎麦・創作酒場『一期一美』- ichibi -',
     description: '店舗の所在地や営業時間などの情報。',
     canonical: `${BASE_URL}/store-info`
   },
   '/contact': {
-    title: 'お問い合わせ・ご要望｜十割蕎麦・焼鳥酒場『一期一美』-ichibi-',
+    title: 'お問い合わせ・ご要望｜十割蕎麦・創作酒場『一期一美』- ichibi -',
     description: '店舗へのお問い合わせやご意見・ご要望、メニューに関するご質問などはこちらから。',
     canonical: `${BASE_URL}/contact`
   },
   '/dining-philosophy': {
-    title: '料理のこだわり | 十割蕎麦・焼鳥酒場『一期一美』-ichibi-',
+    title: '料理のこだわり | 十割蕎麦・創作酒場『一期一美』- ichibi -',
     description: '素材選びや仕込みへのこだわりをご紹介します。',
     canonical: `${BASE_URL}/dining-philosophy`
   }

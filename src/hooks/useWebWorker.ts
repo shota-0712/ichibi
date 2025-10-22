@@ -1,10 +1,23 @@
 import { useEffect, useRef, useCallback } from 'react';
 
-interface WorkerMessage {
-  type: string;
-  data?: any;
-  error?: string;
-}
+type PerformanceMetrics = {
+  dns: number;
+  tcp: number;
+  ttfb: number;
+  domLoad: number;
+  windowLoad: number;
+};
+
+type WorkerResponseMessage =
+  | { type: 'PERFORMANCE_DATA'; data: PerformanceMetrics }
+  | { type: 'IMAGES_PRELOADED'; data: string[] }
+  | { type: 'RESOURCES_CACHED'; data: string[] }
+  | { type: 'CACHE_ERROR'; error?: string };
+
+type WorkerRequestMessage =
+  | { type: 'TRACK_PERFORMANCE'; data: PerformanceMetrics }
+  | { type: 'PRELOAD_IMAGES'; data: string[] }
+  | { type: 'CACHE_RESOURCES'; data: string[] };
 
 export const useWebWorker = () => {
   const workerRef = useRef<Worker | null>(null);
@@ -15,24 +28,36 @@ export const useWebWorker = () => {
       workerRef.current = new Worker('/worker.js');
 
       // Handle messages from worker
-      workerRef.current.onmessage = (e: MessageEvent<WorkerMessage>) => {
-        const { type, data, error } = e.data;
+      workerRef.current.onmessage = (event: MessageEvent<WorkerResponseMessage>) => {
+        const message = event.data;
 
-        switch (type) {
+        switch (message.type) {
           case 'PERFORMANCE_DATA':
             // Handle performance data
             if (window.gtag) {
-              window.gtag('event', 'performance_metrics', data);
+              window.gtag('event', 'performance_metrics', message.data);
             }
             break;
           case 'IMAGES_PRELOADED':
-            console.info(`Preloaded ${data.length} images`);
+            if (window.gtag) {
+              window.gtag('event', 'worker_images_preloaded', {
+                count: message.data.length,
+              });
+            }
             break;
           case 'RESOURCES_CACHED':
-            console.info(`Cached ${data.length} resources`);
+            if (window.gtag) {
+              window.gtag('event', 'worker_resources_cached', {
+                count: message.data.length,
+              });
+            }
             break;
           case 'CACHE_ERROR':
-            console.error('Cache error:', error);
+            if (window.gtag) {
+              window.gtag('event', 'worker_cache_error', {
+                message: message.error ?? 'unknown',
+              });
+            }
             break;
           default:
             break;
@@ -42,7 +67,7 @@ export const useWebWorker = () => {
       // Track initial performance metrics
       if (window.performance && window.performance.timing) {
         const timing = window.performance.timing;
-        const metrics = {
+        const metrics: PerformanceMetrics = {
           dns: timing.domainLookupEnd - timing.domainLookupStart,
           tcp: timing.connectEnd - timing.connectStart,
           ttfb: timing.responseStart - timing.navigationStart,
@@ -50,10 +75,12 @@ export const useWebWorker = () => {
           windowLoad: timing.loadEventEnd - timing.navigationStart,
         };
 
-        workerRef.current.postMessage({
+        const message: WorkerRequestMessage = {
           type: 'TRACK_PERFORMANCE',
-          data: metrics
-        });
+          data: metrics,
+        };
+
+        workerRef.current.postMessage(message);
       }
 
       // Preload non-critical images
@@ -65,7 +92,7 @@ export const useWebWorker = () => {
 
       workerRef.current.postMessage({
         type: 'PRELOAD_IMAGES',
-        data: imagesToPreload
+        data: imagesToPreload,
       });
 
       // Cache critical resources for offline support
@@ -78,7 +105,7 @@ export const useWebWorker = () => {
 
       workerRef.current.postMessage({
         type: 'CACHE_RESOURCES',
-        data: resourcesToCache
+        data: resourcesToCache,
       });
     }
 
@@ -91,7 +118,7 @@ export const useWebWorker = () => {
     };
   }, []);
 
-  const sendMessage = useCallback((message: WorkerMessage) => {
+  const sendMessage = useCallback((message: WorkerRequestMessage) => {
     if (workerRef.current) {
       workerRef.current.postMessage(message);
     }
@@ -103,6 +130,7 @@ export const useWebWorker = () => {
 // Type declarations for gtag
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
+    // eslint-disable-next-line no-unused-vars
+    gtag?: (...args: unknown[]) => void;
   }
 }
