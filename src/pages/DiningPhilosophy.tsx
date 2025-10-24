@@ -68,9 +68,9 @@ export function DiningPhilosophy() {
             </section>
 
             <section>
-              <h3 className="text-xl font-kanteiryuu mb-2">焼き鳥</h3>
+              <h3 className="text-xl font-kanteiryuu mb-2">定食</h3>
               <p className="text-lg text-gray-700 font-kanteiryuu">
-                一本一本丁寧に打ち厳選した国産鶏を使用ふっくらジューシーに焼き上げ代々伝わる秘伝のタレでご堪能いただけます
+                メイン料理に加え、小鉢や味噌汁などを組み合わせた定食をご提供。食材ごとの下処理や味付けにもひと手間を加え、飽きのこない献立づくりを心がけています。
               </p>
             </section>
 

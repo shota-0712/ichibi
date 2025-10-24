@@ -51,8 +51,8 @@ export function FeaturedSections() {
             <motion.div variants={item}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
                 <img
-                  src="/image/yakitori.webp"
-                  alt="焼き鳥"
+                  src="/image/chikin_nanban.webp"
+                  alt="チキン南蛮と副菜"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
@@ -61,9 +61,9 @@ export function FeaturedSections() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <h3 className="text-2xl font-kanteiryuu mb-3">自慢の焼き鳥</h3>
+              <h3 className="text-2xl font-kanteiryuu mb-3">定食で味わう季節の一品</h3>
               <p className="text-gray-600 mb-4 font-kanteiryuu">
-                厳選した国産鶏を一本一本丁寧に串打ちし、ふっくらジューシーに焼き上げます。代々受け継がれる秘伝のタレで、当店ならではの味わいをご堪能ください。
+                季節の食材や人気の定番料理を、副菜や小鉢とともに定食スタイルでご用意。ボリュームと栄養のバランスにこだわり、ランチでも夜でもお楽しみいただけます。
               </p>
             </motion.div>
             <motion.div variants={item}>
