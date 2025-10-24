@@ -440,7 +440,7 @@ export function Menu() {
       <div
         className="h-[90vh] relative bg-cover bg-center"
         style={{
-          backgroundImage: activeTab === 'lunch' ? 'url("/image/ichigo_ichibi_set.webp")' : activeTab === 'izakaya' ? 'url("/image/yakitori.webp")' : 'url("/image/ichigo_ichibi_set.webp")',
+          backgroundImage: activeTab === 'lunch' ? 'url("/image/ichigo_ichibi_set.webp")' : activeTab === 'izakaya' ? 'url("/image/nihonnshu.webp")' : 'url("/image/ichigo_ichibi_set.webp")',
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
