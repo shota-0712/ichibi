@@ -12,12 +12,6 @@ const SLIDER_IMAGES = [
     alt: "蕎麦と天ぷらの御膳",
     title: "こだわりの手打ちそば",
     subtitle: "毎朝4時から打つこだわりの手打ちそば"
-  },
-  {
-    url: "/image/yakitori.webp",
-    alt: "焼き鳥",
-    title: "伝統の味",
-    subtitle: "代々受け継がれる伝統のたれ"
   }
 ].map(img => ({
   ...img,
@@ -160,7 +154,7 @@ export function HeroSection() {
                 <div className="text-xl md:text-2xl lg:text-3xl mt-2 font-kanteiryuu">- ichibi -</div>
               </h1>
               <p className="text-lg md:text-xl text-japanese-gold font-medium font-kanteiryuu">
-                千葉県君津市内蓑輪の手打十割蕎麦をメインとしたランチと焼き鳥居酒屋の店
+                千葉県君津市内蓑輪の手打十割蕎麦と定食を楽しめるランチと居酒屋のお店
               </p>
             </div>
             
