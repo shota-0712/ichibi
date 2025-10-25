@@ -51,8 +51,8 @@ export function FeaturedSections() {
             <motion.div variants={item}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
                 <img
-                  src="/image/chikin_nanban.webp"
-                  alt="チキン南蛮と副菜"
+                  src="/image/shogayaki.webp"
+                  alt="生姜焼き定食"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
@@ -61,9 +61,9 @@ export function FeaturedSections() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <h3 className="text-2xl font-kanteiryuu mb-3">定食で味わう季節の一品</h3>
+              <h3 className="text-2xl font-kanteiryuu mb-3">蕎麦屋の自慢の定食</h3>
               <p className="text-gray-600 mb-4 font-kanteiryuu">
-                季節の食材や人気の定番料理を、副菜や小鉢とともに定食スタイルでご用意。ボリュームと栄養のバランスにこだわり、ランチでも夜でもお楽しみいただけます。
+                もちろん自慢のお蕎麦を召し上がっていただきたいのですが、当店は「定食もすごく美味しい」とご好評をいただいております。
               </p>
             </motion.div>
             <motion.div variants={item}>
