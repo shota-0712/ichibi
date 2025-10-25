@@ -1,6 +1,9 @@
 /*
-  # HTMLファイル - 短時間のキャッシュ
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
 
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
@@ -8,82 +11,71 @@
 /
   Cache-Control: public, max-age=0, must-revalidate
 
-# JavaScript/CSSファイル - 長期キャッシュ（ハッシュ付き）
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
   X-Content-Type-Options: nosniff
 
 /assets/js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
   X-Content-Type-Options: nosniff
 
 /assets/css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
   X-Content-Type-Options: nosniff
 
-# 画像ファイル - 長期キャッシュ
 /assets/images/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
   Accept-CH: DPR, Width, Viewport-Width
   X-Content-Type-Options: nosniff
 
 /image/*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=3600, must-revalidate
   Accept-CH: DPR, Width, Viewport-Width
   X-Content-Type-Options: nosniff
 
 /*.webp
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=3600, must-revalidate
   Accept-CH: DPR, Width, Viewport-Width
   X-Content-Type-Options: nosniff
 
 /*.jpg
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=3600, must-revalidate
   Accept-CH: DPR, Width, Viewport-Width
   X-Content-Type-Options: nosniff
 
 /*.jpeg
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=3600, must-revalidate
   Accept-CH: DPR, Width, Viewport-Width
   X-Content-Type-Options: nosniff
 
 /*.png
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=3600, must-revalidate
   Accept-CH: DPR, Width, Viewport-Width
   X-Content-Type-Options: nosniff
 
 /*.svg
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=3600, must-revalidate
   X-Content-Type-Options: nosniff
 
-# フォントファイル - 長期キャッシュ
 /fonts/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
   Access-Control-Allow-Origin: *
   X-Content-Type-Options: nosniff
 
 /assets/fonts/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
   Access-Control-Allow-Origin: *
   X-Content-Type-Options: nosniff
 
 /*.woff2
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
   Access-Control-Allow-Origin: *
   X-Content-Type-Options: nosniff
 
 /*.woff
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
   Access-Control-Allow-Origin: *
   X-Content-Type-Options: nosniff
 
-# マニフェストファイル
 /manifest.json
-  Cache-Control: public, max-age=86400
-
-# その他のセキュリティヘッダー
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Cache-Control: public, max-age=3600, must-revalidate
