@@ -81,7 +81,7 @@ const PageTransitionSplash: React.FC = () => {
         style={{
           maxWidth: '250px',
           maxHeight: '250px',
-          opacity: 0.4,
+          opacity: 0.6,
           objectFit: 'contain',
           animation: 'fadeInLogo 0.8s ease-in-out forwards'
         }}
@@ -90,7 +90,7 @@ const PageTransitionSplash: React.FC = () => {
         {`
           @keyframes fadeInLogo {
             0% { opacity: 0; }
-            100% { opacity: 0.4; }
+            100% { opacity: 0.6; }
           }
         `}
       </style>
