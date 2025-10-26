@@ -20,7 +20,7 @@ const BASE_URL = 'https://i-chi-bi.com';
 
 const meta = {
   '/': {
-    title: '十割蕎麦・創作酒場　一期一美 | 千葉県君津市の手打十割そば・定食',
+    title: '十割蕎麦・創作酒場『一期一美』|千葉県君津市の手打そば・定食・おでん',
     description: '十割蕎麦・創作酒場『一期一美』の公式サイト',
     canonical: `${BASE_URL}/`
   },
@@ -110,19 +110,6 @@ const { title, description, canonical } = meta[location.pathname as keyof typeof
       </Helmet>
       <div className="min-h-screen bg-stone-50">
       <nav className="fixed w-full z-50">
-        <div className="w-full overflow-hidden bg-black/50">
-          <div className="animate-marquee">
-            <span className="whitespace-nowrap px-4 py-2 text-japanese-gold font-kanteiryuu">
-              2025年10月6日プレオープン ・ 10月13日グランドオープン
-            </span>
-            <span
-              className="whitespace-nowrap px-4 py-2 text-japanese-gold font-kanteiryuu"
-              aria-hidden="true"
-            >
-              2025年10月6日プレオープン ・ 10月13日グランドオープン
-            </span>
-          </div>
-        </div>
         <div className="container mx-auto px-4">
           <div className="relative flex items-center justify-between py-4 md:py-6">
             <Link to="/" className="flex items-center">

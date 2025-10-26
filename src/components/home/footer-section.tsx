@@ -22,7 +22,6 @@ export function FooterSection() {
               <div>
                 <p className="font-kanteiryuu font-semibold mb-1">お電話</p>
                 <p>0439-72-3988</p>
-                <p className="text-sm text-gray-200 mt-1">※2025年10月6日プレオープン・10月13日グランドオープン</p>
               </div>
             </div>
           </div>

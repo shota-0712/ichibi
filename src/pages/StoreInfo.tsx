@@ -27,7 +27,6 @@ export function StoreInfo() {
                   <div>
                     <h3 className="font-kanteiryuu font-semibold">お電話</h3>
                     <p>0439-72-3988</p>
-                    <p className="text-sm text-gray-600 mt-1">※2025年10月6日プレオープン・10月13日グランドオープン</p>
                     <Link
                       to="/contact"
                       className="mt-4 inline-flex items-center gap-2 rounded-full bg-japanese-indigo px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
