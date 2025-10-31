@@ -85,7 +85,7 @@ export const useWebWorker = () => {
 
       // Preload non-critical images
       const imagesToPreload = [
-        '/image/soba.webp',
+        '/image/tenjuu.webp',
         '/image/ichigo_ichibi_set.webp',
         '/image/open_chirashi.webp',
       ];

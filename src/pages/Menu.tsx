@@ -440,7 +440,7 @@ export function Menu() {
       <div
         className="h-[90vh] relative bg-cover bg-center"
         style={{
-          backgroundImage: activeTab === 'lunch' ? 'url("/image/ichigo_ichibi_set.webp")' : activeTab === 'izakaya' ? 'url("/image/nihonnshu.webp")' : 'url("/image/ichigo_ichibi_set.webp")',
+          backgroundImage: activeTab === 'lunch' ? 'url("/image/ichigo_ichibi_set.webp")' : activeTab === 'izakaya' ? 'url("/image/tenjuu.webp")' : 'url("/image/ichigo_ichibi_set.webp")',
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -492,7 +492,7 @@ export function Menu() {
                   {activeTab === 'lunch'
                     ? '11:00～14:00 (L.O.13:30)'
                     : activeTab === 'izakaya'
-                    ? '18:00～21:00 (食事L.O.20:00 / ドリンクL.O.20:30)'
+                    ? '18:00～21:00 (食事L.O.20:30 / ドリンクL.O.20:50)'
                     : 'ランチ 11:00～14:00 / 居酒屋 18:00～21:00'}
                 </p>
                 <p className="text-sm text-white/80 mt-1">定休日：火曜日・水曜日</p>

@@ -43,8 +43,8 @@ npm run analyze      # バンドル解析
 public/
 ├── image/                   # 配信用画像（WebP/SVG最適化済み）
 │   ├── ichigo_ichibi_logo.svg
-│   ├── soba.webp
-│   ├── yakitori.webp
+│   ├── ichigo_ichibi_set.webp
+│   ├── tenjuu.webp
 │   └── ...
 ├── fonts/
 │   └── yuji-syuku/          # 自前ホストフォント

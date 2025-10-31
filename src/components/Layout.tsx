@@ -20,27 +20,27 @@ const BASE_URL = 'https://i-chi-bi.com';
 
 const meta = {
   '/': {
-    title: '十割蕎麦・創作酒場『一期一美』|千葉県君津市の手打そば・定食・おでん',
+    title: '十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '十割蕎麦・創作酒場『一期一美』の公式サイト',
     canonical: `${BASE_URL}/`
   },
   '/menu': {
-    title: 'お品書き｜十割蕎麦・創作酒場『一期一美』- ichibi -',
+    title: 'お品書き｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '十割蕎麦のランチメニューと定食、一品料理など居酒屋メニューのご案内。',
     canonical: `${BASE_URL}/menu`
   },
   '/store-info': {
-    title: '店舗情報｜十割蕎麦・創作酒場『一期一美』- ichibi -',
+    title: '店舗情報｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '店舗の所在地や営業時間などの情報。',
     canonical: `${BASE_URL}/store-info`
   },
   '/contact': {
-    title: 'お問い合わせ・ご要望｜十割蕎麦・創作酒場『一期一美』- ichibi -',
+    title: 'お問い合わせ・ご要望｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '店舗へのお問い合わせやご意見・ご要望、メニューに関するご質問などはこちらから。',
     canonical: `${BASE_URL}/contact`
   },
   '/dining-philosophy': {
-    title: '料理のこだわり | 十割蕎麦・創作酒場『一期一美』- ichibi -',
+    title: '料理のこだわり｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '素材選びや仕込みへのこだわりをご紹介します。',
     canonical: `${BASE_URL}/dining-philosophy`
   }
