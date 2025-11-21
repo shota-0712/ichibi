@@ -26,71 +26,14 @@ import { storeInfo } from '../../data/store-info';
 
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [isImageLoaded, setIsImageLoaded] = useState(Array(SLIDER_IMAGES.length).fill(false));
   const intervalRef = useRef<number | null>(null);
-  const imageLoadStatus = useRef<boolean[]>(Array(SLIDER_IMAGES.length).fill(false));
 
   // 表示時間
   const DISPLAY_MS = 4000;
 
-  // Preload images with priority and improved loading strategy
-  useEffect(() => {
-    let isMounted = true;
-
-    // Preload the first image with high priority
-    const preloadFirstImage = () => {
-      const img = new Image();
-      img.decoding = 'async';
-      img.onload = () => {
-        if (!isMounted) return;
-        imageLoadStatus.current[0] = true;
-        setIsImageLoaded([...imageLoadStatus.current]);
-        // After first image is loaded, load the rest during idle time
-        if ('requestIdleCallback' in window) {
-          (window as Window & { requestIdleCallback: typeof requestIdleCallback }).requestIdleCallback(preloadRemainingImages, { timeout: 2000 });
-        } else {
-          setTimeout(preloadRemainingImages, 100);
-        }
-        setImagesLoaded(true);
-      };
-      img.src = SLIDER_IMAGES[0].smallUrl;
-    };
-
-    // Preload remaining images with lower priority during idle time
-    const preloadRemainingImages = () => {
-      for (let i = 1; i < SLIDER_IMAGES.length; i++) {
-        const img = new Image();
-        img.onload = () => {
-          if (!isMounted) return;
-
-          imageLoadStatus.current[i] = true;
-          setIsImageLoaded([...imageLoadStatus.current]);
-        };
-        // Use medium quality for preloading
-        img.src = SLIDER_IMAGES[i].mediumUrl;
-      }
-    };
-
-    // Start preloading
-    preloadFirstImage();
-
-    // Fallback in case images take too long to load
-    const timeout = setTimeout(() => {
-      if (!imagesLoaded && isMounted) {
-        setImagesLoaded(true);
-      }
-    }, 2000);
-
-    return () => {
-      isMounted = false;
-      clearTimeout(timeout);
-    };
-  }, [imagesLoaded]);
-
   // Simple slideshow effect
   useEffect(() => {
-    if (!imagesLoaded) return;
+    if (SLIDER_IMAGES.length <= 1) return;
 
     const startSlideshow = () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -119,7 +62,7 @@ export function HeroSection() {
       }
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [imagesLoaded]);
+  }, []);
 
   return (
     <div className="h-screen relative overflow-hidden bg-black">
@@ -132,17 +75,8 @@ export function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'brightness(0.4)' }}
           decoding="async"
-          ref={(img) => {
-            if (img) {
-              img.setAttribute('fetchpriority', currentImageIndex === 0 ? 'high' : 'auto');
-            }
-          }}
-          loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
-          onLoad={() => {
-            const newLoadedState = [...isImageLoaded];
-            newLoadedState[currentImageIndex] = true;
-            setIsImageLoaded(newLoadedState);
-          }}
+          fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
+          loading={currentImageIndex === 0 ? "eager" : "lazy"}
         />
       </div>
 
