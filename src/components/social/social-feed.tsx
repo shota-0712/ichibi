@@ -1,28 +1,29 @@
 import { useRef, useEffect } from 'react';
 import { Instagram, ExternalLink } from 'lucide-react';
 import { XLogo } from '../icons/x-logo';
+import { storeInfo } from '../../data/store-info';
 
 export function SocialFeed() {
   const instagramContainerRef = useRef<HTMLIFrameElement>(null);
-  
+
   // Use Intersection Observer to lazy load Instagram widget
   useEffect(() => {
     if (!instagramContainerRef.current) return;
-    
+
     const loadInstagramEmbed = (iframe: HTMLIFrameElement) => {
       // Only set src if not already set
       if (!iframe.src || iframe.src === 'about:blank') {
-        iframe.src = 'https://www.instagram.com/ichigo__ichibi/embed';
+        iframe.src = `${storeInfo.social.instagram}embed`;
       }
     };
-    
+
     // Create and configure Intersection Observer
     const observerOptions = {
       root: null,
       rootMargin: '200px',
       threshold: 0.1
     };
-    
+
     const instagramObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && instagramContainerRef.current) {
@@ -31,12 +32,12 @@ export function SocialFeed() {
         }
       });
     }, observerOptions);
-    
+
     // Start observing
     if (instagramContainerRef.current) {
       instagramObserver.observe(instagramContainerRef.current);
     }
-    
+
     // Cleanup
     return () => {
       instagramObserver.disconnect();
@@ -62,7 +63,7 @@ export function SocialFeed() {
                 LINE公式アカウントではデザートやドリンクなどのクーポンや季節限定メニューなどの最新情報をお届けしています！
               </p>
               <a
-                href="https://lin.ee/kDzulfG"
+                href={storeInfo.social.line}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LINEで友だち追加"
@@ -87,15 +88,15 @@ export function SocialFeed() {
                   <h3 className="font-semibold">Instagram</h3>
                 </div>
                 <a
-                  href="https://www.instagram.com/ichigo__ichibi/"
+                  href={storeInfo.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-a11y-pink hover:text-a11y-pink-dark transition text-sm font-medium"
                 >
-                  @ichigo__ichibi
+                  {storeInfo.social.instagramHandle}
                 </a>
               </div>
-              
+
               <div className="instagram-embed p-2 overflow-hidden" style={{ height: '450px' }}>
                 <iframe
                   ref={instagramContainerRef}
@@ -108,10 +109,10 @@ export function SocialFeed() {
                   loading="lazy"
                 ></iframe>
               </div>
-              
+
               <div className="p-4 bg-gray-50 text-center">
                 <a
-                  href="https://www.instagram.com/ichigo__ichibi/"
+                  href={storeInfo.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-a11y-pink hover:text-a11y-pink-dark transition font-semibold text-sm"
@@ -129,12 +130,12 @@ export function SocialFeed() {
                   <h3 className="font-semibold">X (Twitter)</h3>
                 </div>
                 <a
-                  href="https://x.com/ichigo_ichibi"
+                  href={storeInfo.social.x}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-black hover:text-gray-700 transition text-sm font-medium"
                 >
-                  @ichigo_ichibi
+                  {storeInfo.social.xHandle}
                 </a>
               </div>
 
@@ -151,7 +152,7 @@ export function SocialFeed() {
 
                   <div className="space-y-3 w-full max-w-xs">
                     <a
-                      href="https://x.com/ichigo_ichibi"
+                      href={storeInfo.social.x}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition font-medium"
@@ -162,7 +163,7 @@ export function SocialFeed() {
                     </a>
 
                     <a
-                      href="https://x.com/ichigo_ichibi"
+                      href={storeInfo.social.x}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-50 transition text-sm"
@@ -177,7 +178,7 @@ export function SocialFeed() {
 
               <div className="p-4 bg-gray-50 text-center">
                 <a
-                  href="https://x.com/ichigo_ichibi"
+                  href={storeInfo.social.x}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-black hover:text-gray-700 transition font-semibold text-sm"

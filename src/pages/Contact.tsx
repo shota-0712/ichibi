@@ -59,19 +59,19 @@ const REPLY_OPTIONS: Array<{
   helper: string;
   description: string;
 }> = [
-  {
-    key: 'no-reply',
-    label: '返信を希望しない',
-    helper: 'お客様情報は不要です',
-    description: '情報のみお伝えいただく場合はこちら。'
-  },
-  {
-    key: 'reply',
-    label: '返信を希望する',
-    helper: 'お客様情報が必要です',
-    description: '折り返し連絡をご希望の方はこちら。'
-  }
-];
+    {
+      key: 'no-reply',
+      label: '返信を希望しない',
+      helper: 'お客様情報は不要です',
+      description: '情報のみお伝えいただく場合はこちら。'
+    },
+    {
+      key: 'reply',
+      label: '返信を希望する',
+      helper: 'お客様情報が必要です',
+      description: '折り返し連絡をご希望の方はこちら。'
+    }
+  ];
 
 export function Contact() {
   const [preference, setPreference] = useState<ReplyPreference>('reply');
@@ -147,12 +147,13 @@ export function Contact() {
               <button
                 key={option.key}
                 type="button"
+                role="radio"
+                aria-checked={preference === option.key}
                 onClick={() => setPreference(option.key)}
-                className={`rounded-xl border-2 p-6 text-left transition focus:outline-none focus:ring-2 focus:ring-japanese-gold ${
-                  preference === option.key
+                className={`rounded-xl border-2 p-6 text-left transition focus:outline-none focus:ring-2 focus:ring-japanese-gold ${preference === option.key
                     ? 'border-japanese-gold bg-japanese-gold/10 text-japanese-indigo'
                     : 'border-gray-200 bg-white text-gray-700 hover:border-japanese-gold/50'
-                }`}
+                  }`}
               >
                 <p className="text-sm font-semibold text-japanese-red mb-1">{option.helper}</p>
                 <p className="text-2xl font-kanteiryuu mb-2">{`返信を「${option.label}」`}</p>
@@ -179,7 +180,7 @@ export function Contact() {
               {category && (
                 <p className="mt-2 text-sm text-gray-600">{category.description}</p>
 
-)}
+              )}
             </div>
 
             {category?.note && (

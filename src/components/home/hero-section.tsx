@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -22,6 +22,8 @@ const SLIDER_IMAGES = [
   placeholder: img.url
 }));
 
+import { storeInfo } from '../../data/store-info';
+
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -35,9 +37,9 @@ export function HeroSection() {
   // Preload images with priority and improved loading strategy
   useEffect(() => {
     let isMounted = true;
-    
-  // Preload the first image with high priority
-  const preloadFirstImage = () => {
+
+    // Preload the first image with high priority
+    const preloadFirstImage = () => {
       const img = new Image();
       img.decoding = 'async';
       img.onload = () => {
@@ -61,7 +63,7 @@ export function HeroSection() {
         const img = new Image();
         img.onload = () => {
           if (!isMounted) return;
-          
+
           imageLoadStatus.current[i] = true;
           setIsImageLoaded([...imageLoadStatus.current]);
         };
@@ -143,11 +145,11 @@ export function HeroSection() {
           }}
         />
       </div>
-      
+
       <div className="absolute inset-0 z-30 flex flex-col justify-between pt-32 md:pt-40 will-change-transform">
         <div className="flex-1 flex items-center justify-center px-4">
           <div className="text-center w-full max-w-4xl mx-auto">
-            <div className="mb-6 transition-opacity duration-300" style={{opacity: 1}}>
+            <div className="mb-6 transition-opacity duration-300" style={{ opacity: 1 }}>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu text-white mb-4">
                 <div className="text-2xl md:text-3xl lg:text-4xl mb-2 font-kanteiryuu">十割蕎麦・創作酒場</div>
                 <div className="text-4xl md:text-6xl lg:text-7xl font-kanteiryuu">『一期一美』</div>
@@ -157,8 +159,8 @@ export function HeroSection() {
                 千葉県君津市内蓑輪の手打十割蕎麦と定食を楽しめるランチと居酒屋のお店
               </p>
             </div>
-            
-            
+
+
             <div className="flex flex-col items-center gap-3">
               <Link
                 to="/menu"
@@ -167,7 +169,7 @@ export function HeroSection() {
                 お品書き
               </Link>
               <a
-                href="https://u.lin.ee/vLXjBhd"
+                href={storeInfo.social.lineReservation}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white text-xl font-kanteiryuu pb-1 border-b border-japanese-gold hover:border-white transition-colors duration-300"
@@ -177,7 +179,7 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-        
+
         {/* Bottom info section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -190,17 +192,17 @@ export function HeroSection() {
               <div className="flex items-center justify-center gap-2">
                 <Clock className="w-5 h-5 text-japanese-gold" />
                 <div className="font-kanteiryuu leading-tight text-center md:text-left">
-                  <p>営業時間: ランチ 11:00～14:00 (L.O.13:30) ／ 居酒屋 18:00～21:00 (食事L.O.20:30 / ドリンクL.O.20:50)</p>
-                  <p className="text-sm md:text-base text-japanese-gold/90">定休日：火曜日・水曜日</p>
+                  <p>営業時間: ランチ {storeInfo.hours.lunch} ／ 居酒屋 {storeInfo.hours.izakaya}</p>
+                  <p className="text-sm md:text-base text-japanese-gold/90">定休日：{storeInfo.hours.closed}</p>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <MapPin className="w-5 h-5 text-japanese-gold" />
-                <span className="font-kanteiryuu">千葉県君津市内蓑輪122-1</span>
+                <span className="font-kanteiryuu">{storeInfo.address.full}</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Phone className="w-5 h-5 text-japanese-gold" />
-                <span className="font-kanteiryuu">0439-72-3988</span>
+                <span className="font-kanteiryuu">{storeInfo.phone}</span>
               </div>
             </div>
           </div>

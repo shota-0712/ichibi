@@ -10,12 +10,6 @@ import logo from '../assets/ichigo_ichibi_logo.svg';
 
 const SITE_NAME = '十割蕎麦・創作酒場『一期一美』- ichibi -';
 
-export function Layout({ children }: { children: React.ReactNode }) {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
-  const [showCrepeHint, setShowCrepeHint] = React.useState(false);
-
 const BASE_URL = 'https://i-chi-bi.com';
 
 const meta = {
@@ -46,11 +40,17 @@ const meta = {
   }
 } as const;
 
-const fallbackMeta = meta['/'];
-const { title, description, canonical } = meta[location.pathname as keyof typeof meta] ?? {
-  ...fallbackMeta,
-  canonical: `${BASE_URL}${location.pathname}`
-};
+export function Layout({ children }: { children: React.ReactNode }) {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  const [showCrepeHint, setShowCrepeHint] = React.useState(false);
+
+  const fallbackMeta = meta['/'];
+  const { title, description, canonical } = meta[location.pathname as keyof typeof meta] ?? {
+    ...fallbackMeta,
+    canonical: `${BASE_URL}${location.pathname}`
+  };
 
   // Close menu when route changes
   React.useEffect(() => {
@@ -109,154 +109,153 @@ const { title, description, canonical } = meta[location.pathname as keyof typeof
         <link rel="canonical" href={canonical} />
       </Helmet>
       <div className="min-h-screen bg-stone-50">
-      <nav className="fixed w-full z-50">
-        <div className="container mx-auto px-4">
-          <div className="relative flex items-center justify-between py-4 md:py-6">
-            <Link to="/" className="flex items-center">
-              <img
-                src={logo}
-                alt="一期一美"
-                className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-lg"
-                width="96"
-                height="96"
-                loading="eager"
-                decoding="async"
-                ref={(img) => {
-                  if (img) {
-                    img.setAttribute('fetchpriority', 'high');
-                  }
-                }}
-              />
-            </Link>
-            <div className="hidden md:flex space-x-4">
-              <Link
-                to="/menu"
-                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
-              >
-                お品書き
+        <nav className="fixed w-full z-50">
+          <div className="container mx-auto px-4">
+            <div className="relative flex items-center justify-between py-4 md:py-6">
+              <Link to="/" className="flex items-center">
+                <img
+                  src={logo}
+                  alt="一期一美"
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-lg"
+                  width="96"
+                  height="96"
+                  loading="eager"
+                  decoding="async"
+                  ref={(img) => {
+                    if (img) {
+                      img.setAttribute('fetchpriority', 'high');
+                    }
+                  }}
+                />
               </Link>
-              <Link
-                to="/store-info"
-                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
-              >
-                店舗情報
-              </Link>
-              <a
-                href="https://u.lin.ee/vLXjBhd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-japanese-red/80 backdrop-blur-sm hover:bg-japanese-red shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
-              >
-                ご予約
-              </a>
-              <Link
-                to="/contact"
-                className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
-              >
-                お問い合わせ
-              </Link>
-            </div>
-            {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上・より右端に） - ホームのみ表示 */}
-            {isHome && (
-              <div className="absolute -right-2 md:-right-4 top-full mt-2 z-50 flex flex-col items-end text-right gap-1 w-max">
-                {showCrepeHint && (
-                  <div className="flex flex-col items-end leading-tight text-white text-sm font-kanteiryuu whitespace-nowrap text-right">
-                    <span>クレープは</span>
-                    <span>こちら</span>
-                  </div>
-                )}
+              <div className="hidden md:flex space-x-4">
+                <Link
+                  to="/menu"
+                  className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
+                >
+                  お品書き
+                </Link>
+                <Link
+                  to="/store-info"
+                  className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
+                >
+                  店舗情報
+                </Link>
                 <a
-                  href="https://pal-crepe.com"
+                  href="https://u.lin.ee/vLXjBhd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Pal crepe 公式サイト"
-                  className="block"
+                  className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-japanese-red/80 backdrop-blur-sm hover:bg-japanese-red shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
                 >
-                  <img
-                    src="/image/Pal-crepe_logo.svg"
-                    alt="Pal crepe ロゴ"
-                    className="h-12 w-auto md:h-10 lg:h-12"
-                    height={48}
-                    loading="eager"
-                    decoding="async"
-                  />
+                  ご予約
                 </a>
+                <Link
+                  to="/contact"
+                  className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-black/20 backdrop-blur-sm hover:bg-black/30 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
+                >
+                  お問い合わせ
+                </Link>
               </div>
-            )}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-white text-lg font-kanteiryuu pb-1 border-b-2 border-white hover:border-japanese-gold transition-colors duration-300 focus:outline-none"
-              aria-label="メニューを開く"
-            >
-              メニュー
-            </button>
+              {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上・より右端に） - ホームのみ表示 */}
+              {isHome && (
+                <div className="absolute -right-2 md:-right-4 top-full mt-2 z-50 flex flex-col items-end text-right gap-1 w-max">
+                  {showCrepeHint && (
+                    <div className="flex flex-col items-end leading-tight text-white text-sm font-kanteiryuu whitespace-nowrap text-right">
+                      <span>クレープは</span>
+                      <span>こちら</span>
+                    </div>
+                  )}
+                  <a
+                    href="https://pal-crepe.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Pal crepe 公式サイト"
+                    className="block"
+                  >
+                    <img
+                      src="/image/Pal-crepe_logo.svg"
+                      alt="Pal crepe ロゴ"
+                      className="h-12 w-auto md:h-10 lg:h-12"
+                      height={48}
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </a>
+                </div>
+              )}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden text-white text-lg font-kanteiryuu pb-1 border-b-2 border-white hover:border-japanese-gold transition-colors duration-300 focus:outline-none"
+                aria-label="メニューを開く"
+              >
+                メニュー
+              </button>
+            </div>
           </div>
-        </div>
-        
-        {/* Mobile menu with CSS transitions (no framer-motion) */}
-        <div
-          className={`md:hidden fixed inset-x-0 top-[128px] bottom-0 overflow-y-auto bg-black/80 backdrop-blur-md transition-opacity duration-200 ${
-            isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
-          aria-hidden={!isMenuOpen}
-        >
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex flex-col space-y-4">
-              <Link
-                to="/menu"
-                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-              >
-                お品書き
-              </Link>
-              <Link
-                to="/store-info"
-                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-              >
-                店舗情報
-              </Link>
-              <a
-                href="https://u.lin.ee/vLXjBhd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-japanese-red/80 hover:bg-japanese-red border border-white/20 font-kanteiryuu text-center"
-              >
-                ご予約
-              </a>
-              <Link
-                to="/contact"
-                className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
-              >
-                お問い合わせ
-              </Link>
-              <div className="pt-4 flex space-x-6 justify-center">
-                <a 
-                  href="https://www.instagram.com/ichigo__ichibi/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
+
+          {/* Mobile menu with CSS transitions (no framer-motion) */}
+          <div
+            className={`md:hidden fixed inset-x-0 top-[128px] bottom-0 overflow-y-auto bg-black/80 backdrop-blur-md transition-opacity duration-200 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+              }`}
+            aria-hidden={!isMenuOpen}
+          >
+            <div className="container mx-auto px-4 py-6">
+              <div className="flex flex-col space-y-4">
+                <Link
+                  to="/menu"
+                  className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
                 >
-                  <Instagram className="h-6 w-6" />
-                </a>
-                <a 
-                  href="https://x.com/ichigo_ichibi" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
+                  お品書き
+                </Link>
+                <Link
+                  to="/store-info"
+                  className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
                 >
-                  <XLogo className="h-6 w-6" />
+                  店舗情報
+                </Link>
+                <a
+                  href="https://u.lin.ee/vLXjBhd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-japanese-red/80 hover:bg-japanese-red border border-white/20 font-kanteiryuu text-center"
+                >
+                  ご予約
                 </a>
+                <Link
+                  to="/contact"
+                  className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-kanteiryuu"
+                >
+                  お問い合わせ
+                </Link>
+                <div className="pt-4 flex space-x-6 justify-center">
+                  <a
+                    href="https://www.instagram.com/ichigo__ichibi/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
+                  >
+                    <Instagram className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="https://x.com/ichigo_ichibi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
+                  >
+                    <XLogo className="h-6 w-6" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      <main className="relative min-h-screen">
-        {children}
-      </main>
+        <main className="relative min-h-screen">
+          {children}
+        </main>
 
-      <FooterSection />
-    </div>
+        <FooterSection />
+      </div>
     </>
   );
 }

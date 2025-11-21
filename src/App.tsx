@@ -19,75 +19,39 @@ const DiningPhilosophy = lazy(() =>
 );
 
 
-// Preload components based on user interaction
-const preloadComponent = (component: string): void => {
-  switch(component) {
-    case 'menu':
-      void import('./pages/Menu');
-      break;
-    case 'store-info':
-      void import('./pages/StoreInfo');
-      break;
-    case 'contact':
-      void import('./pages/Contact');
-      break;
-    case 'dining-philosophy':
-      void import('./pages/DiningPhilosophy');
-      break;
-  }
-};
-
-// Add event listeners for navigation preloading
-if (typeof window !== 'undefined') {
-  window.addEventListener('load', () => {
-    // Use requestIdleCallback to avoid blocking main thread
-    if ('requestIdleCallback' in window) {
-      (window as Window & { requestIdleCallback: typeof requestIdleCallback }).requestIdleCallback(() => {
-        document.querySelectorAll('a[href^="/"]').forEach(link => {
-          const href = link.getAttribute('href');
-          if (href && href !== '/') {
-            const path = href.substring(1); // Remove leading slash
-            
-            // Add event listeners with passive option for better performance
-            link.addEventListener('mouseenter', () => preloadComponent(path), { passive: true });
-            link.addEventListener('touchstart', () => preloadComponent(path), { passive: true });
-          }
-        });
-      }, { timeout: 2000 });
-    }
-  });
-}
+import { useNavigationPreload } from './hooks/useNavigationPreload';
 
 function App() {
+  useNavigationPreload();
   return (
     <>
       <PageTransitionSplash />
       <Layout>
         <Routes>
-        {/* Only Home is eagerly loaded */}
-        <Route path="/" element={<Home />} />
-        
-        {/* All other routes are lazy loaded */}
-        <Route path="/menu" element={
-          <Suspense fallback={null}>
-            <Menu />
-          </Suspense>
-        } />
-        <Route path="/store-info" element={
-          <Suspense fallback={null}>
-            <StoreInfo />
-          </Suspense>
-        } />
-        <Route path="/contact" element={
-          <Suspense fallback={null}>
-            <Contact />
-          </Suspense>
-        } />
-        <Route path="/dining-philosophy" element={
-          <Suspense fallback={null}>
-            <DiningPhilosophy />
-          </Suspense>
-        } />
+          {/* Only Home is eagerly loaded */}
+          <Route path="/" element={<Home />} />
+
+          {/* All other routes are lazy loaded */}
+          <Route path="/menu" element={
+            <Suspense fallback={null}>
+              <Menu />
+            </Suspense>
+          } />
+          <Route path="/store-info" element={
+            <Suspense fallback={null}>
+              <StoreInfo />
+            </Suspense>
+          } />
+          <Route path="/contact" element={
+            <Suspense fallback={null}>
+              <Contact />
+            </Suspense>
+          } />
+          <Route path="/dining-philosophy" element={
+            <Suspense fallback={null}>
+              <DiningPhilosophy />
+            </Suspense>
+          } />
 
         </Routes>
       </Layout>
