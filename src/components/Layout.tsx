@@ -16,27 +16,32 @@ const meta = {
   '/': {
     title: '十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '十割蕎麦・創作酒場『一期一美』の公式サイト',
-    canonical: `${BASE_URL}/`
+    canonical: `${BASE_URL}/`,
+    ogImage: `${BASE_URL}/image/ichigo_ichibi_set.webp`
   },
   '/menu': {
     title: 'お品書き｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '十割蕎麦のランチメニューと定食、一品料理など居酒屋メニューのご案内。',
-    canonical: `${BASE_URL}/menu`
+    canonical: `${BASE_URL}/menu`,
+    ogImage: `${BASE_URL}/image/ichigo_ichibi_set.webp`
   },
   '/store-info': {
     title: '店舗情報｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '店舗の所在地や営業時間などの情報。',
-    canonical: `${BASE_URL}/store-info`
+    canonical: `${BASE_URL}/store-info`,
+    ogImage: `${BASE_URL}/image/ichigo_ichibi_set.webp`
   },
   '/contact': {
     title: 'お問い合わせ・ご要望｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '店舗へのお問い合わせやご意見・ご要望、メニューに関するご質問などはこちらから。',
-    canonical: `${BASE_URL}/contact`
+    canonical: `${BASE_URL}/contact`,
+    ogImage: `${BASE_URL}/image/ichigo_ichibi_set.webp`
   },
   '/dining-philosophy': {
     title: '料理のこだわり｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '素材選びや仕込みへのこだわりをご紹介します。',
-    canonical: `${BASE_URL}/dining-philosophy`
+    canonical: `${BASE_URL}/dining-philosophy`,
+    ogImage: `${BASE_URL}/image/ichigo_ichibi_set.webp`
   }
 } as const;
 
@@ -47,9 +52,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [showCrepeHint, setShowCrepeHint] = React.useState(false);
 
   const fallbackMeta = meta['/'];
-  const { title, description, canonical } = meta[location.pathname as keyof typeof meta] ?? {
+  const { title, description, canonical, ogImage } = meta[location.pathname as keyof typeof meta] ?? {
     ...fallbackMeta,
-    canonical: `${BASE_URL}${location.pathname}`
+    canonical: `${BASE_URL}${location.pathname}`,
+    ogImage: `${BASE_URL}/image/ichigo_ichibi_set.webp`
   };
 
   // Close menu when route changes
@@ -103,9 +109,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
         <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:url" content={canonical} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href={canonical} />
       </Helmet>
       <div className="min-h-screen bg-stone-50">
@@ -186,7 +196,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="md:hidden text-white text-lg font-kanteiryuu pb-1 border-b-2 border-white hover:border-japanese-gold transition-colors duration-300 focus:outline-none"
-                aria-label="メニューを開く"
+                aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
                 メニュー
               </button>
@@ -195,6 +207,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile menu with CSS transitions (no framer-motion) */}
           <div
+            id="mobile-menu"
             className={`md:hidden fixed inset-x-0 top-[128px] bottom-0 overflow-y-auto bg-black/80 backdrop-blur-md transition-opacity duration-200 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               }`}
             aria-hidden={!isMenuOpen}

@@ -127,10 +127,4 @@ export const useWebWorker = () => {
   return { sendMessage };
 };
 
-// Type declarations for gtag
-declare global {
-  interface Window {
-    // eslint-disable-next-line no-unused-vars
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+// Type declarations for gtag are now in vite-env.d.ts

@@ -58,41 +58,13 @@ const PageTransitionSplash: React.FC = () => {
 
   return (
     <div
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#ffffff',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 9999,
-        opacity: isFading ? 0 : 1,
-        transition: 'opacity 0.5s ease-out',
-        pointerEvents: 'none'
-      }}
+      className={`page-transition-splash ${isFading ? 'fade-out' : ''}`}
     >
       <img
         src="/image/logo_Splash.webp"
         alt="一期一美"
-        style={{
-          maxWidth: '250px',
-          maxHeight: '250px',
-          opacity: 0.6,
-          objectFit: 'contain',
-          animation: 'fadeInLogo 0.8s ease-in-out forwards'
-        }}
+        className="page-transition-splash-logo"
       />
-      <style>
-        {`
-          @keyframes fadeInLogo {
-            0% { opacity: 0; }
-            100% { opacity: 0.6; }
-          }
-        `}
-      </style>
     </div>
   );
 };

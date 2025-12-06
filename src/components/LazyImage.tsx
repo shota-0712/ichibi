@@ -34,6 +34,18 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     // Native lazy loading supported
     if ('loading' in HTMLImageElement.prototype) {
       setImageSrc(src);
+      // Handle error for native lazy loading
+      if (imageRef) {
+        const handleError = () => {
+          // Fallback to placeholder on error
+          setImageSrc(placeholder);
+          setIsLoaded(false);
+        };
+        imageRef.addEventListener('error', handleError);
+        return () => {
+          imageRef.removeEventListener('error', handleError);
+        };
+      }
       return;
     }
 
@@ -53,6 +65,13 @@ export const LazyImage: React.FC<LazyImageProps> = ({
             img.onload = () => {
               setImageSrc(src);
               setIsLoaded(true);
+              observerRef.current?.disconnect();
+            };
+
+            img.onerror = () => {
+              // Fallback to placeholder on error
+              setImageSrc(placeholder);
+              setIsLoaded(false);
               observerRef.current?.disconnect();
             };
           }

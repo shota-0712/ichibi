@@ -6,6 +6,7 @@ import App from './App.tsx';
 import './index.css';
 
 // Service Worker registration
+// Delay registration by 3 seconds to avoid blocking initial page load
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     setTimeout(() => {

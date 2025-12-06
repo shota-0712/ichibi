@@ -19,17 +19,10 @@ self.addEventListener('message', function(e) {
 
 // Track performance metrics
 function trackPerformance(metrics) {
-  // Batch performance metrics for sending to analytics
-  const performanceData = {
-    timestamp: Date.now(),
-    metrics: metrics,
-    userAgent: self.navigator.userAgent,
-  };
-
-  // Send back processed metrics
+  // Send back processed metrics (data should match PerformanceMetrics type)
   self.postMessage({
     type: 'PERFORMANCE_DATA',
-    data: performanceData
+    data: metrics
   });
 }
 

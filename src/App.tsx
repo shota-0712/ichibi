@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import PageTransitionSplash from './components/PageTransitionSplash';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 // Use React.lazy with improved loading strategy
 const Menu = lazy(() =>
@@ -24,7 +25,7 @@ import { useNavigationPreload } from './hooks/useNavigationPreload';
 function App() {
   useNavigationPreload();
   return (
-    <>
+    <ErrorBoundary>
       <PageTransitionSplash />
       <Layout>
         <Routes>
@@ -55,7 +56,7 @@ function App() {
 
         </Routes>
       </Layout>
-    </>
+    </ErrorBoundary>
   );
 }
 

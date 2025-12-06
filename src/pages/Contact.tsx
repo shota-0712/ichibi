@@ -142,7 +142,7 @@ export function Contact() {
             </ul>
           </section>
 
-          <section className="grid gap-4 md:grid-cols-2">
+          <section className="grid gap-4 md:grid-cols-2" role="radiogroup" aria-label="返信の希望">
             {REPLY_OPTIONS.map(option => (
               <button
                 key={option.key}
@@ -150,6 +150,16 @@ export function Contact() {
                 role="radio"
                 aria-checked={preference === option.key}
                 onClick={() => setPreference(option.key)}
+                onKeyDown={(e) => {
+                  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const currentIndex = REPLY_OPTIONS.findIndex(opt => opt.key === preference);
+                    const nextIndex = e.key === 'ArrowRight' 
+                      ? (currentIndex + 1) % REPLY_OPTIONS.length
+                      : (currentIndex - 1 + REPLY_OPTIONS.length) % REPLY_OPTIONS.length;
+                    setPreference(REPLY_OPTIONS[nextIndex].key);
+                  }
+                }}
                 className={`rounded-xl border-2 p-6 text-left transition focus:outline-none focus:ring-2 focus:ring-japanese-gold ${preference === option.key
                     ? 'border-japanese-gold bg-japanese-gold/10 text-japanese-indigo'
                     : 'border-gray-200 bg-white text-gray-700 hover:border-japanese-gold/50'
