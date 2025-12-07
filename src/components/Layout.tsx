@@ -6,7 +6,7 @@ import { XLogo } from './icons/x-logo';
 import { FooterSection } from './home/footer-section';
 // framer-motion を初期バンドルから外すため、
 // モバイルメニューの開閉はCSSトランジションで実装する
-import logo from '../assets/ichigo_ichibi_logo.svg';
+// Note: SVGロゴはバンドルにimportせず、パス参照を使用（304KBのバンドル肥大化を回避）
 
 const SITE_NAME = '十割蕎麦・創作酒場『一期一美』- ichibi -';
 
@@ -124,18 +124,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="relative flex items-center justify-between py-4 md:py-6">
               <Link to="/" className="flex items-center">
                 <img
-                  src={logo}
+                  src="/image/ichigo_ichibi_logo.svg"
                   alt="一期一美"
                   className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-lg"
                   width="96"
                   height="96"
                   loading="eager"
                   decoding="async"
-                  ref={(img) => {
-                    if (img) {
-                      img.setAttribute('fetchpriority', 'high');
-                    }
-                  }}
+                  fetchPriority="high"
                 />
               </Link>
               <div className="hidden md:flex space-x-4">

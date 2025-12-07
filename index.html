@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1B315E">
-  <meta http-equiv="Cache-Control" content="no-store">
   <link rel="preload" href="/fonts/yuji-syuku/yuji-syuku.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     @font-face {
@@ -294,12 +293,17 @@
 
     // Simple splash screen with resource preloading
     function hideSplashScreen() {
-      const splashScreen = document.getElementById('splash-screen');
+      var splashScreen = document.getElementById('splash-screen');
       if (splashScreen) {
-        splashScreen.classList.add('fade-out');
-        setTimeout(function () {
-          splashScreen.style.display = 'none';
-        }, 400);
+        // Use requestAnimationFrame to batch DOM updates and avoid forced reflow
+        requestAnimationFrame(function () {
+          splashScreen.classList.add('fade-out');
+          setTimeout(function () {
+            requestAnimationFrame(function () {
+              splashScreen.style.display = 'none';
+            });
+          }, 400);
+        });
       }
     }
 
@@ -313,13 +317,7 @@
       hideSplashScreen();
     }, 1500);
 
-    // Optimize image loading
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('img[data-src]').forEach(img => {
-        img.setAttribute('loading', 'lazy');
-        img.src = img.dataset.src;
-      });
-    });
+    // Optimize image loading - removed as not needed with modern browsers
 
   </script>
 

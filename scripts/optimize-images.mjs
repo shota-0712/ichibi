@@ -8,37 +8,37 @@ const __dirname = path.dirname(__filename);
 
 const IMAGE_DIR = path.join(__dirname, '../public/image');
 
-// Image optimization settings based on Lighthouse recommendations
+// Image optimization settings - balancing quality and file size
 const OPTIMIZATIONS = [
     {
         file: 'shogayaki.webp',
-        width: 900,  // Display size is 855x570
-        quality: 75,
+        width: 800,
+        quality: 65,
     },
     {
         file: 'logo_Splash.webp',
-        width: 500,  // Display size is 500x500
-        quality: 80,
+        width: 500,
+        quality: 75,
     },
     {
         file: 'ichigo_ichibi_set.webp',
-        width: 1080,  // Keep current, just increase compression
-        quality: 70,
+        width: 900,
+        quality: 65,
     },
     {
         file: 'tenjuu.webp',
-        width: 900,  // Display size is 855x570
-        quality: 75,
+        width: 800,
+        quality: 65,
     },
     {
         file: 'seiro.webp',
-        width: 900,
-        quality: 75,
+        width: 800,
+        quality: 65,
     },
     {
         file: 'seiro2.webp',
-        width: 900,
-        quality: 75,
+        width: 800,
+        quality: 65,
     },
 ];
 
