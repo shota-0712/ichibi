@@ -73,6 +73,8 @@ export function HeroSection() {
           alt={SLIDER_IMAGES[currentImageIndex].alt}
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'brightness(0.4)' }}
+          width={900}
+          height={600}
           decoding="async"
           fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
           loading={currentImageIndex === 0 ? "eager" : "lazy"}
@@ -105,6 +107,7 @@ export function HeroSection() {
                 href={storeInfo.social.lineReservation}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LINEでご予約（外部サイトへ）"
                 className="text-white text-xl font-kanteiryuu pb-1 border-b border-japanese-gold hover:border-white transition-colors duration-300"
               >
                 ご予約はこちら
@@ -118,7 +121,8 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0 }}
-          className="bg-black bg-opacity-50 text-white p-4 md:p-6"
+          className="bg-black bg-opacity-50 text-white p-4 md:p-6 will-change-transform"
+          style={{ willChange: 'transform, opacity' }}
         >
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">

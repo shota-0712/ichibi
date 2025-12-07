@@ -91,6 +91,7 @@ export function SocialFeed() {
                   href={storeInfo.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Instagramアカウントへ（外部サイト）"
                   className="text-a11y-pink hover:text-a11y-pink-dark transition text-sm font-medium"
                 >
                   {storeInfo.social.instagramHandle}
@@ -115,6 +116,7 @@ export function SocialFeed() {
                   href={storeInfo.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Instagramでもっと見る（外部サイトへ）"
                   className="text-a11y-pink hover:text-a11y-pink-dark transition font-semibold text-sm"
                 >
                   もっと見る →
@@ -133,6 +135,7 @@ export function SocialFeed() {
                   href={storeInfo.social.x}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Xアカウントへ（外部サイト）"
                   className="text-black hover:text-gray-700 transition text-sm font-medium"
                 >
                   {storeInfo.social.xHandle}
@@ -155,6 +158,7 @@ export function SocialFeed() {
                       href={storeInfo.social.x}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Xでフォローする（外部サイトへ）"
                       className="w-full flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition font-medium"
                     >
                       <XLogo className="h-5 w-5" aria-hidden="true" />
@@ -166,6 +170,7 @@ export function SocialFeed() {
                       href={storeInfo.social.x}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="最新の投稿を見る（外部サイトへ）"
                       className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-50 transition text-sm"
                     >
                       <span>最新の投稿を見る</span>
@@ -181,6 +186,7 @@ export function SocialFeed() {
                   href={storeInfo.social.x}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Xで最新情報を見る（外部サイトへ）"
                   className="text-black hover:text-gray-700 transition font-semibold text-sm"
                 >
                   Xで最新情報を見る →

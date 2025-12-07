@@ -28,8 +28,9 @@ export function FeaturedSections() {
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 md:grid-cols-3 gap-12"
+            style={{ willChange: 'opacity' }}
           >
-            <motion.div variants={item}>
+            <motion.div variants={item} style={{ willChange: 'transform, opacity' }}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
                 <img
                   src="/image/ichigo_ichibi_set.webp"
@@ -48,7 +49,7 @@ export function FeaturedSections() {
               </p>
             </motion.div>
 
-            <motion.div variants={item}>
+            <motion.div variants={item} style={{ willChange: 'transform, opacity' }}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
                 <img
                   src="/image/shogayaki.webp"
@@ -66,7 +67,7 @@ export function FeaturedSections() {
                 もちろん自慢のお蕎麦を召し上がっていただきたいのですが、当店は「定食もすごく美味しい」とご好評をいただいております。
               </p>
             </motion.div>
-            <motion.div variants={item}>
+            <motion.div variants={item} style={{ willChange: 'transform, opacity' }}>
               <div className="aspect-w-4 aspect-h-3 mb-6 rounded-lg shadow-lg overflow-hidden">
                 <img
                   src="/image/tenjuu.webp"

@@ -117,6 +117,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="twitter:image" content={ogImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href={canonical} />
+        <link rel="alternate" hrefLang="ja" href={canonical} />
+        <link rel="alternate" hrefLang="x-default" href={canonical} />
       </Helmet>
       <div className="min-h-screen bg-stone-50">
         <nav className="fixed w-full z-50">
@@ -151,6 +153,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   href="https://u.lin.ee/vLXjBhd"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LINEでご予約（外部サイトへ）"
                   className="text-white hover:text-japanese-gold transition font-medium px-6 py-3 rounded-lg bg-japanese-red/80 backdrop-blur-sm hover:bg-japanese-red shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20 font-kanteiryuu"
                 >
                   ご予約
@@ -182,6 +185,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       src="/image/Pal-crepe_logo.svg"
                       alt="Pal crepe ロゴ"
                       className="h-12 w-auto md:h-10 lg:h-12"
+                      width={100}
                       height={48}
                       loading="eager"
                       decoding="async"
@@ -226,6 +230,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   href="https://u.lin.ee/vLXjBhd"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LINEでご予約（外部サイトへ）"
                   className="text-white hover:text-japanese-gold transition text-lg font-medium py-4 px-6 rounded-lg bg-japanese-red/80 hover:bg-japanese-red border border-white/20 font-kanteiryuu text-center"
                 >
                   ご予約
@@ -241,6 +246,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     href="https://www.instagram.com/ichigo__ichibi/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Instagram（外部サイトへ）"
                     className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
                   >
                     <Instagram className="h-6 w-6" />
@@ -249,6 +255,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     href="https://x.com/ichigo_ichibi"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="X (Twitter)（外部サイトへ）"
                     className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
                   >
                     <XLogo className="h-6 w-6" />

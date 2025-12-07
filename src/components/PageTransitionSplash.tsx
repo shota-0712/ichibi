@@ -64,6 +64,8 @@ const PageTransitionSplash: React.FC = () => {
         src="/image/logo_Splash.webp"
         alt="一期一美"
         className="page-transition-splash-logo"
+        width={500}
+        height={500}
       />
     </div>
   );
