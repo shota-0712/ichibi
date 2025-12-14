@@ -27,9 +27,9 @@ export function DiningPhilosophy() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto space-y-12">
             <section>
-              <h2 className="text-xl font-kanteiryuu mb-4 pb-2 border-b-2 border-japanese-red">産地にこだわった蕎麦粉</h2>
+              <h2 className="text-xl font-kanteiryuu mb-4 pb-2 border-b-2 border-japanese-red">国産石臼挽きの蕎麦粉</h2>
               <p className="text-lg text-gray-700 font-kanteiryuu">
-                北海道、栃木、茨城など時期により選び蕎麦粉の香りを楽しんでいただけます
+                北海道、栃木、茨城など、季節ごとに最良の産地を厳選した国産石臼挽きの蕎麦粉を使用。石臼でゆっくりと挽かれた蕎麦粉ならではの豊かな香りと風味をお楽しみいただけます。
               </p>
             </section>
 
@@ -41,15 +41,15 @@ export function DiningPhilosophy() {
 
             <section className="space-y-6">
               <div>
-                <h3 className="text-xl font-kanteiryuu mb-2">蕎麦</h3>
+                <h3 className="text-xl font-kanteiryuu mb-2">手打ち・手切り蕎麦</h3>
                 <p className="text-lg text-gray-700 font-kanteiryuu">
-                  手打ち十割蕎麦、手打ち外ニ蕎麦2種類をご用意
+                  一本一本丁寧に手打ちで仕上げ、手切りでお出しする蕎麦。十割蕎麦と外二蕎麦の2種類をご用意しております。
                 </p>
               </div>
               <div>
                 <h4 className="text-lg font-kanteiryuu mb-1">十割蕎麦</h4>
                 <p className="text-gray-700 font-kanteiryuu">
-                  国産の蕎麦粉のみを使用し毎日打ちたてでご提供
+                  国産石臼挽きの蕎麦粉のみを使用し、毎日手打ち・手切りでご提供。蕎麦本来の香りと風味を堪能できます。
                 </p>
               </div>
               <div>

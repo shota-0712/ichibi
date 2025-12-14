@@ -10,8 +10,8 @@ const SLIDER_IMAGES = [
   {
     url: "/image/ichigo_ichibi_set.webp",
     alt: "蕎麦と天ぷらの御膳",
-    title: "こだわりの手打ちそば",
-    subtitle: "毎朝4時から打つこだわりの手打ちそば"
+    title: "国産石臼挽き蕎麦粉の手打ち蕎麦",
+    subtitle: "季節ごとに厳選した蕎麦粉を手打ち・手切りで"
   }
 ].map(img => ({
   ...img,

@@ -1,5 +1,5 @@
-/* Self-hosted Yuji Syuku
-   /public/fonts/yuji-syuku/yuji-syuku.woff2
+/* Self-hosted Yuji Syuku (Subset)
+   /public/fonts/yuji-syuku/yuji-syuku-subset.woff2
 */
 @font-face {
   font-family: 'Yuji Syuku';
@@ -7,5 +7,5 @@
   font-weight: 400;
   /* Avoid delaying LCP due to webfont; allow fallback if slow */
   font-display: swap;
-  src: url('/fonts/yuji-syuku/yuji-syuku.woff2') format('woff2');
+  src: url('/fonts/yuji-syuku/yuji-syuku-subset.woff2') format('woff2');
 }
