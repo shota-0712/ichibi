@@ -81,7 +81,7 @@ export function SocialFeed() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 max-w-xl mx-auto">
             {/* Instagram Feed - Embedded */}
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b">
@@ -120,72 +120,6 @@ export function SocialFeed() {
                   className="text-a11y-pink hover:text-a11y-pink-dark transition font-semibold text-sm"
                 >
                   もっと見る →
-                </a>
-              </div>
-            </div>
-
-            {/* X Timeline - Simple Link UI */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <div className="flex items-center justify-between p-4 border-b">
-                <div className="flex items-center gap-2">
-                  <XLogo className="h-6 w-6 text-black" aria-hidden="true" />
-                  <h3 className="font-semibold">X (Twitter)</h3>
-                </div>
-                <a
-                  href={storeInfo.social.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black hover:text-gray-700 transition text-sm font-medium"
-                >
-                  {storeInfo.social.xHandle}
-                </a>
-              </div>
-
-              <div className="p-6" style={{ minHeight: '450px' }}>
-                <div className="flex flex-col items-center justify-center h-full space-y-6">
-                  <XLogo className="h-16 w-16 text-black opacity-20" aria-hidden="true" />
-
-                  <div className="text-center space-y-3">
-                    <h4 className="font-semibold text-lg">Xで最新情報をチェック</h4>
-                    <p className="text-sm text-gray-600 max-w-xs mx-auto">
-                      日々の仕込みや季節限定メニュー、イベント情報などを発信しています
-                    </p>
-                  </div>
-
-                  <div className="space-y-3 w-full max-w-xs">
-                    <a
-                      href={storeInfo.social.x}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition font-medium"
-                    >
-                      <XLogo className="h-5 w-5" aria-hidden="true" />
-                      <span>Xでフォローする</span>
-                      <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                    </a>
-
-                    <a
-                      href={storeInfo.social.x}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-50 transition text-sm"
-                    >
-                      <span>最新の投稿を見る</span>
-                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                    </a>
-                  </div>
-
-                </div>
-              </div>
-
-              <div className="p-4 bg-gray-50 text-center">
-                <a
-                  href={storeInfo.social.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black hover:text-gray-700 transition font-semibold text-sm"
-                >
-                  Xで最新情報を見る →
                 </a>
               </div>
             </div>

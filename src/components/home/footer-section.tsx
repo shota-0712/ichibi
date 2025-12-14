@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
-import { XLogo } from '../icons/x-logo';
 
 import { storeInfo } from '../../data/store-info';
 
@@ -56,15 +55,6 @@ export function FooterSection() {
                 className="bg-white p-2 rounded-full text-japanese-indigo hover:bg-japanese-gold hover:text-white transition"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href={storeInfo.social.x}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="X (Twitter)"
-                className="bg-white p-2 rounded-full text-black hover:bg-black hover:text-white transition"
-              >
-                <XLogo className="h-5 w-5" />
               </a>
             </div>
           </div>
