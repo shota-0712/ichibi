@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Instagram } from 'lucide-react';
-import { XLogo } from './icons/x-logo';
 import { FooterSection } from './home/footer-section';
 // framer-motion を初期バンドルから外すため、
 // モバイルメニューの開閉はCSSトランジションで実装する
@@ -192,14 +191,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
                   >
                     <Instagram className="h-6 w-6" />
-                  </a>
-                  <a
-                    href="https://x.com/ichigo_ichibi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-japanese-gold transition p-3 bg-white/10 rounded-full"
-                  >
-                    <XLogo className="h-6 w-6" />
                   </a>
                 </div>
               </div>
