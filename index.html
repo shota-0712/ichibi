@@ -28,7 +28,7 @@
   <meta name="application-name" content="十割蕎麦・創作酒場『一期一美』- ichibi -">
   <meta name="apple-mobile-web-app-title" content="十割蕎麦・創作酒場『一期一美』- ichibi -">
 
-  <link rel="icon" href="/image/ichigo_ichibi_logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/image/ichibi_logo.webp" type="image/webp">
   <!-- Preload critical images for performance -->
   <link rel="preload" href="/image/ichigo_ichibi_set.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="/image/logo_Splash.webp" as="image" type="image/webp" fetchpriority="high">
@@ -129,8 +129,12 @@
             "@id": "https://i-chi-bi.com/#website",
             "url": "https://i-chi-bi.com/",
             "name": "十割蕎麦・創作酒場『一期一美』",
-            "alternateName": "ichibi",
-            "inLanguage": "ja"
+            "alternateName": ["ichibi", "一期一美"],
+            "description": "千葉県君津市の手打そば・定食・おでん",
+            "inLanguage": "ja",
+            "publisher": {
+              "@id": "https://i-chi-bi.com/#restaurant"
+            }
           },
           {
             "@type": "Restaurant",
@@ -138,9 +142,10 @@
             "name": "十割蕎麦・創作酒場『一期一美』",
             "url": "https://i-chi-bi.com/",
             "image": "https://i-chi-bi.com/image/ichigo_ichibi_set.webp",
+            "logo": "https://i-chi-bi.com/image/ichibi_logo.webp",
             "description": "千葉県君津市で十割蕎麦と定食を提供する和食店。",
-            "servesCuisine": ["蕎麦", "和食"],
-            "priceRange": "¥¥",
+            "servesCuisine": ["蕎麦", "和食", "居酒屋"],
+            "priceRange": "¥1000-¥3000",
             "telephone": "+81-439-72-3988",
             "hasMenu": {
               "@type": "Menu",
@@ -323,40 +328,7 @@
 
   </script>
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "十割蕎麦・創作酒場『一期一美』- ichibi -",
-      "url": "https://i-chi-bi.com/",
-      "description": "千葉県君津市にある「一期一美」は、手打ち十割蕎麦や天ぷら、生姜焼きやチキン南蛮などの各種定食を楽しめるランチと、季節の一品料理を提供する居酒屋を展開するお店です。",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "内蓑輪122-1",
-        "addressLocality": "君津市",
-        "addressRegion": "千葉県",
-        "postalCode": "299-1176",
-        "addressCountry": "JP"
-      },
-      "telephone": "0439-72-3988",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "11:00",
-          "closes": "14:00",
-          "description": "ラストオーダー 13:30／定休日：火曜日・水曜日"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "18:00",
-          "closes": "21:00",
-          "description": "食事L.O.20:30 / ドリンクL.O.20:50／定休日：火曜日・水曜日"
-        }
-      ]
-    }
-    </script>
+
 </body>
 
 </html>

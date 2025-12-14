@@ -6,7 +6,7 @@ import { XLogo } from './icons/x-logo';
 import { FooterSection } from './home/footer-section';
 // framer-motion を初期バンドルから外すため、
 // モバイルメニューの開閉はCSSトランジションで実装する
-import logo from '../assets/ichigo_ichibi_logo.svg';
+// import logo from '../assets/ichigo_ichibi_logo.svg';
 
 const SITE_NAME = '十割蕎麦・創作酒場『一期一美』- ichibi -';
 
@@ -43,8 +43,7 @@ const meta = {
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
-  const [showCrepeHint, setShowCrepeHint] = React.useState(false);
+
 
   const fallbackMeta = meta['/'];
   const { title, description, canonical } = meta[location.pathname as keyof typeof meta] ?? {
@@ -74,23 +73,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     window.scrollTo(0, 0);
   }, [location]);
 
-  // 初回アクセス時のみ「クレープはこちら」を6秒表示（枠なしテキスト）
-  React.useEffect(() => {
-    try {
-      const KEY = 'palCrepeHintShown';
-      const shown = localStorage.getItem(KEY);
-      if (!shown) {
-        setShowCrepeHint(true);
-        const t = setTimeout(() => {
-          setShowCrepeHint(false);
-          localStorage.setItem(KEY, '1');
-        }, 6000);
-        return () => clearTimeout(t);
-      }
-    } catch {
-      // ストレージ未許可などでも致命ではないため無視
-    }
-  }, []);
+
 
   // クレープ案内バブルは不要になったため削除（ロゴのみ表示）
 
@@ -114,7 +97,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="relative flex items-center justify-between py-4 md:py-6">
               <Link to="/" className="flex items-center">
                 <img
-                  src={logo}
+                  src="/image/ichibi_logo.webp"
                   alt="一期一美"
                   className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-lg"
                   width="96"
@@ -156,33 +139,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   お問い合わせ
                 </Link>
               </div>
-              {/* Pal crepe ロゴ（枠なし）＋ 初回のみテキスト（ロゴの上・より右端に） - ホームのみ表示 */}
-              {isHome && (
-                <div className="absolute -right-2 md:-right-4 top-full mt-2 z-50 flex flex-col items-end text-right gap-1 w-max">
-                  {showCrepeHint && (
-                    <div className="flex flex-col items-end leading-tight text-white text-sm font-kanteiryuu whitespace-nowrap text-right">
-                      <span>クレープは</span>
-                      <span>こちら</span>
-                    </div>
-                  )}
-                  <a
-                    href="https://pal-crepe.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Pal crepe 公式サイト"
-                    className="block"
-                  >
-                    <img
-                      src="/image/Pal-crepe_logo.svg"
-                      alt="Pal crepe ロゴ"
-                      className="h-12 w-auto md:h-10 lg:h-12"
-                      height={48}
-                      loading="eager"
-                      decoding="async"
-                    />
-                  </a>
-                </div>
-              )}
+
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="md:hidden text-white text-lg font-kanteiryuu pb-1 border-b-2 border-white hover:border-japanese-gold transition-colors duration-300 focus:outline-none"

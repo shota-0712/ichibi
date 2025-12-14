@@ -73,6 +73,8 @@ export function SocialFeed() {
                   src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
                   alt="LINEで友だち追加"
                   className="h-14 w-auto"
+                  width="116"
+                  height="36"
                   loading="lazy"
                 />
               </a>
