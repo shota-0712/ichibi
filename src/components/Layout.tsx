@@ -6,7 +6,7 @@ import { XLogo } from './icons/x-logo';
 import { FooterSection } from './home/footer-section';
 // framer-motion を初期バンドルから外すため、
 // モバイルメニューの開閉はCSSトランジションで実装する
-// Note: SVGロゴはバンドルにimportせず、パス参照を使用（304KBのバンドル肥大化を回避）
+
 
 const SITE_NAME = '十割蕎麦・創作酒場『一期一美』- ichibi -';
 
