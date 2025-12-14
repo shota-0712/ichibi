@@ -30,6 +30,11 @@ export const coldSobaItems: BasicMenuItem[] = [
         allergens: ['そば', '小麦'],
     },
     {
+        name: '鴨せいろ',
+        price: 1750,
+        allergens: ['そば', '小麦'],
+    },
+    {
         name: '天ざるそば',
         price: 1450,
         allergens: ['そば', '小麦', 'えび'],
@@ -50,6 +55,11 @@ export const izakayaColdSobaItems: BasicMenuItem[] = [
     {
         name: 'ざるそば',
         price: 900,
+        allergens: ['そば', '小麦'],
+    },
+    {
+        name: '鴨せいろ',
+        price: 1750,
         allergens: ['そば', '小麦'],
     },
 ];
