@@ -13,7 +13,7 @@ export function FooterSection() {
             <div className="flex items-start gap-3 mb-4">
               <MapPin className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
-                <p>〒{storeInfo.address.zip}<br />{storeInfo.address.prefecture}{storeInfo.address.city}{storeInfo.address.street}<br />
+                <p className="font-kanteiryuu">〒{storeInfo.address.zip}<br />{storeInfo.address.prefecture}{storeInfo.address.city}{storeInfo.address.street}<br />
                   <span className="text-sm text-gray-200">{storeInfo.address.note}</span></p>
               </div>
             </div>
@@ -21,7 +21,7 @@ export function FooterSection() {
               <Phone className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
                 <p className="font-kanteiryuu font-semibold mb-1">お電話</p>
-                <p>{storeInfo.phone}</p>
+                <p className="font-kanteiryuu">{storeInfo.phone}</p>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@ export function FooterSection() {
               <Clock className="h-5 w-5 mt-1 flex-shrink-0 text-japanese-gold" />
               <div>
                 <p className="font-kanteiryuu font-semibold mb-2">営業時間</p>
-                <div className="space-y-2">
+                <div className="space-y-2 font-kanteiryuu">
                   <div>
                     <p className="font-medium">【十割蕎麦・創作酒場】</p>
                     <p>ランチ {storeInfo.hours.lunch}</p>
@@ -62,12 +62,12 @@ export function FooterSection() {
 
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-300 mb-4 md:mb-0">© 2024 十割蕎麦・創作酒場『一期一美』 All Rights Reserved.</p>
+            <p className="text-sm text-gray-300 mb-4 md:mb-0 font-kanteiryuu">© 2024 十割蕎麦・創作酒場『一期一美』 All Rights Reserved.</p>
             <div className="flex space-x-6">
-              <Link to="/menu#lunch" className="text-sm text-gray-300 hover:text-white transition">ランチ</Link>
-              <Link to="/menu#izakaya" className="text-sm text-gray-300 hover:text-white transition">居酒屋</Link>
-              <Link to="/store-info" className="text-sm text-gray-300 hover:text-white transition">店舗情報</Link>
-              <Link to="/contact" className="text-sm text-gray-300 hover:text-white transition">お問い合わせ</Link>
+              <Link to="/menu#lunch" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">ランチ</Link>
+              <Link to="/menu#izakaya" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">居酒屋</Link>
+              <Link to="/store-info" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">店舗情報</Link>
+              <Link to="/contact" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">お問い合わせ</Link>
             </div>
           </div>
         </div>

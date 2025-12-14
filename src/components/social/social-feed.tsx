@@ -51,7 +51,7 @@ export function SocialFeed() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-kanteiryuu mb-4">SNSでも情報発信中</h2>
-            <p className="text-a11y-gray">
+            <p className="text-a11y-gray font-kanteiryuu">
               最新のメニュー情報やイベント、お得なキャンペーンなどをいち早くお知らせしています。
               <br />ぜひフォローして、一期一美の最新情報をチェックしてください！
             </p>
@@ -59,7 +59,7 @@ export function SocialFeed() {
 
           <div className="flex justify-center mb-10">
             <div className="text-center max-w-lg">
-              <p className="mb-6 text-base text-a11y-gray">
+              <p className="mb-6 text-base text-a11y-gray font-kanteiryuu">
                 LINE公式アカウントではデザートやドリンクなどのクーポンや季節限定メニューなどの最新情報をお届けしています！
               </p>
               <a
@@ -87,7 +87,7 @@ export function SocialFeed() {
               <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center gap-2">
                   <Instagram className="h-6 w-6 text-a11y-pink" aria-hidden="true" />
-                  <h3 className="font-semibold">Instagram</h3>
+                  <h3 className="font-semibold font-kanteiryuu">Instagram</h3>
                 </div>
                 <a
                   href={storeInfo.social.instagram}
