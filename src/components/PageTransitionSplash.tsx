@@ -77,6 +77,8 @@ const PageTransitionSplash: React.FC = () => {
       <img
         src="/image/logo_Splash.webp"
         alt="一期一美"
+        width="250"
+        height="250"
         style={{
           maxWidth: '250px',
           maxHeight: '250px',
