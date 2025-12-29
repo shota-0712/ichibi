@@ -1,0 +1,70 @@
+name: Update Google Maps Ratings
+
+on:
+  schedule:
+    # 毎日午前3時（JST）に実行（UTC 18:00）
+    - cron: '0 18 * * *'
+  workflow_dispatch: # 手動実行も可能
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'public/ratings.json'
+      - 'index.html'
+      - 'dist/**'
+      - '*.md'
+
+permissions:
+  contents: write # プッシュ権限を付与
+
+jobs:
+  update-ratings:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch ratings from Google Places API
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+        run: npm run fetch-ratings
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.has_changes == 'true'
+        run: |
+          git add index.html
+          # ratings.jsonが存在する場合のみ追加
+          if [ -f public/ratings.json ]; then
+            git add public/ratings.json
+          fi
+          git commit -m "chore: Update Google Maps ratings [skip ci]"
+          git push
+

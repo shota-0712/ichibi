@@ -10,7 +10,10 @@
     "postbuild": "tsx scripts/prerender.ts",
     "lint": "eslint .",
     "preview": "vite preview",
-    "analyze": "vite build --mode analyze"
+    "analyze": "vite build --mode analyze",
+    "fetch-ratings": "tsx scripts/fetch-ratings.ts",
+    "get-place-id": "tsx scripts/get-place-id.ts",
+    "generate-font-subset": "python3 scripts/generate-font-subset.py"
   },
   "dependencies": {
     "@radix-ui/react-hover-card": "^1.0.7",

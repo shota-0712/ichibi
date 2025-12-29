@@ -70,13 +70,14 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black">
         <img
           src={SLIDER_IMAGES[currentImageIndex].smallUrl}
-          alt=""
-          aria-hidden="true"
+          alt={SLIDER_IMAGES[currentImageIndex].alt}
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'brightness(0.4)' }}
           decoding="async"
           fetchpriority={currentImageIndex === 0 ? "high" : "auto"}
           loading={currentImageIndex === 0 ? "eager" : "lazy"}
+          width="1920"
+          height="1080"
         />
       </div>
 

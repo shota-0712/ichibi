@@ -75,6 +75,16 @@
 
 .font-kanteiryuu {
   font-family: "Yuji Syuku", "Yu Mincho", "Kanteiryuu", "HGP行書体", "HGS行書体", cursive !important;
+  font-feature-settings: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-display: swap;
+}
+
+/* フォントが読み込まれた後に確実に適用されるように */
+.fonts-loaded .font-kanteiryuu {
+  font-family: "Yuji Syuku", "Yu Mincho", "Kanteiryuu", "HGP行書体", "HGS行書体", cursive !important;
 }
 
 /* 和風装飾要素 */
@@ -118,5 +128,27 @@
     display: flex;
     width: max-content;
     animation: marquee 15s linear infinite;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Screen reader only - visually hidden but accessible */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
 }

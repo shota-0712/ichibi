@@ -5,31 +5,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1B315E">
-  <meta http-equiv="Cache-Control" content="no-store">
-  <link rel="preload" href="/fonts/yuji-syuku/yuji-syuku-subset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/yuji-syuku/yuji-syuku-subset.woff2?v=20241229-4" as="font" type="font/woff2" crossorigin="anonymous">
   <style>
     @font-face {
       font-family: 'Yuji Syuku';
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url('/fonts/yuji-syuku/yuji-syuku-subset.woff2') format('woff2');
+      src: url('/fonts/yuji-syuku/yuji-syuku-subset.woff2?v=20241229-4') format('woff2');
+      unicode-range: U+0020-007F, U+3000-30FF, U+4E00-9FAF, U+FF00-FFEF;
+    }
+    /* Critical CSS: Prevent layout shift and improve FCP */
+    body {
+      font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'HG明朝E', 'MS P明朝', '游明朝', serif;
+      margin: 0;
+      padding: 0;
+      color: #333333;
+      line-height: 1.6;
+      background-color: #f0f0f0;
+    }
+    #root {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
   </style>
 
   <!-- Preconnect hints for critical third-party resources -->
-  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="//www.instagram.com">
   <link rel="dns-prefetch" href="//www.facebook.com">
+  <!-- Prefetch critical resources -->
+  <link rel="prefetch" href="/fonts/yuji-syuku/yuji-syuku-subset.woff2?v=20241229-4" as="font" type="font/woff2" crossorigin="anonymous">
 
   <title>十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん</title>
-  <meta name="description" content="千葉県君津市にある「一期一美」は、季節ごとに厳選した国産石臼挽きの蕎麦粉を使用し、一本一本手打ち・手切りで仕上げる十割蕎麦と定食、季節の一品料理を楽しめるお店です。">
+  <meta name="description" content="千葉県君津市にある「一期一美」は、季節ごとに厳選した国産石臼挽きの蕎麦粉を使用し、一本一本手打ち・手切りで仕上げる十割蕎麦と定食、季節の一品料理を楽しめるお店です。Googleマップ評価4.4（25件）。">
+  <meta name="keywords" content="一期一美,十割蕎麦,手打ち蕎麦,君津市,千葉県,定食,居酒屋,ランチ,天ぷら,おでん">
   <meta name="application-name" content="十割蕎麦・創作酒場『一期一美』- ichibi -">
-  <meta name="apple-mobile-web-app-title" content="十割蕎麦・創作酒場『一期一美』- ichibi -">
-
-  <link rel="icon" href="/image/ichibi_logo.webp" type="image/webp">
+  <meta name="apple-mobile-web-app-title" content="一期一美" />
+  <link rel="manifest" href="/image/site.webmanifest" />
+  <!-- Favicon links -->
+  <link rel="icon" href="/image/favicon.ico" sizes="any">
+  <link rel="icon" href="/image/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/image/apple-touch-icon.png">
+  <link rel="icon" href="/image/favicon-96x96.png" type="image/png" sizes="96x96">
   <!-- Preload critical images for performance -->
-  <link rel="preload" href="/image/ichigo_ichibi_set.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="/image/ichigo_ichibi_set.webp" as="image" type="image/webp" fetchpriority="high" width="1920" height="1080">
   <link rel="preload" href="/image/logo_Splash.webp" as="image" type="image/webp" fetchpriority="high">
 
   <style>
@@ -117,7 +150,12 @@
   <meta name="twitter:description"
     content="千葉県君津市にある「一期一美」は、手打ち十割蕎麦や天ぷら、生姜焼きやチキン南蛮などの各種定食を楽しめるランチと、季節の一品料理を提供する居酒屋を展開するお店です。">
   <meta property="og:image" content="https://i-chi-bi.com/image/ichigo_ichibi_set.webp">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="十割蕎麦・創作酒場 一期一美の料理写真">
   <meta name="twitter:image" content="https://i-chi-bi.com/image/ichigo_ichibi_set.webp">
+  <meta name="twitter:image:alt" content="十割蕎麦・創作酒場 一期一美の料理写真">
+  <link rel="canonical" href="https://i-chi-bi.com/">
 
   <script type="application/ld+json">
       {
@@ -198,6 +236,23 @@
                 "closes": "21:00",
                 "description": "食事L.O.20:30 / ドリンクL.O.20:50／定休日：火曜日・水曜日"
               }
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.4",
+              "reviewCount": "25"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://i-chi-bi.com/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "ホーム",
+                "item": "https://i-chi-bi.com/"
+              }
             ]
           },
           {
@@ -262,12 +317,14 @@
     <img src="/image/logo_Splash.webp" alt="一期一美ロゴ" fetchpriority="high" />
   </div>
 
-  <h1 style="display:none;">十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん</h1>
+  <!-- SEO and accessibility: h1 for search engines and screen readers -->
+  <!-- The visual h1 is rendered by React in hero-section.tsx -->
+  <h1 class="sr-only">十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん</h1>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 
   <script>
-    // Optimized GTM loading - delay until user interaction or 3 seconds
+    // Optimized GTM loading - delay until user interaction or 5 seconds
     function loadGTM() {
       if (window.gtmLoaded) return;
       window.gtmLoaded = true;
@@ -277,22 +334,35 @@
           'gtm.start':
             new Date().getTime(), event: 'gtm.js'
         }); var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.defer = true; j.src =
             'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-NXL4Q3VM');
     }
 
-    // Load GTM only on first user interaction (遅延)
-    ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(function (event) {
-      document.addEventListener(event, function () {
+    // Load GTM only on first user interaction (遅延) - パフォーマンス優先
+    let gtmLoaded = false;
+    const loadGTMOnInteraction = function () {
+      if (!gtmLoaded) {
+        gtmLoaded = true;
         loadGTM();
-      }, { once: true, passive: true });
+        // イベントリスナーを削除
+        ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(function (event) {
+          document.removeEventListener(event, loadGTMOnInteraction);
+        });
+      }
+    };
+    
+    ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(function (event) {
+      document.addEventListener(event, loadGTMOnInteraction, { once: true, passive: true });
     });
-    // Optional very-late fallback（10秒後かつタブがアクティブな場合のみ）
+    
+    // Optional very-late fallback（5秒後かつタブがアクティブな場合のみ）
     window.addEventListener('load', function () {
       setTimeout(function () {
-        if (document.visibilityState === 'visible') loadGTM();
-      }, 10000);
+        if (document.visibilityState === 'visible' && !gtmLoaded) {
+          loadGTM();
+        }
+      }, 5000);
     });
 
     // Simple splash screen with resource preloading
@@ -308,7 +378,15 @@
 
     // Ensure font is loaded
     if (document.fonts && document.fonts.load) {
-      document.fonts.load('1em "Yuji Syuku"').catch(function () { });
+      document.fonts.load('400 1em "Yuji Syuku"').then(function() {
+        // フォントが読み込まれたら、bodyにクラスを追加して再レンダリングを促す
+        document.body.classList.add('fonts-loaded');
+      }).catch(function () { });
+      
+      // フォントが読み込まれるまで待つ（最大3秒）
+      document.fonts.ready.then(function() {
+        document.body.classList.add('fonts-loaded');
+      });
     }
 
     // Show splash for 1.5 seconds

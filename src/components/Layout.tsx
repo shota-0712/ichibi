@@ -3,9 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Instagram } from 'lucide-react';
 import { FooterSection } from './home/footer-section';
-// framer-motion を初期バンドルから外すため、
-// モバイルメニューの開閉はCSSトランジションで実装する
-// import logo from '../assets/ichigo_ichibi_logo.svg';
 
 const SITE_NAME = '十割蕎麦・創作酒場『一期一美』- ichibi -';
 
