@@ -1,3 +1,4 @@
+# Googlebot（Crawl-delayをサポートしていないため個別設定）
 User-agent: Googlebot
 Allow: /
 
@@ -7,17 +8,11 @@ Allow: /
 User-agent: Googlebot-Mobile
 Allow: /
 
+# その他のボット
 User-agent: *
 Allow: /
-
-# Block common crawl-heavy paths for generic bots
 Disallow: /static/
 Disallow: /assets/
-Disallow: /*.js$
-Disallow: /*.css$
 
 # Sitemap
 Sitemap: https://i-chi-bi.com/sitemap.xml
-
-# Crawl-delay for non-Google bots to preserve server resources
-Crawl-delay: 1
