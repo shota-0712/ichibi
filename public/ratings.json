@@ -3,18 +3,6 @@
   "reviewCount": "25",
   "reviews": [
     {
-      "author_name": "yu-ji Y.",
-      "author_url": "https://www.google.com/maps/contrib/114541195520315662772/reviews",
-      "language": "ja",
-      "original_language": "ja",
-      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJ2kn92OJyc0QpOgcRqf543CrvOf9y35yp759WF6DF72-uJiw=s128-c0x00000000-cc-rp-mo",
-      "rating": 5,
-      "relative_time_description": "2 か月前",
-      "text": "大人4人、子供1人で小上がりに案内して頂きました。選んだそばがどれも美味しい。一期一美セットの天重は衣がサクサクでタレとご飯がめちゃくちゃ合います。追いダレも出来るみたいです。自分が選んだ十割そばはコシがあってめちゃくちゃうまい！数量限定みたいなので早く行く方がいいと思います。\nまた行かせてもらいます。",
-      "time": 1761361073,
-      "translated": false
-    },
-    {
       "author_name": "kozo sakai",
       "author_url": "https://www.google.com/maps/contrib/105065757628415608429/reviews",
       "language": "ja",
@@ -24,6 +12,18 @@
       "relative_time_description": "3 週間前",
       "text": "君津市paypay還元対象店舗。13時くらいに行きましたが、店内はガラガラ。十割蕎麦がどうしても食べたくて伺いました。パーキングもお店横にありますが、正直言って車🚙じゃないと食べに行けない場所にはありますね。\nさて、店内はL字型のカウンターとテーブル席が1つ。注文はQRコード読み込みor口頭でもOK🙆‍♂️みたいです。メニューを見ながら天ざるそば、もちろん十割蕎麦で注文。これぞ十割といったお蕎麦の食感、そして麺つゆもやや濃いめで良かったですね。天ぷらもエビ、カボチャ、ピーマン、ミニかき揚げの4種類。エビが入ってて1450円なら良心的なお値段じゃないですかね。",
       "time": 1764834180,
+      "translated": false
+    },
+    {
+      "author_name": "yu-ji Y.",
+      "author_url": "https://www.google.com/maps/contrib/114541195520315662772/reviews",
+      "language": "ja",
+      "original_language": "ja",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJ2kn92OJyc0QpOgcRqf543CrvOf9y35yp759WF6DF72-uJiw=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "2 か月前",
+      "text": "大人4人、子供1人で小上がりに案内して頂きました。選んだそばがどれも美味しい。一期一美セットの天重は衣がサクサクでタレとご飯がめちゃくちゃ合います。追いダレも出来るみたいです。自分が選んだ十割そばはコシがあってめちゃくちゃうまい！数量限定みたいなので早く行く方がいいと思います。\nまた行かせてもらいます。",
+      "time": 1761361073,
       "translated": false
     },
     {
@@ -63,5 +63,5 @@
       "translated": false
     }
   ],
-  "lastUpdated": "2025-12-30T18:23:18.571Z"
+  "lastUpdated": "2025-12-31T18:21:53.862Z"
 }
