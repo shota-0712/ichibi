@@ -55,8 +55,8 @@ export function StoreInfo() {
                     <div className="space-y-4">
                       <div>
                         <p className="font-medium">【十割蕎麦・創作酒場】</p>
-                        <p>ランチ {storeInfo.hours.lunch}</p>
-                        <p>居酒屋 {storeInfo.hours.izakaya}</p>
+                        <p>昼の部 {storeInfo.hours.lunch}</p>
+                        <p>夜の部 {storeInfo.hours.izakaya}</p>
                         <p className="text-sm text-gray-600 mt-2">定休日：{storeInfo.hours.closed}</p>
                       </div>
                     </div>

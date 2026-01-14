@@ -16,7 +16,7 @@ const meta = {
   },
   '/menu': {
     title: 'お品書き｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
-    description: '十割蕎麦のランチメニューと定食、一品料理など居酒屋メニューのご案内。',
+    description: '十割蕎麦の昼メニューと定食、一品料理など夜メニューのご案内。',
     canonical: `${BASE_URL}/menu`
   },
   '/store-info': {

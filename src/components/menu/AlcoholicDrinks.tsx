@@ -13,11 +13,11 @@ export function AlcoholicDrinks({ heading }: { heading: string }) {
 
                         return (
                             <div key={`${title}-${index}`}>
-                                <h5 className="text-base font-kanteiryuu mb-3 text-gray-800">{title}</h5>
+                                <h5 className="text-base font-kanteiryuu mb-3 text-gray-800">◎ {title}</h5>
 
                                 {subsections?.map((subsection) => (
                                     <div key={`${title}-${subsection.title}`} className="space-y-3 mb-4 last:mb-0">
-                                        <h6 className="text-sm font-kanteiryuu text-gray-800">{subsection.title}</h6>
+                                        <h6 className="text-sm font-kanteiryuu text-gray-800">○ {subsection.title}</h6>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             {subsection.items.map((item) => (
                                                 <MenuItem

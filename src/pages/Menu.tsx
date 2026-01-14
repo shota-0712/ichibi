@@ -38,26 +38,26 @@ export function Menu() {
             <button
               onClick={() => setActiveTab('lunch')}
               className={`text-white text-xl font-kanteiryuu pb-2 transition-all ${activeTab === 'lunch'
-                  ? 'border-b-2 border-japanese-gold text-japanese-gold'
-                  : 'border-b-2 border-transparent hover:border-white/50'
+                ? 'border-b-2 border-japanese-gold text-japanese-gold'
+                : 'border-b-2 border-transparent hover:border-white/50'
                 }`}
             >
-              ランチ
+              昼の部
             </button>
             <button
               onClick={() => setActiveTab('izakaya')}
               className={`text-white text-xl font-kanteiryuu pb-2 transition-all ${activeTab === 'izakaya'
-                  ? 'border-b-2 border-japanese-gold text-japanese-gold'
-                  : 'border-b-2 border-transparent hover:border-white/50'
+                ? 'border-b-2 border-japanese-gold text-japanese-gold'
+                : 'border-b-2 border-transparent hover:border-white/50'
                 }`}
             >
-              居酒屋
+              夜の部
             </button>
             <button
               onClick={() => setActiveTab('drinks')}
               className={`text-white text-xl font-kanteiryuu pb-2 transition-all ${activeTab === 'drinks'
-                  ? 'border-b-2 border-japanese-gold text-japanese-gold'
-                  : 'border-b-2 border-transparent hover:border-white/50'
+                ? 'border-b-2 border-japanese-gold text-japanese-gold'
+                : 'border-b-2 border-transparent hover:border-white/50'
                 }`}
             >
               飲み物
@@ -69,14 +69,14 @@ export function Menu() {
               <Clock className="h-6 w-6 text-japanese-gold" />
               <div>
                 <h3 className="font-semibold text-lg">
-                  {activeTab === 'lunch' ? 'ランチタイム' : activeTab === 'izakaya' ? '居酒屋営業' : '営業時間'}
+                  {activeTab === 'lunch' ? '昼の部' : activeTab === 'izakaya' ? '夜の部' : '営業時間'}
                 </h3>
                 <p className="text-japanese-gold">
                   {activeTab === 'lunch'
                     ? '11:00～14:00 (L.O.13:30)'
                     : activeTab === 'izakaya'
                       ? '18:00～21:00 (食事L.O.20:30 / ドリンクL.O.20:50)'
-                      : 'ランチ 11:00～14:00 / 居酒屋 18:00～21:00'}
+                      : '昼の部 11:00～14:00 / 夜の部 18:00～21:00'}
                 </p>
                 <p className="text-sm text-white/80 mt-1">定休日：火曜日・水曜日</p>
               </div>

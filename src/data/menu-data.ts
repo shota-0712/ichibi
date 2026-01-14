@@ -30,7 +30,7 @@ export const coldSobaItems: BasicMenuItem[] = [
         allergens: ['そば', '小麦'],
     },
     {
-        name: '鴨せいろ',
+        name: '国産鴨せいろ',
         price: 1750,
         allergens: ['そば', '小麦'],
     },
@@ -58,7 +58,7 @@ export const izakayaColdSobaItems: BasicMenuItem[] = [
         allergens: ['そば', '小麦'],
     },
     {
-        name: '鴨せいろ',
+        name: '国産鴨せいろ',
         price: 1750,
         allergens: ['そば', '小麦'],
     },
@@ -110,11 +110,6 @@ export const lunchTeishokuItems: BasicMenuItem[] = [
         name: '生姜焼き定食',
         price: 1150,
         allergens: ['豚肉', '小麦', '大豆'],
-    },
-    {
-        name: '唐揚げ定食',
-        price: 1100,
-        allergens: ['鶏肉', '小麦', '卵'],
     },
     {
         name: '親子丼定食',
@@ -169,7 +164,6 @@ export const alcoholicDrinkContent: DrinkContent[] = [
             items: [
                 { name: 'ハイボール', price: 550 },
                 { name: '角ハイボール', price: 650 },
-                { name: 'ROYAL ハイボール', price: 1350 },
                 { name: 'ジンジャーハイ', price: 600 },
                 { name: 'コークハイ', price: 600 },
             ],
@@ -181,7 +175,6 @@ export const alcoholicDrinkContent: DrinkContent[] = [
             title: 'ウイスキー',
             items: [
                 { name: '角　ロック', price: 650 },
-                { name: 'ROYAL　ロック', price: 1350 },
             ],
         },
     },
@@ -196,6 +189,7 @@ export const alcoholicDrinkContent: DrinkContent[] = [
                         { name: 'ロック', price: 600 },
                         { name: 'ソーダ割り', price: 600 },
                         { name: '水割り', price: 600 },
+                        { name: 'そば湯割り', price: 600 },
                         { name: 'お茶割り（緑茶・ウーロン茶・無糖紅茶）', price: 600 },
                     ],
                 },
@@ -205,6 +199,7 @@ export const alcoholicDrinkContent: DrinkContent[] = [
                         { name: 'ロック', price: 650 },
                         { name: 'ソーダ割り', price: 650 },
                         { name: '水割り', price: 650 },
+                        { name: 'そば湯割り', price: 650 },
                         { name: 'お茶割り（緑茶・ウーロン茶・無糖紅茶）', price: 650 },
                     ],
                 },
@@ -214,6 +209,7 @@ export const alcoholicDrinkContent: DrinkContent[] = [
                         { name: 'ロック', price: 600 },
                         { name: 'ソーダ割り', price: 600 },
                         { name: '水割り', price: 600 },
+                        { name: 'そば湯割り', price: 600 },
                         { name: 'お茶割り（緑茶・ウーロン茶・無糖紅茶）', price: 600 },
                     ],
                 },
@@ -236,11 +232,9 @@ export const alcoholicDrinkContent: DrinkContent[] = [
             title: 'サワー',
             items: [
                 { name: 'サッポロ 濃いめのレモンサワー', price: 550 },
-                { name: '樽ハイプレーンサワー', price: 550 },
-                { name: '樽ハイグレープフルーツサワー', price: 550 },
-                { name: '樽ハイピーチサワー', price: 550 },
-                { name: '樽ハイカルピスサワー', price: 550 },
-                { name: '樽ハイ巨峰サワー', price: 550 },
+                { name: 'グレープフルーツサワー', price: 550 },
+                { name: 'ピーチサワー', price: 550 },
+                { name: '巨峰サワー', price: 550 },
             ],
         },
     },
@@ -321,18 +315,9 @@ export const izakayaTeishokuItems: BasicMenuItem[] = [
         allergens: ['豚肉', '小麦', '大豆'],
     },
     {
-        name: '唐揚げ定食',
-        price: 1100,
-        allergens: ['鶏肉', '小麦', '卵'],
-    },
-    {
         name: '親子丼定食',
         price: 800,
         allergens: ['鶏肉', '卵'],
-    },
-    {
-        name: '焼き鳥丼定食',
-        price: 800,
     },
     {
         name: '天重定食',
@@ -344,19 +329,16 @@ export const izakayaTeishokuItems: BasicMenuItem[] = [
 export const odenItems: BasicMenuItem[] = [
     { name: 'たまご', price: 150 },
     { name: 'だいこん', price: 150 },
-    { name: '厚揚げ', price: 150 },
     { name: 'こんにゃく', price: 150 },
-    { name: 'ちくわ', price: 150 },
-    { name: 'しらたき', price: 150 },
-    { name: 'ソーセージ', price: 150 },
-    { name: '手羽元', price: 200 },
+    { name: 'その他日替わり', price: 150 },
 ];
 
 export const izakayaAppetizerItems: BasicMenuItem[] = [
     { name: 'ポテトフライ', price: 390 },
     { name: 'ichibiサラダ', price: 390 },
     { name: '枝豆', price: 250 },
-    { name: '軟骨の唐揚げ', price: 390 },
-    { name: '天ぷら盛り合わせ（小）', price: 600 },
-    { name: '天ぷら盛り合わせ（大）', price: 1400 },
+    { name: '海老せんべい', price: 180 },
+    { name: '板わさ', price: 400 },
+    { name: 'もつ煮', price: 400 },
+    { name: '日替わり一品料理', price: 0, description: 'スタッフにご確認ください' },
 ];

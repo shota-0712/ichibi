@@ -2,6 +2,7 @@ import React from 'react';
 import { Info } from 'lucide-react';
 import { MenuItem } from './menu-item';
 import {
+    setMealItems,
     izakayaColdSobaItems,
     izakayaHotSobaItems,
     izakayaTeishokuItems,
@@ -16,7 +17,7 @@ const sobaSelectionNote = '十割・二八そばから選択（十割は1日15�
 const coldSobaNote = sobaSelectionNote;
 const hotSobaNote = sobaSelectionNote;
 const izakayaTeishokuNote =
-    '生姜焼き定食・唐揚げ定食：ご飯・味噌汁・漬物付き\n親子丼定食・焼き鳥丼定食・天重定食：味噌汁・漬物付き\nご飯大盛り +100円';
+    '生姜焼き定食：ご飯・味噌汁・漬物付き\n親子丼定食・天重定食：味噌汁・漬物付き\nご飯大盛り +100円';
 
 export function IzakayaMenu() {
     return (
@@ -33,6 +34,16 @@ export function IzakayaMenu() {
                                 <span>を押すとご覧になれます。</span>
                             </p>
                             <p className="mt-2">時期によって使用している食材が異なる場合がございますので詳しくはスタッフにお聞きください。</p>
+                        </div>
+
+                        {/* Set Menu */}
+                        <div>
+                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">セットメニュー</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {setMealItems.map((item) => (
+                                    <MenuItem key={item.name} {...item} />
+                                ))}
+                            </div>
                         </div>
 
                         {/* Cold Soba */}

@@ -17,10 +17,10 @@ export function DrinksMenu() {
                         <div>
                             <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">ドリンク</h3>
 
-                            <AlcoholicDrinks heading="アルコール飲料" />
+                            <AlcoholicDrinks heading="【アルコール飲料】" />
 
                             <div className="mb-8">
-                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ノンアルコール飲料</h4>
+                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">【ノンアルコール飲料】</h4>
                                 <div className="space-y-4">
                                     {nonAlcoholicItems.map((item) => (
                                         <MenuItem key={item.name} {...item} />
@@ -29,7 +29,7 @@ export function DrinksMenu() {
                             </div>
 
                             <div className="mb-8">
-                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ソフトドリンク</h4>
+                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">【ソフトドリンク】</h4>
                                 <div className="space-y-4">
                                     {softDrinkItems.map((item) => (
                                         <MenuItem key={item.name} {...item} />
@@ -38,7 +38,7 @@ export function DrinksMenu() {
                             </div>
 
                             <div className="mb-8">
-                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">キッズドリンク</h4>
+                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">【キッズドリンク】</h4>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {kidsDrinkItems.map((item) => (
                                         <MenuItem key={`kids-drink-${item.name}`} {...item} />
@@ -47,10 +47,10 @@ export function DrinksMenu() {
                             </div>
 
                             <div className="mb-8">
-                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">ボトルキープ</h4>
+                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">【ボトルキープ】</h4>
                                 <div className="space-y-4 text-sm">
                                     <div>
-                                        <p className="font-semibold text-gray-800">焼酎</p>
+                                        <p className="font-semibold text-gray-800">◎ 焼酎</p>
                                         <ul className="list-disc list-inside space-y-1 text-gray-900">
                                             <li>白岳しろ（720ml） 税抜2,727円（税込3,000円）</li>
                                             <li>二階堂（900ml） 税抜2,500円（税込2,750円）</li>
@@ -58,20 +58,19 @@ export function DrinksMenu() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-gray-800">ウイスキー</p>
+                                        <p className="font-semibold text-gray-800">◎ ウイスキー</p>
                                         <ul className="list-disc list-inside space-y-1 text-gray-900">
-                                            <li>ROYAL（700ml） 税抜8,000円（税込8,800円）</li>
                                             <li>角（700ml） 税抜4,091円（税込4,500円）</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-gray-800">キープ期間</p>
+                                        <p className="font-semibold text-gray-800">◎ キープ期間</p>
                                         <ul className="list-disc list-inside space-y-1 text-gray-700">
                                             <li>3か月間</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-gray-800">その他</p>
+                                        <p className="font-semibold text-gray-800">◎ その他</p>
                                         <ul className="list-disc list-inside space-y-1 text-gray-700">
                                             <li>氷ボックス 税込500円</li>
                                             <li>割り材（水、炭酸など）別途</li>

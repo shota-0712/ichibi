@@ -91,7 +91,7 @@ export function HeroSection() {
                 <div className="text-xl md:text-2xl lg:text-3xl mt-2 font-kanteiryuu">- ichibi -</div>
               </h1>
               <p className="text-lg md:text-xl text-japanese-gold font-medium font-kanteiryuu">
-                千葉県君津市内蓑輪の手打十割蕎麦と定食を楽しめるランチと居酒屋のお店
+                千葉県君津市内蓑輪の手打十割蕎麦と定食を楽しめるお店
               </p>
             </div>
 
@@ -127,7 +127,7 @@ export function HeroSection() {
               <div className="flex items-center justify-center gap-2">
                 <Clock className="w-5 h-5 text-japanese-gold" />
                 <div className="font-kanteiryuu leading-tight text-center md:text-left">
-                  <p>営業時間: ランチ {storeInfo.hours.lunch} ／ 居酒屋 {storeInfo.hours.izakaya}</p>
+                  <p>営業時間: 昼の部 {storeInfo.hours.lunch} ／ 夜の部 {storeInfo.hours.izakaya}</p>
                   <p className="text-sm md:text-base text-japanese-gold/90">定休日：{storeInfo.hours.closed}</p>
                 </div>
               </div>

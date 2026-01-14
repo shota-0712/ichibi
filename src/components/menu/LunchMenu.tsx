@@ -36,7 +36,7 @@ export function LunchMenu() {
 
                         {/* Set Meals */}
                         <div>
-                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">セットメニュー</h3>
+                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">【セットメニュー】</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {setMealItems.map((item) => (
                                     <MenuItem key={item.name} {...item} />
@@ -47,7 +47,7 @@ export function LunchMenu() {
 
                         {/* Cold Soba */}
                         <div>
-                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">冷そば</h3>
+                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">【冷そば】</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {coldSobaItems.map((item) => (
                                     <MenuItem key={item.name} {...item} />
@@ -58,7 +58,7 @@ export function LunchMenu() {
 
                         {/* Hot Soba */}
                         <div>
-                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">温そば</h3>
+                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">【温そば】</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {hotSobaItems.map((item) => (
                                     <MenuItem key={item.name} {...item} />
@@ -69,7 +69,7 @@ export function LunchMenu() {
 
                         {/* Teishoku */}
                         <div>
-                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">定食</h3>
+                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">【定食】</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {lunchTeishokuItems.map((item) => (
                                     <MenuItem key={item.name} {...item} />
@@ -80,14 +80,14 @@ export function LunchMenu() {
 
                         {/* Kids Menu */}
                         <div>
-                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">キッズメニュー</h3>
+                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">【キッズメニュー】</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {kidsFoodItems.map((item) => (
                                     <MenuItem key={item.name} {...item} />
                                 ))}
                             </div>
                             <div className="mt-8">
-                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">キッズドリンク</h4>
+                                <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">◎ キッズドリンク</h4>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {kidsDrinkItems.map((item) => (
                                         <MenuItem key={`kids-drink-${item.name}`} {...item} />
@@ -98,7 +98,7 @@ export function LunchMenu() {
 
                         {/* Desserts */}
                         <div>
-                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">デザート</h3>
+                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">【デザート】</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {dessertItems.map((item) => (
                                     <MenuItem key={item.name} {...item} />
