@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { MenuItem } from './menu-item';
 import { AlcoholicDrinks } from './AlcoholicDrinks';
 import {

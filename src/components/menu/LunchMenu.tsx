@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Info } from 'lucide-react';
 import { MenuItem } from './menu-item';
 import {

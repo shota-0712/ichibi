@@ -74,7 +74,7 @@ export function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'brightness(0.4)' }}
           decoding="async"
-          fetchpriority={currentImageIndex === 0 ? "high" : "auto"}
+          fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
           loading={currentImageIndex === 0 ? "eager" : "lazy"}
           width="1920"
           height="1080"
