@@ -74,7 +74,7 @@
 }
 
 .font-kanteiryuu {
-  font-family: "Yuji Syuku", "Yu Mincho", "Kanteiryuu", "HGP行書体", "HGS行書体", cursive !important;
+  font-family: "Yuji Syuku", "Yu Mincho", "Hiragino Mincho ProN", cursive !important;
   font-feature-settings: normal;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -84,7 +84,7 @@
 
 /* フォントが読み込まれた後に確実に適用されるように */
 .fonts-loaded .font-kanteiryuu {
-  font-family: "Yuji Syuku", "Yu Mincho", "Kanteiryuu", "HGP行書体", "HGS行書体", cursive !important;
+  font-family: "Yuji Syuku", "Yu Mincho", "Hiragino Mincho ProN", cursive !important;
 }
 
 /* 和風装飾要素 */

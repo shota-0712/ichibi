@@ -6,9 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1B315E">
   <link rel="preload" href="/fonts/yuji-syuku/yuji-syuku-subset.woff2?v=20241229-4" as="font" type="font/woff2" crossorigin="anonymous">
+  <!-- Google Fonts: 完全な日本語文字セットをサポート -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
   <style>
+    /* ローカルフォントを優先、Google Fontsを フォールバック */
     @font-face {
-      font-family: 'Yuji Syuku';
+      font-family: 'Yuji Syuku Local';
       font-style: normal;
       font-weight: 400;
       font-display: swap;

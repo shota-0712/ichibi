@@ -111,6 +111,12 @@ export function HeroSection() {
               >
                 ご予約はこちら
               </a>
+              <Link
+                to="/dining-philosophy"
+                className="text-white text-xl font-kanteiryuu pb-1 border-b border-japanese-gold hover:border-white transition-colors duration-300"
+              >
+                一期一美のこだわり
+              </Link>
             </div>
           </div>
         </div>

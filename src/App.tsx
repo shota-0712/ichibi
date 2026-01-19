@@ -18,6 +18,29 @@ const DiningPhilosophy = lazy(() =>
   import('./pages/DiningPhilosophy').then(module => ({ default: module.DiningPhilosophy }))
 );
 
+// Philosophy sub-pages
+const SobaTypes = lazy(() =>
+  import('./pages/philosophy/SobaTypes').then(module => ({ default: module.SobaTypes }))
+);
+const Vision = lazy(() =>
+  import('./pages/philosophy/Vision').then(module => ({ default: module.Vision }))
+);
+const Space = lazy(() =>
+  import('./pages/philosophy/Space').then(module => ({ default: module.Space }))
+);
+const Tsuyu = lazy(() =>
+  import('./pages/philosophy/Tsuyu').then(module => ({ default: module.Tsuyu }))
+);
+const DailyCraft = lazy(() =>
+  import('./pages/philosophy/DailyCraft').then(module => ({ default: module.DailyCraft }))
+);
+const Health = lazy(() =>
+  import('./pages/philosophy/Health').then(module => ({ default: module.Health }))
+);
+const Juwari = lazy(() =>
+  import('./pages/philosophy/Juwari').then(module => ({ default: module.Juwari }))
+);
+
 
 import { useNavigationPreload } from './hooks/useNavigationPreload';
 
@@ -50,6 +73,43 @@ function App() {
           <Route path="/dining-philosophy" element={
             <Suspense fallback={null}>
               <DiningPhilosophy />
+            </Suspense>
+          } />
+
+          {/* Philosophy sub-pages */}
+          <Route path="/dining-philosophy/soba-types" element={
+            <Suspense fallback={null}>
+              <SobaTypes />
+            </Suspense>
+          } />
+          <Route path="/dining-philosophy/vision" element={
+            <Suspense fallback={null}>
+              <Vision />
+            </Suspense>
+          } />
+          <Route path="/dining-philosophy/space" element={
+            <Suspense fallback={null}>
+              <Space />
+            </Suspense>
+          } />
+          <Route path="/dining-philosophy/tsuyu" element={
+            <Suspense fallback={null}>
+              <Tsuyu />
+            </Suspense>
+          } />
+          <Route path="/dining-philosophy/daily-craft" element={
+            <Suspense fallback={null}>
+              <DailyCraft />
+            </Suspense>
+          } />
+          <Route path="/dining-philosophy/health" element={
+            <Suspense fallback={null}>
+              <Health />
+            </Suspense>
+          } />
+          <Route path="/dining-philosophy/juwari" element={
+            <Suspense fallback={null}>
+              <Juwari />
             </Suspense>
           } />
 
