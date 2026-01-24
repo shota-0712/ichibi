@@ -41,15 +41,15 @@ export function Tsuyu() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="text-center p-4 border border-[#e0d8cc] rounded-lg">
                                     <span className="block font-kanteiryuu text-sm text-[#6a6a6a] mb-2">だし</span>
-                                    <span className="font-kanteiryuu text-lg text-[#2a2a2a]">鰹節・鯖節</span>
+                                    <span className="font-kanteiryuu text-lg text-[#2a2a2a]">厳選した出汁</span>
                                 </div>
                                 <div className="text-center p-4 border border-[#e0d8cc] rounded-lg">
                                     <span className="block font-kanteiryuu text-sm text-[#6a6a6a] mb-2">返し</span>
-                                    <span className="font-kanteiryuu text-lg text-[#2a2a2a]">氷砂糖・ざらめ・みりん・醤油</span>
+                                    <span className="font-kanteiryuu text-lg text-[#2a2a2a]">昔ながらの製法で仕込むかえし</span>
                                 </div>
                             </div>
                             <p className="text-center font-kanteiryuu text-[#4a4a4a] mt-6">
-                                江戸前の熟成した返しを使っています。
+                                江戸前の味わいを大切に、丁寧に仕込んでいます。
                             </p>
                         </motion.div>
 

@@ -1,3 +1,8 @@
+---
+description: 
+alwaysApply: true
+---
+
 # CLAUDE.md - AI Assistant Guide for Ichibi Restaurant Website
 
 This document provides comprehensive guidance for AI assistants working on the 一期一美 (Ichibi) restaurant website codebase.
