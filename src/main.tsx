@@ -5,18 +5,51 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App.tsx';
 import './index.css';
 
-// Service Worker registration
+// Service Worker registration with aggressive cache busting
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     setTimeout(() => {
-      navigator.serviceWorker.register('/service-worker.js')
+      navigator.serviceWorker.register('/service-worker.js', {
+        // Prevent Service Worker itself from being cached
+        updateViaCache: 'none'
+      })
         .then((registration) => {
           console.log('Service Worker registered successfully:', registration.scope);
+
+          // Check for updates immediately
+          registration.update();
+
+          // Check for updates periodically (every 1 hour)
+          setInterval(() => {
+            registration.update();
+          }, 60 * 60 * 1000);
+
+          // When a new Service Worker is waiting, activate it immediately
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New Service Worker available, skip waiting
+                  newWorker.postMessage({ type: 'SKIP_WAITING' });
+                }
+              });
+            }
+          });
         })
         .catch((error) => {
           console.error('Service Worker registration failed:', error);
         });
     }, 3000);
+  });
+
+  // Reload page when new Service Worker takes control
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!refreshing) {
+      refreshing = true;
+      window.location.reload();
+    }
   });
 }
 
@@ -43,8 +76,6 @@ if (document.fonts) {
     if (document.fonts.load) {
       document.fonts.load('400 1em "Yuji Syuku"').then(() => {
         document.documentElement.classList.add('fonts-loaded');
-        // フォントが読み込まれたら、すべての要素に再適用を促す
-        document.body.style.fontFamily = document.body.style.fontFamily;
       }).catch(() => {
         // フォント読み込み失敗時はフォールバックを使用
       });

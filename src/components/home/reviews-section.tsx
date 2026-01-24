@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, memo } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 interface Review {
   author_name: string;
@@ -210,7 +210,7 @@ export function ReviewsSection() {
     // 少し遅延させて読み込む（メインスレッドの負荷を軽減）
     // メインスレッドの負荷を軽減するため、次のフレームで読み込む
     let rafId: number | null = null;
-    let timeoutId: any = null;
+    let timeoutId: number | null = null;
     
     rafId = requestAnimationFrame(() => {
       timeoutId = setTimeout(loadData, 0);
