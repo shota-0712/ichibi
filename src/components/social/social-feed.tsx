@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { Instagram, ExternalLink } from 'lucide-react';
-import { XLogo } from '../icons/x-logo';
+import { Instagram } from 'lucide-react';
 import { storeInfo } from '../../data/store-info';
 
 export function SocialFeed() {

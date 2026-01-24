@@ -1,5 +1,7 @@
 // Service Worker for caching and offline functionality
-const CACHE_NAME = 'ichimi-cache-v5';
+// Auto-versioned cache name to ensure updates on each deployment
+const CACHE_VERSION = '20260124-1'; // Update this on each deployment
+const CACHE_NAME = `ichimi-cache-v${CACHE_VERSION}`;
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -48,6 +50,13 @@ function shouldCache(url) {
   return true;
 }
 
+// Listen for SKIP_WAITING message
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -83,44 +92,78 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event - serve from cache if available
+// Helper function to check if request is for HTML
+function isHTMLRequest(request) {
+  const url = new URL(request.url);
+  return request.mode === 'navigate' ||
+         request.headers.get('Accept')?.includes('text/html') ||
+         url.pathname === '/' ||
+         url.pathname.endsWith('.html');
+}
+
+// Fetch event - Network First for HTML, Cache First for static assets
 self.addEventListener('fetch', (event) => {
   // Skip non-GET requests
   if (event.request.method !== 'GET') return;
-  
+
   // Skip if URL shouldn't be cached
   if (!shouldCache(event.request.url)) return;
 
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response;
-      }
+  // Network First strategy for HTML (always get fresh content)
+  if (isHTMLRequest(event.request)) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          // Check if we received a valid response
+          if (!response || response.status !== 200) {
+            return response;
+          }
 
-      return fetch(event.request).then((response) => {
-        // Check if we received a valid response
-        if (!response || response.status !== 200) {
-          return response;
-        }
-
-        // Clone the response
-        const responseToCache = response.clone();
-
-        // Add to cache
-        if (shouldCache(event.request.url)) {
+          // Clone and cache the response
+          const responseToCache = response.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
           });
+
+          return response;
+        })
+        .catch(() => {
+          // If network fails, fall back to cache (offline support)
+          return caches.match(event.request).then((cachedResponse) => {
+            return cachedResponse || caches.match('/');
+          });
+        })
+    );
+  }
+  // Cache First strategy for static assets (JS, CSS, images with hashed names)
+  else {
+    event.respondWith(
+      caches.match(event.request).then((response) => {
+        if (response) {
+          return response;
         }
 
-        return response;
-      }).catch(() => {
-        // Return index.html for navigation requests
-        if (event.request.mode === 'navigate') {
-          return caches.match('/');
-        }
-        return null;
-      });
-    })
-  );
+        return fetch(event.request).then((response) => {
+          // Check if we received a valid response
+          if (!response || response.status !== 200) {
+            return response;
+          }
+
+          // Clone the response
+          const responseToCache = response.clone();
+
+          // Add to cache
+          if (shouldCache(event.request.url)) {
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+
+          return response;
+        }).catch(() => {
+          return null;
+        });
+      })
+    );
+  }
 });
