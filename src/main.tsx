@@ -10,11 +10,11 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     setTimeout(() => {
       navigator.serviceWorker.register('/service-worker.js')
-        .then(() => {
-          // Service Worker registration successful
+        .then((registration) => {
+          console.log('Service Worker registered successfully:', registration.scope);
         })
-        .catch(() => {
-          // Service Worker registration failed silently
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
         });
     }, 3000);
   });
