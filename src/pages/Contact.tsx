@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Mail, Info, Phone } from 'lucide-react';
 
 type ReplyPreference = 'reply' | 'no-reply';

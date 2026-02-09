@@ -213,7 +213,7 @@ export function ReviewsSection() {
     let timeoutId: number | null = null;
     
     rafId = requestAnimationFrame(() => {
-      timeoutId = setTimeout(loadData, 0);
+      timeoutId = window.setTimeout(loadData, 0);
     });
 
     return () => {
@@ -222,7 +222,7 @@ export function ReviewsSection() {
         cancelAnimationFrame(rafId);
       }
       if (timeoutId !== null) {
-        clearTimeout(timeoutId);
+        window.clearTimeout(timeoutId);
       }
     };
   }, []);
@@ -398,4 +398,3 @@ export function ReviewsSection() {
     </div>
   );
 }
-

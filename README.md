@@ -22,9 +22,11 @@
 ```bash
 npm install          # 依存関係インストール
 npm run dev          # 開発サーバー起動（Vite）
+npm run typecheck    # TypeScript 型チェック（noEmit）
 npm run build        # 本番ビルド（dist/）
 npm run preview      # 本番ビルドのローカル確認
 npm run lint         # ESLint 実行
+npm run check        # typecheck + lint + build をまとめて実行
 npm run analyze      # バンドル解析
 ```
 
