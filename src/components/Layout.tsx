@@ -33,6 +33,41 @@ const meta = {
     title: '料理のこだわり｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん',
     description: '素材選びや仕込みへのこだわりをご紹介します。',
     canonical: `${BASE_URL}/dining-philosophy`
+  },
+  '/dining-philosophy/soba-types': {
+    title: '十割蕎麦と二八蕎麦｜料理のこだわり｜十割蕎麦・創作酒場 一期一美',
+    description: '十割蕎麦と二八蕎麦、それぞれの魅力と味わいの違いをご紹介します。',
+    canonical: `${BASE_URL}/dining-philosophy/soba-types`
+  },
+  '/dining-philosophy/vision': {
+    title: '一期一美が目指すもの｜料理のこだわり｜十割蕎麦・創作酒場 一期一美',
+    description: '一期一美が大切にしている想いと、蕎麦づくりへの姿勢をお伝えします。',
+    canonical: `${BASE_URL}/dining-philosophy/vision`
+  },
+  '/dining-philosophy/space': {
+    title: '店内空間へのこだわり｜料理のこだわり｜十割蕎麦・創作酒場 一期一美',
+    description: 'ゆったりと食事を楽しめる店内空間と、居心地へのこだわりをご紹介します。',
+    canonical: `${BASE_URL}/dining-philosophy/space`
+  },
+  '/dining-philosophy/tsuyu': {
+    title: 'つゆへのこだわり｜料理のこだわり｜十割蕎麦・創作酒場 一期一美',
+    description: '蕎麦の味を引き立てる、一期一美のつゆづくりの工夫をご紹介します。',
+    canonical: `${BASE_URL}/dining-philosophy/tsuyu`
+  },
+  '/dining-philosophy/daily-craft': {
+    title: '毎日の手仕事｜料理のこだわり｜十割蕎麦・創作酒場 一期一美',
+    description: '気温や湿度を見極めながら行う、一期一美の毎日の蕎麦打ちをご紹介します。',
+    canonical: `${BASE_URL}/dining-philosophy/daily-craft`
+  },
+  '/dining-philosophy/health': {
+    title: '蕎麦と健康｜料理のこだわり｜十割蕎麦・創作酒場 一期一美',
+    description: '蕎麦の栄養や日々の食事への取り入れ方など、健康面の魅力をご紹介します。',
+    canonical: `${BASE_URL}/dining-philosophy/health`
+  },
+  '/dining-philosophy/juwari': {
+    title: '十割蕎麦への想い｜料理のこだわり｜十割蕎麦・創作酒場 一期一美',
+    description: '蕎麦粉と水のみで打つ十割蕎麦へのこだわりと、味わいの特徴をご紹介します。',
+    canonical: `${BASE_URL}/dining-philosophy/juwari`
   }
 } as const;
 

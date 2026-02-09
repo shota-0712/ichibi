@@ -15,7 +15,20 @@ type RenderModule = {
   render: (route: string) => Promise<RenderResult>;
 };
 
-const routes = ['/', '/menu', '/store-info', '/dining-philosophy'] as const;
+const routes = [
+  '/',
+  '/menu',
+  '/store-info',
+  '/contact',
+  '/dining-philosophy',
+  '/dining-philosophy/soba-types',
+  '/dining-philosophy/vision',
+  '/dining-philosophy/space',
+  '/dining-philosophy/tsuyu',
+  '/dining-philosophy/daily-craft',
+  '/dining-philosophy/health',
+  '/dining-philosophy/juwari'
+] as const;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

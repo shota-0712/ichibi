@@ -12,7 +12,6 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /static/
-Disallow: /assets/
 
 # Sitemap
 Sitemap: https://i-chi-bi.com/sitemap.xml
