@@ -135,6 +135,7 @@ export function HeroSection() {
                 <div className="font-kanteiryuu leading-tight text-center md:text-left">
                   <p>営業時間: 昼の部 {storeInfo.hours.lunch} ／ 夜の部 {storeInfo.hours.izakaya}</p>
                   <p className="text-sm md:text-base text-japanese-gold/90">定休日：{storeInfo.hours.closed}</p>
+                  <p className="text-xs md:text-sm text-japanese-gold/70">{storeInfo.hours.note}</p>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-2">

@@ -73,12 +73,13 @@ export function Menu() {
                 </h3>
                 <p className="text-japanese-gold">
                   {activeTab === 'lunch'
-                    ? '11:00～14:00 (L.O.13:30)'
+                    ? '11:00～15:00'
                     : activeTab === 'izakaya'
-                      ? '18:00～21:00 (食事L.O.20:30 / ドリンクL.O.20:50)'
-                      : '昼の部 11:00～14:00 / 夜の部 18:00～21:00'}
+                      ? '18:00～21:00（金・土・日のみ）'
+                      : '昼の部 11:00～15:00 / 夜の部 18:00～21:00（金・土・日のみ）'}
                 </p>
-                <p className="text-sm text-white/80 mt-1">定休日：火曜日・水曜日</p>
+                <p className="text-sm text-white/80 mt-1">定休日：火曜日</p>
+                <p className="text-xs text-white/60 mt-1">※蕎麦はなくなり次第終了</p>
               </div>
             </div>
           </div>

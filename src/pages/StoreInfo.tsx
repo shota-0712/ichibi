@@ -58,6 +58,7 @@ export function StoreInfo() {
                         <p>昼の部 {storeInfo.hours.lunch}</p>
                         <p>夜の部 {storeInfo.hours.izakaya}</p>
                         <p className="text-sm text-gray-600 mt-2">定休日：{storeInfo.hours.closed}</p>
+                        <p className="text-xs text-gray-500 mt-1">{storeInfo.hours.note}</p>
                       </div>
                     </div>
                   </div>
