@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { LunchMenu } from '../components/menu/LunchMenu';
 import { IzakayaMenu } from '../components/menu/IzakayaMenu';
 import { DrinksMenu } from '../components/menu/DrinksMenu';
+import { storeInfo } from '../data/store-info';
 
 export function Menu() {
   const location = useLocation();
@@ -73,13 +74,13 @@ export function Menu() {
                 </h3>
                 <p className="text-japanese-gold">
                   {activeTab === 'lunch'
-                    ? '11:00～15:00'
+                    ? storeInfo.hours.lunch
                     : activeTab === 'izakaya'
-                      ? '18:00～21:00（金・土・日のみ）'
-                      : '昼の部 11:00～15:00 / 夜の部 18:00～21:00（金・土・日のみ）'}
+                      ? storeInfo.hours.izakaya
+                      : `昼の部 ${storeInfo.hours.lunch} / 夜の部 ${storeInfo.hours.izakaya}`}
                 </p>
-                <p className="text-sm text-white/80 mt-1">定休日：火曜日</p>
-                <p className="text-xs text-white/60 mt-1">※蕎麦はなくなり次第終了</p>
+                <p className="text-sm text-white/80 mt-1">定休日：{storeInfo.hours.closed}</p>
+                <p className="text-xs text-white/60 mt-1">{storeInfo.hours.noteShort}</p>
               </div>
             </div>
           </div>

@@ -14,6 +14,7 @@ export const storeInfo = {
         izakaya: '18:00～21:00（金・土・日のみ）',
         closed: '火曜日',
         note: '※蕎麦は毎日手打ちのため、なくなり次第終了となります。早めに終了する場合はInstagramのストーリーでお知らせいたします。',
+        noteShort: '※蕎麦はなくなり次第終了',
     },
     access: {
         car: [
