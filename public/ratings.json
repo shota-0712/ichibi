@@ -1,6 +1,6 @@
 {
   "ratingValue": "4.4",
-  "reviewCount": "33",
+  "reviewCount": "34",
   "reviews": [
     {
       "author_name": "Sケンケン",
@@ -45,7 +45,7 @@
       "original_language": "ja",
       "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU8_VOQGgeTH6hO8nHwvJu8lhxqcbs0nbZbb3b-0SThH3Zw_9vBBA=s128-c0x00000000-cc-rp-mo",
       "rating": 5,
-      "relative_time_description": "1 か月前",
+      "relative_time_description": "2 か月前",
       "text": "清潔感のある厨房で、丁寧にお蕎麦の準備をしてくれているのを見ているのも楽しかったです。\n相方は天ぷら付きのものを頼んでいて、少し分けてもらったのですが天ぷらもさくさくで美味しかったです。",
       "time": 1767929818,
       "translated": false
@@ -63,5 +63,5 @@
       "translated": false
     }
   ],
-  "lastUpdated": "2026-03-09T18:43:01.422Z"
+  "lastUpdated": "2026-03-10T18:39:08.689Z"
 }
