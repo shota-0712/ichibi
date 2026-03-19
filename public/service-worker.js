@@ -33,11 +33,22 @@ const EXCLUDE_FROM_CACHE = [
   '.svg'
 ];
 
+const RATINGS_PATH = '/ratings.json';
+
 // Helper function to check if URL should be cached
 function shouldCache(url) {
   // Don't cache chrome-extension URLs
   if (url.startsWith('chrome-extension://')) {
     return false;
+  }
+
+  try {
+    const parsedUrl = new URL(url);
+    if (parsedUrl.pathname === RATINGS_PATH) {
+      return false;
+    }
+  } catch {
+    // ignore and continue
   }
 
   // Don't cache third-party analytics
@@ -48,6 +59,19 @@ function shouldCache(url) {
   }
 
   return true;
+}
+
+function isRatingsRequest(request) {
+  try {
+    const url = new URL(request.url);
+    return url.pathname === RATINGS_PATH;
+  } catch {
+    return false;
+  }
+}
+
+function getRatingsCacheKey() {
+  return new Request(new URL(RATINGS_PATH, self.location.origin).toString());
 }
 
 // Listen for SKIP_WAITING message
@@ -105,6 +129,31 @@ function isHTMLRequest(request) {
 self.addEventListener('fetch', (event) => {
   // Skip non-GET requests
   if (event.request.method !== 'GET') return;
+
+  if (isRatingsRequest(event.request)) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-cache' })
+        .then((response) => {
+          if (!response || response.status !== 200) {
+            throw new Error('Ratings fetch failed');
+          }
+
+          const responseToCache = response.clone();
+          return caches.open(CACHE_NAME).then((cache) =>
+            cache.put(getRatingsCacheKey(), responseToCache).catch(() => undefined)
+          ).then(() => response);
+        })
+        .catch((error) =>
+          caches.match(getRatingsCacheKey()).then((cached) => {
+            if (cached) {
+              return cached;
+            }
+            throw error;
+          })
+        )
+    );
+    return;
+  }
 
   // Skip if URL shouldn't be cached
   if (!shouldCache(event.request.url)) return;

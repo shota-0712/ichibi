@@ -169,6 +169,7 @@ const ReviewCard = memo(function ReviewCard({ review }: { review: Review }) {
 export function ReviewsSection() {
   const [reviewsData, setReviewsData] = useState<RatingsData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -196,12 +197,15 @@ export function ReviewsSection() {
         .then((data: RatingsData) => {
           if (!abortController.signal.aborted) {
             setReviewsData(data);
+            setFetchError(null);
             setIsLoading(false);
           }
         })
         .catch((error) => {
           if (error?.name !== 'AbortError') {
             console.warn('レビューの読み込みに失敗しました:', error);
+            setReviewsData(null);
+            setFetchError('口コミの取得に失敗しました。時間を置いて再度ご確認ください。');
             setIsLoading(false);
           }
         });
@@ -252,68 +256,84 @@ export function ReviewsSection() {
       return [];
     }
 
-    // 日本語のレビュー（original_languageが"ja"）を優先的に取得
-    // 星4以上で、文章が書いてあるレビューのみをフィルタリング
     const filteredReviews = reviewsData.reviews.filter(
       review => review.rating >= 4 && review.text && review.text.trim().length > 0
     );
-    
-    // 日本語のレビューを優先（original_languageが"ja"のもの）
-    const japaneseReviews = filteredReviews.filter(
-      review => review.original_language === 'ja' || review.language === 'ja'
-    );
-    
-    // 日本語のレビューがあればそれを使用、なければ全てのレビューを使用
-    const reviewsToDisplay = japaneseReviews.length > 0 ? japaneseReviews : filteredReviews;
-    
-    if (reviewsToDisplay.length === 0) {
+    if (filteredReviews.length === 0) {
       return [];
     }
 
-    // 新しい順にソート（timeフィールドが大きいほど新しい）
-    // 星評価が高い順、同じ場合は新しい順
-    const sortedReviews = [...reviewsToDisplay].sort((a, b) => {
-      // まず星評価で比較（高い順）
-      const ratingDiff = (b.rating || 0) - (a.rating || 0);
-      if (ratingDiff !== 0) {
-        return ratingDiff;
+    const sortedReviews = [...filteredReviews].sort((a, b) => {
+      const timeDiff = (b.time || 0) - (a.time || 0);
+      if (timeDiff !== 0) {
+        return timeDiff;
       }
-      // 星評価が同じ場合は、timeフィールドで比較（新しい順）
-      const timeA = a.time || 0;
-      const timeB = b.time || 0;
-      return timeB - timeA; // 降順（新しい順）
+      return (b.rating || 0) - (a.rating || 0);
     });
 
-    // 最新のレビューを表示（最大10件まで）
     return sortedReviews.slice(0, 10);
   }, [reviewsData]);
+
+  const lastUpdatedLabel = useMemo(() => {
+    if (!reviewsData?.lastUpdated) {
+      return null;
+    }
+    try {
+      return new Date(reviewsData.lastUpdated).toLocaleString('ja-JP', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    } catch {
+      return null;
+    }
+  }, [reviewsData?.lastUpdated]);
+
+  const hasReviews = displayedReviews.length > 0;
+  const hasSummary = Boolean(reviewsData);
+  const averageRating = reviewsData?.ratingValue ? Number(reviewsData.ratingValue) : 0;
+  const fallbackMessage = fetchError
+    ? '口コミの取得に失敗しました。時間を置いて再度ご確認ください。'
+    : '高評価レビューがまだ揃っていません。最新の声は Google マップでご覧ください。';
 
   // 早期リターンはフックの後に配置
   if (isLoading) {
     return null; // 読み込み中は何も表示しない
   }
 
-  if (displayedReviews.length === 0 || !reviewsData) {
-    return null; // 条件に合うレビューがない場合は表示しない
-  }
-
   return (
     <div className="py-20 bg-stone-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-kanteiryuu mb-4">お客様の声</h2>
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="flex items-center gap-2">
-                <StarRating rating={parseFloat(reviewsData.ratingValue)} />
-                <span className="text-gray-900 font-semibold text-lg font-kanteiryuu">
-                  {reviewsData.ratingValue}
-                </span>
-                <span className="text-gray-600 font-kanteiryuu">
-                  ({reviewsData.reviewCount}件)
-                </span>
+          <div className="text-center mb-12 space-y-3">
+            <h2 className="text-3xl font-kanteiryuu">お客様の声</h2>
+            <p className="text-sm text-gray-600 font-kanteiryuu">
+              Google口コミのうち高評価のみを新着優先で掲載しています。
+            </p>
+            {hasSummary ? (
+              <div className="flex items-center justify-center gap-4">
+                <div className="flex items-center gap-2">
+                  <StarRating rating={averageRating} />
+                  <span className="text-gray-900 font-semibold text-lg font-kanteiryuu">
+                    {reviewsData?.ratingValue}
+                  </span>
+                  <span className="text-gray-600 font-kanteiryuu">
+                    ({reviewsData?.reviewCount}件)
+                  </span>
+                </div>
               </div>
-            </div>
+            ) : (
+              <p className="text-sm text-gray-500 font-kanteiryuu">
+                Google口コミの集計データを読み込めませんでした。
+              </p>
+            )}
+            {hasSummary && (
+              <p className="text-sm text-gray-500 font-kanteiryuu">
+                最終更新: {lastUpdatedLabel ?? '取得できませんでした'}
+              </p>
+            )}
             <a
               href="https://g.page/r/CVz6432E_c3kEAE/review"
               target="_blank"
@@ -325,74 +345,89 @@ export function ReviewsSection() {
             </a>
           </div>
 
-          <div className="relative">
-            {/* 左スクロールボタン */}
-            <button
-              onClick={() => {
-                if (scrollContainerRef.current) {
-                  scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
-                }
-              }}
-              disabled={!canScrollLeft}
-              className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg transition-opacity ${
-                canScrollLeft ? 'opacity-100 hover:bg-gray-50' : 'opacity-0 pointer-events-none'
-              }`}
-              aria-label="前のレビューへ"
-            >
-              <ChevronLeft className="w-6 h-6 text-gray-700" />
-            </button>
-
-            {/* スクロール可能なコンテナ */}
-            <div
-              ref={scrollContainerRef}
-              role="region"
-              aria-label="お客様のレビュー"
-              tabIndex={0}
-              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 scroll-smooth snap-x snap-mandatory focus:outline-none focus:ring-2 focus:ring-japanese-gold focus:ring-offset-2 rounded-lg"
-              onScroll={() => {
-                if (scrollContainerRef.current) {
-                  const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-                  setCanScrollLeft(scrollLeft > 0);
-                  setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-                }
-              }}
-              onKeyDown={(e) => {
-                try {
-                  if (!scrollContainerRef.current) return;
-                  const scrollAmount = 400;
-                  if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    scrollContainerRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                  } else if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          {hasReviews ? (
+            <div className="relative">
+              <button
+                onClick={() => {
+                  if (scrollContainerRef.current) {
+                    scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
                   }
-                } catch (error) {
-                  console.warn('キーボード操作でエラーが発生しました:', error);
-                }
-              }}
-            >
-              {displayedReviews.map((review, index) => (
-                <ReviewCard key={`${review.author_name}-${review.time}-${index}`} review={review} />
-              ))}
-            </div>
+                }}
+                disabled={!canScrollLeft}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg transition-opacity ${
+                  canScrollLeft ? 'opacity-100 hover:bg-gray-50' : 'opacity-0 pointer-events-none'
+                }`}
+                aria-label="前のレビューへ"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-700" />
+              </button>
 
-            {/* 右スクロールボタン */}
-            <button
-              onClick={() => {
-                if (scrollContainerRef.current) {
-                  scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
-                }
-              }}
-              disabled={!canScrollRight}
-              className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg transition-opacity ${
-                canScrollRight ? 'opacity-100 hover:bg-gray-50' : 'opacity-0 pointer-events-none'
-              }`}
-              aria-label="次のレビューへ"
-            >
-              <ChevronRight className="w-6 h-6 text-gray-700" />
-            </button>
-          </div>
+              <div
+                ref={scrollContainerRef}
+                role="region"
+                aria-label="お客様のレビュー"
+                tabIndex={0}
+                className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 scroll-smooth snap-x snap-mandatory focus:outline-none focus:ring-2 focus:ring-japanese-gold focus:ring-offset-2 rounded-lg"
+                onScroll={() => {
+                  if (scrollContainerRef.current) {
+                    const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+                    setCanScrollLeft(scrollLeft > 0);
+                    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+                  }
+                }}
+                onKeyDown={(e) => {
+                  try {
+                    if (!scrollContainerRef.current) return;
+                    const scrollAmount = 400;
+                    if (e.key === 'ArrowLeft') {
+                      e.preventDefault();
+                      scrollContainerRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    } else if (e.key === 'ArrowRight') {
+                      e.preventDefault();
+                      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    }
+                  } catch (error) {
+                    console.warn('キーボード操作でエラーが発生しました:', error);
+                  }
+                }}
+              >
+                {displayedReviews.map((review, index) => (
+                  <ReviewCard key={`${review.author_name}-${review.time}-${index}`} review={review} />
+                ))}
+              </div>
+
+              <button
+                onClick={() => {
+                  if (scrollContainerRef.current) {
+                    scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+                  }
+                }}
+                disabled={!canScrollRight}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg transition-opacity ${
+                  canScrollRight ? 'opacity-100 hover:bg-gray-50' : 'opacity-0 pointer-events-none'
+                }`}
+                aria-label="次のレビューへ"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-700" />
+              </button>
+            </div>
+          ) : (
+            <div className="bg-white rounded-2xl border border-dashed border-gray-200 p-8 flex flex-col items-center gap-3 text-center">
+              <p className="text-lg font-semibold text-gray-700">{fallbackMessage}</p>
+              <p className="text-sm text-gray-500">
+                最新の高評価口コミはGoogleマップでもご覧いただけます。
+              </p>
+              <a
+                href="https://g.page/r/CVz6432E_c3kEAE/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-kanteiryuu text-sm transition-colors"
+              >
+                Googleマップでレビューを確認する
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
