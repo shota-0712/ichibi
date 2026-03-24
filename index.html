@@ -5,53 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1B315E">
-  <!-- Cache control meta tags to prevent stale content -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <link rel="preload" href="/fonts/yuji-syuku/yuji-syuku-subset.woff2?v=20241229-4" as="font" type="font/woff2" crossorigin="anonymous">
   <!-- Google Fonts: 完全な日本語文字セットをサポート -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
-  <style>
-    /* ローカルフォントを優先、Google Fontsを フォールバック */
-    @font-face {
-      font-family: 'Yuji Syuku Local';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url('/fonts/yuji-syuku/yuji-syuku-subset.woff2?v=20241229-4') format('woff2');
-      unicode-range: U+0020-007F, U+3000-30FF, U+4E00-9FAF, U+FF00-FFEF;
-    }
-    /* Critical CSS: Prevent layout shift and improve FCP */
-    body {
-      font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'HG明朝E', 'MS P明朝', '游明朝', serif;
-      margin: 0;
-      padding: 0;
-      color: #333333;
-      line-height: 1.6;
-      background-color: #f0f0f0;
-    }
-    #root {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    #splash-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-  </style>
-
   <!-- Preconnect hints for critical third-party resources -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="//www.instagram.com">
@@ -59,9 +17,9 @@
   <!-- Prefetch critical resources -->
   <link rel="prefetch" href="/fonts/yuji-syuku/yuji-syuku-subset.woff2?v=20241229-4" as="font" type="font/woff2" crossorigin="anonymous">
 
-  <title>十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん</title>
+  <title>十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら</title>
   <meta name="description" content="千葉県君津市にある「一期一美」は、季節ごとに厳選した国産石臼挽きの蕎麦粉を使用し、一本一本手打ち・手切りで仕上げる十割蕎麦と定食、季節の一品料理を楽しめるお店です。Googleマップ評価4.4（35件）。">
-  <meta name="keywords" content="一期一美,十割蕎麦,手打ち蕎麦,君津市,千葉県,定食,居酒屋,ランチ,天ぷら,おでん">
+  <meta name="keywords" content="一期一美,十割蕎麦,手打ち蕎麦,君津市,千葉県,定食,居酒屋,ランチ,天ぷら,親子丼,生姜焼き">
   <meta name="application-name" content="十割蕎麦・創作酒場『一期一美』- ichibi -">
   <meta name="apple-mobile-web-app-title" content="一期一美" />
   <link rel="manifest" href="/image/site.webmanifest" />
@@ -74,6 +32,16 @@
   <link rel="preload" href="/image/logo_Splash.webp" as="image" type="image/webp" fetchpriority="high">
 
   <style>
+    /* ローカルフォントを優先、Google Fontsをフォールバック */
+    @font-face {
+      font-family: 'Yuji Syuku Local';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/yuji-syuku/yuji-syuku-subset.woff2?v=20241229-4') format('woff2');
+      unicode-range: U+0020-007F, U+3000-30FF, U+4E00-9FAF, U+FF00-FFEF;
+    }
+
     :root {
       /* Body default: readable Mincho; Yuji is used selectively via classes */
       --font-serif: 'Yu Mincho', 'Hiragino Mincho ProN', 'HG明朝E', 'MS P明朝', '游明朝', serif;
@@ -147,16 +115,16 @@
     /* logo preload div を廃止（オフスクリーン画像の早期読み込みを防止） */
   </style>
 
-  <meta property="og:title" content="十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん">
+  <meta property="og:title" content="十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://i-chi-bi.com/">
   <meta property="og:description"
-    content="千葉県君津市にある「一期一美」は、手打ち十割蕎麦や天ぷら、生姜焼きやチキン南蛮などの各種定食を楽しめるランチと、季節の一品料理を提供する居酒屋を展開するお店です。">
+    content="千葉県君津市にある「一期一美」は、手打ち十割蕎麦や天ぷら、生姜焼きや親子丼などの各種定食を楽しめるランチと、季節の一品料理を提供するお店です。">
   <meta property="og:site_name" content="十割蕎麦・創作酒場『一期一美』- ichibi -">
-  <meta name="twitter:title" content="十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん">
+  <meta name="twitter:title" content="十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:description"
-    content="千葉県君津市にある「一期一美」は、手打ち十割蕎麦や天ぷら、生姜焼きやチキン南蛮などの各種定食を楽しめるランチと、季節の一品料理を提供する居酒屋を展開するお店です。">
+    content="千葉県君津市にある「一期一美」は、手打ち十割蕎麦や天ぷら、生姜焼きや親子丼などの各種定食を楽しめるランチと、季節の一品料理を提供するお店です。">
   <meta property="og:image" content="https://i-chi-bi.com/image/ichigo_ichibi_set.webp">
   <meta property="og:image:width" content="1920">
   <meta property="og:image:height" content="1080">
@@ -175,7 +143,7 @@
             "url": "https://i-chi-bi.com/",
             "name": "十割蕎麦・創作酒場『一期一美』",
             "alternateName": ["ichibi", "一期一美"],
-            "description": "千葉県君津市の手打そば・定食・おでん",
+            "description": "千葉県君津市の手打そば・定食・天ぷら",
             "inLanguage": "ja",
             "publisher": {
               "@id": "https://i-chi-bi.com/#restaurant"
@@ -264,22 +232,6 @@
             ]
           },
           {
-            "@type": "SiteNavigationElement",
-            "@id": "https://i-chi-bi.com/#primary-nav",
-            "name": [
-              "お品書き",
-              "公式LINE",
-              "Instagram",
-              "店舗情報"
-            ],
-            "url": [
-              "https://i-chi-bi.com/menu",
-              "https://lin.ee/kDzulfG",
-              "https://www.instagram.com/ichigo__ichibi/",
-              "https://i-chi-bi.com/store-info"
-            ]
-          },
-          {
             "@type": "ItemList",
             "@id": "https://i-chi-bi.com/#quick-links",
             "itemListOrder": "http://schema.org/ItemListOrderAscending",
@@ -327,7 +279,7 @@
 
   <!-- SEO and accessibility: h1 for search engines and screen readers -->
   <!-- The visual h1 is rendered by React in hero-section.tsx -->
-  <h1 class="sr-only">十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・おでん</h1>
+  <h1 class="sr-only">十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら</h1>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 
