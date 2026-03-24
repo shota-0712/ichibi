@@ -65,6 +65,5 @@ jobs:
           if [ -f public/ratings.json ]; then
             git add public/ratings.json
           fi
-          git commit -m "chore: Update Google Maps ratings [skip ci]"
+          git commit -m "chore: Update Google Maps ratings"
           git push
-
