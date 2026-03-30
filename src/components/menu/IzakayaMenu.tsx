@@ -12,7 +12,7 @@ import {
     dessertItems,
 } from '../../data/menu-data';
 
-const sobaSelectionNote = '十割・二八そばから選択（十割は1日15食）\n完売次第終了';
+const sobaSelectionNote = '十割・二八そばから選択\n完売次第終了';
 const coldSobaNote = sobaSelectionNote;
 const hotSobaNote = sobaSelectionNote;
 const izakayaTeishokuNote =
