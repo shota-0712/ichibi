@@ -11,7 +11,7 @@ import {
     dessertItems,
 } from '../../data/menu-data';
 
-const sobaSelectionNote = '十割・二八そばから選択（十割は1日15食）';
+const sobaSelectionNote = '十割・二八そばから選択';
 const setMealNote = `${sobaSelectionNote}\nかけそば変更 +50円\nご飯大盛り +100円\nデザート付き`;
 const coldSobaNote = sobaSelectionNote;
 const hotSobaNote = sobaSelectionNote;
