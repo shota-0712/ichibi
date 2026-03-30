@@ -6,18 +6,18 @@ import {
     izakayaColdSobaItems,
     izakayaHotSobaItems,
     izakayaTeishokuItems,
-    odenItems,
-    izakayaAppetizerItems,
+    izakayaAppetizerSections,
     kidsFoodItems,
     kidsDrinkItems,
     dessertItems,
 } from '../../data/menu-data';
 
-const sobaSelectionNote = '十割・二八そばから選択（十割は1日15食）';
+const sobaSelectionNote = '十割・二八そばから選択（十割は1日15食）\n完売次第終了';
 const coldSobaNote = sobaSelectionNote;
 const hotSobaNote = sobaSelectionNote;
 const izakayaTeishokuNote =
     '生姜焼き定食：ご飯・味噌汁・漬物付き\n親子丼定食・天重定食：味噌汁・漬物付き\nご飯大盛り +100円';
+const izakayaAppetizerNote = '本日の一品料理（夜の部のみ）';
 
 export function IzakayaMenu() {
     return (
@@ -79,22 +79,20 @@ export function IzakayaMenu() {
                             <p className="mt-4 text-sm text-gray-600 whitespace-pre-line">{izakayaTeishokuNote}</p>
                         </div>
 
-                        {/* Oden */}
-                        <div>
-                            <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">おでん</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {odenItems.map((item) => (
-                                    <MenuItem key={item.name} {...item} />
-                                ))}
-                            </div>
-                        </div>
-
                         {/* Appetizers */}
                         <div>
                             <h3 className="text-xl font-kanteiryuu mb-6 pb-2 border-b-2 border-japanese-red">一品料理</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {izakayaAppetizerItems.map((item) => (
-                                    <MenuItem key={item.name} {...item} />
+                            <p className="mb-6 text-sm text-gray-600 whitespace-pre-line">{izakayaAppetizerNote}</p>
+                            <div className="space-y-8">
+                                {izakayaAppetizerSections.map((section) => (
+                                    <div key={section.title}>
+                                        <h4 className="text-lg font-kanteiryuu mb-4 text-gray-700">◎ {section.title}</h4>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                            {section.items.map((item) => (
+                                                <MenuItem key={`${section.title}-${item.name}`} {...item} />
+                                            ))}
+                                        </div>
+                                    </div>
                                 ))}
                             </div>
                         </div>

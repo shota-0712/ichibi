@@ -326,19 +326,33 @@ export const izakayaTeishokuItems: BasicMenuItem[] = [
     },
 ];
 
-export const odenItems: BasicMenuItem[] = [
-    { name: 'たまご', price: 150 },
-    { name: 'だいこん', price: 150 },
-    { name: 'こんにゃく', price: 150 },
-    { name: 'その他日替わり', price: 150 },
-];
-
-export const izakayaAppetizerItems: BasicMenuItem[] = [
-    { name: 'ポテトフライ', price: 390 },
-    { name: 'ichibiサラダ', price: 390 },
-    { name: '枝豆', price: 250 },
-    { name: '海老せんべい', price: 180 },
-    { name: '板わさ', price: 400 },
-    { name: 'もつ煮', price: 400 },
-    { name: '日替わり一品料理', price: 0, description: 'スタッフにご確認ください' },
+export const izakayaAppetizerSections: { title: string; items: BasicMenuItem[] }[] = [
+    {
+        title: '天ぷら',
+        items: [
+            { name: 'なす', price: 200 },
+            { name: 'ピーマン', price: 200 },
+            { name: '海苔', price: 200 },
+            { name: '春菊', price: 300 },
+            { name: 'かき揚げ', price: 300 },
+            { name: '海老', price: 400 },
+            { name: 'まいたけ', price: 400 },
+            { name: '湯葉', price: 400 },
+            { name: 'きのこ天三種盛り', price: 700 },
+            { name: 'おまかせ盛り合わせ（小）', price: 600 },
+            { name: 'おまかせ盛り合わせ（大）', price: 1400 },
+        ],
+    },
+    {
+        title: '一品料理',
+        items: [
+            { name: 'ポテトフライ（塩・コンソメ）', price: 390 },
+            { name: 'もつ煮', price: 400 },
+            { name: 'ICHIBIサラダ', price: 390 },
+            { name: '枝豆', price: 290 },
+            { name: '海老せんべい', price: 180 },
+            { name: '板わさ', price: 400 },
+            { name: '日替わり一品料理', price: 0, priceLabel: 'スタッフにご確認下さい' },
+        ],
+    },
 ];
