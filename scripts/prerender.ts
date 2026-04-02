@@ -18,6 +18,9 @@ type RenderModule = {
 const routes = [
   '/',
   '/menu',
+  '/menu/lunch',
+  '/menu/dinner',
+  '/menu/drinks',
   '/store-info',
   '/contact',
   '/dining-philosophy',

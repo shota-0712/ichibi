@@ -1,7 +1,7 @@
 # Redirects for Netlify
-/lunch        /menu         301
-/izakaya      /menu         301
-/drinks       /menu         301
+/lunch        /menu/lunch   301
+/izakaya      /menu/dinner  301
+/drinks       /menu/drinks  301
 /crepe        https://pal-crepe.com   301
 
 # Fallback
