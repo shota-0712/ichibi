@@ -22,7 +22,7 @@ function renderToHtml(app: JSX.Element) {
     };
 
     const output = new Writable({
-      write(chunk, _encoding, callback) {
+      write(chunk: string | Uint8Array, _encoding: BufferEncoding, callback: () => void) {
         html += chunk.toString();
         callback();
       }
