@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { HeroSection } from '../components/home/hero-section';
+import { SiteNavigationSection } from '../components/home/site-navigation-section';
 import { SocialWidgetLoader } from '../components/social/social-widget-loader';
 
 // 可視時に読み込むため遅延ロード
@@ -15,6 +16,7 @@ export function Home() {
     <div>
       <SocialWidgetLoader />
       <HeroSection />
+      <SiteNavigationSection />
       <Suspense fallback={null}>
         <LazyInView>
           <FeaturedSections />

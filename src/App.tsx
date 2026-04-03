@@ -57,7 +57,22 @@ function App() {
           {/* All other routes are lazy loaded */}
           <Route path="/menu" element={
             <Suspense fallback={null}>
-              <Menu />
+              <Menu initialView="overview" />
+            </Suspense>
+          } />
+          <Route path="/menu/lunch" element={
+            <Suspense fallback={null}>
+              <Menu initialView="lunch" />
+            </Suspense>
+          } />
+          <Route path="/menu/dinner" element={
+            <Suspense fallback={null}>
+              <Menu initialView="izakaya" />
+            </Suspense>
+          } />
+          <Route path="/menu/drinks" element={
+            <Suspense fallback={null}>
+              <Menu initialView="drinks" />
             </Suspense>
           } />
           <Route path="/store-info" element={

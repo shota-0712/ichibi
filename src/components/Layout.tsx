@@ -15,9 +15,24 @@ const meta = {
     canonical: `${BASE_URL}/`
   },
   '/menu': {
-    title: 'お品書き｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら',
-    description: '十割蕎麦の昼メニューと定食、一品料理など夜メニューのご案内。',
+    title: 'お品書き一覧｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら',
+    description: 'ランチメニュー、夜のお品書き、お飲み物を一覧でご案内します。',
     canonical: `${BASE_URL}/menu`
+  },
+  '/menu/lunch': {
+    title: 'ランチメニュー｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら',
+    description: '手打ち十割蕎麦や定食など、昼の部でご提供しているメニューをご案内します。',
+    canonical: `${BASE_URL}/menu/lunch`
+  },
+  '/menu/dinner': {
+    title: '夜のお品書き｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら',
+    description: '天ぷらや季節の一品料理など、夜の部でご提供しているメニューをご案内します。',
+    canonical: `${BASE_URL}/menu/dinner`
+  },
+  '/menu/drinks': {
+    title: 'お飲み物｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら',
+    description: '蕎麦や一品料理に合わせるアルコール、ソフトドリンクのご案内です。',
+    canonical: `${BASE_URL}/menu/drinks`
   },
   '/store-info': {
     title: '店舗情報｜十割蕎麦・創作酒場 一期一美 |千葉県君津市の手打そば・定食・天ぷら',

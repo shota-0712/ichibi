@@ -64,10 +64,12 @@ export function FooterSection() {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-300 mb-4 md:mb-0 font-kanteiryuu">© 2024 十割蕎麦・創作酒場『一期一美』 All Rights Reserved.</p>
-            <div className="flex space-x-6">
-              <Link to="/menu#lunch" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">昼の部</Link>
-              <Link to="/menu#izakaya" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">夜の部</Link>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+              <Link to="/menu/lunch" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">ランチメニュー</Link>
+              <Link to="/menu/dinner" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">夜のお品書き</Link>
+              <Link to="/menu/drinks" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">お飲み物</Link>
               <Link to="/store-info" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">店舗情報</Link>
+              <Link to="/dining-philosophy" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">料理のこだわり</Link>
               <Link to="/contact" className="text-sm text-gray-300 hover:text-white transition font-kanteiryuu">お問い合わせ</Link>
             </div>
           </div>
